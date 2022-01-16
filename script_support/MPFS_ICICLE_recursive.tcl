@@ -29,5 +29,10 @@ source script_support/components/CoreUARTapb_C0.tcl
 source script_support/components/CLOCKS_AND_RESETS.tcl 
 source script_support/components/IHC_APB.tcl
 source script_support/components/IHC_SUBSYSTEM.tcl
+source script_support/components/APB_BUS_CONVERTER.tcl
+source script_support/components/P8_GPIO_LCD.tcl
+source script_support/components/CAPE_DEFAULT_GPIOS.tcl
+source script_support/components/CAPE_PWM.tcl
+source script_support/components/CAPE.tcl
 source script_support/components/MPFS_ICICLE_BASE_DESIGN.tcl 
 set_root -module {MPFS_ICICLE_KIT_BASE_DESIGN::work} 

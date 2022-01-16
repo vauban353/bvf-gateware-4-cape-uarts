@@ -104,6 +104,80 @@ sd_create_bus_port -sd_name ${sd_name} -port_name {DQS} -port_direction {INOUT} 
 sd_create_bus_port -sd_name ${sd_name} -port_name {DQS_N} -port_direction {INOUT} -port_range {[3:0]} -port_is_pad {1}
 sd_create_bus_port -sd_name ${sd_name} -port_name {DM} -port_direction {OUT} -port_range {[3:0]} -port_is_pad {1}
 
+#-------------------------------------------------------------------------------
+# Cape pins
+#-------------------------------------------------------------------------------
+sd_create_scalar_port -sd_name ${sd_name} -port_name {P8_27} -port_direction {INOUT}
+sd_create_scalar_port -sd_name ${sd_name} -port_name {P8_28} -port_direction {INOUT}
+sd_create_scalar_port -sd_name ${sd_name} -port_name {P8_29} -port_direction {INOUT}
+sd_create_scalar_port -sd_name ${sd_name} -port_name {P8_30} -port_direction {INOUT}
+sd_create_scalar_port -sd_name ${sd_name} -port_name {P8_31} -port_direction {INOUT}
+sd_create_scalar_port -sd_name ${sd_name} -port_name {P8_32} -port_direction {INOUT}
+sd_create_scalar_port -sd_name ${sd_name} -port_name {P8_33} -port_direction {INOUT}
+sd_create_scalar_port -sd_name ${sd_name} -port_name {P8_34} -port_direction {INOUT}
+sd_create_scalar_port -sd_name ${sd_name} -port_name {P8_35} -port_direction {INOUT}
+sd_create_scalar_port -sd_name ${sd_name} -port_name {P8_36} -port_direction {INOUT}
+sd_create_scalar_port -sd_name ${sd_name} -port_name {P8_37} -port_direction {INOUT}
+sd_create_scalar_port -sd_name ${sd_name} -port_name {P8_38} -port_direction {INOUT}
+sd_create_scalar_port -sd_name ${sd_name} -port_name {P8_39} -port_direction {INOUT}
+sd_create_scalar_port -sd_name ${sd_name} -port_name {P8_40} -port_direction {INOUT}
+sd_create_scalar_port -sd_name ${sd_name} -port_name {P8_41} -port_direction {INOUT}
+sd_create_scalar_port -sd_name ${sd_name} -port_name {P8_42} -port_direction {INOUT}
+sd_create_scalar_port -sd_name ${sd_name} -port_name {P8_43} -port_direction {INOUT}
+sd_create_scalar_port -sd_name ${sd_name} -port_name {P8_44} -port_direction {INOUT}
+sd_create_scalar_port -sd_name ${sd_name} -port_name {P8_45} -port_direction {INOUT}
+sd_create_scalar_port -sd_name ${sd_name} -port_name {P8_46} -port_direction {INOUT}
+
+
+sd_create_scalar_port -sd_name ${sd_name} -port_name {P8_13} -port_direction {OUT}
+sd_create_scalar_port -sd_name ${sd_name} -port_name {P8_19} -port_direction {OUT}
+sd_create_scalar_port -sd_name ${sd_name} -port_name {P9_14} -port_direction {OUT}
+sd_create_scalar_port -sd_name ${sd_name} -port_name {P9_16} -port_direction {OUT}
+sd_create_scalar_port -sd_name ${sd_name} -port_name {P9_42} -port_direction {OUT}
+
+
+
+#sd_create_scalar_port -sd_name ${sd_name} -port_name {P8_PIN32} -port_direction {OUT}
+#sd_create_scalar_port -sd_name ${sd_name} -port_name {P8_PIN33} -port_direction {OUT}
+#sd_create_scalar_port -sd_name ${sd_name} -port_name {P8_PIN36} -port_direction {OUT}
+#sd_create_scalar_port -sd_name ${sd_name} -port_name {P8_PIN37} -port_direction {IN}
+
+#sd_create_scalar_port -sd_name ${sd_name} -port_name {P8_PIN23} -port_direction {IN}
+
+
+
+#sd_create_scalar_port -sd_name ${sd_name} -port_name {P8_PIN38} -port_direction {OUT}
+
+#sd_create_scalar_port -sd_name ${sd_name} -port_name {P8_PIN39} -port_direction {OUT}
+#sd_create_scalar_port -sd_name ${sd_name} -port_name {P8_PIN40} -port_direction {OUT}
+#sd_create_scalar_port -sd_name ${sd_name} -port_name {P8_PIN41} -port_direction {OUT}
+#sd_create_scalar_port -sd_name ${sd_name} -port_name {P8_PIN42} -port_direction {OUT}
+#sd_create_scalar_port -sd_name ${sd_name} -port_name {P8_PIN43} -port_direction {OUT}
+#sd_create_scalar_port -sd_name ${sd_name} -port_name {P8_PIN44} -port_direction {OUT}
+#sd_create_scalar_port -sd_name ${sd_name} -port_name {P8_PIN45} -port_direction {OUT}
+#sd_create_scalar_port -sd_name ${sd_name} -port_name {P8_PIN46} -port_direction {OUT}
+
+
+sd_create_scalar_port -sd_name ${sd_name} -port_name {P9_41} -port_direction {INOUT}
+sd_create_scalar_port -sd_name ${sd_name} -port_name {P8_14} -port_direction {INOUT}
+sd_create_scalar_port -sd_name ${sd_name} -port_name {P8_17} -port_direction {INOUT}
+sd_create_scalar_port -sd_name ${sd_name} -port_name {P8_12} -port_direction {INOUT}
+sd_create_scalar_port -sd_name ${sd_name} -port_name {P8_11} -port_direction {INOUT}
+sd_create_scalar_port -sd_name ${sd_name} -port_name {P8_16} -port_direction {INOUT}
+sd_create_scalar_port -sd_name ${sd_name} -port_name {P8_15} -port_direction {INOUT}
+sd_create_scalar_port -sd_name ${sd_name} -port_name {P9_15} -port_direction {INOUT}
+sd_create_scalar_port -sd_name ${sd_name} -port_name {P9_23} -port_direction {INOUT}
+sd_create_scalar_port -sd_name ${sd_name} -port_name {P9_12} -port_direction {INOUT}
+sd_create_scalar_port -sd_name ${sd_name} -port_name {P8_26} -port_direction {INOUT}
+sd_create_scalar_port -sd_name ${sd_name} -port_name {P8_18} -port_direction {INOUT}
+sd_create_scalar_port -sd_name ${sd_name} -port_name {P8_7} -port_direction {INOUT}
+sd_create_scalar_port -sd_name ${sd_name} -port_name {P8_8} -port_direction {INOUT}
+sd_create_scalar_port -sd_name ${sd_name} -port_name {P8_10} -port_direction {INOUT}
+sd_create_scalar_port -sd_name ${sd_name} -port_name {P8_9} -port_direction {INOUT}
+sd_create_scalar_port -sd_name ${sd_name} -port_name {P9_30} -port_direction {INOUT}
+sd_create_scalar_port -sd_name ${sd_name} -port_name {P9_27} -port_direction {INOUT}
+sd_create_scalar_port -sd_name ${sd_name} -port_name {P9_25} -port_direction {INOUT}
+
 sd_connect_pins_to_constant -sd_name ${sd_name} -pin_names {VSC_8662_CMODE4} -value {GND}
 sd_connect_pins_to_constant -sd_name ${sd_name} -pin_names {VSC_8662_CMODE5} -value {GND}
 sd_connect_pins_to_constant -sd_name ${sd_name} -pin_names {VSC_8662_CMODE6} -value {VCC}
@@ -117,6 +191,8 @@ sd_invert_pins -sd_name ${sd_name} -pin_names {USB_ULPI_RESET}
 # Add CLOCKS_AND_RESETS instance
 sd_instantiate_component -sd_name ${sd_name} -component_name {CLOCKS_AND_RESETS} -instance_name {CLOCKS_AND_RESETS}
 
+# Add Default Cape GPIOs
+sd_instantiate_component -sd_name ${sd_name} -component_name {CAPE} -instance_name {CAPE}
 
 
 # Add FIC0_INITIATOR instance
@@ -250,11 +326,11 @@ sd_instantiate_hdl_core -sd_name {MPFS_ICICLE_KIT_BASE_DESIGN} -hdl_core_name {A
 sd_connect_pins -sd_name ${sd_name} -pin_names {"CK" "ICICLE_MSS:CK" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"CK_N" "ICICLE_MSS:CK_N" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"CKE" "ICICLE_MSS:CKE" }
-sd_connect_pins -sd_name ${sd_name} -pin_names { "IHC_SUBSYSTEM_0:pclk" "RECONFIGURATION_INTERFACE_0:PCLK" "ICICLE_MSS:FIC_3_PCLK" "CLOCKS_AND_RESETS:CLK_62_5MHz" }
+sd_connect_pins -sd_name ${sd_name} -pin_names { "IHC_SUBSYSTEM_0:pclk" "RECONFIGURATION_INTERFACE_0:PCLK" "ICICLE_MSS:FIC_3_PCLK" "CLOCKS_AND_RESETS:CLK_62_5MHz" "CAPE:PCLK"}
 sd_connect_pins -sd_name ${sd_name} -pin_names {"ICICLE_MSS:FIC_2_ACLK" "ICICLE_MSS:FIC_1_ACLK" "PCIE_INITIATOR:ACLK" "ICICLE_MSS:FIC_0_ACLK" "FIC0_INITIATOR:ACLK" "PCIE:AXI_CLK" "CLOCKS_AND_RESETS:CLK_125MHz" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"PCIE:PCIE_1_TL_CLK_125MHz" "CLOCKS_AND_RESETS:PCIe_CLK_125MHz" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"PCIE:PCIESS_LANE1_CDR_REF_CLK_0" "PCIE:PCIESS_LANE2_CDR_REF_CLK_0" "PCIE:PCIESS_LANE3_CDR_REF_CLK_0" "PCIE:PCIESS_LANE0_CDR_REF_CLK_0" "CLOCKS_AND_RESETS:PCIe_REFERENCE_CLK" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"IHC_SUBSYSTEM_0:presetn" "RECONFIGURATION_INTERFACE_0:PRESETN" "CLOCKS_AND_RESETS:RESETN_CLK_62_5MHz" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"IHC_SUBSYSTEM_0:presetn" "RECONFIGURATION_INTERFACE_0:PRESETN" "CLOCKS_AND_RESETS:RESETN_CLK_62_5MHz" "CAPE:PRESETN" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"CS" "ICICLE_MSS:CS" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"ICICLE_MSS:I2C_0_SCL_F2M" "I2C0_SCL_BIBUF:Y" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"ICICLE_MSS:I2C_0_SDA_F2M" "I2C0_SDA_BIBUF:Y" }
@@ -376,6 +452,187 @@ sd_connect_pins -sd_name ${sd_name} -pin_names {"PCIE:PCIESS_LANE2_DRI_SLAVE" "R
 sd_connect_pins -sd_name ${sd_name} -pin_names {"PCIE:PCIESS_LANE3_DRI_SLAVE" "RECONFIGURATION_INTERFACE_0:Q0_LANE3_DRI" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"PCIE:AXI_1_MASTER" "AXI_ADDRESS_SHIM_0:AXI4_TARGET" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"AXI_ADDRESS_SHIM_0:AXI4_INITIATOR" "PCIE_INITIATOR:AXI4mmaster0" }
+
+
+
+
+# Connect Default Cape GPIOs
+sd_create_pin_slices -sd_name ${sd_name} -pin_name {CAPE:GPIO_OE} -pin_slices {[0]}
+sd_create_pin_slices -sd_name ${sd_name} -pin_name {CAPE:GPIO_OE} -pin_slices {[1]}
+sd_create_pin_slices -sd_name ${sd_name} -pin_name {CAPE:GPIO_OE} -pin_slices {[2]}
+sd_create_pin_slices -sd_name ${sd_name} -pin_name {CAPE:GPIO_OE} -pin_slices {[3]}
+sd_create_pin_slices -sd_name ${sd_name} -pin_name {CAPE:GPIO_OE} -pin_slices {[4]}
+sd_create_pin_slices -sd_name ${sd_name} -pin_name {CAPE:GPIO_OE} -pin_slices {[5]}
+sd_create_pin_slices -sd_name ${sd_name} -pin_name {CAPE:GPIO_OE} -pin_slices {[6]}
+sd_create_pin_slices -sd_name ${sd_name} -pin_name {CAPE:GPIO_OE} -pin_slices {[7]}
+sd_create_pin_slices -sd_name ${sd_name} -pin_name {CAPE:GPIO_OE} -pin_slices {[8]}
+sd_create_pin_slices -sd_name ${sd_name} -pin_name {CAPE:GPIO_OE} -pin_slices {[9]}
+sd_create_pin_slices -sd_name ${sd_name} -pin_name {CAPE:GPIO_OE} -pin_slices {[10]}
+sd_create_pin_slices -sd_name ${sd_name} -pin_name {CAPE:GPIO_OE} -pin_slices {[11]}
+sd_create_pin_slices -sd_name ${sd_name} -pin_name {CAPE:GPIO_OE} -pin_slices {[12]}
+sd_create_pin_slices -sd_name ${sd_name} -pin_name {CAPE:GPIO_OE} -pin_slices {[13]}
+sd_create_pin_slices -sd_name ${sd_name} -pin_name {CAPE:GPIO_OE} -pin_slices {[14]}
+sd_create_pin_slices -sd_name ${sd_name} -pin_name {CAPE:GPIO_OE} -pin_slices {[15]}
+sd_create_pin_slices -sd_name ${sd_name} -pin_name {CAPE:GPIO_OE} -pin_slices {[16]}
+sd_create_pin_slices -sd_name ${sd_name} -pin_name {CAPE:GPIO_OE} -pin_slices {[17]}
+sd_create_pin_slices -sd_name ${sd_name} -pin_name {CAPE:GPIO_OE} -pin_slices {[18]}
+
+
+sd_connect_pins -sd_name ${sd_name} -pin_names {"CAPE:GPIO_OE[0:0]" "ICICLE_MSS:GPIO_2_OE_M2F_0"}
+sd_connect_pins -sd_name ${sd_name} -pin_names {"CAPE:GPIO_OE[1:1]" "ICICLE_MSS:GPIO_2_OE_M2F_1"}
+sd_connect_pins -sd_name ${sd_name} -pin_names {"CAPE:GPIO_OE[2:2]" "ICICLE_MSS:GPIO_2_OE_M2F_2"}
+sd_connect_pins -sd_name ${sd_name} -pin_names {"CAPE:GPIO_OE[3:3]" "ICICLE_MSS:GPIO_2_OE_M2F_3"}
+sd_connect_pins -sd_name ${sd_name} -pin_names {"CAPE:GPIO_OE[4:4]" "ICICLE_MSS:GPIO_2_OE_M2F_4"}
+sd_connect_pins -sd_name ${sd_name} -pin_names {"CAPE:GPIO_OE[5:5]" "ICICLE_MSS:GPIO_2_OE_M2F_5"}
+sd_connect_pins -sd_name ${sd_name} -pin_names {"CAPE:GPIO_OE[6:6]" "ICICLE_MSS:GPIO_2_OE_M2F_6"}
+sd_connect_pins -sd_name ${sd_name} -pin_names {"CAPE:GPIO_OE[7:7]" "ICICLE_MSS:GPIO_2_OE_M2F_7"}
+sd_connect_pins -sd_name ${sd_name} -pin_names {"CAPE:GPIO_OE[8:8]" "ICICLE_MSS:GPIO_2_OE_M2F_8"}
+sd_connect_pins -sd_name ${sd_name} -pin_names {"CAPE:GPIO_OE[9:9]" "ICICLE_MSS:GPIO_2_OE_M2F_9"}
+sd_connect_pins -sd_name ${sd_name} -pin_names {"CAPE:GPIO_OE[10:10]" "ICICLE_MSS:GPIO_2_OE_M2F_10"}
+sd_connect_pins -sd_name ${sd_name} -pin_names {"CAPE:GPIO_OE[11:11]" "ICICLE_MSS:GPIO_2_OE_M2F_11"}
+sd_connect_pins -sd_name ${sd_name} -pin_names {"CAPE:GPIO_OE[12:12]" "ICICLE_MSS:GPIO_2_OE_M2F_12"}
+sd_connect_pins -sd_name ${sd_name} -pin_names {"CAPE:GPIO_OE[13:13]" "ICICLE_MSS:GPIO_2_OE_M2F_13"}
+sd_connect_pins -sd_name ${sd_name} -pin_names {"CAPE:GPIO_OE[14:14]" "ICICLE_MSS:GPIO_2_OE_M2F_14"}
+sd_connect_pins -sd_name ${sd_name} -pin_names {"CAPE:GPIO_OE[15:15]" "ICICLE_MSS:GPIO_2_OE_M2F_15"}
+sd_connect_pins -sd_name ${sd_name} -pin_names {"CAPE:GPIO_OE[16:16]" "ICICLE_MSS:GPIO_2_OE_M2F_16"}
+sd_connect_pins -sd_name ${sd_name} -pin_names {"CAPE:GPIO_OE[17:17]" "ICICLE_MSS:GPIO_2_OE_M2F_17"}
+sd_connect_pins -sd_name ${sd_name} -pin_names {"CAPE:GPIO_OE[18:18]" "ICICLE_MSS:GPIO_2_OE_M2F_18"}
+
+
+sd_create_pin_slices -sd_name ${sd_name} -pin_name {CAPE:GPIO_OUT} -pin_slices {[0]}
+sd_create_pin_slices -sd_name ${sd_name} -pin_name {CAPE:GPIO_OUT} -pin_slices {[1]}
+sd_create_pin_slices -sd_name ${sd_name} -pin_name {CAPE:GPIO_OUT} -pin_slices {[2]}
+sd_create_pin_slices -sd_name ${sd_name} -pin_name {CAPE:GPIO_OUT} -pin_slices {[3]}
+sd_create_pin_slices -sd_name ${sd_name} -pin_name {CAPE:GPIO_OUT} -pin_slices {[4]}
+sd_create_pin_slices -sd_name ${sd_name} -pin_name {CAPE:GPIO_OUT} -pin_slices {[5]}
+sd_create_pin_slices -sd_name ${sd_name} -pin_name {CAPE:GPIO_OUT} -pin_slices {[6]}
+sd_create_pin_slices -sd_name ${sd_name} -pin_name {CAPE:GPIO_OUT} -pin_slices {[7]}
+sd_create_pin_slices -sd_name ${sd_name} -pin_name {CAPE:GPIO_OUT} -pin_slices {[8]}
+sd_create_pin_slices -sd_name ${sd_name} -pin_name {CAPE:GPIO_OUT} -pin_slices {[9]}
+sd_create_pin_slices -sd_name ${sd_name} -pin_name {CAPE:GPIO_OUT} -pin_slices {[10]}
+sd_create_pin_slices -sd_name ${sd_name} -pin_name {CAPE:GPIO_OUT} -pin_slices {[11]}
+sd_create_pin_slices -sd_name ${sd_name} -pin_name {CAPE:GPIO_OUT} -pin_slices {[12]}
+sd_create_pin_slices -sd_name ${sd_name} -pin_name {CAPE:GPIO_OUT} -pin_slices {[13]}
+sd_create_pin_slices -sd_name ${sd_name} -pin_name {CAPE:GPIO_OUT} -pin_slices {[14]}
+sd_create_pin_slices -sd_name ${sd_name} -pin_name {CAPE:GPIO_OUT} -pin_slices {[15]}
+sd_create_pin_slices -sd_name ${sd_name} -pin_name {CAPE:GPIO_OUT} -pin_slices {[16]}
+sd_create_pin_slices -sd_name ${sd_name} -pin_name {CAPE:GPIO_OUT} -pin_slices {[17]}
+sd_create_pin_slices -sd_name ${sd_name} -pin_name {CAPE:GPIO_OUT} -pin_slices {[18]}
+
+
+sd_connect_pins -sd_name ${sd_name} -pin_names {"CAPE:GPIO_OUT[0:0]" "ICICLE_MSS:GPIO_2_M2F_0"}
+sd_connect_pins -sd_name ${sd_name} -pin_names {"CAPE:GPIO_OUT[1:1]" "ICICLE_MSS:GPIO_2_M2F_1"}
+sd_connect_pins -sd_name ${sd_name} -pin_names {"CAPE:GPIO_OUT[2:2]" "ICICLE_MSS:GPIO_2_M2F_2"}
+sd_connect_pins -sd_name ${sd_name} -pin_names {"CAPE:GPIO_OUT[3:3]" "ICICLE_MSS:GPIO_2_M2F_3"}
+sd_connect_pins -sd_name ${sd_name} -pin_names {"CAPE:GPIO_OUT[4:4]" "ICICLE_MSS:GPIO_2_M2F_4"}
+sd_connect_pins -sd_name ${sd_name} -pin_names {"CAPE:GPIO_OUT[5:5]" "ICICLE_MSS:GPIO_2_M2F_5"}
+sd_connect_pins -sd_name ${sd_name} -pin_names {"CAPE:GPIO_OUT[6:6]" "ICICLE_MSS:GPIO_2_M2F_6"}
+sd_connect_pins -sd_name ${sd_name} -pin_names {"CAPE:GPIO_OUT[7:7]" "ICICLE_MSS:GPIO_2_M2F_7"}
+sd_connect_pins -sd_name ${sd_name} -pin_names {"CAPE:GPIO_OUT[8:8]" "ICICLE_MSS:GPIO_2_M2F_8"}
+sd_connect_pins -sd_name ${sd_name} -pin_names {"CAPE:GPIO_OUT[9:9]" "ICICLE_MSS:GPIO_2_M2F_9"}
+sd_connect_pins -sd_name ${sd_name} -pin_names {"CAPE:GPIO_OUT[10:10]" "ICICLE_MSS:GPIO_2_M2F_10"}
+sd_connect_pins -sd_name ${sd_name} -pin_names {"CAPE:GPIO_OUT[11:11]" "ICICLE_MSS:GPIO_2_M2F_11"}
+sd_connect_pins -sd_name ${sd_name} -pin_names {"CAPE:GPIO_OUT[12:12]" "ICICLE_MSS:GPIO_2_M2F_12"}
+sd_connect_pins -sd_name ${sd_name} -pin_names {"CAPE:GPIO_OUT[13:13]" "ICICLE_MSS:GPIO_2_M2F_13"}
+sd_connect_pins -sd_name ${sd_name} -pin_names {"CAPE:GPIO_OUT[14:14]" "ICICLE_MSS:GPIO_2_M2F_14"}
+sd_connect_pins -sd_name ${sd_name} -pin_names {"CAPE:GPIO_OUT[15:15]" "ICICLE_MSS:GPIO_2_M2F_15"}
+sd_connect_pins -sd_name ${sd_name} -pin_names {"CAPE:GPIO_OUT[16:16]" "ICICLE_MSS:GPIO_2_M2F_16"}
+sd_connect_pins -sd_name ${sd_name} -pin_names {"CAPE:GPIO_OUT[17:17]" "ICICLE_MSS:GPIO_2_M2F_17"}
+sd_connect_pins -sd_name ${sd_name} -pin_names {"CAPE:GPIO_OUT[18:18]" "ICICLE_MSS:GPIO_2_M2F_18"}
+
+
+sd_create_pin_slices -sd_name ${sd_name} -pin_name {CAPE:GPIO_IN} -pin_slices {[0]}
+sd_create_pin_slices -sd_name ${sd_name} -pin_name {CAPE:GPIO_IN} -pin_slices {[1]}
+sd_create_pin_slices -sd_name ${sd_name} -pin_name {CAPE:GPIO_IN} -pin_slices {[2]}
+sd_create_pin_slices -sd_name ${sd_name} -pin_name {CAPE:GPIO_IN} -pin_slices {[3]}
+sd_create_pin_slices -sd_name ${sd_name} -pin_name {CAPE:GPIO_IN} -pin_slices {[4]}
+sd_create_pin_slices -sd_name ${sd_name} -pin_name {CAPE:GPIO_IN} -pin_slices {[5]}
+sd_create_pin_slices -sd_name ${sd_name} -pin_name {CAPE:GPIO_IN} -pin_slices {[6]}
+sd_create_pin_slices -sd_name ${sd_name} -pin_name {CAPE:GPIO_IN} -pin_slices {[7]}
+sd_create_pin_slices -sd_name ${sd_name} -pin_name {CAPE:GPIO_IN} -pin_slices {[8]}
+sd_create_pin_slices -sd_name ${sd_name} -pin_name {CAPE:GPIO_IN} -pin_slices {[9]}
+sd_create_pin_slices -sd_name ${sd_name} -pin_name {CAPE:GPIO_IN} -pin_slices {[10]}
+sd_create_pin_slices -sd_name ${sd_name} -pin_name {CAPE:GPIO_IN} -pin_slices {[11]}
+sd_create_pin_slices -sd_name ${sd_name} -pin_name {CAPE:GPIO_IN} -pin_slices {[12]}
+sd_create_pin_slices -sd_name ${sd_name} -pin_name {CAPE:GPIO_IN} -pin_slices {[13]}
+sd_create_pin_slices -sd_name ${sd_name} -pin_name {CAPE:GPIO_IN} -pin_slices {[14]}
+sd_create_pin_slices -sd_name ${sd_name} -pin_name {CAPE:GPIO_IN} -pin_slices {[15]}
+sd_create_pin_slices -sd_name ${sd_name} -pin_name {CAPE:GPIO_IN} -pin_slices {[16]}
+sd_create_pin_slices -sd_name ${sd_name} -pin_name {CAPE:GPIO_IN} -pin_slices {[17]}
+sd_create_pin_slices -sd_name ${sd_name} -pin_name {CAPE:GPIO_IN} -pin_slices {[18]}
+
+
+sd_connect_pins -sd_name ${sd_name} -pin_names {"CAPE:GPIO_IN[0:0]" "ICICLE_MSS:GPIO_2_F2M_0"}
+sd_connect_pins -sd_name ${sd_name} -pin_names {"CAPE:GPIO_IN[1:1]" "ICICLE_MSS:GPIO_2_F2M_1"}
+sd_connect_pins -sd_name ${sd_name} -pin_names {"CAPE:GPIO_IN[2:2]" "ICICLE_MSS:GPIO_2_F2M_2"}
+sd_connect_pins -sd_name ${sd_name} -pin_names {"CAPE:GPIO_IN[3:3]" "ICICLE_MSS:GPIO_2_F2M_3"}
+sd_connect_pins -sd_name ${sd_name} -pin_names {"CAPE:GPIO_IN[4:4]" "ICICLE_MSS:GPIO_2_F2M_4"}
+sd_connect_pins -sd_name ${sd_name} -pin_names {"CAPE:GPIO_IN[5:5]" "ICICLE_MSS:GPIO_2_F2M_5"}
+sd_connect_pins -sd_name ${sd_name} -pin_names {"CAPE:GPIO_IN[6:6]" "ICICLE_MSS:GPIO_2_F2M_6"}
+sd_connect_pins -sd_name ${sd_name} -pin_names {"CAPE:GPIO_IN[7:7]" "ICICLE_MSS:GPIO_2_F2M_7"}
+sd_connect_pins -sd_name ${sd_name} -pin_names {"CAPE:GPIO_IN[8:8]" "ICICLE_MSS:GPIO_2_F2M_8"}
+sd_connect_pins -sd_name ${sd_name} -pin_names {"CAPE:GPIO_IN[9:9]" "ICICLE_MSS:GPIO_2_F2M_9"}
+sd_connect_pins -sd_name ${sd_name} -pin_names {"CAPE:GPIO_IN[10:10]" "ICICLE_MSS:GPIO_2_F2M_10"}
+sd_connect_pins -sd_name ${sd_name} -pin_names {"CAPE:GPIO_IN[11:11]" "ICICLE_MSS:GPIO_2_F2M_11"}
+sd_connect_pins -sd_name ${sd_name} -pin_names {"CAPE:GPIO_IN[12:12]" "ICICLE_MSS:GPIO_2_F2M_12"}
+sd_connect_pins -sd_name ${sd_name} -pin_names {"CAPE:GPIO_IN[13:13]" "ICICLE_MSS:GPIO_2_F2M_13"}
+sd_connect_pins -sd_name ${sd_name} -pin_names {"CAPE:GPIO_IN[14:14]" "ICICLE_MSS:GPIO_2_F2M_14"}
+sd_connect_pins -sd_name ${sd_name} -pin_names {"CAPE:GPIO_IN[15:15]" "ICICLE_MSS:GPIO_2_F2M_15"}
+sd_connect_pins -sd_name ${sd_name} -pin_names {"CAPE:GPIO_IN[16:16]" "ICICLE_MSS:GPIO_2_F2M_16"}
+sd_connect_pins -sd_name ${sd_name} -pin_names {"CAPE:GPIO_IN[17:17]" "ICICLE_MSS:GPIO_2_F2M_17"}
+sd_connect_pins -sd_name ${sd_name} -pin_names {"CAPE:GPIO_IN[18:18]" "ICICLE_MSS:GPIO_2_F2M_18"}
+
+
+sd_connect_pins -sd_name ${sd_name} -pin_names {"CAPE:P9_41" "P9_41"}
+sd_connect_pins -sd_name ${sd_name} -pin_names {"CAPE:P8_14" "P8_14"}
+sd_connect_pins -sd_name ${sd_name} -pin_names {"CAPE:P8_17" "P8_17"}
+sd_connect_pins -sd_name ${sd_name} -pin_names {"CAPE:P8_12" "P8_12"}
+sd_connect_pins -sd_name ${sd_name} -pin_names {"CAPE:P8_11" "P8_11"}
+sd_connect_pins -sd_name ${sd_name} -pin_names {"CAPE:P8_16" "P8_16"}
+sd_connect_pins -sd_name ${sd_name} -pin_names {"CAPE:P8_15" "P8_15"}
+sd_connect_pins -sd_name ${sd_name} -pin_names {"CAPE:P9_15" "P9_15"}
+sd_connect_pins -sd_name ${sd_name} -pin_names {"CAPE:P9_23" "P9_23"}
+sd_connect_pins -sd_name ${sd_name} -pin_names {"CAPE:P9_12" "P9_12"}
+sd_connect_pins -sd_name ${sd_name} -pin_names {"CAPE:P8_26" "P8_26"}
+sd_connect_pins -sd_name ${sd_name} -pin_names {"CAPE:P8_18" "P8_18"}
+sd_connect_pins -sd_name ${sd_name} -pin_names {"CAPE:P8_7" "P8_7"}
+sd_connect_pins -sd_name ${sd_name} -pin_names {"CAPE:P8_8" "P8_8"}
+sd_connect_pins -sd_name ${sd_name} -pin_names {"CAPE:P8_10" "P8_10"}
+sd_connect_pins -sd_name ${sd_name} -pin_names {"CAPE:P8_9" "P8_9"}
+sd_connect_pins -sd_name ${sd_name} -pin_names {"CAPE:P9_30" "P9_30"}
+sd_connect_pins -sd_name ${sd_name} -pin_names {"CAPE:P9_27" "P9_27"}
+sd_connect_pins -sd_name ${sd_name} -pin_names {"CAPE:P9_25" "P9_25"}
+
+sd_connect_pins -sd_name ${sd_name} -pin_names {"CAPE:P8_27" "P8_27"}
+sd_connect_pins -sd_name ${sd_name} -pin_names {"CAPE:P8_28" "P8_28"}
+sd_connect_pins -sd_name ${sd_name} -pin_names {"CAPE:P8_29" "P8_29"}
+sd_connect_pins -sd_name ${sd_name} -pin_names {"CAPE:P8_30" "P8_30"}
+sd_connect_pins -sd_name ${sd_name} -pin_names {"CAPE:P8_31" "P8_31"}
+sd_connect_pins -sd_name ${sd_name} -pin_names {"CAPE:P8_32" "P8_32"}
+sd_connect_pins -sd_name ${sd_name} -pin_names {"CAPE:P8_33" "P8_33"}
+sd_connect_pins -sd_name ${sd_name} -pin_names {"CAPE:P8_34" "P8_34"}
+sd_connect_pins -sd_name ${sd_name} -pin_names {"CAPE:P8_35" "P8_35"}
+sd_connect_pins -sd_name ${sd_name} -pin_names {"CAPE:P8_36" "P8_36"}
+sd_connect_pins -sd_name ${sd_name} -pin_names {"CAPE:P8_37" "P8_37"}
+sd_connect_pins -sd_name ${sd_name} -pin_names {"CAPE:P8_38" "P8_38"}
+sd_connect_pins -sd_name ${sd_name} -pin_names {"CAPE:P8_39" "P8_39"}
+sd_connect_pins -sd_name ${sd_name} -pin_names {"CAPE:P8_40" "P8_40"}
+sd_connect_pins -sd_name ${sd_name} -pin_names {"CAPE:P8_41" "P8_41"}
+sd_connect_pins -sd_name ${sd_name} -pin_names {"CAPE:P8_42" "P8_42"}
+sd_connect_pins -sd_name ${sd_name} -pin_names {"CAPE:P8_43" "P8_43"}
+sd_connect_pins -sd_name ${sd_name} -pin_names {"CAPE:P8_44" "P8_44"}
+sd_connect_pins -sd_name ${sd_name} -pin_names {"CAPE:P8_45" "P8_45"}
+sd_connect_pins -sd_name ${sd_name} -pin_names {"CAPE:P8_46" "P8_46"}
+
+sd_connect_pins -sd_name ${sd_name} -pin_names {"CAPE:P8_13" "P8_13"}
+sd_connect_pins -sd_name ${sd_name} -pin_names {"CAPE:P8_19" "P8_19"}
+sd_connect_pins -sd_name ${sd_name} -pin_names {"CAPE:P9_14" "P9_14"}
+sd_connect_pins -sd_name ${sd_name} -pin_names {"CAPE:P9_16" "P9_16"}
+sd_connect_pins -sd_name ${sd_name} -pin_names {"CAPE:P9_42" "P9_42"}
+
+
+sd_connect_pins -sd_name ${sd_name} -pin_names {"CAPE:APB_SLAVE" "FIC3_INITIATOR:APBmslave1"}
+
 
 # Mark pins unused
 sd_mark_pins_unused -sd_name ${sd_name} -pin_names {ICICLE_MSS:FIC_3_APB_M_PSTRB}
