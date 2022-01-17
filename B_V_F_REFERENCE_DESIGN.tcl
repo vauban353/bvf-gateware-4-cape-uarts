@@ -65,8 +65,8 @@ if {[info exists I2C_LOOPBACK]} {
     set project_name "MPFS_ICICLE_DRI_CCC_DEMO"
     set project_dir "$local_dir/MPFS_ICICLE_DRI_CCC_DEMO"
 } else {
-    set project_name "MPFS_ICICLE"
-    set project_dir "$local_dir/MPFS_ICICLE"
+    set project_name "B_V_F_025"
+    set project_dir "$local_dir/B_V_F_025"
 }
 
 source ./script_support/additional_configurations/functions.tcl
@@ -133,7 +133,7 @@ download_core -vlnv {Actel:DirectCore:CoreUARTapb:5.7.100} -location {www.microc
 # // Generate base design
 #
 
-source ./script_support/MPFS_ICICLE_recursive.tcl
+source ./script_support/B_V_F_recursive.tcl
 
 #
 # // Import I/O constraints
@@ -174,7 +174,7 @@ organize_tool_files \
     -file "${project_dir}/constraint/io/ICICLE_MMUART3.pdc" \
     -file "${project_dir}/constraint/io/ICICLE_MMUART2.pdc" \
     -file "${project_dir}/constraint/io/ICICLE_RPi.pdc" \
-    -module {MPFS_ICICLE_KIT_BASE_DESIGN::work} \
+    -module {B_V_F_BASE_DESIGN::work} \
     -input_type {constraint}
 
 #

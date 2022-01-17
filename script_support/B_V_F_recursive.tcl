@@ -3,7 +3,7 @@ if {[file isdirectory $local_dir/script_support/components/MSS]} {
 }
 file mkdir $local_dir/script_support/components/MSS
 exec $mss_config_loc -CONFIGURATION_FILE:$local_dir/script_support/PF_SoC_MSS_Icicle.cfg -OUTPUT_DIR:$local_dir/script_support/components/MSS
-import_mss_component -file "$local_dir/script_support/components/MSS/ICICLE_MSS.cxz"
+import_mss_component -file "$local_dir/script_support/components/MSS/B_V_F_MSS.cxz"
 source script_support/hdl_source.tcl
 source script_support/components/CORERESET_0.tcl
 source script_support/components/INIT_MONITOR.tcl 
@@ -34,5 +34,5 @@ source script_support/components/P8_GPIO_LCD.tcl
 source script_support/components/CAPE_DEFAULT_GPIOS.tcl
 source script_support/components/CAPE_PWM.tcl
 source script_support/components/CAPE.tcl
-source script_support/components/MPFS_ICICLE_BASE_DESIGN.tcl 
-set_root -module {MPFS_ICICLE_KIT_BASE_DESIGN::work} 
+source script_support/components/B_V_F_BASE_DESIGN.tcl 
+set_root -module {B_V_F_BASE_DESIGN::work} 

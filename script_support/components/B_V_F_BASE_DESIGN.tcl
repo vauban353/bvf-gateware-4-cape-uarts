@@ -1,5 +1,5 @@
-# Creating SmartDesign MPFS_ICICLE_KIT_BASE_DESIGN
-set sd_name {MPFS_ICICLE_KIT_BASE_DESIGN}
+# Creating SmartDesign B_V_F_BASE_DESIGN
+set sd_name {B_V_F_BASE_DESIGN}
 create_smartdesign -sd_name ${sd_name}
 
 # Disable auto promotion of pins of type 'pad'
@@ -206,7 +206,7 @@ sd_instantiate_component -sd_name ${sd_name} -component_name {FIC3_INITIATOR} -i
 
 
 # Add APB_ARBITER instance
-sd_instantiate_hdl_core -sd_name {MPFS_ICICLE_KIT_BASE_DESIGN} -hdl_core_name {APB_ARBITER} -instance_name {} 
+sd_instantiate_hdl_core -sd_name {B_V_F_BASE_DESIGN} -hdl_core_name {APB_ARBITER} -instance_name {} 
 
 
 
@@ -223,49 +223,49 @@ sd_connect_pins_to_constant -sd_name ${sd_name} -pin_names {I2C0_SDA_BIBUF:D} -v
 
 
 # Add IHC_SUBSYSTEM instance
-sd_instantiate_component -sd_name {MPFS_ICICLE_KIT_BASE_DESIGN} -component_name {IHC_SUBSYSTEM} -instance_name {IHC_SUBSYSTEM_0} 
+sd_instantiate_component -sd_name {B_V_F_BASE_DESIGN} -component_name {IHC_SUBSYSTEM} -instance_name {IHC_SUBSYSTEM_0} 
 
 
 # Add MSS instance
-sd_instantiate_component -sd_name ${sd_name} -component_name {ICICLE_MSS} -instance_name {ICICLE_MSS}
-sd_create_pin_slices -sd_name ${sd_name} -pin_name {ICICLE_MSS:MSS_INT_F2M} -pin_slices {[0]}
-sd_create_pin_slices -sd_name ${sd_name} -pin_name {ICICLE_MSS:MSS_INT_F2M} -pin_slices {[1]}
-sd_create_pin_slices -sd_name ${sd_name} -pin_name {ICICLE_MSS:MSS_INT_F2M} -pin_slices {[2]}
-sd_create_pin_slices -sd_name ${sd_name} -pin_name {ICICLE_MSS:MSS_INT_F2M} -pin_slices {[3]}
-sd_create_pin_slices -sd_name ${sd_name} -pin_name {ICICLE_MSS:MSS_INT_F2M} -pin_slices {[4]}
-sd_create_pin_slices -sd_name ${sd_name} -pin_name {ICICLE_MSS:MSS_INT_F2M} -pin_slices {[58:5]}
-sd_create_pin_slices -sd_name ${sd_name} -pin_name {ICICLE_MSS:MSS_INT_F2M} -pin_slices {[59]}
-sd_create_pin_slices -sd_name ${sd_name} -pin_name {ICICLE_MSS:MSS_INT_F2M} -pin_slices {[60]}
-sd_create_pin_slices -sd_name ${sd_name} -pin_name {ICICLE_MSS:MSS_INT_F2M} -pin_slices {[61]}
-sd_create_pin_slices -sd_name ${sd_name} -pin_name {ICICLE_MSS:MSS_INT_F2M} -pin_slices {[62]}
-sd_create_pin_slices -sd_name ${sd_name} -pin_name {ICICLE_MSS:MSS_INT_F2M} -pin_slices {[63]}
-sd_connect_pins_to_constant -sd_name ${sd_name} -pin_names {ICICLE_MSS:MSS_INT_F2M[58:5]} -value {GND}
-sd_connect_pins_to_constant -sd_name ${sd_name} -pin_names {ICICLE_MSS:SPI_0_SS_F2M} -value {GND}
-sd_connect_pins_to_constant -sd_name ${sd_name} -pin_names {ICICLE_MSS:SPI_0_CLK_F2M} -value {GND}
-sd_mark_pins_unused -sd_name ${sd_name} -pin_names {ICICLE_MSS:MMUART_0_TXD_OE_M2F}
-sd_mark_pins_unused -sd_name ${sd_name} -pin_names {ICICLE_MSS:MMUART_1_TXD_OE_M2F}
-sd_mark_pins_unused -sd_name ${sd_name} -pin_names {ICICLE_MSS:MSS_INT_M2F}
-sd_mark_pins_unused -sd_name ${sd_name} -pin_names {ICICLE_MSS:MAC_0_TSU_SOF_TX_M2F}
-sd_mark_pins_unused -sd_name ${sd_name} -pin_names {ICICLE_MSS:MAC_0_TSU_SYNC_FRAME_TX_M2F}
-sd_mark_pins_unused -sd_name ${sd_name} -pin_names {ICICLE_MSS:MAC_0_TSU_DELAY_REQ_TX_M2F}
-sd_mark_pins_unused -sd_name ${sd_name} -pin_names {ICICLE_MSS:MAC_0_TSU_PDELAY_REQ_TX_M2F}
-sd_mark_pins_unused -sd_name ${sd_name} -pin_names {ICICLE_MSS:MAC_0_TSU_PDELAY_RESP_TX_M2F}
-sd_mark_pins_unused -sd_name ${sd_name} -pin_names {ICICLE_MSS:MAC_0_TSU_SOF_RX_M2F}
-sd_mark_pins_unused -sd_name ${sd_name} -pin_names {ICICLE_MSS:MAC_0_TSU_SYNC_FRAME_RX_M2F}
-sd_mark_pins_unused -sd_name ${sd_name} -pin_names {ICICLE_MSS:MAC_0_TSU_DELAY_REQ_RX_M2F}
-sd_mark_pins_unused -sd_name ${sd_name} -pin_names {ICICLE_MSS:MAC_0_TSU_PDELAY_REQ_RX_M2F}
-sd_mark_pins_unused -sd_name ${sd_name} -pin_names {ICICLE_MSS:MAC_0_TSU_PDELAY_RESP_RX_M2F}
-sd_mark_pins_unused -sd_name ${sd_name} -pin_names {ICICLE_MSS:MAC_1_TSU_SOF_TX_M2F}
-sd_mark_pins_unused -sd_name ${sd_name} -pin_names {ICICLE_MSS:MAC_1_TSU_SYNC_FRAME_TX_M2F}
-sd_mark_pins_unused -sd_name ${sd_name} -pin_names {ICICLE_MSS:MAC_1_TSU_DELAY_REQ_TX_M2F}
-sd_mark_pins_unused -sd_name ${sd_name} -pin_names {ICICLE_MSS:MAC_1_TSU_PDELAY_REQ_TX_M2F}
-sd_mark_pins_unused -sd_name ${sd_name} -pin_names {ICICLE_MSS:MAC_1_TSU_PDELAY_RESP_TX_M2F}
-sd_mark_pins_unused -sd_name ${sd_name} -pin_names {ICICLE_MSS:MAC_1_TSU_SOF_RX_M2F}
-sd_mark_pins_unused -sd_name ${sd_name} -pin_names {ICICLE_MSS:MAC_1_TSU_SYNC_FRAME_RX_M2F}
-sd_mark_pins_unused -sd_name ${sd_name} -pin_names {ICICLE_MSS:MAC_1_TSU_DELAY_REQ_RX_M2F}
-sd_mark_pins_unused -sd_name ${sd_name} -pin_names {ICICLE_MSS:MAC_1_TSU_PDELAY_REQ_RX_M2F}
-sd_mark_pins_unused -sd_name ${sd_name} -pin_names {ICICLE_MSS:MAC_1_TSU_PDELAY_RESP_RX_M2F}
-sd_mark_pins_unused -sd_name ${sd_name} -pin_names {ICICLE_MSS:FIC_2_AXI4_SLAVE}
+sd_instantiate_component -sd_name ${sd_name} -component_name {B_V_F_MSS} -instance_name {B_V_F_MSS}
+sd_create_pin_slices -sd_name ${sd_name} -pin_name {B_V_F_MSS:MSS_INT_F2M} -pin_slices {[0]}
+sd_create_pin_slices -sd_name ${sd_name} -pin_name {B_V_F_MSS:MSS_INT_F2M} -pin_slices {[1]}
+sd_create_pin_slices -sd_name ${sd_name} -pin_name {B_V_F_MSS:MSS_INT_F2M} -pin_slices {[2]}
+sd_create_pin_slices -sd_name ${sd_name} -pin_name {B_V_F_MSS:MSS_INT_F2M} -pin_slices {[3]}
+sd_create_pin_slices -sd_name ${sd_name} -pin_name {B_V_F_MSS:MSS_INT_F2M} -pin_slices {[4]}
+sd_create_pin_slices -sd_name ${sd_name} -pin_name {B_V_F_MSS:MSS_INT_F2M} -pin_slices {[58:5]}
+sd_create_pin_slices -sd_name ${sd_name} -pin_name {B_V_F_MSS:MSS_INT_F2M} -pin_slices {[59]}
+sd_create_pin_slices -sd_name ${sd_name} -pin_name {B_V_F_MSS:MSS_INT_F2M} -pin_slices {[60]}
+sd_create_pin_slices -sd_name ${sd_name} -pin_name {B_V_F_MSS:MSS_INT_F2M} -pin_slices {[61]}
+sd_create_pin_slices -sd_name ${sd_name} -pin_name {B_V_F_MSS:MSS_INT_F2M} -pin_slices {[62]}
+sd_create_pin_slices -sd_name ${sd_name} -pin_name {B_V_F_MSS:MSS_INT_F2M} -pin_slices {[63]}
+sd_connect_pins_to_constant -sd_name ${sd_name} -pin_names {B_V_F_MSS:MSS_INT_F2M[58:5]} -value {GND}
+sd_connect_pins_to_constant -sd_name ${sd_name} -pin_names {B_V_F_MSS:SPI_0_SS_F2M} -value {GND}
+sd_connect_pins_to_constant -sd_name ${sd_name} -pin_names {B_V_F_MSS:SPI_0_CLK_F2M} -value {GND}
+sd_mark_pins_unused -sd_name ${sd_name} -pin_names {B_V_F_MSS:MMUART_0_TXD_OE_M2F}
+sd_mark_pins_unused -sd_name ${sd_name} -pin_names {B_V_F_MSS:MMUART_1_TXD_OE_M2F}
+sd_mark_pins_unused -sd_name ${sd_name} -pin_names {B_V_F_MSS:MSS_INT_M2F}
+sd_mark_pins_unused -sd_name ${sd_name} -pin_names {B_V_F_MSS:MAC_0_TSU_SOF_TX_M2F}
+sd_mark_pins_unused -sd_name ${sd_name} -pin_names {B_V_F_MSS:MAC_0_TSU_SYNC_FRAME_TX_M2F}
+sd_mark_pins_unused -sd_name ${sd_name} -pin_names {B_V_F_MSS:MAC_0_TSU_DELAY_REQ_TX_M2F}
+sd_mark_pins_unused -sd_name ${sd_name} -pin_names {B_V_F_MSS:MAC_0_TSU_PDELAY_REQ_TX_M2F}
+sd_mark_pins_unused -sd_name ${sd_name} -pin_names {B_V_F_MSS:MAC_0_TSU_PDELAY_RESP_TX_M2F}
+sd_mark_pins_unused -sd_name ${sd_name} -pin_names {B_V_F_MSS:MAC_0_TSU_SOF_RX_M2F}
+sd_mark_pins_unused -sd_name ${sd_name} -pin_names {B_V_F_MSS:MAC_0_TSU_SYNC_FRAME_RX_M2F}
+sd_mark_pins_unused -sd_name ${sd_name} -pin_names {B_V_F_MSS:MAC_0_TSU_DELAY_REQ_RX_M2F}
+sd_mark_pins_unused -sd_name ${sd_name} -pin_names {B_V_F_MSS:MAC_0_TSU_PDELAY_REQ_RX_M2F}
+sd_mark_pins_unused -sd_name ${sd_name} -pin_names {B_V_F_MSS:MAC_0_TSU_PDELAY_RESP_RX_M2F}
+sd_mark_pins_unused -sd_name ${sd_name} -pin_names {B_V_F_MSS:MAC_1_TSU_SOF_TX_M2F}
+sd_mark_pins_unused -sd_name ${sd_name} -pin_names {B_V_F_MSS:MAC_1_TSU_SYNC_FRAME_TX_M2F}
+sd_mark_pins_unused -sd_name ${sd_name} -pin_names {B_V_F_MSS:MAC_1_TSU_DELAY_REQ_TX_M2F}
+sd_mark_pins_unused -sd_name ${sd_name} -pin_names {B_V_F_MSS:MAC_1_TSU_PDELAY_REQ_TX_M2F}
+sd_mark_pins_unused -sd_name ${sd_name} -pin_names {B_V_F_MSS:MAC_1_TSU_PDELAY_RESP_TX_M2F}
+sd_mark_pins_unused -sd_name ${sd_name} -pin_names {B_V_F_MSS:MAC_1_TSU_SOF_RX_M2F}
+sd_mark_pins_unused -sd_name ${sd_name} -pin_names {B_V_F_MSS:MAC_1_TSU_SYNC_FRAME_RX_M2F}
+sd_mark_pins_unused -sd_name ${sd_name} -pin_names {B_V_F_MSS:MAC_1_TSU_DELAY_REQ_RX_M2F}
+sd_mark_pins_unused -sd_name ${sd_name} -pin_names {B_V_F_MSS:MAC_1_TSU_PDELAY_REQ_RX_M2F}
+sd_mark_pins_unused -sd_name ${sd_name} -pin_names {B_V_F_MSS:MAC_1_TSU_PDELAY_RESP_RX_M2F}
+sd_mark_pins_unused -sd_name ${sd_name} -pin_names {B_V_F_MSS:FIC_2_AXI4_SLAVE}
 
 
 # Add MSS_PLL_LOCKS instance
@@ -318,45 +318,45 @@ sd_instantiate_component -sd_name ${sd_name} -component_name {RECONFIGURATION_IN
 
 
 # Add AXI_ADDRESS_SHIM instance
-sd_instantiate_hdl_core -sd_name {MPFS_ICICLE_KIT_BASE_DESIGN} -hdl_core_name {AXI_ADDRESS_SHIM} -instance_name {AXI_ADDRESS_SHIM_0} 
+sd_instantiate_hdl_core -sd_name {B_V_F_BASE_DESIGN} -hdl_core_name {AXI_ADDRESS_SHIM} -instance_name {AXI_ADDRESS_SHIM_0} 
 
 
 
 # Add scalar net connections
-sd_connect_pins -sd_name ${sd_name} -pin_names {"CK" "ICICLE_MSS:CK" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"CK_N" "ICICLE_MSS:CK_N" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"CKE" "ICICLE_MSS:CKE" }
-sd_connect_pins -sd_name ${sd_name} -pin_names { "IHC_SUBSYSTEM_0:pclk" "RECONFIGURATION_INTERFACE_0:PCLK" "ICICLE_MSS:FIC_3_PCLK" "CLOCKS_AND_RESETS:CLK_62_5MHz" "CAPE:PCLK"}
-sd_connect_pins -sd_name ${sd_name} -pin_names {"ICICLE_MSS:FIC_2_ACLK" "ICICLE_MSS:FIC_1_ACLK" "PCIE_INITIATOR:ACLK" "ICICLE_MSS:FIC_0_ACLK" "FIC0_INITIATOR:ACLK" "PCIE:AXI_CLK" "CLOCKS_AND_RESETS:CLK_125MHz" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"CK" "B_V_F_MSS:CK" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"CK_N" "B_V_F_MSS:CK_N" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"CKE" "B_V_F_MSS:CKE" }
+sd_connect_pins -sd_name ${sd_name} -pin_names { "IHC_SUBSYSTEM_0:pclk" "RECONFIGURATION_INTERFACE_0:PCLK" "B_V_F_MSS:FIC_3_PCLK" "CLOCKS_AND_RESETS:CLK_62_5MHz" "CAPE:PCLK"}
+sd_connect_pins -sd_name ${sd_name} -pin_names {"B_V_F_MSS:FIC_2_ACLK" "B_V_F_MSS:FIC_1_ACLK" "PCIE_INITIATOR:ACLK" "B_V_F_MSS:FIC_0_ACLK" "FIC0_INITIATOR:ACLK" "PCIE:AXI_CLK" "CLOCKS_AND_RESETS:CLK_125MHz" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"PCIE:PCIE_1_TL_CLK_125MHz" "CLOCKS_AND_RESETS:PCIe_CLK_125MHz" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"PCIE:PCIESS_LANE1_CDR_REF_CLK_0" "PCIE:PCIESS_LANE2_CDR_REF_CLK_0" "PCIE:PCIESS_LANE3_CDR_REF_CLK_0" "PCIE:PCIESS_LANE0_CDR_REF_CLK_0" "CLOCKS_AND_RESETS:PCIe_REFERENCE_CLK" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"IHC_SUBSYSTEM_0:presetn" "RECONFIGURATION_INTERFACE_0:PRESETN" "CLOCKS_AND_RESETS:RESETN_CLK_62_5MHz" "CAPE:PRESETN" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"CS" "ICICLE_MSS:CS" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"ICICLE_MSS:I2C_0_SCL_F2M" "I2C0_SCL_BIBUF:Y" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"ICICLE_MSS:I2C_0_SDA_F2M" "I2C0_SDA_BIBUF:Y" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"ICICLE_MSS:I2C_1_SCL" "I2C_1_SCL" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"ICICLE_MSS:I2C_1_SDA" "I2C_1_SDA" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"ICICLE_MSS:MAC_1_MDC" "MAC_1_MDC" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"ICICLE_MSS:MAC_1_MDIO" "MAC_1_MDIO" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"ICICLE_MSS:MMUART_0_RXD_F2M" "MMUART_0_RXD_F2M" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"ICICLE_MSS:MMUART_0_TXD_M2F" "MMUART_0_TXD_M2F" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"ICICLE_MSS:MMUART_1_RXD_F2M" "MMUART_1_RXD_F2M" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"ICICLE_MSS:MMUART_1_TXD_M2F" "MMUART_1_TXD_M2F" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"ICICLE_MSS:MMUART_2_RXD_F2M" "MMUART_2_RXD_F2M" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"ICICLE_MSS:MMUART_2_TXD_M2F" "MMUART_2_TXD_M2F" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"ICICLE_MSS:MMUART_3_RXD_F2M" "MMUART_3_RXD_F2M" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"ICICLE_MSS:MMUART_3_TXD_M2F" "MMUART_3_TXD_M2F" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"MSS_PLL_LOCKS:A" "ICICLE_MSS:FIC_0_DLL_LOCK_M2F" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"MSS_PLL_LOCKS:D" "ICICLE_MSS:FIC_1_DLL_LOCK_M2F" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"MSS_PLL_LOCKS:C" "ICICLE_MSS:FIC_2_DLL_LOCK_M2F" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"MSS_PLL_LOCKS:B" "ICICLE_MSS:FIC_3_DLL_LOCK_M2F" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"ICICLE_MSS:I2C_0_SCL_OE_M2F" "I2C0_SCL_BIBUF:E" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"ICICLE_MSS:I2C_0_SDA_OE_M2F" "I2C0_SDA_BIBUF:E" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"ICICLE_MSS:MSS_RESET_N_M2F" "CLOCKS_AND_RESETS:EXT_RST_N" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"CS" "B_V_F_MSS:CS" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"B_V_F_MSS:I2C_0_SCL_F2M" "I2C0_SCL_BIBUF:Y" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"B_V_F_MSS:I2C_0_SDA_F2M" "I2C0_SDA_BIBUF:Y" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"B_V_F_MSS:I2C_1_SCL" "I2C_1_SCL" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"B_V_F_MSS:I2C_1_SDA" "I2C_1_SDA" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"B_V_F_MSS:MAC_1_MDC" "MAC_1_MDC" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"B_V_F_MSS:MAC_1_MDIO" "MAC_1_MDIO" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"B_V_F_MSS:MMUART_0_RXD_F2M" "MMUART_0_RXD_F2M" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"B_V_F_MSS:MMUART_0_TXD_M2F" "MMUART_0_TXD_M2F" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"B_V_F_MSS:MMUART_1_RXD_F2M" "MMUART_1_RXD_F2M" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"B_V_F_MSS:MMUART_1_TXD_M2F" "MMUART_1_TXD_M2F" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"B_V_F_MSS:MMUART_2_RXD_F2M" "MMUART_2_RXD_F2M" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"B_V_F_MSS:MMUART_2_TXD_M2F" "MMUART_2_TXD_M2F" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"B_V_F_MSS:MMUART_3_RXD_F2M" "MMUART_3_RXD_F2M" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"B_V_F_MSS:MMUART_3_TXD_M2F" "MMUART_3_TXD_M2F" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"MSS_PLL_LOCKS:A" "B_V_F_MSS:FIC_0_DLL_LOCK_M2F" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"MSS_PLL_LOCKS:D" "B_V_F_MSS:FIC_1_DLL_LOCK_M2F" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"MSS_PLL_LOCKS:C" "B_V_F_MSS:FIC_2_DLL_LOCK_M2F" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"MSS_PLL_LOCKS:B" "B_V_F_MSS:FIC_3_DLL_LOCK_M2F" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"B_V_F_MSS:I2C_0_SCL_OE_M2F" "I2C0_SCL_BIBUF:E" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"B_V_F_MSS:I2C_0_SDA_OE_M2F" "I2C0_SDA_BIBUF:E" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"B_V_F_MSS:MSS_RESET_N_M2F" "CLOCKS_AND_RESETS:EXT_RST_N" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"MSS_PLL_LOCKS:Y" "CLOCKS_AND_RESETS:MSS_PLL_LOCKS" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"ICICLE_MSS:QSPI_DATA2_M2F" "QSPI_DATA2_BIBUF:D" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"ICICLE_MSS:QSPI_DATA2_OE_M2F" "QSPI_DATA2_BIBUF:E" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"ODT" "ICICLE_MSS:ODT" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"B_V_F_MSS:QSPI_DATA2_M2F" "QSPI_DATA2_BIBUF:D" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"B_V_F_MSS:QSPI_DATA2_OE_M2F" "QSPI_DATA2_BIBUF:E" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"ODT" "B_V_F_MSS:ODT" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"PCIE:PCIE_1_PERST_N" "PCIE_1_PERST_N" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"PCIESS_LANE_RXD0_N" "PCIE:PCIESS_LANE_RXD0_N" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"PCIESS_LANE_RXD0_P" "PCIE:PCIESS_LANE_RXD0_P" }
@@ -374,78 +374,78 @@ sd_connect_pins -sd_name ${sd_name} -pin_names {"PCIESS_LANE_TXD2_N" "PCIE:PCIES
 sd_connect_pins -sd_name ${sd_name} -pin_names {"PCIESS_LANE_TXD2_P" "PCIE:PCIESS_LANE_TXD2_P" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"PCIESS_LANE_TXD3_N" "PCIE:PCIESS_LANE_TXD3_N" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"PCIESS_LANE_TXD3_P" "PCIE:PCIESS_LANE_TXD3_P" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"PCIE:PCIE_1_INTERRUPT_OUT" "ICICLE_MSS:MSS_INT_F2M[1]" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"ICICLE_MSS:QSPI_CLK" "QSPI_CLK" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"ICICLE_MSS:QSPI_SS0" "QSPI_CS" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"ICICLE_MSS:QSPI_DATA0" "QSPI_DATA0" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"ICICLE_MSS:QSPI_DATA1" "QSPI_DATA1" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"ICICLE_MSS:QSPI_DATA2_F2M" "QSPI_DATA2_BIBUF:Y" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"PCIE:PCIE_1_INTERRUPT_OUT" "B_V_F_MSS:MSS_INT_F2M[1]" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"B_V_F_MSS:QSPI_CLK" "QSPI_CLK" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"B_V_F_MSS:QSPI_SS0" "QSPI_CS" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"B_V_F_MSS:QSPI_DATA0" "QSPI_DATA0" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"B_V_F_MSS:QSPI_DATA1" "QSPI_DATA1" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"B_V_F_MSS:QSPI_DATA2_F2M" "QSPI_DATA2_BIBUF:Y" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"REF_CLK_PAD_N" "CLOCKS_AND_RESETS:REF_CLK_PAD_N" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"REF_CLK_PAD_P" "CLOCKS_AND_RESETS:REF_CLK_PAD_P" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"REFCLK" "ICICLE_MSS:REFCLK" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"REFCLK_N" "ICICLE_MSS:REFCLK_N" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"RESET_N" "ICICLE_MSS:RESET_N" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"SGMII_RX0_N" "ICICLE_MSS:SGMII_RX0_N" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"SGMII_RX0_P" "ICICLE_MSS:SGMII_RX0_P" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"SGMII_RX1_N" "ICICLE_MSS:SGMII_RX1_N" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"SGMII_RX1_P" "ICICLE_MSS:SGMII_RX1_P" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"SGMII_TX0_N" "ICICLE_MSS:SGMII_TX0_N" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"SGMII_TX0_P" "ICICLE_MSS:SGMII_TX0_P" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"SGMII_TX1_N" "ICICLE_MSS:SGMII_TX1_N" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"SGMII_TX1_P" "ICICLE_MSS:SGMII_TX1_P" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"ICICLE_MSS:SPI_0_CLK_M2F" "SPI_0_CLK_M2F" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"ICICLE_MSS:SPI_0_DI_F2M" "SPI_0_DI_F2M" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"ICICLE_MSS:SPI_0_DO_M2F" "SPI_0_DO_M2F" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"ICICLE_MSS:SPI_0_SS1_M2F" "SPI_0_SS1_M2F" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"ICICLE_MSS:USB_CLK" "USB_CLK" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"ICICLE_MSS:USB_DATA0" "USB_DATA0" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"ICICLE_MSS:USB_DATA1" "USB_DATA1" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"ICICLE_MSS:USB_DATA2" "USB_DATA2" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"ICICLE_MSS:USB_DATA3" "USB_DATA3" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"ICICLE_MSS:USB_DATA4" "USB_DATA4" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"ICICLE_MSS:USB_DATA5" "USB_DATA5" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"ICICLE_MSS:USB_DATA6" "USB_DATA6" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"ICICLE_MSS:USB_DATA7" "USB_DATA7" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"ICICLE_MSS:USB_DIR" "USB_DIR" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"ICICLE_MSS:USB_NXT" "USB_NXT" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"ICICLE_MSS:USB_STP" "USB_STP" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"REFCLK" "B_V_F_MSS:REFCLK" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"REFCLK_N" "B_V_F_MSS:REFCLK_N" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"RESET_N" "B_V_F_MSS:RESET_N" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"SGMII_RX0_N" "B_V_F_MSS:SGMII_RX0_N" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"SGMII_RX0_P" "B_V_F_MSS:SGMII_RX0_P" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"SGMII_RX1_N" "B_V_F_MSS:SGMII_RX1_N" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"SGMII_RX1_P" "B_V_F_MSS:SGMII_RX1_P" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"SGMII_TX0_N" "B_V_F_MSS:SGMII_TX0_N" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"SGMII_TX0_P" "B_V_F_MSS:SGMII_TX0_P" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"SGMII_TX1_N" "B_V_F_MSS:SGMII_TX1_N" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"SGMII_TX1_P" "B_V_F_MSS:SGMII_TX1_P" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"B_V_F_MSS:SPI_0_CLK_M2F" "SPI_0_CLK_M2F" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"B_V_F_MSS:SPI_0_DI_F2M" "SPI_0_DI_F2M" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"B_V_F_MSS:SPI_0_DO_M2F" "SPI_0_DO_M2F" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"B_V_F_MSS:SPI_0_SS1_M2F" "SPI_0_SS1_M2F" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"B_V_F_MSS:USB_CLK" "USB_CLK" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"B_V_F_MSS:USB_DATA0" "USB_DATA0" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"B_V_F_MSS:USB_DATA1" "USB_DATA1" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"B_V_F_MSS:USB_DATA2" "USB_DATA2" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"B_V_F_MSS:USB_DATA3" "USB_DATA3" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"B_V_F_MSS:USB_DATA4" "USB_DATA4" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"B_V_F_MSS:USB_DATA5" "USB_DATA5" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"B_V_F_MSS:USB_DATA6" "USB_DATA6" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"B_V_F_MSS:USB_DATA7" "USB_DATA7" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"B_V_F_MSS:USB_DIR" "USB_DIR" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"B_V_F_MSS:USB_NXT" "USB_NXT" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"B_V_F_MSS:USB_STP" "USB_STP" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"PCIE_INITIATOR:ARESETN" "VSC_8662_RESETN" "USB_ULPI_RESET" "FIC0_INITIATOR:ARESETN" "PCIE:AXI_CLK_STABLE" "CLOCKS_AND_RESETS:RESETN_CLK_125MHz" "AXI_ADDRESS_SHIM_0:RESETN"}
-sd_connect_pins -sd_name ${sd_name} -pin_names {"SD_CLK_EMMC_CLK" "ICICLE_MSS:SD_CLK_EMMC_CLK" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"SD_CMD_EMMC_CMD" "ICICLE_MSS:SD_CMD_EMMC_CMD" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"SD_DATA0_EMMC_DATA0" "ICICLE_MSS:SD_DATA0_EMMC_DATA0" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"SD_DATA1_EMMC_DATA1" "ICICLE_MSS:SD_DATA1_EMMC_DATA1" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"SD_DATA2_EMMC_DATA2" "ICICLE_MSS:SD_DATA2_EMMC_DATA2" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"SD_DATA3_EMMC_DATA3" "ICICLE_MSS:SD_DATA3_EMMC_DATA3" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"SD_POW_EMMC_DATA4" "ICICLE_MSS:SD_POW_EMMC_DATA4" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"SD_VOLT_SEL_EMMC_DATA5" "ICICLE_MSS:SD_VOLT_SEL_EMMC_DATA5" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"SD_VOLT_EN_EMMC_DATA6" "ICICLE_MSS:SD_VOLT_EN_EMMC_DATA6" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"SD_VOLT_CMD_DIR_EMMC_DATA7" "ICICLE_MSS:SD_VOLT_CMD_DIR_EMMC_DATA7" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"SD_VOLT_DIR_1_3_EMMC_UNUSED" "ICICLE_MSS:SD_VOLT_DIR_1_3_EMMC_UNUSED" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"SD_VOLT_DIR_0_EMMC_UNUSED" "ICICLE_MSS:SD_VOLT_DIR_0_EMMC_UNUSED" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"SD_CD_EMMC_STRB" "ICICLE_MSS:SD_CD_EMMC_STRB" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"SD_WP_EMMC_RSTN" "ICICLE_MSS:SD_WP_EMMC_RSTN" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"ICICLE_MSS:MSS_INT_F2M[63]" "IHC_SUBSYSTEM_0:E51_IRQ" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"ICICLE_MSS:MSS_INT_F2M[62]" "IHC_SUBSYSTEM_0:U54_1_IRQ" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"ICICLE_MSS:MSS_INT_F2M[61]" "IHC_SUBSYSTEM_0:U54_2_IRQ" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"ICICLE_MSS:MSS_INT_F2M[60]" "IHC_SUBSYSTEM_0:U54_3_IRQ" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"ICICLE_MSS:MSS_INT_F2M[59]" "IHC_SUBSYSTEM_0:U54_4_IRQ" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"SD_CLK_EMMC_CLK" "B_V_F_MSS:SD_CLK_EMMC_CLK" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"SD_CMD_EMMC_CMD" "B_V_F_MSS:SD_CMD_EMMC_CMD" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"SD_DATA0_EMMC_DATA0" "B_V_F_MSS:SD_DATA0_EMMC_DATA0" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"SD_DATA1_EMMC_DATA1" "B_V_F_MSS:SD_DATA1_EMMC_DATA1" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"SD_DATA2_EMMC_DATA2" "B_V_F_MSS:SD_DATA2_EMMC_DATA2" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"SD_DATA3_EMMC_DATA3" "B_V_F_MSS:SD_DATA3_EMMC_DATA3" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"SD_POW_EMMC_DATA4" "B_V_F_MSS:SD_POW_EMMC_DATA4" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"SD_VOLT_SEL_EMMC_DATA5" "B_V_F_MSS:SD_VOLT_SEL_EMMC_DATA5" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"SD_VOLT_EN_EMMC_DATA6" "B_V_F_MSS:SD_VOLT_EN_EMMC_DATA6" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"SD_VOLT_CMD_DIR_EMMC_DATA7" "B_V_F_MSS:SD_VOLT_CMD_DIR_EMMC_DATA7" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"SD_VOLT_DIR_1_3_EMMC_UNUSED" "B_V_F_MSS:SD_VOLT_DIR_1_3_EMMC_UNUSED" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"SD_VOLT_DIR_0_EMMC_UNUSED" "B_V_F_MSS:SD_VOLT_DIR_0_EMMC_UNUSED" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"SD_CD_EMMC_STRB" "B_V_F_MSS:SD_CD_EMMC_STRB" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"SD_WP_EMMC_RSTN" "B_V_F_MSS:SD_WP_EMMC_RSTN" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"B_V_F_MSS:MSS_INT_F2M[63]" "IHC_SUBSYSTEM_0:E51_IRQ" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"B_V_F_MSS:MSS_INT_F2M[62]" "IHC_SUBSYSTEM_0:U54_1_IRQ" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"B_V_F_MSS:MSS_INT_F2M[61]" "IHC_SUBSYSTEM_0:U54_2_IRQ" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"B_V_F_MSS:MSS_INT_F2M[60]" "IHC_SUBSYSTEM_0:U54_3_IRQ" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"B_V_F_MSS:MSS_INT_F2M[59]" "IHC_SUBSYSTEM_0:U54_4_IRQ" }
 
 # Add bus net connections
-sd_connect_pins -sd_name ${sd_name} -pin_names {"ICICLE_MSS:CA" "CA" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"DM" "ICICLE_MSS:DM" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"DQ" "ICICLE_MSS:DQ" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"DQS" "ICICLE_MSS:DQS" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"DQS_N" "ICICLE_MSS:DQS_N" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"B_V_F_MSS:CA" "CA" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"DM" "B_V_F_MSS:DM" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"DQ" "B_V_F_MSS:DQ" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"DQS" "B_V_F_MSS:DQS" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"DQS_N" "B_V_F_MSS:DQS_N" }
 
 # Add bus interface net connections
 sd_connect_pins -sd_name ${sd_name} -pin_names {"PCIE:CLKS_FROM_TXPLL_TO_PCIE_1" "CLOCKS_AND_RESETS:CLKS_TO_XCVR" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"PCIE:AXI_1_SLAVE" "FIC0_INITIATOR:AXI4mslave0" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"FIC3_INITIATOR:APBmslave16" "RECONFIGURATION_INTERFACE_0:APBS_SLAVE" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"FIC0_INITIATOR:AXI4mmaster0" "ICICLE_MSS:FIC_0_AXI4_MASTER" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"FIC0_INITIATOR:AXI4mmaster0" "B_V_F_MSS:FIC_0_AXI4_MASTER" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"FIC3_INITIATOR:APB3mmaster" "APB_ARBITER_0:APB_MASTER_low" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"APB_ARBITER_0:APB_MMASTER" "ICICLE_MSS:FIC_3_APB_MASTER" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"APB_ARBITER_0:APB_MMASTER" "B_V_F_MSS:FIC_3_APB_MASTER" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"IHC_SUBSYSTEM_0:APB3mmaster" "APB_ARBITER_0:APB_MASTER_high" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"PCIE_INITIATOR:AXI4mslave0" "ICICLE_MSS:FIC_0_AXI4_SLAVE" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"PCIE_INITIATOR:AXI4mslave0" "B_V_F_MSS:FIC_0_AXI4_SLAVE" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"PCIE:PCIESS_LANE0_DRI_SLAVE" "RECONFIGURATION_INTERFACE_0:Q0_LANE0_DRI" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"PCIE:PCIESS_LANE1_DRI_SLAVE" "RECONFIGURATION_INTERFACE_0:Q0_LANE1_DRI" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"PCIE:PCIESS_LANE2_DRI_SLAVE" "RECONFIGURATION_INTERFACE_0:Q0_LANE2_DRI" }
@@ -478,25 +478,25 @@ sd_create_pin_slices -sd_name ${sd_name} -pin_name {CAPE:GPIO_OE} -pin_slices {[
 sd_create_pin_slices -sd_name ${sd_name} -pin_name {CAPE:GPIO_OE} -pin_slices {[18]}
 
 
-sd_connect_pins -sd_name ${sd_name} -pin_names {"CAPE:GPIO_OE[0:0]" "ICICLE_MSS:GPIO_2_OE_M2F_0"}
-sd_connect_pins -sd_name ${sd_name} -pin_names {"CAPE:GPIO_OE[1:1]" "ICICLE_MSS:GPIO_2_OE_M2F_1"}
-sd_connect_pins -sd_name ${sd_name} -pin_names {"CAPE:GPIO_OE[2:2]" "ICICLE_MSS:GPIO_2_OE_M2F_2"}
-sd_connect_pins -sd_name ${sd_name} -pin_names {"CAPE:GPIO_OE[3:3]" "ICICLE_MSS:GPIO_2_OE_M2F_3"}
-sd_connect_pins -sd_name ${sd_name} -pin_names {"CAPE:GPIO_OE[4:4]" "ICICLE_MSS:GPIO_2_OE_M2F_4"}
-sd_connect_pins -sd_name ${sd_name} -pin_names {"CAPE:GPIO_OE[5:5]" "ICICLE_MSS:GPIO_2_OE_M2F_5"}
-sd_connect_pins -sd_name ${sd_name} -pin_names {"CAPE:GPIO_OE[6:6]" "ICICLE_MSS:GPIO_2_OE_M2F_6"}
-sd_connect_pins -sd_name ${sd_name} -pin_names {"CAPE:GPIO_OE[7:7]" "ICICLE_MSS:GPIO_2_OE_M2F_7"}
-sd_connect_pins -sd_name ${sd_name} -pin_names {"CAPE:GPIO_OE[8:8]" "ICICLE_MSS:GPIO_2_OE_M2F_8"}
-sd_connect_pins -sd_name ${sd_name} -pin_names {"CAPE:GPIO_OE[9:9]" "ICICLE_MSS:GPIO_2_OE_M2F_9"}
-sd_connect_pins -sd_name ${sd_name} -pin_names {"CAPE:GPIO_OE[10:10]" "ICICLE_MSS:GPIO_2_OE_M2F_10"}
-sd_connect_pins -sd_name ${sd_name} -pin_names {"CAPE:GPIO_OE[11:11]" "ICICLE_MSS:GPIO_2_OE_M2F_11"}
-sd_connect_pins -sd_name ${sd_name} -pin_names {"CAPE:GPIO_OE[12:12]" "ICICLE_MSS:GPIO_2_OE_M2F_12"}
-sd_connect_pins -sd_name ${sd_name} -pin_names {"CAPE:GPIO_OE[13:13]" "ICICLE_MSS:GPIO_2_OE_M2F_13"}
-sd_connect_pins -sd_name ${sd_name} -pin_names {"CAPE:GPIO_OE[14:14]" "ICICLE_MSS:GPIO_2_OE_M2F_14"}
-sd_connect_pins -sd_name ${sd_name} -pin_names {"CAPE:GPIO_OE[15:15]" "ICICLE_MSS:GPIO_2_OE_M2F_15"}
-sd_connect_pins -sd_name ${sd_name} -pin_names {"CAPE:GPIO_OE[16:16]" "ICICLE_MSS:GPIO_2_OE_M2F_16"}
-sd_connect_pins -sd_name ${sd_name} -pin_names {"CAPE:GPIO_OE[17:17]" "ICICLE_MSS:GPIO_2_OE_M2F_17"}
-sd_connect_pins -sd_name ${sd_name} -pin_names {"CAPE:GPIO_OE[18:18]" "ICICLE_MSS:GPIO_2_OE_M2F_18"}
+sd_connect_pins -sd_name ${sd_name} -pin_names {"CAPE:GPIO_OE[0:0]" "B_V_F_MSS:GPIO_2_OE_M2F_0"}
+sd_connect_pins -sd_name ${sd_name} -pin_names {"CAPE:GPIO_OE[1:1]" "B_V_F_MSS:GPIO_2_OE_M2F_1"}
+sd_connect_pins -sd_name ${sd_name} -pin_names {"CAPE:GPIO_OE[2:2]" "B_V_F_MSS:GPIO_2_OE_M2F_2"}
+sd_connect_pins -sd_name ${sd_name} -pin_names {"CAPE:GPIO_OE[3:3]" "B_V_F_MSS:GPIO_2_OE_M2F_3"}
+sd_connect_pins -sd_name ${sd_name} -pin_names {"CAPE:GPIO_OE[4:4]" "B_V_F_MSS:GPIO_2_OE_M2F_4"}
+sd_connect_pins -sd_name ${sd_name} -pin_names {"CAPE:GPIO_OE[5:5]" "B_V_F_MSS:GPIO_2_OE_M2F_5"}
+sd_connect_pins -sd_name ${sd_name} -pin_names {"CAPE:GPIO_OE[6:6]" "B_V_F_MSS:GPIO_2_OE_M2F_6"}
+sd_connect_pins -sd_name ${sd_name} -pin_names {"CAPE:GPIO_OE[7:7]" "B_V_F_MSS:GPIO_2_OE_M2F_7"}
+sd_connect_pins -sd_name ${sd_name} -pin_names {"CAPE:GPIO_OE[8:8]" "B_V_F_MSS:GPIO_2_OE_M2F_8"}
+sd_connect_pins -sd_name ${sd_name} -pin_names {"CAPE:GPIO_OE[9:9]" "B_V_F_MSS:GPIO_2_OE_M2F_9"}
+sd_connect_pins -sd_name ${sd_name} -pin_names {"CAPE:GPIO_OE[10:10]" "B_V_F_MSS:GPIO_2_OE_M2F_10"}
+sd_connect_pins -sd_name ${sd_name} -pin_names {"CAPE:GPIO_OE[11:11]" "B_V_F_MSS:GPIO_2_OE_M2F_11"}
+sd_connect_pins -sd_name ${sd_name} -pin_names {"CAPE:GPIO_OE[12:12]" "B_V_F_MSS:GPIO_2_OE_M2F_12"}
+sd_connect_pins -sd_name ${sd_name} -pin_names {"CAPE:GPIO_OE[13:13]" "B_V_F_MSS:GPIO_2_OE_M2F_13"}
+sd_connect_pins -sd_name ${sd_name} -pin_names {"CAPE:GPIO_OE[14:14]" "B_V_F_MSS:GPIO_2_OE_M2F_14"}
+sd_connect_pins -sd_name ${sd_name} -pin_names {"CAPE:GPIO_OE[15:15]" "B_V_F_MSS:GPIO_2_OE_M2F_15"}
+sd_connect_pins -sd_name ${sd_name} -pin_names {"CAPE:GPIO_OE[16:16]" "B_V_F_MSS:GPIO_2_OE_M2F_16"}
+sd_connect_pins -sd_name ${sd_name} -pin_names {"CAPE:GPIO_OE[17:17]" "B_V_F_MSS:GPIO_2_OE_M2F_17"}
+sd_connect_pins -sd_name ${sd_name} -pin_names {"CAPE:GPIO_OE[18:18]" "B_V_F_MSS:GPIO_2_OE_M2F_18"}
 
 
 sd_create_pin_slices -sd_name ${sd_name} -pin_name {CAPE:GPIO_OUT} -pin_slices {[0]}
@@ -520,25 +520,25 @@ sd_create_pin_slices -sd_name ${sd_name} -pin_name {CAPE:GPIO_OUT} -pin_slices {
 sd_create_pin_slices -sd_name ${sd_name} -pin_name {CAPE:GPIO_OUT} -pin_slices {[18]}
 
 
-sd_connect_pins -sd_name ${sd_name} -pin_names {"CAPE:GPIO_OUT[0:0]" "ICICLE_MSS:GPIO_2_M2F_0"}
-sd_connect_pins -sd_name ${sd_name} -pin_names {"CAPE:GPIO_OUT[1:1]" "ICICLE_MSS:GPIO_2_M2F_1"}
-sd_connect_pins -sd_name ${sd_name} -pin_names {"CAPE:GPIO_OUT[2:2]" "ICICLE_MSS:GPIO_2_M2F_2"}
-sd_connect_pins -sd_name ${sd_name} -pin_names {"CAPE:GPIO_OUT[3:3]" "ICICLE_MSS:GPIO_2_M2F_3"}
-sd_connect_pins -sd_name ${sd_name} -pin_names {"CAPE:GPIO_OUT[4:4]" "ICICLE_MSS:GPIO_2_M2F_4"}
-sd_connect_pins -sd_name ${sd_name} -pin_names {"CAPE:GPIO_OUT[5:5]" "ICICLE_MSS:GPIO_2_M2F_5"}
-sd_connect_pins -sd_name ${sd_name} -pin_names {"CAPE:GPIO_OUT[6:6]" "ICICLE_MSS:GPIO_2_M2F_6"}
-sd_connect_pins -sd_name ${sd_name} -pin_names {"CAPE:GPIO_OUT[7:7]" "ICICLE_MSS:GPIO_2_M2F_7"}
-sd_connect_pins -sd_name ${sd_name} -pin_names {"CAPE:GPIO_OUT[8:8]" "ICICLE_MSS:GPIO_2_M2F_8"}
-sd_connect_pins -sd_name ${sd_name} -pin_names {"CAPE:GPIO_OUT[9:9]" "ICICLE_MSS:GPIO_2_M2F_9"}
-sd_connect_pins -sd_name ${sd_name} -pin_names {"CAPE:GPIO_OUT[10:10]" "ICICLE_MSS:GPIO_2_M2F_10"}
-sd_connect_pins -sd_name ${sd_name} -pin_names {"CAPE:GPIO_OUT[11:11]" "ICICLE_MSS:GPIO_2_M2F_11"}
-sd_connect_pins -sd_name ${sd_name} -pin_names {"CAPE:GPIO_OUT[12:12]" "ICICLE_MSS:GPIO_2_M2F_12"}
-sd_connect_pins -sd_name ${sd_name} -pin_names {"CAPE:GPIO_OUT[13:13]" "ICICLE_MSS:GPIO_2_M2F_13"}
-sd_connect_pins -sd_name ${sd_name} -pin_names {"CAPE:GPIO_OUT[14:14]" "ICICLE_MSS:GPIO_2_M2F_14"}
-sd_connect_pins -sd_name ${sd_name} -pin_names {"CAPE:GPIO_OUT[15:15]" "ICICLE_MSS:GPIO_2_M2F_15"}
-sd_connect_pins -sd_name ${sd_name} -pin_names {"CAPE:GPIO_OUT[16:16]" "ICICLE_MSS:GPIO_2_M2F_16"}
-sd_connect_pins -sd_name ${sd_name} -pin_names {"CAPE:GPIO_OUT[17:17]" "ICICLE_MSS:GPIO_2_M2F_17"}
-sd_connect_pins -sd_name ${sd_name} -pin_names {"CAPE:GPIO_OUT[18:18]" "ICICLE_MSS:GPIO_2_M2F_18"}
+sd_connect_pins -sd_name ${sd_name} -pin_names {"CAPE:GPIO_OUT[0:0]" "B_V_F_MSS:GPIO_2_M2F_0"}
+sd_connect_pins -sd_name ${sd_name} -pin_names {"CAPE:GPIO_OUT[1:1]" "B_V_F_MSS:GPIO_2_M2F_1"}
+sd_connect_pins -sd_name ${sd_name} -pin_names {"CAPE:GPIO_OUT[2:2]" "B_V_F_MSS:GPIO_2_M2F_2"}
+sd_connect_pins -sd_name ${sd_name} -pin_names {"CAPE:GPIO_OUT[3:3]" "B_V_F_MSS:GPIO_2_M2F_3"}
+sd_connect_pins -sd_name ${sd_name} -pin_names {"CAPE:GPIO_OUT[4:4]" "B_V_F_MSS:GPIO_2_M2F_4"}
+sd_connect_pins -sd_name ${sd_name} -pin_names {"CAPE:GPIO_OUT[5:5]" "B_V_F_MSS:GPIO_2_M2F_5"}
+sd_connect_pins -sd_name ${sd_name} -pin_names {"CAPE:GPIO_OUT[6:6]" "B_V_F_MSS:GPIO_2_M2F_6"}
+sd_connect_pins -sd_name ${sd_name} -pin_names {"CAPE:GPIO_OUT[7:7]" "B_V_F_MSS:GPIO_2_M2F_7"}
+sd_connect_pins -sd_name ${sd_name} -pin_names {"CAPE:GPIO_OUT[8:8]" "B_V_F_MSS:GPIO_2_M2F_8"}
+sd_connect_pins -sd_name ${sd_name} -pin_names {"CAPE:GPIO_OUT[9:9]" "B_V_F_MSS:GPIO_2_M2F_9"}
+sd_connect_pins -sd_name ${sd_name} -pin_names {"CAPE:GPIO_OUT[10:10]" "B_V_F_MSS:GPIO_2_M2F_10"}
+sd_connect_pins -sd_name ${sd_name} -pin_names {"CAPE:GPIO_OUT[11:11]" "B_V_F_MSS:GPIO_2_M2F_11"}
+sd_connect_pins -sd_name ${sd_name} -pin_names {"CAPE:GPIO_OUT[12:12]" "B_V_F_MSS:GPIO_2_M2F_12"}
+sd_connect_pins -sd_name ${sd_name} -pin_names {"CAPE:GPIO_OUT[13:13]" "B_V_F_MSS:GPIO_2_M2F_13"}
+sd_connect_pins -sd_name ${sd_name} -pin_names {"CAPE:GPIO_OUT[14:14]" "B_V_F_MSS:GPIO_2_M2F_14"}
+sd_connect_pins -sd_name ${sd_name} -pin_names {"CAPE:GPIO_OUT[15:15]" "B_V_F_MSS:GPIO_2_M2F_15"}
+sd_connect_pins -sd_name ${sd_name} -pin_names {"CAPE:GPIO_OUT[16:16]" "B_V_F_MSS:GPIO_2_M2F_16"}
+sd_connect_pins -sd_name ${sd_name} -pin_names {"CAPE:GPIO_OUT[17:17]" "B_V_F_MSS:GPIO_2_M2F_17"}
+sd_connect_pins -sd_name ${sd_name} -pin_names {"CAPE:GPIO_OUT[18:18]" "B_V_F_MSS:GPIO_2_M2F_18"}
 
 
 sd_create_pin_slices -sd_name ${sd_name} -pin_name {CAPE:GPIO_IN} -pin_slices {[0]}
@@ -562,25 +562,25 @@ sd_create_pin_slices -sd_name ${sd_name} -pin_name {CAPE:GPIO_IN} -pin_slices {[
 sd_create_pin_slices -sd_name ${sd_name} -pin_name {CAPE:GPIO_IN} -pin_slices {[18]}
 
 
-sd_connect_pins -sd_name ${sd_name} -pin_names {"CAPE:GPIO_IN[0:0]" "ICICLE_MSS:GPIO_2_F2M_0"}
-sd_connect_pins -sd_name ${sd_name} -pin_names {"CAPE:GPIO_IN[1:1]" "ICICLE_MSS:GPIO_2_F2M_1"}
-sd_connect_pins -sd_name ${sd_name} -pin_names {"CAPE:GPIO_IN[2:2]" "ICICLE_MSS:GPIO_2_F2M_2"}
-sd_connect_pins -sd_name ${sd_name} -pin_names {"CAPE:GPIO_IN[3:3]" "ICICLE_MSS:GPIO_2_F2M_3"}
-sd_connect_pins -sd_name ${sd_name} -pin_names {"CAPE:GPIO_IN[4:4]" "ICICLE_MSS:GPIO_2_F2M_4"}
-sd_connect_pins -sd_name ${sd_name} -pin_names {"CAPE:GPIO_IN[5:5]" "ICICLE_MSS:GPIO_2_F2M_5"}
-sd_connect_pins -sd_name ${sd_name} -pin_names {"CAPE:GPIO_IN[6:6]" "ICICLE_MSS:GPIO_2_F2M_6"}
-sd_connect_pins -sd_name ${sd_name} -pin_names {"CAPE:GPIO_IN[7:7]" "ICICLE_MSS:GPIO_2_F2M_7"}
-sd_connect_pins -sd_name ${sd_name} -pin_names {"CAPE:GPIO_IN[8:8]" "ICICLE_MSS:GPIO_2_F2M_8"}
-sd_connect_pins -sd_name ${sd_name} -pin_names {"CAPE:GPIO_IN[9:9]" "ICICLE_MSS:GPIO_2_F2M_9"}
-sd_connect_pins -sd_name ${sd_name} -pin_names {"CAPE:GPIO_IN[10:10]" "ICICLE_MSS:GPIO_2_F2M_10"}
-sd_connect_pins -sd_name ${sd_name} -pin_names {"CAPE:GPIO_IN[11:11]" "ICICLE_MSS:GPIO_2_F2M_11"}
-sd_connect_pins -sd_name ${sd_name} -pin_names {"CAPE:GPIO_IN[12:12]" "ICICLE_MSS:GPIO_2_F2M_12"}
-sd_connect_pins -sd_name ${sd_name} -pin_names {"CAPE:GPIO_IN[13:13]" "ICICLE_MSS:GPIO_2_F2M_13"}
-sd_connect_pins -sd_name ${sd_name} -pin_names {"CAPE:GPIO_IN[14:14]" "ICICLE_MSS:GPIO_2_F2M_14"}
-sd_connect_pins -sd_name ${sd_name} -pin_names {"CAPE:GPIO_IN[15:15]" "ICICLE_MSS:GPIO_2_F2M_15"}
-sd_connect_pins -sd_name ${sd_name} -pin_names {"CAPE:GPIO_IN[16:16]" "ICICLE_MSS:GPIO_2_F2M_16"}
-sd_connect_pins -sd_name ${sd_name} -pin_names {"CAPE:GPIO_IN[17:17]" "ICICLE_MSS:GPIO_2_F2M_17"}
-sd_connect_pins -sd_name ${sd_name} -pin_names {"CAPE:GPIO_IN[18:18]" "ICICLE_MSS:GPIO_2_F2M_18"}
+sd_connect_pins -sd_name ${sd_name} -pin_names {"CAPE:GPIO_IN[0:0]" "B_V_F_MSS:GPIO_2_F2M_0"}
+sd_connect_pins -sd_name ${sd_name} -pin_names {"CAPE:GPIO_IN[1:1]" "B_V_F_MSS:GPIO_2_F2M_1"}
+sd_connect_pins -sd_name ${sd_name} -pin_names {"CAPE:GPIO_IN[2:2]" "B_V_F_MSS:GPIO_2_F2M_2"}
+sd_connect_pins -sd_name ${sd_name} -pin_names {"CAPE:GPIO_IN[3:3]" "B_V_F_MSS:GPIO_2_F2M_3"}
+sd_connect_pins -sd_name ${sd_name} -pin_names {"CAPE:GPIO_IN[4:4]" "B_V_F_MSS:GPIO_2_F2M_4"}
+sd_connect_pins -sd_name ${sd_name} -pin_names {"CAPE:GPIO_IN[5:5]" "B_V_F_MSS:GPIO_2_F2M_5"}
+sd_connect_pins -sd_name ${sd_name} -pin_names {"CAPE:GPIO_IN[6:6]" "B_V_F_MSS:GPIO_2_F2M_6"}
+sd_connect_pins -sd_name ${sd_name} -pin_names {"CAPE:GPIO_IN[7:7]" "B_V_F_MSS:GPIO_2_F2M_7"}
+sd_connect_pins -sd_name ${sd_name} -pin_names {"CAPE:GPIO_IN[8:8]" "B_V_F_MSS:GPIO_2_F2M_8"}
+sd_connect_pins -sd_name ${sd_name} -pin_names {"CAPE:GPIO_IN[9:9]" "B_V_F_MSS:GPIO_2_F2M_9"}
+sd_connect_pins -sd_name ${sd_name} -pin_names {"CAPE:GPIO_IN[10:10]" "B_V_F_MSS:GPIO_2_F2M_10"}
+sd_connect_pins -sd_name ${sd_name} -pin_names {"CAPE:GPIO_IN[11:11]" "B_V_F_MSS:GPIO_2_F2M_11"}
+sd_connect_pins -sd_name ${sd_name} -pin_names {"CAPE:GPIO_IN[12:12]" "B_V_F_MSS:GPIO_2_F2M_12"}
+sd_connect_pins -sd_name ${sd_name} -pin_names {"CAPE:GPIO_IN[13:13]" "B_V_F_MSS:GPIO_2_F2M_13"}
+sd_connect_pins -sd_name ${sd_name} -pin_names {"CAPE:GPIO_IN[14:14]" "B_V_F_MSS:GPIO_2_F2M_14"}
+sd_connect_pins -sd_name ${sd_name} -pin_names {"CAPE:GPIO_IN[15:15]" "B_V_F_MSS:GPIO_2_F2M_15"}
+sd_connect_pins -sd_name ${sd_name} -pin_names {"CAPE:GPIO_IN[16:16]" "B_V_F_MSS:GPIO_2_F2M_16"}
+sd_connect_pins -sd_name ${sd_name} -pin_names {"CAPE:GPIO_IN[17:17]" "B_V_F_MSS:GPIO_2_F2M_17"}
+sd_connect_pins -sd_name ${sd_name} -pin_names {"CAPE:GPIO_IN[18:18]" "B_V_F_MSS:GPIO_2_F2M_18"}
 
 
 sd_connect_pins -sd_name ${sd_name} -pin_names {"CAPE:P9_41" "P9_41"}
@@ -635,13 +635,13 @@ sd_connect_pins -sd_name ${sd_name} -pin_names {"CAPE:APB_SLAVE" "FIC3_INITIATOR
 
 
 # Mark pins unused
-sd_mark_pins_unused -sd_name ${sd_name} -pin_names {ICICLE_MSS:FIC_3_APB_M_PSTRB}
-sd_mark_pins_unused -sd_name ${sd_name} -pin_names {ICICLE_MSS:SPI_0_SS1_OE_M2F}
-sd_mark_pins_unused -sd_name ${sd_name} -pin_names {ICICLE_MSS:SPI_0_DO_OE_M2F}
-sd_mark_pins_unused -sd_name ${sd_name} -pin_names {ICICLE_MSS:SPI_0_CLK_OE_M2F}
-sd_mark_pins_unused -sd_name ${sd_name} -pin_names {ICICLE_MSS:PLL_CPU_LOCK_M2F}
-sd_mark_pins_unused -sd_name ${sd_name} -pin_names {ICICLE_MSS:PLL_DDR_LOCK_M2F}
-sd_mark_pins_unused -sd_name ${sd_name} -pin_names {ICICLE_MSS:PLL_SGMII_LOCK_M2F}
+sd_mark_pins_unused -sd_name ${sd_name} -pin_names {B_V_F_MSS:FIC_3_APB_M_PSTRB}
+sd_mark_pins_unused -sd_name ${sd_name} -pin_names {B_V_F_MSS:SPI_0_SS1_OE_M2F}
+sd_mark_pins_unused -sd_name ${sd_name} -pin_names {B_V_F_MSS:SPI_0_DO_OE_M2F}
+sd_mark_pins_unused -sd_name ${sd_name} -pin_names {B_V_F_MSS:SPI_0_CLK_OE_M2F}
+sd_mark_pins_unused -sd_name ${sd_name} -pin_names {B_V_F_MSS:PLL_CPU_LOCK_M2F}
+sd_mark_pins_unused -sd_name ${sd_name} -pin_names {B_V_F_MSS:PLL_DDR_LOCK_M2F}
+sd_mark_pins_unused -sd_name ${sd_name} -pin_names {B_V_F_MSS:PLL_SGMII_LOCK_M2F}
 sd_mark_pins_unused -sd_name ${sd_name} -pin_names {RECONFIGURATION_INTERFACE_0:PINTERRUPT}
 sd_mark_pins_unused -sd_name ${sd_name} -pin_names {RECONFIGURATION_INTERFACE_0:PTIMEOUT}
 sd_mark_pins_unused -sd_name ${sd_name} -pin_names {RECONFIGURATION_INTERFACE_0:BUSERROR}
