@@ -273,7 +273,7 @@ sd_mark_pins_unused -sd_name ${sd_name} -pin_names {B_V_F_MSS:MAC_1_TSU_SYNC_FRA
 sd_mark_pins_unused -sd_name ${sd_name} -pin_names {B_V_F_MSS:MAC_1_TSU_DELAY_REQ_RX_M2F}
 sd_mark_pins_unused -sd_name ${sd_name} -pin_names {B_V_F_MSS:MAC_1_TSU_PDELAY_REQ_RX_M2F}
 sd_mark_pins_unused -sd_name ${sd_name} -pin_names {B_V_F_MSS:MAC_1_TSU_PDELAY_RESP_RX_M2F}
-sd_mark_pins_unused -sd_name ${sd_name} -pin_names {B_V_F_MSS:FIC_2_AXI4_SLAVE}
+sd_mark_pins_unused -sd_name ${sd_name} -pin_names {B_V_F_MSS:FIC_2_AXI4_TARGET}
 
 
 # Add MSS_PLL_LOCKS instance
@@ -461,11 +461,11 @@ sd_connect_pins -sd_name ${sd_name} -pin_names {"DQS_N" "B_V_F_MSS:DQS_N" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"PCIE:CLKS_FROM_TXPLL_TO_PCIE_1" "CLOCKS_AND_RESETS:CLKS_TO_XCVR" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"PCIE:AXI_1_SLAVE" "FIC0_INITIATOR:AXI4mslave0" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"FIC3_INITIATOR:APBmslave16" "RECONFIGURATION_INTERFACE_0:APBS_SLAVE" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"FIC0_INITIATOR:AXI4mmaster0" "B_V_F_MSS:FIC_0_AXI4_MASTER" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"FIC0_INITIATOR:AXI4mmaster0" "B_V_F_MSS:FIC_0_AXI4_INITIATOR" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"FIC3_INITIATOR:APB3mmaster" "APB_ARBITER_0:APB_MASTER_low" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"APB_ARBITER_0:APB_MMASTER" "B_V_F_MSS:FIC_3_APB_MASTER" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"APB_ARBITER_0:APB_MMASTER" "B_V_F_MSS:FIC_3_APB_INITIATOR" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"IHC_SUBSYSTEM_0:APB3mmaster" "APB_ARBITER_0:APB_MASTER_high" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"PCIE_INITIATOR:AXI4mslave0" "B_V_F_MSS:FIC_0_AXI4_SLAVE" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"PCIE_INITIATOR:AXI4mslave0" "B_V_F_MSS:FIC_0_AXI4_TARGET" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"PCIE:PCIESS_LANE0_DRI_SLAVE" "RECONFIGURATION_INTERFACE_0:Q0_LANE0_DRI" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"PCIE:PCIESS_LANE1_DRI_SLAVE" "RECONFIGURATION_INTERFACE_0:Q0_LANE1_DRI" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"PCIE:PCIESS_LANE2_DRI_SLAVE" "RECONFIGURATION_INTERFACE_0:Q0_LANE2_DRI" }

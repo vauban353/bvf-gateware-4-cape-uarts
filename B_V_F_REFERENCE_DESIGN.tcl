@@ -8,10 +8,10 @@
 
 set libero_release [split [get_libero_version] .]
 
-if {[string compare [lindex $libero_release 0] "2021"] == 0 && [string compare [lindex $libero_release 1] "2"] == 0} {
-    puts "Libero v2021.2 detected."
+if {[string compare [lindex $libero_release 0] "2021"] == 0 && [string compare [lindex $libero_release 1] "3"] == 0} {
+    puts "Libero v2021.3 detected."
 } else {
-    error "Incorrect Libero version detected. Please use Libero v2021.2 to run these scripts."
+    error "Incorrect Libero version detected. Please use Libero v2021.3 to run these scripts."
 }
 
 if { [lindex $tcl_platform(os) 0]  == "Windows" } {
@@ -116,7 +116,7 @@ download_core -vlnv {Actel:DirectCore:COREAXI4INTERCONNECT:2.8.103} -location {w
 download_core -vlnv {Actel:SgCore:PF_CLK_DIV:1.0.103} -location {www.microchip-ip.com/repositories/SgCore}
 download_core -vlnv {Actel:SgCore:PF_DRI:1.1.104} -location {www.microchip-ip.com/repositories/SgCore}
 download_core -vlnv {Actel:SgCore:PF_NGMUX:1.0.101} -location {www.microchip-ip.com/repositories/SgCore}
-download_core -vlnv {Actel:SgCore:PF_PCIE:2.0.104} -location {www.microchip-ip.com/repositories/SgCore}
+download_core -vlnv {Actel:SgCore:PF_PCIE:2.0.106} -location {www.microchip-ip.com/repositories/SgCore}
 download_core -vlnv {Actel:SgCore:PF_TX_PLL:2.0.300} -location {www.microchip-ip.com/repositories/SgCore}
 download_core -vlnv {Actel:SgCore:PF_XCVR_REF_CLK:1.0.103} -location {www.microchip-ip.com/repositories/SgCore}
 download_core -vlnv {Actel:DirectCore:CoreAPB3:4.2.100} -location {www.microchip-ip.com/repositories/DirectCore}
@@ -141,20 +141,8 @@ source ./script_support/B_V_F_recursive.tcl
 
 import_files \
     -convert_EDN_to_HDL 0 \
-    -io_pdc "${constraint_path}/ICICLE.pdc" \
-    -io_pdc "${constraint_path}/ICICLE_CAN0.pdc" \
-    -io_pdc "${constraint_path}/ICICLE_MAC.pdc" \
-    -io_pdc "${constraint_path}/ICICLE_MIKROBUS.pdc" \
-    -io_pdc "${constraint_path}/ICICLE_MMUART0.pdc" \
-    -io_pdc "${constraint_path}/ICICLE_MMUART1.pdc" \
-    -io_pdc "${constraint_path}/ICICLE_MMUART2.pdc" \
-    -io_pdc "${constraint_path}/ICICLE_MMUART3.pdc" \
     -io_pdc "${constraint_path}/ICICLE_PCIE.pdc" \
-    -io_pdc "${constraint_path}/ICICLE_USB.pdc" \
-    -io_pdc "${constraint_path}/ICICLE_SDIO.pdc" \
-    -io_pdc "${constraint_path}/ICICLE_RPi.pdc" \
-    -io_pdc "${constraint_path}/ICICLE_I2C_LOOPBACK.pdc" \
-    -io_pdc "${constraint_path}/ICICLE_SPI_LOOPBACK.pdc"
+    -io_pdc "${constraint_path}/ICICLE_USB.pdc"
 
 #
 # // Associate imported constraints with the design flow
@@ -162,18 +150,8 @@ import_files \
 
 organize_tool_files \
     -tool {PLACEROUTE} \
-    -file "${project_dir}/constraint/io/ICICLE_CAN0.pdc" \
-    -file "${project_dir}/constraint/io/ICICLE_MIKROBUS.pdc" \
-    -file "${project_dir}/constraint/io/ICICLE_SDIO.pdc" \
-    -file "${project_dir}/constraint/io/ICICLE_USB.pdc" \
-    -file "${project_dir}/constraint/io/ICICLE.pdc" \
-    -file "${project_dir}/constraint/io/ICICLE_MAC.pdc" \
     -file "${project_dir}/constraint/io/ICICLE_PCIE.pdc" \
-    -file "${project_dir}/constraint/io/ICICLE_MMUART0.pdc" \
-    -file "${project_dir}/constraint/io/ICICLE_MMUART1.pdc" \
-    -file "${project_dir}/constraint/io/ICICLE_MMUART3.pdc" \
-    -file "${project_dir}/constraint/io/ICICLE_MMUART2.pdc" \
-    -file "${project_dir}/constraint/io/ICICLE_RPi.pdc" \
+    -file "${project_dir}/constraint/io/ICICLE_USB.pdc" \
     -module {B_V_F_BASE_DESIGN::work} \
     -input_type {constraint}
 
