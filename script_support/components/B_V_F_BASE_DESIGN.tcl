@@ -653,6 +653,17 @@ sd_connect_pins -sd_name ${sd_name} -pin_names {"CAPE:P9_42" "P9_42"}
 
 sd_connect_pins -sd_name ${sd_name} -pin_names {"CAPE:APB_SLAVE" "FIC3_INITIATOR:APBmslave1"}
 
+#-------------------------------------------------------------------------------
+# Temporary connections to allow running through complete flow.
+#-------------------------------------------------------------------------------
+sd_connect_pins -sd_name ${sd_name} -pin_names {"B_V_F_MSS:MMUART_4_RXD_F2M" "B_V_F_MSS:MMUART_4_TXD_M2F"} 
+sd_connect_pins_to_constant -sd_name ${sd_name} -pin_names {B_V_F_MSS:MSS_INT_F2M[2:2]} -value {GND} 
+sd_connect_pins_to_constant -sd_name ${sd_name} -pin_names {B_V_F_MSS:MSS_INT_F2M[4:4]} -value {GND} 
+sd_connect_pins_to_constant -sd_name ${sd_name} -pin_names {B_V_F_MSS:MSS_INT_F2M[3:3]} -value {GND} 
+sd_connect_pins_to_constant -sd_name ${sd_name} -pin_names {B_V_F_MSS:INTERRUPT_IN} -value {GND} 
+sd_connect_pins_to_constant -sd_name ${sd_name} -pin_names {B_V_F_MSS:MSS_RESET_N_F2M} -value {VCC}
+#-------------------------------------------------------------------------------
+
 
 # Mark pins unused
 sd_mark_pins_unused -sd_name ${sd_name} -pin_names {B_V_F_MSS:FIC_3_APB_M_PSTRB}
