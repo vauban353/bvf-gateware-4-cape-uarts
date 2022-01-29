@@ -142,7 +142,8 @@ sd_create_scalar_port -sd_name ${sd_name} -port_name {P9_14} -port_direction {OU
 sd_create_scalar_port -sd_name ${sd_name} -port_name {P9_16} -port_direction {OUT}
 sd_create_scalar_port -sd_name ${sd_name} -port_name {P9_42} -port_direction {OUT}
 
-
+sd_create_scalar_port -sd_name ${sd_name} -port_name {P9_19} -port_direction {INOUT}
+sd_create_scalar_port -sd_name ${sd_name} -port_name {P9_20} -port_direction {INOUT}
 
 #sd_create_scalar_port -sd_name ${sd_name} -port_name {P8_PIN32} -port_direction {OUT}
 #sd_create_scalar_port -sd_name ${sd_name} -port_name {P8_PIN33} -port_direction {OUT}
@@ -336,6 +337,12 @@ sd_connect_pins -sd_name ${sd_name} -pin_names {"IHC_SUBSYSTEM_0:presetn" "RECON
 sd_connect_pins -sd_name ${sd_name} -pin_names {"CS" "B_V_F_MSS:CS" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"B_V_F_MSS:I2C_0_SCL_F2M" "I2C0_SCL_BIBUF:Y" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"B_V_F_MSS:I2C_0_SDA_F2M" "I2C0_SDA_BIBUF:Y" }
+
+sd_connect_pins -sd_name ${sd_name} -pin_names {"I2C0_SDA_BIBUF:PAD" "P9_20"}
+sd_connect_pins -sd_name ${sd_name} -pin_names {"I2C0_SCL_BIBUF:PAD" "P9_19"}
+
+
+
 sd_connect_pins -sd_name ${sd_name} -pin_names {"B_V_F_MSS:I2C_1_SCL" "I2C_1_SCL" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"B_V_F_MSS:I2C_1_SDA" "I2C_1_SDA" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"B_V_F_MSS:MAC_1_MDC" "MAC_1_MDC" }
