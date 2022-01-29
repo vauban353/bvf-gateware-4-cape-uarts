@@ -63,10 +63,6 @@ sd_create_scalar_port -sd_name ${sd_name} -port_name {PCIESS_LANE_RXD0_N} -port_
 sd_create_scalar_port -sd_name ${sd_name} -port_name {PCIESS_LANE_TXD0_P} -port_direction {OUT} -port_is_pad {1}
 sd_create_scalar_port -sd_name ${sd_name} -port_name {PCIESS_LANE_TXD0_N} -port_direction {OUT} -port_is_pad {1}
 sd_create_scalar_port -sd_name ${sd_name} -port_name {PCIE_1_PERST_N} -port_direction {IN}
-sd_create_scalar_port -sd_name ${sd_name} -port_name {QSPI_CS} -port_direction {OUT} -port_is_pad {1}
-sd_create_scalar_port -sd_name ${sd_name} -port_name {QSPI_CLK} -port_direction {OUT} -port_is_pad {1}
-sd_create_scalar_port -sd_name ${sd_name} -port_name {QSPI_DATA0} -port_direction {INOUT} -port_is_pad {1}
-sd_create_scalar_port -sd_name ${sd_name} -port_name {QSPI_DATA1} -port_direction {INOUT} -port_is_pad {1}
 sd_create_scalar_port -sd_name ${sd_name} -port_name {SPI_0_CLK_M2F} -port_direction {OUT}
 sd_create_scalar_port -sd_name ${sd_name} -port_name {SPI_0_DO_M2F} -port_direction {OUT}
 sd_create_scalar_port -sd_name ${sd_name} -port_name {SPI_0_SS1_M2F} -port_direction {OUT}
@@ -103,6 +99,17 @@ sd_create_bus_port -sd_name ${sd_name} -port_name {DQ} -port_direction {INOUT} -
 sd_create_bus_port -sd_name ${sd_name} -port_name {DQS} -port_direction {INOUT} -port_range {[3:0]} -port_is_pad {1}
 sd_create_bus_port -sd_name ${sd_name} -port_name {DQS_N} -port_direction {INOUT} -port_range {[3:0]} -port_is_pad {1}
 sd_create_bus_port -sd_name ${sd_name} -port_name {DM} -port_direction {OUT} -port_range {[3:0]} -port_is_pad {1}
+
+
+#-------------------------------------------------------------------------------
+# Analog to Digital Converter pins (for cape analog inputs)
+#-------------------------------------------------------------------------------
+sd_create_scalar_port -sd_name ${sd_name} -port_name {ADC_CSn} -port_direction {OUT}
+sd_create_scalar_port -sd_name ${sd_name} -port_name {ADC_SCK} -port_direction {OUT}
+sd_create_scalar_port -sd_name ${sd_name} -port_name {ADC_MOSI} -port_direction {INOUT}
+sd_create_scalar_port -sd_name ${sd_name} -port_name {ADC_MISO} -port_direction {INOUT}
+sd_create_scalar_port -sd_name ${sd_name} -port_name {ADC_IRQn} -port_direction {IN}
+sd_create_scalar_port -sd_name ${sd_name} -port_name {ADC_MCLK} -port_direction {INOUT}
 
 #-------------------------------------------------------------------------------
 # Cape pins
@@ -291,11 +298,6 @@ sd_mark_pins_unused -sd_name ${sd_name} -pin_names {PCIE:PCIE_1_DLUP_EXIT}
 
 
 
-# Add QSPI_DATA2_BIBUF instance
-sd_instantiate_macro -sd_name ${sd_name} -macro_name {BIBUF} -instance_name {QSPI_DATA2_BIBUF}
-
-
-
 # Add RECONFIGURATION_INTERFACE_0 instance
 sd_instantiate_component -sd_name ${sd_name} -component_name {RECONFIGURATION_INTERFACE} -instance_name {RECONFIGURATION_INTERFACE_0}
 
@@ -354,8 +356,6 @@ sd_connect_pins -sd_name ${sd_name} -pin_names {"B_V_F_MSS:I2C_0_SCL_OE_M2F" "I2
 sd_connect_pins -sd_name ${sd_name} -pin_names {"B_V_F_MSS:I2C_0_SDA_OE_M2F" "I2C0_SDA_BIBUF:E" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"B_V_F_MSS:MSS_RESET_N_M2F" "CLOCKS_AND_RESETS:EXT_RST_N" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"MSS_PLL_LOCKS:Y" "CLOCKS_AND_RESETS:MSS_PLL_LOCKS" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"B_V_F_MSS:QSPI_DATA2_M2F" "QSPI_DATA2_BIBUF:D" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"B_V_F_MSS:QSPI_DATA2_OE_M2F" "QSPI_DATA2_BIBUF:E" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"ODT" "B_V_F_MSS:ODT" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"PCIE:PCIE_1_PERST_N" "PCIE_1_PERST_N" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"PCIESS_LANE_RXD0_N" "PCIE:PCIESS_LANE_RXD0_N" }
@@ -375,11 +375,24 @@ sd_connect_pins -sd_name ${sd_name} -pin_names {"PCIESS_LANE_TXD2_P" "PCIE:PCIES
 sd_connect_pins -sd_name ${sd_name} -pin_names {"PCIESS_LANE_TXD3_N" "PCIE:PCIESS_LANE_TXD3_N" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"PCIESS_LANE_TXD3_P" "PCIE:PCIESS_LANE_TXD3_P" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"PCIE:PCIE_1_INTERRUPT_OUT" "B_V_F_MSS:MSS_INT_F2M[1]" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"B_V_F_MSS:QSPI_CLK" "QSPI_CLK" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"B_V_F_MSS:QSPI_SS0" "QSPI_CS" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"B_V_F_MSS:QSPI_DATA0" "QSPI_DATA0" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"B_V_F_MSS:QSPI_DATA1" "QSPI_DATA1" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"B_V_F_MSS:QSPI_DATA2_F2M" "QSPI_DATA2_BIBUF:Y" }
+
+
+#-------------------------------------------------------------------------------
+# TODO: Connect ADC_MCLK_BIBUF_0:D to a 4.915 MHz clock.
+sd_instantiate_macro -sd_name ${sd_name} -macro_name {BIBUF} -instance_name {ADC_MCLK_BIBUF_0}
+sd_mark_pins_unused -sd_name ${sd_name} -pin_names {ADC_MCLK_BIBUF_0:Y} 
+sd_connect_pins_to_constant -sd_name ${sd_name} -pin_names {ADC_MCLK_BIBUF_0:D} -value {VCC} 
+
+sd_connect_pins -sd_name ${sd_name} -pin_names {"B_V_F_MSS:QSPI_CLK" "ADC_SCK" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"B_V_F_MSS:QSPI_SS0" "ADC_CSn" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"B_V_F_MSS:QSPI_DATA0" "ADC_MOSI" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"B_V_F_MSS:QSPI_DATA1" "ADC_MISO" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"ADC_MCLK" "ADC_MCLK_BIBUF_0:PAD"} 
+#sd_connect_pins -sd_name ${sd_name} -pin_names {"ADC_MCLK_BIBUF_0:E" "sdio_register_0:SDIO_control"}
+sd_connect_pins_to_constant -sd_name ${sd_name} -pin_names {ADC_MCLK_BIBUF_0:E} -value {GND}
+sd_connect_pins -sd_name ${sd_name} -pin_names {"ADC_IRQn" "B_V_F_MSS:MSS_INT_F2M[0]" }
+
+#-------------------------------------------------------------------------------
 sd_connect_pins -sd_name ${sd_name} -pin_names {"REF_CLK_PAD_N" "CLOCKS_AND_RESETS:REF_CLK_PAD_N" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"REF_CLK_PAD_P" "CLOCKS_AND_RESETS:REF_CLK_PAD_P" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"REFCLK" "B_V_F_MSS:REFCLK" }
@@ -650,6 +663,6 @@ sd_mark_pins_unused -sd_name ${sd_name} -pin_names {RECONFIGURATION_INTERFACE_0:
 auto_promote_pad_pins -promote_all 1
 # Save the smartDesign
 save_smartdesign -sd_name ${sd_name}
-# Generate SmartDesign MPFS_ICICLE_eMMC
+# Generate SmartDesign B_V_F_BASE_DESIGN
 generate_component -component_name ${sd_name}
 
