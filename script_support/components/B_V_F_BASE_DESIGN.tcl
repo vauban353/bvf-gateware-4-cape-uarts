@@ -26,15 +26,6 @@ sd_create_scalar_port -sd_name ${sd_name} -port_name {SGMII_TX1_P} -port_directi
 sd_create_scalar_port -sd_name ${sd_name} -port_name {SGMII_TX1_N} -port_direction {OUT} -port_is_pad {1}
 sd_create_scalar_port -sd_name ${sd_name} -port_name {MAC_1_MDIO} -port_direction {INOUT} -port_is_pad {1}
 sd_create_scalar_port -sd_name ${sd_name} -port_name {MAC_1_MDC} -port_direction {OUT} -port_is_pad {1}
-sd_create_scalar_port -sd_name ${sd_name} -port_name {VSC_8662_RESETN} -port_direction {OUT}
-sd_create_scalar_port -sd_name ${sd_name} -port_name {VSC_8662_CMODE4} -port_direction {OUT}
-sd_create_scalar_port -sd_name ${sd_name} -port_name {VSC_8662_CMODE5} -port_direction {OUT}
-sd_create_scalar_port -sd_name ${sd_name} -port_name {VSC_8662_CMODE6} -port_direction {OUT}
-sd_create_scalar_port -sd_name ${sd_name} -port_name {VSC_8662_CMODE7} -port_direction {OUT}
-sd_create_scalar_port -sd_name ${sd_name} -port_name {VSC_8662_SRESET} -port_direction {OUT}
-sd_create_scalar_port -sd_name ${sd_name} -port_name {VSC_8662_OSCEN} -port_direction {OUT}
-sd_create_scalar_port -sd_name ${sd_name} -port_name {VSC_8662_PLLMODE} -port_direction {OUT}
-sd_create_scalar_port -sd_name ${sd_name} -port_name {VSC_8662_CMODE3} -port_direction {OUT}
 sd_create_scalar_port -sd_name ${sd_name} -port_name {MMUART_3_TXD_M2F} -port_direction {OUT}
 sd_create_scalar_port -sd_name ${sd_name} -port_name {MMUART_0_TXD_M2F} -port_direction {OUT}
 sd_create_scalar_port -sd_name ${sd_name} -port_name {MMUART_1_TXD_M2F} -port_direction {OUT}
@@ -186,14 +177,6 @@ sd_create_scalar_port -sd_name ${sd_name} -port_name {P9_30} -port_direction {IN
 sd_create_scalar_port -sd_name ${sd_name} -port_name {P9_27} -port_direction {INOUT}
 sd_create_scalar_port -sd_name ${sd_name} -port_name {P9_25} -port_direction {INOUT}
 
-sd_connect_pins_to_constant -sd_name ${sd_name} -pin_names {VSC_8662_CMODE4} -value {GND}
-sd_connect_pins_to_constant -sd_name ${sd_name} -pin_names {VSC_8662_CMODE5} -value {GND}
-sd_connect_pins_to_constant -sd_name ${sd_name} -pin_names {VSC_8662_CMODE6} -value {VCC}
-sd_connect_pins_to_constant -sd_name ${sd_name} -pin_names {VSC_8662_CMODE7} -value {GND}
-sd_connect_pins_to_constant -sd_name ${sd_name} -pin_names {VSC_8662_SRESET} -value {VCC}
-sd_connect_pins_to_constant -sd_name ${sd_name} -pin_names {VSC_8662_OSCEN} -value {VCC}
-sd_connect_pins_to_constant -sd_name ${sd_name} -pin_names {VSC_8662_PLLMODE} -value {VCC}
-sd_connect_pins_to_constant -sd_name ${sd_name} -pin_names {VSC_8662_CMODE3} -value {GND}
 sd_invert_pins -sd_name ${sd_name} -pin_names {USB_ULPI_RESET}
 
 # Add CLOCKS_AND_RESETS instance
@@ -429,7 +412,7 @@ sd_connect_pins -sd_name ${sd_name} -pin_names {"B_V_F_MSS:USB_DATA7" "USB_DATA7
 sd_connect_pins -sd_name ${sd_name} -pin_names {"B_V_F_MSS:USB_DIR" "USB_DIR" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"B_V_F_MSS:USB_NXT" "USB_NXT" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"B_V_F_MSS:USB_STP" "USB_STP" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"PCIE_INITIATOR:ARESETN" "VSC_8662_RESETN" "USB_ULPI_RESET" "FIC0_INITIATOR:ARESETN" "PCIE:AXI_CLK_STABLE" "CLOCKS_AND_RESETS:RESETN_CLK_125MHz" "AXI_ADDRESS_SHIM_0:RESETN"}
+sd_connect_pins -sd_name ${sd_name} -pin_names {"PCIE_INITIATOR:ARESETN" "USB_ULPI_RESET" "FIC0_INITIATOR:ARESETN" "PCIE:AXI_CLK_STABLE" "CLOCKS_AND_RESETS:RESETN_CLK_125MHz" "AXI_ADDRESS_SHIM_0:RESETN"}
 sd_connect_pins -sd_name ${sd_name} -pin_names {"SD_CLK_EMMC_CLK" "B_V_F_MSS:SD_CLK_EMMC_CLK" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"SD_CMD_EMMC_CMD" "B_V_F_MSS:SD_CMD_EMMC_CMD" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"SD_DATA0_EMMC_DATA0" "B_V_F_MSS:SD_DATA0_EMMC_DATA0" }
