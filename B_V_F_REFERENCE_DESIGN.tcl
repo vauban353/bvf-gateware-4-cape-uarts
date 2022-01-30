@@ -87,8 +87,8 @@ new_project \
     -linked_files_root_dir_env {} \
     -hdl {VERILOG} \
     -family {PolarFireSoC} \
-    -die {MPFS025T} \
-    -package {FCVG484_Eval} \
+    -die {MPFS250T} \
+    -package {FCVG484} \
     -speed {STD} \
     -die_voltage {1.05} \
     -part_range {EXT} \
@@ -141,6 +141,8 @@ source ./script_support/B_V_F_recursive.tcl
 
 import_files \
     -convert_EDN_to_HDL 0 \
+    -io_pdc "${constraint_path}/base_design.pdc" \
+    -io_pdc "${constraint_path}/cape.pdc" \
     -io_pdc "${constraint_path}/ICICLE_PCIE.pdc" \
     -io_pdc "${constraint_path}/ICICLE_USB.pdc"
 
@@ -150,6 +152,8 @@ import_files \
 
 organize_tool_files \
     -tool {PLACEROUTE} \
+    -file "${project_dir}/constraint/io/base_design.pdc" \
+    -file "${project_dir}/constraint/io/cape.pdc" \
     -file "${project_dir}/constraint/io/ICICLE_PCIE.pdc" \
     -file "${project_dir}/constraint/io/ICICLE_USB.pdc" \
     -module {B_V_F_BASE_DESIGN::work} \
