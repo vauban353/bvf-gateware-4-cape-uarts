@@ -197,7 +197,7 @@ sd_instantiate_component -sd_name ${sd_name} -component_name {FIC3_INITIATOR} -i
 
 
 # Add APB_ARBITER instance
-sd_instantiate_hdl_core -sd_name {B_V_F_BASE_DESIGN} -hdl_core_name {APB_ARBITER} -instance_name {} 
+sd_instantiate_hdl_core -sd_name ${sd_name} -hdl_core_name {APB_ARBITER} -instance_name {} 
 
 
 
@@ -214,7 +214,7 @@ sd_connect_pins_to_constant -sd_name ${sd_name} -pin_names {I2C0_SDA_BIBUF:D} -v
 
 
 # Add IHC_SUBSYSTEM instance
-sd_instantiate_component -sd_name {B_V_F_BASE_DESIGN} -component_name {IHC_SUBSYSTEM} -instance_name {IHC_SUBSYSTEM_0} 
+sd_instantiate_component -sd_name ${sd_name} -component_name {IHC_SUBSYSTEM} -instance_name {IHC_SUBSYSTEM_0} 
 
 
 # Add MSS instance
@@ -304,7 +304,7 @@ sd_instantiate_component -sd_name ${sd_name} -component_name {RECONFIGURATION_IN
 
 
 # Add AXI_ADDRESS_SHIM instance
-sd_instantiate_hdl_core -sd_name {B_V_F_BASE_DESIGN} -hdl_core_name {AXI_ADDRESS_SHIM} -instance_name {AXI_ADDRESS_SHIM_0} 
+sd_instantiate_hdl_core -sd_name ${sd_name} -hdl_core_name {AXI_ADDRESS_SHIM} -instance_name {AXI_ADDRESS_SHIM_0} 
 
 
 
@@ -635,6 +635,44 @@ sd_connect_pins -sd_name ${sd_name} -pin_names {"CAPE:P9_42" "P9_42"}
 
 
 sd_connect_pins -sd_name ${sd_name} -pin_names {"CAPE:APB_SLAVE" "FIC3_INITIATOR:APBmslave1"}
+
+#-------------------------------------------------------------------------------
+# MIPI CSI-2 RX interface
+#-------------------------------------------------------------------------------
+sd_create_scalar_port -sd_name ${sd_name} -port_name {CAM_C_N} -port_direction {IN} 
+sd_create_scalar_port -sd_name ${sd_name} -port_name {CAM_C_P} -port_direction {IN} 
+sd_create_scalar_port -sd_name ${sd_name} -port_name {CAM_D0_N} -port_direction {IN} 
+sd_create_scalar_port -sd_name ${sd_name} -port_name {CAM_D0_P} -port_direction {IN} 
+sd_create_scalar_port -sd_name ${sd_name} -port_name {CAM_D1_N} -port_direction {IN} 
+sd_create_scalar_port -sd_name ${sd_name} -port_name {CAM_D1_P} -port_direction {IN} 
+sd_create_scalar_port -sd_name ${sd_name} -port_name {CAM_D2_N} -port_direction {IN} 
+sd_create_scalar_port -sd_name ${sd_name} -port_name {CAM_D2_P} -port_direction {IN} 
+sd_create_scalar_port -sd_name ${sd_name} -port_name {CAM_D3_N} -port_direction {IN} 
+sd_create_scalar_port -sd_name ${sd_name} -port_name {CAM_D3_P} -port_direction {IN} 
+
+sd_instantiate_component -sd_name ${sd_name} -component_name {MIPI_CSI_INTERFACE} -instance_name {MIPI_CSI_INTERFACE_0} 
+sd_connect_pin_to_port -sd_name ${sd_name} -pin_name {MIPI_CSI_INTERFACE_0:CSI1_PWND} -port_name {} 
+
+sd_create_pin_slices -sd_name ${sd_name} -pin_name {MIPI_CSI_INTERFACE_0:RXD_N} -pin_slices {"[3:3]"} 
+sd_create_pin_slices -sd_name ${sd_name} -pin_name {MIPI_CSI_INTERFACE_0:RXD_N} -pin_slices {"[2:2]"} 
+sd_create_pin_slices -sd_name ${sd_name} -pin_name {MIPI_CSI_INTERFACE_0:RXD_N} -pin_slices {"[1:1]"} 
+sd_create_pin_slices -sd_name ${sd_name} -pin_name {MIPI_CSI_INTERFACE_0:RXD_N} -pin_slices {"[0:0]"} 
+sd_create_pin_slices -sd_name ${sd_name} -pin_name {MIPI_CSI_INTERFACE_0:RXD} -pin_slices {"[3:3]"} 
+sd_create_pin_slices -sd_name ${sd_name} -pin_name {MIPI_CSI_INTERFACE_0:RXD} -pin_slices {"[2:2]"} 
+sd_create_pin_slices -sd_name ${sd_name} -pin_name {MIPI_CSI_INTERFACE_0:RXD} -pin_slices {"[1:1]"} 
+sd_create_pin_slices -sd_name ${sd_name} -pin_name {MIPI_CSI_INTERFACE_0:RXD} -pin_slices {"[0:0]"} 
+
+sd_connect_pins -sd_name ${sd_name} -pin_names {"CAM_C_N" "MIPI_CSI_INTERFACE_0:RX_CLK_N"} 
+sd_connect_pins -sd_name ${sd_name} -pin_names {"CAM_C_P" "MIPI_CSI_INTERFACE_0:RX_CLK_P"} 
+sd_connect_pins -sd_name ${sd_name} -pin_names {"CAM_D0_P" "MIPI_CSI_INTERFACE_0:RXD[0:0]"} 
+sd_connect_pins -sd_name ${sd_name} -pin_names {"CAM_D0_N" "MIPI_CSI_INTERFACE_0:RXD_N[0:0]"} 
+sd_connect_pins -sd_name ${sd_name} -pin_names {"CAM_D1_P" "MIPI_CSI_INTERFACE_0:RXD[1:1]"} 
+sd_connect_pins -sd_name ${sd_name} -pin_names {"CAM_D1_N" "MIPI_CSI_INTERFACE_0:RXD_N[1:1]"} 
+sd_connect_pins -sd_name ${sd_name} -pin_names {"CAM_D2_N" "MIPI_CSI_INTERFACE_0:RXD_N[2:2]"} 
+sd_connect_pins -sd_name ${sd_name} -pin_names {"CAM_D2_P" "MIPI_CSI_INTERFACE_0:RXD[2:2]"} 
+sd_connect_pins -sd_name ${sd_name} -pin_names {"CAM_D3_P" "MIPI_CSI_INTERFACE_0:RXD[3:3]"} 
+sd_connect_pins -sd_name ${sd_name} -pin_names {"CAM_D3_N" "MIPI_CSI_INTERFACE_0:RXD_N[3:3]"} 
+
 
 #-------------------------------------------------------------------------------
 # Temporary connections to allow running through complete flow.

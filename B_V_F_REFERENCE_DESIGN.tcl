@@ -128,6 +128,7 @@ download_core -vlnv {Actel:Simulation:RESET_GEN:1.0.1} -location {www.microchip-
 download_core -vlnv {Actel:DirectCore:corepwm:4.5.100} -location {www.microchip-ip.com/repositories/DirectCore} 
 download_core -vlnv {Actel:DirectCore:COREI2C:7.2.101} -location {www.microchip-ip.com/repositories/DirectCore} 
 download_core -vlnv {Actel:DirectCore:CoreUARTapb:5.7.100} -location {www.microchip-ip.com/repositories/DirectCore} 
+download_core -vlnv {Actel:SystemBuilder:PF_IOD_GENERIC_RX:2.1.106} -location {www.microchip-ip.com/repositories/SgCore}
 
 #
 # // Generate base design
@@ -143,6 +144,7 @@ import_files \
     -convert_EDN_to_HDL 0 \
     -io_pdc "${constraint_path}/base_design.pdc" \
     -io_pdc "${constraint_path}/cape.pdc" \
+    -io_pdc "${constraint_path}/MIPI_CSI_INTERFACE.pdc" \
     -io_pdc "${constraint_path}/ICICLE_PCIE.pdc" \
     -io_pdc "${constraint_path}/ICICLE_USB.pdc"
 
@@ -154,6 +156,7 @@ organize_tool_files \
     -tool {PLACEROUTE} \
     -file "${project_dir}/constraint/io/base_design.pdc" \
     -file "${project_dir}/constraint/io/cape.pdc" \
+    -file "${project_dir}/constraint/io/MIPI_CSI_INTERFACE.pdc" \
     -file "${project_dir}/constraint/io/ICICLE_PCIE.pdc" \
     -file "${project_dir}/constraint/io/ICICLE_USB.pdc" \
     -module {B_V_F_BASE_DESIGN::work} \
