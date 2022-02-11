@@ -30,38 +30,38 @@ set_io -port_name P9_16	\
     -DIRECTION OUT
 
 
-set_io -port_name P9_19 \
-    -pin_name E13	\
-    -fixed true	\
-    -io_std LVCMOS33  \
-    -DIRECTION INOUT    
+#set_io -port_name P9_19 \
+#    -pin_name E13	\
+#    -fixed true	\
+#    -io_std LVCMOS33  \
+#    -DIRECTION INOUT    
     
-set_io -port_name P9_20	\
-    -pin_name F13	\
-    -fixed true	\
-    -io_std LVCMOS33  \
-    -DIRECTION INOUT
+#set_io -port_name P9_20	\
+#    -pin_name F13	\
+#    -fixed true	\
+#    -io_std LVCMOS33  \
+#    -DIRECTION INOUT
 
 
-set_io -port_name P9_23	\
-    -pin_name H13	\
-    -fixed true	\
-    -io_std LVCMOS33  \
-    -DIRECTION INOUT
+#set_io -port_name P9_23	\
+#    -pin_name H13	\
+#    -fixed true	\
+#    -io_std LVCMOS33  \
+#    -DIRECTION INOUT
 
 
-set_io -port_name P9_25	\
-    -pin_name F15	\
-    -fixed true	\
-    -io_std LVCMOS33  \
-    -DIRECTION INOUT
+#set_io -port_name P9_25	\
+#    -pin_name F15	\
+#    -fixed true	\
+#    -io_std LVCMOS33  \
+#    -DIRECTION INOUT
 
 
-set_io -port_name P9_27	\
-    -pin_name G15	\
-    -fixed true	\
-    -io_std LVCMOS33  \
-    -DIRECTION INOUT
+#set_io -port_name P9_27	\
+#    -pin_name G15	\
+#    -fixed true	\
+#    -io_std LVCMOS33  \
+#    -DIRECTION INOUT
 
 
 set_io -port_name P9_30	\
@@ -127,17 +127,17 @@ set_io -port_name P8_13	\
     -io_std LVCMOS33  \
     -DIRECTION INOUT
 
-set_io -port_name P8_14	\
-    -pin_name F10	\
-    -fixed true	\
-    -io_std LVCMOS33  \
-    -DIRECTION INOUT
+#set_io -port_name P8_14	\
+#    -pin_name F10	\
+#    -fixed true	\
+#    -io_std LVCMOS33  \
+#    -DIRECTION INOUT
 
-set_io -port_name P8_15	\
-    -pin_name E10	\
-    -fixed true	\
-    -io_std LVCMOS33  \
-    -DIRECTION INOUT
+#set_io -port_name P8_15	\
+#    -pin_name E10	\
+#    -fixed true	\
+#    -io_std LVCMOS33  \
+#    -DIRECTION INOUT
 
 set_io -port_name P8_16	\
     -pin_name A11	\
@@ -225,17 +225,17 @@ set_io -port_name P8_33	\
 #    -io_std LVCMOS33  \
 #    -DIRECTION INOUT
 	
-set_io -port_name P8_36	\
-    -pin_name A17	\
-    -fixed true	\
-    -io_std LVCMOS33  \
-    -DIRECTION INOUT
+#set_io -port_name P8_36	\
+#    -pin_name A17	\
+#    -fixed true	\
+#    -io_std LVCMOS33  \
+#    -DIRECTION INOUT
 	
-set_io -port_name P8_37	\
-    -pin_name A16	\
-    -fixed true	\
-    -io_std LVCMOS33  \
-    -DIRECTION INOUT
+#set_io -port_name P8_37	\
+#    -pin_name A16	\
+#    -fixed true	\
+#    -io_std LVCMOS33  \
+#    -DIRECTION INOUT
 	
 set_io -port_name P8_38	\
     -pin_name C17	\
@@ -249,45 +249,45 @@ set_io -port_name P8_39	\
     -io_std LVCMOS33  \
     -DIRECTION INOUT
 	
-set_io -port_name P8_40	\
-    -pin_name D17	\
-    -fixed true	\
-    -io_std LVCMOS33  \
-    -DIRECTION INOUT
+#set_io -port_name P8_40	\
+#    -pin_name D17	\
+#    -fixed true	\
+#    -io_std LVCMOS33  \
+#    -DIRECTION INOUT
 	
-set_io -port_name P8_41	\
-    -pin_name C16	\
-    -fixed true	\
-    -io_std LVCMOS33  \
-    -DIRECTION INOUT
+#set_io -port_name P8_41	\
+#    -pin_name C16	\
+#    -fixed true	\
+#    -io_std LVCMOS33  \
+#    -DIRECTION INOUT
 	
-set_io -port_name P8_42	\
-    -pin_name D16	\
-    -fixed true	\
-    -io_std LVCMOS33  \
-    -DIRECTION INOUT
+#set_io -port_name P8_42	\
+#    -pin_name D16	\
+#    -fixed true	\
+#    -io_std LVCMOS33  \
+#    -DIRECTION INOUT
 	
-set_io -port_name P8_43	\
-    -pin_name B19	\
-    -fixed true	\
-    -io_std LVCMOS33  \
-    -DIRECTION INOUT
+#set_io -port_name P8_43	\
+#    -pin_name B19	\
+#    -fixed true	\
+#    -io_std LVCMOS33  \
+#    -DIRECTION INOUT
 	
-set_io -port_name P8_44	\
-    -pin_name B20	\
-    -fixed true	\
-    -io_std LVCMOS33  \
-    -DIRECTION INOUT
+#set_io -port_name P8_44	\
+#    -pin_name B20	\
+#    -fixed true	\
+#    -io_std LVCMOS33  \
+#    -DIRECTION INOUT
 	
-set_io -port_name P8_45	\
-    -pin_name C20	\
-    -fixed true	\
-    -io_std LVCMOS33  \
-    -DIRECTION INOUT
+#set_io -port_name P8_45	\
+#    -pin_name C20	\
+#    -fixed true	\
+#    -io_std LVCMOS33  \
+#    -DIRECTION INOUT
 	
-set_io -port_name P8_46	\
-    -pin_name C19	\
-    -fixed true	\
-    -io_std LVCMOS33  \
-    -DIRECTION INOUT
+#set_io -port_name P8_46	\
+#    -pin_name C19	\
+#    -fixed true	\
+#    -io_std LVCMOS33  \
+#    -DIRECTION INOUT
 	
