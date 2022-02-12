@@ -20,20 +20,19 @@ sd_create_scalar_port -sd_name ${sd_name} -port_name {USB_DATA4} -port_direction
 sd_create_scalar_port -sd_name ${sd_name} -port_name {USB_DATA5} -port_direction {INOUT} -port_is_pad {1}
 sd_create_scalar_port -sd_name ${sd_name} -port_name {USB_DATA6} -port_direction {INOUT} -port_is_pad {1}
 sd_create_scalar_port -sd_name ${sd_name} -port_name {USB_DATA7} -port_direction {INOUT} -port_is_pad {1}
-sd_create_scalar_port -sd_name ${sd_name} -port_name {SGMII_RX1_P} -port_direction {IN} -port_is_pad {1}
-sd_create_scalar_port -sd_name ${sd_name} -port_name {SGMII_RX1_N} -port_direction {IN} -port_is_pad {1}
-sd_create_scalar_port -sd_name ${sd_name} -port_name {SGMII_TX1_P} -port_direction {OUT} -port_is_pad {1}
-sd_create_scalar_port -sd_name ${sd_name} -port_name {SGMII_TX1_N} -port_direction {OUT} -port_is_pad {1}
-sd_create_scalar_port -sd_name ${sd_name} -port_name {MAC_1_MDIO} -port_direction {INOUT} -port_is_pad {1}
-sd_create_scalar_port -sd_name ${sd_name} -port_name {MAC_1_MDC} -port_direction {OUT} -port_is_pad {1}
 sd_create_scalar_port -sd_name ${sd_name} -port_name {MMUART_3_TXD_M2F} -port_direction {OUT}
-sd_create_scalar_port -sd_name ${sd_name} -port_name {MMUART_0_TXD_M2F} -port_direction {OUT}
-sd_create_scalar_port -sd_name ${sd_name} -port_name {MMUART_1_TXD_M2F} -port_direction {OUT}
+sd_create_scalar_port -sd_name ${sd_name} -port_name {UART0_TXD} -port_direction {OUT}
+sd_create_scalar_port -sd_name ${sd_name} -port_name {M2_UART_TXD} -port_direction {OUT}
 sd_create_scalar_port -sd_name ${sd_name} -port_name {MMUART_2_TXD_M2F} -port_direction {OUT}
-sd_create_scalar_port -sd_name ${sd_name} -port_name {MMUART_0_RXD_F2M} -port_direction {IN}
+sd_create_scalar_port -sd_name ${sd_name} -port_name {UART0_RXD} -port_direction {IN}
 sd_create_scalar_port -sd_name ${sd_name} -port_name {MMUART_3_RXD_F2M} -port_direction {IN}
 sd_create_scalar_port -sd_name ${sd_name} -port_name {MMUART_2_RXD_F2M} -port_direction {IN}
-sd_create_scalar_port -sd_name ${sd_name} -port_name {MMUART_1_RXD_F2M} -port_direction {IN}
+sd_create_scalar_port -sd_name ${sd_name} -port_name {M2_UART_RXD} -port_direction {IN}
+
+sd_create_scalar_port -sd_name ${sd_name} -port_name {M2_UART_RTS} -port_direction {OUT}
+sd_create_scalar_port -sd_name ${sd_name} -port_name {M2_UART_CTS} -port_direction {IN}
+
+
 sd_create_scalar_port -sd_name ${sd_name} -port_name {RESET_N} -port_direction {OUT} -port_is_pad {1}
 sd_create_scalar_port -sd_name ${sd_name} -port_name {ODT} -port_direction {OUT} -port_is_pad {1}
 sd_create_scalar_port -sd_name ${sd_name} -port_name {CKE} -port_direction {OUT} -port_is_pad {1}
@@ -233,8 +232,6 @@ sd_create_pin_slices -sd_name ${sd_name} -pin_name {B_V_F_MSS:MSS_INT_F2M} -pin_
 sd_connect_pins_to_constant -sd_name ${sd_name} -pin_names {B_V_F_MSS:MSS_INT_F2M[58:5]} -value {GND}
 sd_connect_pins_to_constant -sd_name ${sd_name} -pin_names {B_V_F_MSS:SPI_0_SS_F2M} -value {GND}
 sd_connect_pins_to_constant -sd_name ${sd_name} -pin_names {B_V_F_MSS:SPI_0_CLK_F2M} -value {GND}
-sd_mark_pins_unused -sd_name ${sd_name} -pin_names {B_V_F_MSS:MMUART_0_TXD_OE_M2F}
-sd_mark_pins_unused -sd_name ${sd_name} -pin_names {B_V_F_MSS:MMUART_1_TXD_OE_M2F}
 sd_mark_pins_unused -sd_name ${sd_name} -pin_names {B_V_F_MSS:MSS_INT_M2F}
 sd_mark_pins_unused -sd_name ${sd_name} -pin_names {B_V_F_MSS:MAC_0_TSU_SOF_TX_M2F}
 sd_mark_pins_unused -sd_name ${sd_name} -pin_names {B_V_F_MSS:MAC_0_TSU_SYNC_FRAME_TX_M2F}
@@ -246,16 +243,6 @@ sd_mark_pins_unused -sd_name ${sd_name} -pin_names {B_V_F_MSS:MAC_0_TSU_SYNC_FRA
 sd_mark_pins_unused -sd_name ${sd_name} -pin_names {B_V_F_MSS:MAC_0_TSU_DELAY_REQ_RX_M2F}
 sd_mark_pins_unused -sd_name ${sd_name} -pin_names {B_V_F_MSS:MAC_0_TSU_PDELAY_REQ_RX_M2F}
 sd_mark_pins_unused -sd_name ${sd_name} -pin_names {B_V_F_MSS:MAC_0_TSU_PDELAY_RESP_RX_M2F}
-sd_mark_pins_unused -sd_name ${sd_name} -pin_names {B_V_F_MSS:MAC_1_TSU_SOF_TX_M2F}
-sd_mark_pins_unused -sd_name ${sd_name} -pin_names {B_V_F_MSS:MAC_1_TSU_SYNC_FRAME_TX_M2F}
-sd_mark_pins_unused -sd_name ${sd_name} -pin_names {B_V_F_MSS:MAC_1_TSU_DELAY_REQ_TX_M2F}
-sd_mark_pins_unused -sd_name ${sd_name} -pin_names {B_V_F_MSS:MAC_1_TSU_PDELAY_REQ_TX_M2F}
-sd_mark_pins_unused -sd_name ${sd_name} -pin_names {B_V_F_MSS:MAC_1_TSU_PDELAY_RESP_TX_M2F}
-sd_mark_pins_unused -sd_name ${sd_name} -pin_names {B_V_F_MSS:MAC_1_TSU_SOF_RX_M2F}
-sd_mark_pins_unused -sd_name ${sd_name} -pin_names {B_V_F_MSS:MAC_1_TSU_SYNC_FRAME_RX_M2F}
-sd_mark_pins_unused -sd_name ${sd_name} -pin_names {B_V_F_MSS:MAC_1_TSU_DELAY_REQ_RX_M2F}
-sd_mark_pins_unused -sd_name ${sd_name} -pin_names {B_V_F_MSS:MAC_1_TSU_PDELAY_REQ_RX_M2F}
-sd_mark_pins_unused -sd_name ${sd_name} -pin_names {B_V_F_MSS:MAC_1_TSU_PDELAY_RESP_RX_M2F}
 sd_mark_pins_unused -sd_name ${sd_name} -pin_names {B_V_F_MSS:FIC_2_AXI4_TARGET}
 
 
@@ -328,12 +315,18 @@ sd_connect_pins -sd_name ${sd_name} -pin_names {"I2C0_SCL_BIBUF:PAD" "P9_19"}
 
 sd_connect_pins -sd_name ${sd_name} -pin_names {"B_V_F_MSS:I2C_1_SCL" "I2C_1_SCL" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"B_V_F_MSS:I2C_1_SDA" "I2C_1_SDA" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"B_V_F_MSS:MAC_1_MDC" "MAC_1_MDC" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"B_V_F_MSS:MAC_1_MDIO" "MAC_1_MDIO" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"B_V_F_MSS:MMUART_0_RXD_F2M" "MMUART_0_RXD_F2M" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"B_V_F_MSS:MMUART_0_TXD_M2F" "MMUART_0_TXD_M2F" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"B_V_F_MSS:MMUART_1_RXD_F2M" "MMUART_1_RXD_F2M" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"B_V_F_MSS:MMUART_1_TXD_M2F" "MMUART_1_TXD_M2F" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"B_V_F_MSS:MMUART_0_RXD" "UART0_RXD" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"B_V_F_MSS:MMUART_0_TXD" "UART0_TXD" }
+
+sd_connect_pins -sd_name ${sd_name} -pin_names {"B_V_F_MSS:MMUART_1_RXD_F2M" "M2_UART_RXD" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"B_V_F_MSS:MMUART_1_TXD_M2F" "M2_UART_TXD" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"B_V_F_MSS:MMUART_1_RTS_M2F" "M2_UART_RTS" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"B_V_F_MSS:MMUART_1_CTS_F2M" "M2_UART_CTS" }
+sd_connect_pins_to_constant -sd_name ${sd_name} -pin_names {B_V_F_MSS:MMUART_1_DCD_F2M} -value {VCC}
+sd_connect_pins_to_constant -sd_name ${sd_name} -pin_names {B_V_F_MSS:MMUART_1_DSR_F2M} -value {VCC}
+sd_connect_pins_to_constant -sd_name ${sd_name} -pin_names {B_V_F_MSS:MMUART_1_RI_F2M} -value {VCC}
+sd_mark_pins_unused -sd_name ${sd_name} -pin_names {B_V_F_MSS:MMUART_1_DTR_M2F}
+
 sd_connect_pins -sd_name ${sd_name} -pin_names {"B_V_F_MSS:MMUART_2_RXD_F2M" "MMUART_2_RXD_F2M" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"B_V_F_MSS:MMUART_2_TXD_M2F" "MMUART_2_TXD_M2F" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"B_V_F_MSS:MMUART_3_RXD_F2M" "MMUART_3_RXD_F2M" }
@@ -390,12 +383,8 @@ sd_connect_pins -sd_name ${sd_name} -pin_names {"REFCLK_N" "B_V_F_MSS:REFCLK_N" 
 sd_connect_pins -sd_name ${sd_name} -pin_names {"RESET_N" "B_V_F_MSS:RESET_N" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"SGMII_RX0_N" "B_V_F_MSS:SGMII_RX0_N" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"SGMII_RX0_P" "B_V_F_MSS:SGMII_RX0_P" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"SGMII_RX1_N" "B_V_F_MSS:SGMII_RX1_N" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"SGMII_RX1_P" "B_V_F_MSS:SGMII_RX1_P" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"SGMII_TX0_N" "B_V_F_MSS:SGMII_TX0_N" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"SGMII_TX0_P" "B_V_F_MSS:SGMII_TX0_P" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"SGMII_TX1_N" "B_V_F_MSS:SGMII_TX1_N" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"SGMII_TX1_P" "B_V_F_MSS:SGMII_TX1_P" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"B_V_F_MSS:SPI_0_CLK_M2F" "SPI_0_CLK_M2F" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"B_V_F_MSS:SPI_0_DI_F2M" "SPI_0_DI_F2M" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"B_V_F_MSS:SPI_0_DO_M2F" "SPI_0_DO_M2F" }
