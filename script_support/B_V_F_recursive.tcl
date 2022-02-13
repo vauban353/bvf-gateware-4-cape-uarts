@@ -36,5 +36,6 @@ source script_support/components/P8_GPIO_LCD.tcl
 source script_support/components/CAPE_DEFAULT_GPIOS.tcl
 source script_support/components/CAPE_PWM.tcl
 source script_support/components/CAPE.tcl
+source script_support/components/M2_INTERFACE.tcl
 source script_support/components/B_V_F_BASE_DESIGN.tcl 
 set_root -module {B_V_F_BASE_DESIGN::work} 
