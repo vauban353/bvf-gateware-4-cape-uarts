@@ -128,6 +128,9 @@ sd_create_scalar_port -sd_name ${sd_name} -port_name {P8_46} -port_direction {IN
 
 sd_create_scalar_port -sd_name ${sd_name} -port_name {P8_13} -port_direction {OUT}
 sd_create_scalar_port -sd_name ${sd_name} -port_name {P8_19} -port_direction {OUT}
+
+sd_create_scalar_port -sd_name ${sd_name} -port_name {P9_11} -port_direction {IN}
+sd_create_scalar_port -sd_name ${sd_name} -port_name {P9_13} -port_direction {OUT}
 sd_create_scalar_port -sd_name ${sd_name} -port_name {P9_14} -port_direction {OUT}
 sd_create_scalar_port -sd_name ${sd_name} -port_name {P9_16} -port_direction {OUT}
 sd_create_scalar_port -sd_name ${sd_name} -port_name {P9_42} -port_direction {OUT}
@@ -432,6 +435,11 @@ sd_connect_pins -sd_name ${sd_name} -pin_names {"IHC_SUBSYSTEM_0:APB3mmaster" "A
 
 
 
+#-------------------------------------------------------------------------------
+# Cape
+#-------------------------------------------------------------------------------
+sd_connect_pins -sd_name ${sd_name} -pin_names {"B_V_F_MSS:MMUART_4_TXD_M2F" "P9_13"}
+sd_connect_pins -sd_name ${sd_name} -pin_names {"B_V_F_MSS:MMUART_4_RXD_F2M" "P9_11"}
 
 # Connect Default Cape GPIOs
 sd_create_pin_slices -sd_name ${sd_name} -pin_name {CAPE:GPIO_OE} -pin_slices {[0]}
@@ -651,7 +659,6 @@ sd_connect_pins -sd_name ${sd_name} -pin_names {"CAM_D3_N" "MIPI_CSI_INTERFACE_0
 #-------------------------------------------------------------------------------
 # Temporary connections to allow running through complete flow.
 #-------------------------------------------------------------------------------
-sd_connect_pins -sd_name ${sd_name} -pin_names {"B_V_F_MSS:MMUART_4_RXD_F2M" "B_V_F_MSS:MMUART_4_TXD_M2F"} 
 sd_connect_pins_to_constant -sd_name ${sd_name} -pin_names {B_V_F_MSS:MSS_INT_F2M[2:2]} -value {GND} 
 sd_connect_pins_to_constant -sd_name ${sd_name} -pin_names {B_V_F_MSS:MSS_INT_F2M[4:4]} -value {GND} 
 sd_connect_pins_to_constant -sd_name ${sd_name} -pin_names {B_V_F_MSS:MSS_INT_F2M[3:3]} -value {GND} 
