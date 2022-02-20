@@ -93,9 +93,10 @@ new_project \
     -die_voltage {1.05} \
     -part_range {EXT} \
     -adv_options {IO_DEFT_STD:LVCMOS 1.8V} \
-    -adv_options {RESTRICTPROBEPINS:1} \
+    -adv_options {RESTRICTPROBEPINS:0} \
     -adv_options {RESTRICTSPIPINS:0} \
     -adv_options {SYSTEM_CONTROLLER_SUSPEND_MODE:0} \
+    -adv_options {TARGETDEVICESFORMIGRATION:MPFS095T;MPFS160T;MPFS025TL;MPFS095TL;MPFS160TL;} \
     -adv_options {TEMPR:EXT} \
     -adv_options {VCCI_1.2_VOLTR:EXT} \
     -adv_options {VCCI_1.5_VOLTR:EXT} \
