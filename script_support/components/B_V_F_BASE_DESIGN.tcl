@@ -235,16 +235,6 @@ sd_connect_pins_to_constant -sd_name ${sd_name} -pin_names {B_V_F_MSS:MSS_INT_F2
 sd_connect_pins_to_constant -sd_name ${sd_name} -pin_names {B_V_F_MSS:SPI_0_SS_F2M} -value {GND}
 sd_connect_pins_to_constant -sd_name ${sd_name} -pin_names {B_V_F_MSS:SPI_0_CLK_F2M} -value {GND}
 sd_mark_pins_unused -sd_name ${sd_name} -pin_names {B_V_F_MSS:MSS_INT_M2F}
-sd_mark_pins_unused -sd_name ${sd_name} -pin_names {B_V_F_MSS:MAC_0_TSU_SOF_TX_M2F}
-sd_mark_pins_unused -sd_name ${sd_name} -pin_names {B_V_F_MSS:MAC_0_TSU_SYNC_FRAME_TX_M2F}
-sd_mark_pins_unused -sd_name ${sd_name} -pin_names {B_V_F_MSS:MAC_0_TSU_DELAY_REQ_TX_M2F}
-sd_mark_pins_unused -sd_name ${sd_name} -pin_names {B_V_F_MSS:MAC_0_TSU_PDELAY_REQ_TX_M2F}
-sd_mark_pins_unused -sd_name ${sd_name} -pin_names {B_V_F_MSS:MAC_0_TSU_PDELAY_RESP_TX_M2F}
-sd_mark_pins_unused -sd_name ${sd_name} -pin_names {B_V_F_MSS:MAC_0_TSU_SOF_RX_M2F}
-sd_mark_pins_unused -sd_name ${sd_name} -pin_names {B_V_F_MSS:MAC_0_TSU_SYNC_FRAME_RX_M2F}
-sd_mark_pins_unused -sd_name ${sd_name} -pin_names {B_V_F_MSS:MAC_0_TSU_DELAY_REQ_RX_M2F}
-sd_mark_pins_unused -sd_name ${sd_name} -pin_names {B_V_F_MSS:MAC_0_TSU_PDELAY_REQ_RX_M2F}
-sd_mark_pins_unused -sd_name ${sd_name} -pin_names {B_V_F_MSS:MAC_0_TSU_PDELAY_RESP_RX_M2F}
 sd_mark_pins_unused -sd_name ${sd_name} -pin_names {B_V_F_MSS:FIC_2_AXI4_TARGET}
 
 
@@ -379,10 +369,25 @@ sd_connect_pins -sd_name ${sd_name} -pin_names {"REF_CLK_PAD_P" "CLOCKS_AND_RESE
 sd_connect_pins -sd_name ${sd_name} -pin_names {"REFCLK" "B_V_F_MSS:REFCLK" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"REFCLK_N" "B_V_F_MSS:REFCLK_N" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"RESET_N" "B_V_F_MSS:RESET_N" }
+
+#-------------------------------------------------------------------------------
+# Ethernet PHY connections
+#-------------------------------------------------------------------------------
+sd_create_scalar_port -sd_name ${sd_name} -port_name {PHY_RSTn} -port_direction {OUT}
+sd_create_scalar_port -sd_name ${sd_name} -port_name {PHY_INTn} -port_direction {IN}
+sd_create_scalar_port -sd_name ${sd_name} -port_name {PHY_MDC} -port_direction {OUT}
+sd_create_scalar_port -sd_name ${sd_name} -port_name {PHY_MDIO} -port_direction {INOUT}
+
+sd_connect_pins -sd_name ${sd_name} -pin_names {"PHY_MDIO" "B_V_F_MSS:MAC_0_MDIO" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"PHY_MDC" "B_V_F_MSS:MAC_0_MDC" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"PHY_INTn" "B_V_F_MSS:MSS_INT_F2M[2:2]" }
+
 sd_connect_pins -sd_name ${sd_name} -pin_names {"SGMII_RX0_N" "B_V_F_MSS:SGMII_RX0_N" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"SGMII_RX0_P" "B_V_F_MSS:SGMII_RX0_P" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"SGMII_TX0_N" "B_V_F_MSS:SGMII_TX0_N" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"SGMII_TX0_P" "B_V_F_MSS:SGMII_TX0_P" }
+
+#-------------------------------------------------------------------------------
 sd_connect_pins -sd_name ${sd_name} -pin_names {"B_V_F_MSS:SPI_0_CLK_M2F" "SPI_0_CLK_M2F" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"B_V_F_MSS:SPI_0_DI_F2M" "SPI_0_DI_F2M" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"B_V_F_MSS:SPI_0_DO_M2F" "SPI_0_DO_M2F" }
@@ -399,7 +404,7 @@ sd_connect_pins -sd_name ${sd_name} -pin_names {"B_V_F_MSS:USB_DATA7" "USB_DATA7
 sd_connect_pins -sd_name ${sd_name} -pin_names {"B_V_F_MSS:USB_DIR" "USB_DIR" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"B_V_F_MSS:USB_NXT" "USB_NXT" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"B_V_F_MSS:USB_STP" "USB_STP" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"USB_ULPI_RESET" "FIC0_INITIATOR:ARESETN" "CLOCKS_AND_RESETS:RESETN_CLK_125MHz"}
+sd_connect_pins -sd_name ${sd_name} -pin_names {"USB_ULPI_RESET" "FIC0_INITIATOR:ARESETN" "CLOCKS_AND_RESETS:RESETN_CLK_125MHz" "PHY_RSTn"}
 sd_connect_pins -sd_name ${sd_name} -pin_names {"SD_CLK_EMMC_CLK" "B_V_F_MSS:SD_CLK_EMMC_CLK" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"SD_CMD_EMMC_CMD" "B_V_F_MSS:SD_CMD_EMMC_CMD" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"SD_DATA0_EMMC_DATA0" "B_V_F_MSS:SD_DATA0_EMMC_DATA0" }
@@ -659,7 +664,6 @@ sd_connect_pins -sd_name ${sd_name} -pin_names {"CAM_D3_N" "MIPI_CSI_INTERFACE_0
 #-------------------------------------------------------------------------------
 # Temporary connections to allow running through complete flow.
 #-------------------------------------------------------------------------------
-sd_connect_pins_to_constant -sd_name ${sd_name} -pin_names {B_V_F_MSS:MSS_INT_F2M[2:2]} -value {GND} 
 sd_connect_pins_to_constant -sd_name ${sd_name} -pin_names {B_V_F_MSS:MSS_INT_F2M[4:4]} -value {GND} 
 sd_connect_pins_to_constant -sd_name ${sd_name} -pin_names {B_V_F_MSS:MSS_INT_F2M[3:3]} -value {GND} 
 sd_connect_pins_to_constant -sd_name ${sd_name} -pin_names {B_V_F_MSS:MSS_RESET_N_F2M} -value {VCC}
