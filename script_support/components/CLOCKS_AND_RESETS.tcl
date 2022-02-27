@@ -88,6 +88,14 @@ sd_instantiate_macro -sd_name ${sd_name} -macro_name {AND2} -instance_name {SYST
 sd_instantiate_component -sd_name ${sd_name} -component_name {TRANSMIT_PLL} -instance_name {TRANSMIT_PLL_0}
 
 
+# Add PLL to generate ADC_MCLK
+sd_instantiate_component -sd_name ${sd_name} -component_name {PF_CCC_ADC} -instance_name {PF_CCC_ADC_0} 
+sd_connect_pins -sd_name ${sd_name} -pin_names {"PF_CCC_ADC_0:REF_CLK_0" "TRANSMIT_PLL_0:CLK_125"} 
+sd_connect_pins_to_constant -sd_name ${sd_name} -pin_names {PF_CCC_ADC_0:PLL_POWERDOWN_N_0} -value {VCC} 
+sd_mark_pins_unused -sd_name ${sd_name} -pin_names {PF_CCC_ADC_0:PLL_LOCK_0} 
+sd_connect_pin_to_port -sd_name ${sd_name} -pin_name {PF_CCC_ADC_0:OUT0_FABCLK_0} -port_name {} 
+sd_rename_port -sd_name ${sd_name} -current_port_name {OUT0_FABCLK_0} -new_port_name {ADC_MCLK_4_915MHz} 
+
 
 # Add scalar net connections
 sd_connect_pins -sd_name ${sd_name} -pin_names {"RESET_CLK_62_5MHz:CLK" "CLK_125MHz_to_CLK_62_5MHz:CLK_OUT" "CLK_62_5MHz" }

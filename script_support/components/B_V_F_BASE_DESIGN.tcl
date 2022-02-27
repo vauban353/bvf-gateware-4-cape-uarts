@@ -99,7 +99,7 @@ sd_create_scalar_port -sd_name ${sd_name} -port_name {ADC_SCK} -port_direction {
 sd_create_scalar_port -sd_name ${sd_name} -port_name {ADC_MOSI} -port_direction {INOUT}
 sd_create_scalar_port -sd_name ${sd_name} -port_name {ADC_MISO} -port_direction {INOUT}
 sd_create_scalar_port -sd_name ${sd_name} -port_name {ADC_IRQn} -port_direction {IN}
-sd_create_scalar_port -sd_name ${sd_name} -port_name {ADC_MCLK} -port_direction {INOUT}
+sd_create_scalar_port -sd_name ${sd_name} -port_name {ADC_MCLK} -port_direction {OUT}
 
 #-------------------------------------------------------------------------------
 # Cape pins
@@ -349,19 +349,14 @@ sd_connect_pins -sd_name ${sd_name} -pin_names {"PCIESS_LANE_TXD3_P" "M2_INTERFA
 
 
 #-------------------------------------------------------------------------------
-# TODO: Connect ADC_MCLK_BIBUF_0:D to a 4.915 MHz clock.
-sd_instantiate_macro -sd_name ${sd_name} -macro_name {BIBUF} -instance_name {ADC_MCLK_BIBUF_0}
-sd_mark_pins_unused -sd_name ${sd_name} -pin_names {ADC_MCLK_BIBUF_0:Y} 
-sd_connect_pins_to_constant -sd_name ${sd_name} -pin_names {ADC_MCLK_BIBUF_0:D} -value {VCC} 
-
+# Connect ADC.
+#-------------------------------------------------------------------------------
 sd_connect_pins -sd_name ${sd_name} -pin_names {"B_V_F_MSS:QSPI_CLK" "ADC_SCK" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"B_V_F_MSS:QSPI_SS0" "ADC_CSn" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"B_V_F_MSS:QSPI_DATA0" "ADC_MOSI" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"B_V_F_MSS:QSPI_DATA1" "ADC_MISO" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"ADC_MCLK" "ADC_MCLK_BIBUF_0:PAD"} 
-#sd_connect_pins -sd_name ${sd_name} -pin_names {"ADC_MCLK_BIBUF_0:E" "sdio_register_0:SDIO_control"}
-sd_connect_pins_to_constant -sd_name ${sd_name} -pin_names {ADC_MCLK_BIBUF_0:E} -value {GND}
-sd_connect_pins -sd_name ${sd_name} -pin_names {"ADC_IRQn" "B_V_F_MSS:MSS_INT_F2M[0]" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"ADC_IRQn" "B_V_F_MSS:GPIO_1_20_IN" }
+sd_connect_pin_to_port -sd_name ${sd_name} -pin_name {CLOCKS_AND_RESETS:ADC_MCLK_4_915MHz} -port_name {ADC_MCLK} 
 
 #-------------------------------------------------------------------------------
 sd_connect_pins -sd_name ${sd_name} -pin_names {"REF_CLK_PAD_N" "CLOCKS_AND_RESETS:REF_CLK_PAD_N" }
@@ -666,6 +661,7 @@ sd_connect_pins -sd_name ${sd_name} -pin_names {"CAM_D3_N" "MIPI_CSI_INTERFACE_0
 #-------------------------------------------------------------------------------
 sd_connect_pins_to_constant -sd_name ${sd_name} -pin_names {B_V_F_MSS:MSS_INT_F2M[4:4]} -value {GND} 
 sd_connect_pins_to_constant -sd_name ${sd_name} -pin_names {B_V_F_MSS:MSS_INT_F2M[3:3]} -value {GND} 
+sd_connect_pins_to_constant -sd_name ${sd_name} -pin_names {B_V_F_MSS:MSS_INT_F2M[0:0]} -value {GND} 
 sd_connect_pins_to_constant -sd_name ${sd_name} -pin_names {B_V_F_MSS:MSS_RESET_N_F2M} -value {VCC}
 #-------------------------------------------------------------------------------
 
