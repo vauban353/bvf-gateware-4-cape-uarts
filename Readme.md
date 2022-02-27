@@ -36,27 +36,27 @@ To generate the standard reference design which is capable of running the majori
 |      7     |    n/a   | SYS_5V       |
 |      8     |    n/a   | SYS_5V       |
 |      9     |    n/a   | PWR_BUT      | -> TODO
-|     10     |    n/a   | SYSRESETn    | -> TODO
-|     11     |     B5   | Design TODO  |
-|     12     |     C5   | GPIO         |
-|     13     |     C7   | Design TODO  |
-|     14     |     C6   | GPIO? check design |
-|     15     |     A5   | GPIO         |
-|     16     |     A6   | GPIO? check design |
+|     10     |    n/a   | SYSRESETn    |
+|     11     |     B5   | MMUART_4 Rx  |
+|     12     |     C5   | GPIO 9       |
+|     13     |     C7   | MMUART_4 Tx  |
+|     14     |     C6   | PWM channel 1 |
+|     15     |     A5   | GPIO 7        |
+|     16     |     A6   | PWM channel 2 |
 |     17     |     H4   | check - MSSIO7 - 1.8V  |
 |     18     |     J6   | check - MSSIO8 - 1.8V  |
 |     19     |    E13 - not connected on MPFS025  | MSS I2C0 SCL |
 |     20     |    F13 - not connected on MPFS025  | MSS I2C0 SDA |
 |     21     |    G12 - not connected on MPFS025  |              |
 |     22     |    H12 - not connected on MPFS025  |              |
-|     23     |    H13 - not connected on MPFS025  | GPIO         |
+|     23     |    H13 - not connected on MPFS025  | GPIO 8       |
 |     24     |    G13 - not connected on MPFS025  |              |
-|     25     |    F15 - not connected on MPFS025  | GPIO         |
+|     25     |    F15 - not connected on MPFS025  | GPIO 18      |
 |     26     |    G14 - not connected on MPFS025  |              |
-|     27     |    G15 - not connected on MPFS025  | GPIO         |
+|     27     |    G15 - not connected on MPFS025  | GPIO 17      |
 |     28     |    H15 - not connected on MPFS025  |              |
-|     29     |    F17   | Design TODO  |
-|     30     |    F16   | GPIO         |
+|     29     |    F17   | Design TODO - SPI1_DO |
+|     30     |    F16   | GPIO 16      |
 |     31     |    E16 - not connected on MPFS025  |              |
 |     32     |    n/a   | VDD_ADC      |
 |     33     |    n/a   | ADC channel 4 |
@@ -67,8 +67,8 @@ To generate the standard reference design which is capable of running the majori
 |     38     |    n/a   | ADC channel 3 |
 |     39     |    n/a   | ADC channel 0 |
 |     40     |    n/a   | ADC channel 1 |
-|     41     |    E15   | GPIO ?        |
-|     42     |    E14   | GPIO ?        |
+|     41     |    E15   | GPIO 0        |
+|     42     |    E14   | PWM channel 0 |
 |     43     |    n/a   | GND           |
 |     44     |    n/a   | GND           |
 |     45     |    n/a   | GND           |
@@ -84,19 +84,19 @@ To generate the standard reference design which is capable of running the majori
 |      4     |     D6   | Design TODO  |
 |      5     |     D7   | Design TODO  |
 |      6     |     D8   | Design TODO  |
-|      7     |     D9   |  GPIO      |
-|      8     |     B8   |  GPIO      |
-|      9     |     A8   |  GPIO      |
-|     10     |     C9   |  GPIO      |
-|     11     |    C10   |  GPIO      |
-|     12     |     B9   |  GPIO      |
-|     13     |    B10   | GPIO? check design  |
-|     14     |    F10 - not connected on MPFS025  |  GPIO      |
-|     15     |    E10 - not connected on MPFS025  |  GPIO      |
-|     16     |    A11   |  GPIO      |
-|     17     |    A10   |  GPIO      |
-|     18     |    D11   |  GPIO      |
-|     19     |    C11   | GPIO? check design  |
+|      7     |     D9   |  GPIO 12     |
+|      8     |     B8   |  GPIO 13     |
+|      9     |     A8   |  GPIO 15     |
+|     10     |     C9   |  GPIO 14     |
+|     11     |    C10   |  GPIO 4      |
+|     12     |     B9   |  GPIO 3     |
+|     13     |    B10   | PWM channel4 |
+|     14     |    F10 - not connected on MPFS025  |  GPIO 1    | -> needs new pin assignment
+|     15     |    E10 - not connected on MPFS025  |  GPIO 6    | -> needs new pin assignment
+|     16     |    A11   |  GPIO 5     |
+|     17     |    A10   |  GPIO 2     |
+|     18     |    D11   |  GPIO 11    |
+|     19     |    C11   | PWM channel 3 |
 |     20     |    F11 - not connected on MPFS025        |   |
 |     21     |    F12 - not connected on MPFS025        |   |
 |     22     |    E11 - not connected on MPFS025        |   |
@@ -104,26 +104,26 @@ To generate the standard reference design which is capable of running the majori
 |     24     |    C12   | Design TODO  |
 |     25     |    B12   | Design TODO  |
 |     26     |    A12   |  GPIO      |
-|     27     |    A13   | GPIO? check design  |
-|     28     |    B14   | GPIO? check design  |
-|     29     |    B13   | GPIO? check design  |
-|     30     |    D14   | GPIO? check design  |
-|     31     |    D13   | GPIO? check design  |
-|     32     |    B15   | GPIO? check design  |
-|     33     |    A15   | GPIO? check design  |
-|     34     |    C15   | Design TODO  |
-|     35     |    C14   | Design TODO  |
-|     36     |    A17 - not connected on MPFS025 |   |
-|     37     |    A16 - not connected on MPFS025 |   |
-|     38     |    C17   | GPIO? check design  |
-|     39     |    B17   | GPIO? check design  |
-|     40     |    D17 - not connected on MPFS025 |   |
-|     41     |    C16 - not connected on MPFS025 |   |
-|     42     |    D16 - not connected on MPFS025 |   |
-|     43     |    B19 - not connected on MPFS025 |   |
-|     44     |    B20 - not connected on MPFS025 |   |
-|     45     |    C20 - not connected on MPFS025 |   |
-|     46     |    C19 - not connected on MPFS025 |   |
+|     27     |    A13   | GPIO (LCD group) |
+|     28     |    B14   | GPIO (LCD group) |
+|     29     |    B13   | GPIO (LCD group) |
+|     30     |    D14   | GPIO (LCD group) |
+|     31     |    D13   | GPIO (LCD group) |
+|     32     |    B15   | GPIO (LCD group) |
+|     33     |    A15   | GPIO (LCD group) |
+|     34     |    C15   | GPIO (LCD group) |
+|     35     |    C14   | GPIO (LCD group) |
+|     36     |    A17 - not connected on MPFS025 | GPIO (LCD group) |
+|     37     |    A16 - not connected on MPFS025 | GPIO (LCD group) |
+|     38     |    C17   | GPIO (LCD group) |
+|     39     |    B17   | GPIO (LCD group) |
+|     40     |    D17 - not connected on MPFS025 | GPIO (LCD group) |
+|     41     |    C16 - not connected on MPFS025 | GPIO (LCD group) |
+|     42     |    D16 - not connected on MPFS025 | GPIO (LCD group) |
+|     43     |    B19 - not connected on MPFS025 | GPIO (LCD group) |
+|     44     |    B20 - not connected on MPFS025 | GPIO (LCD group) |
+|     45     |    C20 - not connected on MPFS025 | GPIO (LCD group) |
+|     46     |    C19 - not connected on MPFS025 | GPIO (LCD group) |
 
 ### J9: M.2 Interface
 
