@@ -17,7 +17,19 @@ sd_create_scalar_port -sd_name ${sd_name} -port_name {PCIE_REF_CLK} -port_direct
 
 sd_create_scalar_port -sd_name ${sd_name} -port_name {PCIE_INTERRUPT} -port_direction {OUT}
 
-sd_create_scalar_port -sd_name ${sd_name} -port_name {PCIE_PERST_N} -port_direction {OUT} 
+sd_create_scalar_port -sd_name ${sd_name} -port_name {M2_PERST0n} -port_direction {OUT} 
+
+sd_create_scalar_port -sd_name ${sd_name} -port_name {M2_PCM_CLK} -port_direction {IN} 
+sd_create_scalar_port -sd_name ${sd_name} -port_name {M2_PCM_SYNC} -port_direction {IN} 
+sd_create_scalar_port -sd_name ${sd_name} -port_name {M2_PCM_IN} -port_direction {IN} 
+sd_create_scalar_port -sd_name ${sd_name} -port_name {M2_PCM_OUT} -port_direction {OUT} 
+sd_create_scalar_port -sd_name ${sd_name} -port_name {M2_UART_WAKEn} -port_direction {IN} 
+
+sd_create_scalar_port -sd_name ${sd_name} -port_name {M2_CLKREQ0n} -port_direction {IN} 
+sd_create_scalar_port -sd_name ${sd_name} -port_name {M2_W_DISABLE1n} -port_direction {OUT} 
+sd_create_scalar_port -sd_name ${sd_name} -port_name {M2_W_DISABLE2n} -port_direction {OUT} 
+sd_create_scalar_port -sd_name ${sd_name} -port_name {M2_PEWAKEn} -port_direction {IN} 
+sd_create_scalar_port -sd_name ${sd_name} -port_name {M2_I2C_ALTn} -port_direction {IN} 
 
 #-------------------------------------------------------------------------------
 # Instantiate components
@@ -59,14 +71,13 @@ sd_connect_pins -sd_name ${sd_name} -pin_names {"PCIE:PCIESS_LANE3_DRI_SLAVE" "R
 
 sd_connect_pins -sd_name ${sd_name} -pin_names {"PCIE_REF_CLK" "PCIE:PCIESS_LANE1_CDR_REF_CLK_0" "PCIE:PCIESS_LANE2_CDR_REF_CLK_0" "PCIE:PCIESS_LANE3_CDR_REF_CLK_0" "PCIE:PCIESS_LANE0_CDR_REF_CLK_0" }
 
-#sd_connect_pins -sd_name ${sd_name} -pin_names {"PCIE:PCIE_1_PERST_N" "PCIE_1_PERST_N" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"PCIE_INTERRUPT" "PCIE:PCIE_1_INTERRUPT_OUT" }
 
 sd_mark_pins_unused -sd_name ${sd_name} -pin_names {RECONFIGURATION_INTERFACE_0:PINTERRUPT}
 sd_mark_pins_unused -sd_name ${sd_name} -pin_names {RECONFIGURATION_INTERFACE_0:PTIMEOUT}
 sd_mark_pins_unused -sd_name ${sd_name} -pin_names {RECONFIGURATION_INTERFACE_0:BUSERROR}
 
-sd_connect_pins_to_constant -sd_name ${sd_name} -pin_names {PCIE_PERST_N} -value {VCC}
+sd_connect_pins_to_constant -sd_name ${sd_name} -pin_names {M2_PERST0n} -value {VCC}
 sd_connect_pins_to_constant -sd_name ${sd_name} -pin_names {PCIE:PCIE_1_PERST_N} -value {VCC} 
 
 #-------------------------------------------------------------------------------
@@ -85,6 +96,25 @@ sd_connect_pin_to_port -sd_name ${sd_name} -pin_name {PCIE:PCIE_1_TL_CLK_125MHz}
 sd_connect_pin_to_port -sd_name ${sd_name} -pin_name {PCIE:AXI_1_SLAVE} -port_name {} 
 sd_rename_port -sd_name ${sd_name} -current_port_name {AXI_1_SLAVE} -new_port_name {AXI_TARGET} 
 sd_mark_pins_unused -sd_name ${sd_name} -pin_names {RECONFIGURATION_INTERFACE_0:PLL0_SW_DRI} 
+
+#-------------------------------------------------------------------------------
+# Temporary - rework once pin assignment confirmed.
+#-------------------------------------------------------------------------------
+sd_instantiate_macro -sd_name ${sd_name} -macro_name {AND4} -instance_name {AND4_0} 
+sd_connect_pins -sd_name ${sd_name} -pin_names {"AND4_0:Y" "M2_PCM_OUT"} 
+sd_connect_pins -sd_name ${sd_name} -pin_names {"AND4_0:A" "M2_PCM_CLK"} 
+sd_connect_pins -sd_name ${sd_name} -pin_names {"AND4_0:B" "M2_PCM_SYNC"} 
+sd_connect_pins -sd_name ${sd_name} -pin_names {"AND4_0:C" "M2_PCM_IN"} 
+sd_connect_pins -sd_name ${sd_name} -pin_names {"AND4_0:D" "M2_UART_WAKEn"} 
+
+sd_instantiate_macro -sd_name ${sd_name} -macro_name {AND2} -instance_name {AND2_0}
+sd_connect_pins -sd_name ${sd_name} -pin_names {"AND2_0:Y" "M2_W_DISABLE1n"} 
+sd_connect_pins -sd_name ${sd_name} -pin_names {"AND2_0:A" "M2_CLKREQ0n"} 
+sd_connect_pins -sd_name ${sd_name} -pin_names {"AND2_0:B" "M2_PEWAKEn"} 
+
+sd_connect_pins -sd_name ${sd_name} -pin_names {"M2_I2C_ALTn" "M2_W_DISABLE2n"} 
+
+#-------------------------------------------------------------------------------
 
 # Re-enable auto promotion of pins of type 'pad'
 auto_promote_pad_pins -promote_all 1
