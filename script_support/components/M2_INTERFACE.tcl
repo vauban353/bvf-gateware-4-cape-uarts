@@ -35,6 +35,8 @@ sd_create_scalar_port -sd_name ${sd_name} -port_name {M2_I2C_ALTn} -port_directi
 # Instantiate components
 #-------------------------------------------------------------------------------
 
+#sd_instantiate_component -sd_name ${sd_name} -component_name {M2_USB} -instance_name {M2_USB}
+
 sd_instantiate_component -sd_name ${sd_name} -component_name {PCIE_INITIATOR} -instance_name {PCIE_INITIATOR}
 sd_instantiate_hdl_core -sd_name ${sd_name} -hdl_core_name {AXI_ADDRESS_SHIM} -instance_name {AXI_ADDRESS_SHIM_0} 
 sd_instantiate_component -sd_name ${sd_name} -component_name {RECONFIGURATION_INTERFACE} -instance_name {RECONFIGURATION_INTERFACE_0}
@@ -50,6 +52,13 @@ sd_mark_pins_unused -sd_name ${sd_name} -pin_names {PCIE:PCIE_1_S_RDERR}
 sd_mark_pins_unused -sd_name ${sd_name} -pin_names {PCIE:PCIE_1_L2_EXIT}
 sd_mark_pins_unused -sd_name ${sd_name} -pin_names {PCIE:PCIE_1_HOT_RST_EXIT}
 sd_mark_pins_unused -sd_name ${sd_name} -pin_names {PCIE:PCIE_1_DLUP_EXIT}
+
+# Add stub for USB PHY connected to M.2 interface
+sd_instantiate_component -sd_name ${sd_name} -component_name {M2_USB} -instance_name {M2_USB_0} 
+sd_connect_pin_to_port -sd_name ${sd_name} -pin_name {M2_USB_0:USB1_CLK} -port_name {} 
+sd_connect_pin_to_port -sd_name ${sd_name} -pin_name {M2_USB_0:USB1_DIR} -port_name {} 
+sd_connect_pin_to_port -sd_name ${sd_name} -pin_name {M2_USB_0:USB1_NXT} -port_name {} 
+sd_connect_pin_to_port -sd_name ${sd_name} -pin_name {M2_USB_0:USB1_STP} -port_name {} 
 
 #-------------------------------------------------------------------------------
 # Connections

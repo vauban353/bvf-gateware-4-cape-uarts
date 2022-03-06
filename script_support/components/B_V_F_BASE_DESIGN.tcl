@@ -279,6 +279,32 @@ sd_connect_pin_to_port -sd_name ${sd_name} -pin_name {M2_INTERFACE_0:M2_PEWAKEn}
 sd_connect_pin_to_port -sd_name ${sd_name} -pin_name {M2_INTERFACE_0:M2_I2C_ALTn} -port_name {} 
 
 
+sd_connect_pin_to_port -sd_name ${sd_name} -pin_name {M2_INTERFACE_0:USB1_CLK} -port_name {} 
+sd_connect_pin_to_port -sd_name ${sd_name} -pin_name {M2_INTERFACE_0:USB1_DIR} -port_name {} 
+sd_connect_pin_to_port -sd_name ${sd_name} -pin_name {M2_INTERFACE_0:USB1_NXT} -port_name {} 
+sd_connect_pin_to_port -sd_name ${sd_name} -pin_name {M2_INTERFACE_0:USB1_STP} -port_name {} 
+
+sd_create_scalar_port -sd_name {B_V_F_BASE_DESIGN} -port_name {USB1_RESETB} -port_direction {OUT} 
+
+sd_create_scalar_port -sd_name {B_V_F_BASE_DESIGN} -port_name {USB1_DATA0} -port_direction {INOUT} 
+sd_create_scalar_port -sd_name {B_V_F_BASE_DESIGN} -port_name {USB1_DATA1} -port_direction {INOUT} 
+sd_create_scalar_port -sd_name {B_V_F_BASE_DESIGN} -port_name {USB1_DATA2} -port_direction {INOUT} 
+sd_create_scalar_port -sd_name {B_V_F_BASE_DESIGN} -port_name {USB1_DATA3} -port_direction {INOUT} 
+sd_create_scalar_port -sd_name {B_V_F_BASE_DESIGN} -port_name {USB1_DATA4} -port_direction {INOUT} 
+sd_create_scalar_port -sd_name {B_V_F_BASE_DESIGN} -port_name {USB1_DATA5} -port_direction {INOUT} 
+sd_create_scalar_port -sd_name {B_V_F_BASE_DESIGN} -port_name {USB1_DATA6} -port_direction {INOUT} 
+sd_create_scalar_port -sd_name {B_V_F_BASE_DESIGN} -port_name {USB1_DATA7} -port_direction {INOUT} 
+
+sd_connect_pins -sd_name {B_V_F_BASE_DESIGN} -pin_names {"M2_INTERFACE_0:USB1_DATA0" "USB1_DATA0"} 
+sd_connect_pins -sd_name {B_V_F_BASE_DESIGN} -pin_names {"M2_INTERFACE_0:USB1_DATA1" "USB1_DATA1"} 
+sd_connect_pins -sd_name {B_V_F_BASE_DESIGN} -pin_names {"M2_INTERFACE_0:USB1_DATA2" "USB1_DATA2"} 
+sd_connect_pins -sd_name {B_V_F_BASE_DESIGN} -pin_names {"M2_INTERFACE_0:USB1_DATA3" "USB1_DATA3"} 
+sd_connect_pins -sd_name {B_V_F_BASE_DESIGN} -pin_names {"M2_INTERFACE_0:USB1_DATA4" "USB1_DATA4"} 
+sd_connect_pins -sd_name {B_V_F_BASE_DESIGN} -pin_names {"M2_INTERFACE_0:USB1_DATA5" "USB1_DATA5"} 
+sd_connect_pins -sd_name {B_V_F_BASE_DESIGN} -pin_names {"M2_INTERFACE_0:USB1_DATA6" "USB1_DATA6"} 
+sd_connect_pins -sd_name {B_V_F_BASE_DESIGN} -pin_names {"M2_INTERFACE_0:USB1_DATA7" "USB1_DATA7"} 
+
+
 # Add SW1_OR_GPIO_2_28 instance
 #sd_instantiate_macro -sd_name ${sd_name} -macro_name {OR2} -instance_name {SW1_OR_GPIO_2_28}
 #sd_invert_pins -sd_name ${sd_name} -pin_names {SW1_OR_GPIO_2_28:A}
@@ -418,7 +444,7 @@ sd_connect_pins -sd_name ${sd_name} -pin_names {"B_V_F_MSS:USB_NXT" "USB0_NXT" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"B_V_F_MSS:USB_STP" "USB0_STP" }
 
 #-------------------------------------------------------------------------------
-sd_connect_pins -sd_name ${sd_name} -pin_names {"USB0_RESETB" "FIC0_INITIATOR:ARESETN" "CLOCKS_AND_RESETS:RESETN_CLK_125MHz" "PHY_RSTn"}
+sd_connect_pins -sd_name ${sd_name} -pin_names {"USB1_RESETB" "USB0_RESETB" "FIC0_INITIATOR:ARESETN" "CLOCKS_AND_RESETS:RESETN_CLK_125MHz" "PHY_RSTn"}
 sd_connect_pins -sd_name ${sd_name} -pin_names {"SD_CLK_EMMC_CLK" "B_V_F_MSS:SD_CLK_EMMC_CLK" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"SD_CMD_EMMC_CMD" "B_V_F_MSS:SD_CMD_EMMC_CMD" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"SD_DATA0_EMMC_DATA0" "B_V_F_MSS:SD_DATA0_EMMC_DATA0" }
