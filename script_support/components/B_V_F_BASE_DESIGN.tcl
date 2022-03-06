@@ -8,18 +8,20 @@ auto_promote_pad_pins -promote_all 0
 # Create top level Ports
 sd_create_scalar_port -sd_name ${sd_name} -port_name {REFCLK} -port_direction {IN} -port_is_pad {1}
 sd_create_scalar_port -sd_name ${sd_name} -port_name {REFCLK_N} -port_direction {IN} -port_is_pad {1}
-sd_create_scalar_port -sd_name ${sd_name} -port_name {USB_CLK} -port_direction {IN} -port_is_pad {1}
-sd_create_scalar_port -sd_name ${sd_name} -port_name {USB_DIR} -port_direction {IN} -port_is_pad {1}
-sd_create_scalar_port -sd_name ${sd_name} -port_name {USB_NXT} -port_direction {IN} -port_is_pad {1}
-sd_create_scalar_port -sd_name ${sd_name} -port_name {USB_STP} -port_direction {OUT} -port_is_pad {1}
-sd_create_scalar_port -sd_name ${sd_name} -port_name {USB_DATA0} -port_direction {INOUT} -port_is_pad {1}
-sd_create_scalar_port -sd_name ${sd_name} -port_name {USB_DATA1} -port_direction {INOUT} -port_is_pad {1}
-sd_create_scalar_port -sd_name ${sd_name} -port_name {USB_DATA2} -port_direction {INOUT} -port_is_pad {1}
-sd_create_scalar_port -sd_name ${sd_name} -port_name {USB_DATA3} -port_direction {INOUT} -port_is_pad {1}
-sd_create_scalar_port -sd_name ${sd_name} -port_name {USB_DATA4} -port_direction {INOUT} -port_is_pad {1}
-sd_create_scalar_port -sd_name ${sd_name} -port_name {USB_DATA5} -port_direction {INOUT} -port_is_pad {1}
-sd_create_scalar_port -sd_name ${sd_name} -port_name {USB_DATA6} -port_direction {INOUT} -port_is_pad {1}
-sd_create_scalar_port -sd_name ${sd_name} -port_name {USB_DATA7} -port_direction {INOUT} -port_is_pad {1}
+sd_create_scalar_port -sd_name ${sd_name} -port_name {USB0_CLK} -port_direction {IN} -port_is_pad {1}
+sd_create_scalar_port -sd_name ${sd_name} -port_name {USB0_DIR} -port_direction {IN} -port_is_pad {1}
+sd_create_scalar_port -sd_name ${sd_name} -port_name {USB0_NXT} -port_direction {IN} -port_is_pad {1}
+sd_create_scalar_port -sd_name ${sd_name} -port_name {USB0_STP} -port_direction {OUT} -port_is_pad {1}
+sd_create_scalar_port -sd_name ${sd_name} -port_name {USB0_DATA0} -port_direction {INOUT} -port_is_pad {1}
+sd_create_scalar_port -sd_name ${sd_name} -port_name {USB0_DATA1} -port_direction {INOUT} -port_is_pad {1}
+sd_create_scalar_port -sd_name ${sd_name} -port_name {USB0_DATA2} -port_direction {INOUT} -port_is_pad {1}
+sd_create_scalar_port -sd_name ${sd_name} -port_name {USB0_DATA3} -port_direction {INOUT} -port_is_pad {1}
+sd_create_scalar_port -sd_name ${sd_name} -port_name {USB0_DATA4} -port_direction {INOUT} -port_is_pad {1}
+sd_create_scalar_port -sd_name ${sd_name} -port_name {USB0_DATA5} -port_direction {INOUT} -port_is_pad {1}
+sd_create_scalar_port -sd_name ${sd_name} -port_name {USB0_DATA6} -port_direction {INOUT} -port_is_pad {1}
+sd_create_scalar_port -sd_name ${sd_name} -port_name {USB0_DATA7} -port_direction {INOUT} -port_is_pad {1}
+sd_create_scalar_port -sd_name ${sd_name} -port_name {USB0_OCn} -port_direction {IN} 
+
 sd_create_scalar_port -sd_name ${sd_name} -port_name {MMUART_3_TXD_M2F} -port_direction {OUT}
 sd_create_scalar_port -sd_name ${sd_name} -port_name {UART0_TXD} -port_direction {OUT}
 sd_create_scalar_port -sd_name ${sd_name} -port_name {M2_UART_TXD} -port_direction {OUT}
@@ -39,7 +41,7 @@ sd_create_scalar_port -sd_name ${sd_name} -port_name {CKE} -port_direction {OUT}
 sd_create_scalar_port -sd_name ${sd_name} -port_name {CS} -port_direction {OUT} -port_is_pad {1}
 sd_create_scalar_port -sd_name ${sd_name} -port_name {CK} -port_direction {OUT} -port_is_pad {1}
 sd_create_scalar_port -sd_name ${sd_name} -port_name {CK_N} -port_direction {OUT} -port_is_pad {1}
-sd_create_scalar_port -sd_name ${sd_name} -port_name {USB_ULPI_RESET} -port_direction {OUT}
+sd_create_scalar_port -sd_name ${sd_name} -port_name {USB0_RESETB} -port_direction {OUT}
 sd_create_scalar_port -sd_name ${sd_name} -port_name {SGMII_RX0_P} -port_direction {IN} -port_is_pad {1}
 sd_create_scalar_port -sd_name ${sd_name} -port_name {SGMII_RX0_N} -port_direction {IN} -port_is_pad {1}
 sd_create_scalar_port -sd_name ${sd_name} -port_name {SGMII_TX0_P} -port_direction {OUT} -port_is_pad {1}
@@ -179,7 +181,7 @@ sd_create_scalar_port -sd_name ${sd_name} -port_name {P9_30} -port_direction {IN
 sd_create_scalar_port -sd_name ${sd_name} -port_name {P9_27} -port_direction {INOUT}
 sd_create_scalar_port -sd_name ${sd_name} -port_name {P9_25} -port_direction {INOUT}
 
-sd_invert_pins -sd_name ${sd_name} -pin_names {USB_ULPI_RESET}
+sd_invert_pins -sd_name ${sd_name} -pin_names {USB0_RESETB}
 
 # Add CLOCKS_AND_RESETS instance
 sd_instantiate_component -sd_name ${sd_name} -component_name {CLOCKS_AND_RESETS} -instance_name {CLOCKS_AND_RESETS}
@@ -395,19 +397,28 @@ sd_connect_pins -sd_name ${sd_name} -pin_names {"B_V_F_MSS:SPI_0_CLK_M2F" "SPI_0
 sd_connect_pins -sd_name ${sd_name} -pin_names {"B_V_F_MSS:SPI_0_DI_F2M" "SPI_0_DI_F2M" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"B_V_F_MSS:SPI_0_DO_M2F" "SPI_0_DO_M2F" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"B_V_F_MSS:SPI_0_SS1_M2F" "SPI_0_SS1_M2F" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"B_V_F_MSS:USB_CLK" "USB_CLK" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"B_V_F_MSS:USB_DATA0" "USB_DATA0" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"B_V_F_MSS:USB_DATA1" "USB_DATA1" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"B_V_F_MSS:USB_DATA2" "USB_DATA2" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"B_V_F_MSS:USB_DATA3" "USB_DATA3" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"B_V_F_MSS:USB_DATA4" "USB_DATA4" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"B_V_F_MSS:USB_DATA5" "USB_DATA5" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"B_V_F_MSS:USB_DATA6" "USB_DATA6" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"B_V_F_MSS:USB_DATA7" "USB_DATA7" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"B_V_F_MSS:USB_DIR" "USB_DIR" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"B_V_F_MSS:USB_NXT" "USB_NXT" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"B_V_F_MSS:USB_STP" "USB_STP" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"USB_ULPI_RESET" "FIC0_INITIATOR:ARESETN" "CLOCKS_AND_RESETS:RESETN_CLK_125MHz" "PHY_RSTn"}
+
+
+
+#-------------------------------------------------------------------------------
+# OTG USB
+#-------------------------------------------------------------------------------
+sd_connect_pins -sd_name ${sd_name} -pin_names {"USB0_OCn" "B_V_F_MSS:GPIO_1_23_IN" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"B_V_F_MSS:USB_CLK" "USB0_CLK" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"B_V_F_MSS:USB_DATA0" "USB0_DATA0" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"B_V_F_MSS:USB_DATA1" "USB0_DATA1" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"B_V_F_MSS:USB_DATA2" "USB0_DATA2" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"B_V_F_MSS:USB_DATA3" "USB0_DATA3" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"B_V_F_MSS:USB_DATA4" "USB0_DATA4" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"B_V_F_MSS:USB_DATA5" "USB0_DATA5" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"B_V_F_MSS:USB_DATA6" "USB0_DATA6" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"B_V_F_MSS:USB_DATA7" "USB0_DATA7" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"B_V_F_MSS:USB_DIR" "USB0_DIR" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"B_V_F_MSS:USB_NXT" "USB0_NXT" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"B_V_F_MSS:USB_STP" "USB0_STP" }
+
+#-------------------------------------------------------------------------------
+sd_connect_pins -sd_name ${sd_name} -pin_names {"USB0_RESETB" "FIC0_INITIATOR:ARESETN" "CLOCKS_AND_RESETS:RESETN_CLK_125MHz" "PHY_RSTn"}
 sd_connect_pins -sd_name ${sd_name} -pin_names {"SD_CLK_EMMC_CLK" "B_V_F_MSS:SD_CLK_EMMC_CLK" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"SD_CMD_EMMC_CMD" "B_V_F_MSS:SD_CMD_EMMC_CMD" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"SD_DATA0_EMMC_DATA0" "B_V_F_MSS:SD_DATA0_EMMC_DATA0" }
