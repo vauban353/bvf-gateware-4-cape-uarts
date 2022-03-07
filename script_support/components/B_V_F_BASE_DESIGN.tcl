@@ -22,13 +22,9 @@ sd_create_scalar_port -sd_name ${sd_name} -port_name {USB0_DATA6} -port_directio
 sd_create_scalar_port -sd_name ${sd_name} -port_name {USB0_DATA7} -port_direction {INOUT} -port_is_pad {1}
 sd_create_scalar_port -sd_name ${sd_name} -port_name {USB0_OCn} -port_direction {IN} 
 
-sd_create_scalar_port -sd_name ${sd_name} -port_name {MMUART_3_TXD_M2F} -port_direction {OUT}
 sd_create_scalar_port -sd_name ${sd_name} -port_name {UART0_TXD} -port_direction {OUT}
 sd_create_scalar_port -sd_name ${sd_name} -port_name {M2_UART_TXD} -port_direction {OUT}
-sd_create_scalar_port -sd_name ${sd_name} -port_name {MMUART_2_TXD_M2F} -port_direction {OUT}
 sd_create_scalar_port -sd_name ${sd_name} -port_name {UART0_RXD} -port_direction {IN}
-sd_create_scalar_port -sd_name ${sd_name} -port_name {MMUART_3_RXD_F2M} -port_direction {IN}
-sd_create_scalar_port -sd_name ${sd_name} -port_name {MMUART_2_RXD_F2M} -port_direction {IN}
 sd_create_scalar_port -sd_name ${sd_name} -port_name {M2_UART_RXD} -port_direction {IN}
 
 sd_create_scalar_port -sd_name ${sd_name} -port_name {M2_UART_RTS} -port_direction {OUT}
@@ -55,10 +51,6 @@ sd_create_scalar_port -sd_name ${sd_name} -port_name {PCIESS_LANE_RXD0_N} -port_
 sd_create_scalar_port -sd_name ${sd_name} -port_name {PCIESS_LANE_TXD0_P} -port_direction {OUT} -port_is_pad {1}
 sd_create_scalar_port -sd_name ${sd_name} -port_name {PCIESS_LANE_TXD0_N} -port_direction {OUT} -port_is_pad {1}
 sd_create_scalar_port -sd_name ${sd_name} -port_name {M2_PERST0n} -port_direction {OUT}
-sd_create_scalar_port -sd_name ${sd_name} -port_name {SPI_0_CLK_M2F} -port_direction {OUT}
-sd_create_scalar_port -sd_name ${sd_name} -port_name {SPI_0_DO_M2F} -port_direction {OUT}
-sd_create_scalar_port -sd_name ${sd_name} -port_name {SPI_0_SS1_M2F} -port_direction {OUT}
-sd_create_scalar_port -sd_name ${sd_name} -port_name {SPI_0_DI_F2M} -port_direction {IN}
 sd_create_scalar_port -sd_name ${sd_name} -port_name {PCIESS_LANE_RXD1_P} -port_direction {IN} -port_is_pad {1}
 sd_create_scalar_port -sd_name ${sd_name} -port_name {PCIESS_LANE_RXD1_N} -port_direction {IN} -port_is_pad {1}
 sd_create_scalar_port -sd_name ${sd_name} -port_name {PCIESS_LANE_RXD2_P} -port_direction {IN} -port_is_pad {1}
@@ -234,8 +226,6 @@ sd_create_pin_slices -sd_name ${sd_name} -pin_name {B_V_F_MSS:MSS_INT_F2M} -pin_
 sd_create_pin_slices -sd_name ${sd_name} -pin_name {B_V_F_MSS:MSS_INT_F2M} -pin_slices {[62]}
 sd_create_pin_slices -sd_name ${sd_name} -pin_name {B_V_F_MSS:MSS_INT_F2M} -pin_slices {[63]}
 sd_connect_pins_to_constant -sd_name ${sd_name} -pin_names {B_V_F_MSS:MSS_INT_F2M[58:5]} -value {GND}
-sd_connect_pins_to_constant -sd_name ${sd_name} -pin_names {B_V_F_MSS:SPI_0_SS_F2M} -value {GND}
-sd_connect_pins_to_constant -sd_name ${sd_name} -pin_names {B_V_F_MSS:SPI_0_CLK_F2M} -value {GND}
 sd_mark_pins_unused -sd_name ${sd_name} -pin_names {B_V_F_MSS:MSS_INT_M2F}
 sd_mark_pins_unused -sd_name ${sd_name} -pin_names {B_V_F_MSS:FIC_2_AXI4_TARGET}
 
@@ -352,10 +342,6 @@ sd_connect_pins_to_constant -sd_name ${sd_name} -pin_names {B_V_F_MSS:MMUART_1_D
 sd_connect_pins_to_constant -sd_name ${sd_name} -pin_names {B_V_F_MSS:MMUART_1_RI_F2M} -value {VCC}
 sd_mark_pins_unused -sd_name ${sd_name} -pin_names {B_V_F_MSS:MMUART_1_DTR_M2F}
 
-sd_connect_pins -sd_name ${sd_name} -pin_names {"B_V_F_MSS:MMUART_2_RXD_F2M" "MMUART_2_RXD_F2M" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"B_V_F_MSS:MMUART_2_TXD_M2F" "MMUART_2_TXD_M2F" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"B_V_F_MSS:MMUART_3_RXD_F2M" "MMUART_3_RXD_F2M" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"B_V_F_MSS:MMUART_3_TXD_M2F" "MMUART_3_TXD_M2F" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"MSS_PLL_LOCKS:A" "B_V_F_MSS:FIC_0_DLL_LOCK_M2F" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"MSS_PLL_LOCKS:D" "B_V_F_MSS:FIC_1_DLL_LOCK_M2F" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"MSS_PLL_LOCKS:C" "B_V_F_MSS:FIC_2_DLL_LOCK_M2F" }
@@ -443,14 +429,6 @@ sd_connect_pins -sd_name ${sd_name} -pin_names {"SGMII_RX0_N" "B_V_F_MSS:SGMII_R
 sd_connect_pins -sd_name ${sd_name} -pin_names {"SGMII_RX0_P" "B_V_F_MSS:SGMII_RX0_P" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"SGMII_TX0_N" "B_V_F_MSS:SGMII_TX0_N" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"SGMII_TX0_P" "B_V_F_MSS:SGMII_TX0_P" }
-
-#-------------------------------------------------------------------------------
-sd_connect_pins -sd_name ${sd_name} -pin_names {"B_V_F_MSS:SPI_0_CLK_M2F" "SPI_0_CLK_M2F" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"B_V_F_MSS:SPI_0_DI_F2M" "SPI_0_DI_F2M" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"B_V_F_MSS:SPI_0_DO_M2F" "SPI_0_DO_M2F" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"B_V_F_MSS:SPI_0_SS1_M2F" "SPI_0_SS1_M2F" }
-
-
 
 #-------------------------------------------------------------------------------
 # OTG USB
@@ -739,9 +717,6 @@ sd_connect_pins_to_constant -sd_name ${sd_name} -pin_names {B_V_F_MSS:MSS_RESET_
 
 # Mark pins unused
 sd_mark_pins_unused -sd_name ${sd_name} -pin_names {B_V_F_MSS:FIC_3_APB_M_PSTRB}
-sd_mark_pins_unused -sd_name ${sd_name} -pin_names {B_V_F_MSS:SPI_0_SS1_OE_M2F}
-sd_mark_pins_unused -sd_name ${sd_name} -pin_names {B_V_F_MSS:SPI_0_DO_OE_M2F}
-sd_mark_pins_unused -sd_name ${sd_name} -pin_names {B_V_F_MSS:SPI_0_CLK_OE_M2F}
 sd_mark_pins_unused -sd_name ${sd_name} -pin_names {B_V_F_MSS:PLL_CPU_LOCK_M2F}
 sd_mark_pins_unused -sd_name ${sd_name} -pin_names {B_V_F_MSS:PLL_DDR_LOCK_M2F}
 sd_mark_pins_unused -sd_name ${sd_name} -pin_names {B_V_F_MSS:PLL_SGMII_LOCK_M2F}
