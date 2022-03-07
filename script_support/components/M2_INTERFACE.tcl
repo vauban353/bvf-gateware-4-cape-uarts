@@ -73,12 +73,10 @@ sd_connect_pins -sd_name ${sd_name} -pin_names {"RECONFIGURATION_INTERFACE_0:PRE
 sd_connect_pins -sd_name ${sd_name} -pin_names {"PCIE:AXI_1_MASTER" "AXI_ADDRESS_SHIM_0:AXI4_TARGET" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"AXI_ADDRESS_SHIM_0:AXI4_INITIATOR" "PCIE_INITIATOR:AXI4mmaster0" }
 
-sd_connect_pins -sd_name ${sd_name} -pin_names {"PCIE:PCIESS_LANE0_DRI_SLAVE" "RECONFIGURATION_INTERFACE_0:Q0_LANE0_DRI" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"PCIE:PCIESS_LANE1_DRI_SLAVE" "RECONFIGURATION_INTERFACE_0:Q0_LANE1_DRI" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"PCIE:PCIESS_LANE2_DRI_SLAVE" "RECONFIGURATION_INTERFACE_0:Q0_LANE2_DRI" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"PCIE:PCIESS_LANE3_DRI_SLAVE" "RECONFIGURATION_INTERFACE_0:Q0_LANE3_DRI" }
 
-sd_connect_pins -sd_name ${sd_name} -pin_names {"PCIE_REF_CLK" "PCIE:PCIESS_LANE1_CDR_REF_CLK_0" "PCIE:PCIESS_LANE2_CDR_REF_CLK_0" "PCIE:PCIESS_LANE3_CDR_REF_CLK_0" "PCIE:PCIESS_LANE0_CDR_REF_CLK_0" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"PCIE_REF_CLK" "PCIE:PCIESS_LANE2_CDR_REF_CLK_0" "PCIE:PCIESS_LANE3_CDR_REF_CLK_0" }
 
 sd_connect_pins -sd_name ${sd_name} -pin_names {"PCIE_INTERRUPT" "PCIE:PCIE_1_INTERRUPT_OUT" }
 

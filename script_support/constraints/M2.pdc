@@ -90,22 +90,6 @@ set_io -port_name M2_I2C_ALTn  \
     -DIRECTION INPUT
 
 
-set_io -port_name PCIESS_LANE_RXD0_N    \
-    -pin_name G19 \
-    -DIRECTION INPUT
-    
-set_io -port_name PCIESS_LANE_RXD0_P \
-    -pin_name G20 \
-    -DIRECTION INPUT    
-    
-set_io -port_name PCIESS_LANE_RXD1_N    \
-    -pin_name K21 \
-    -DIRECTION INPUT
-    
-set_io -port_name PCIESS_LANE_RXD1_P    \
-    -pin_name K22 \
-    -DIRECTION INPUT        
-    
 set_io -port_name PCIESS_LANE_RXD2_N    \
     -pin_name M21 \
     -DIRECTION INPUT
@@ -122,22 +106,6 @@ set_io -port_name PCIESS_LANE_RXD3_P    \
     -pin_name R20 \
     -DIRECTION INPUT    
         
-set_io -port_name PCIESS_LANE_TXD0_N    \
-    -pin_name F21 \
-    -DIRECTION OUTPUT
-    
-set_io -port_name PCIESS_LANE_TXD0_P    \
-    -pin_name F22 \
-    -DIRECTION OUTPUT    
-    
-set_io -port_name PCIESS_LANE_TXD1_N    \
-    -pin_name H21 \
-    -DIRECTION OUTPUT
-    
-set_io -port_name PCIESS_LANE_TXD1_P    \
-    -pin_name H22 \
-    -DIRECTION OUTPUT
-    
 set_io -port_name PCIESS_LANE_TXD2_N    \
     -pin_name P21 \
     -DIRECTION OUTPUT
