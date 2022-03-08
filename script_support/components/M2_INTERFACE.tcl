@@ -43,15 +43,15 @@ sd_instantiate_component -sd_name ${sd_name} -component_name {RECONFIGURATION_IN
 
 # Add PCIE instance
 sd_instantiate_component -sd_name ${sd_name} -component_name {PF_PCIE_C0} -instance_name {PCIE}
-sd_connect_pins_to_constant -sd_name ${sd_name} -pin_names {PCIE:PCIE_1_INTERRUPT} -value {GND}
-sd_connect_pins_to_constant -sd_name ${sd_name} -pin_names {PCIE:PCIE_1_M_RDERR} -value {GND}
-sd_connect_pins_to_constant -sd_name ${sd_name} -pin_names {PCIE:PCIE_1_S_WDERR} -value {GND}
-sd_mark_pins_unused -sd_name ${sd_name} -pin_names {PCIE:PCIE_1_LTSSM}
-sd_mark_pins_unused -sd_name ${sd_name} -pin_names {PCIE:PCIE_1_M_WDERR}
-sd_mark_pins_unused -sd_name ${sd_name} -pin_names {PCIE:PCIE_1_S_RDERR}
-sd_mark_pins_unused -sd_name ${sd_name} -pin_names {PCIE:PCIE_1_L2_EXIT}
-sd_mark_pins_unused -sd_name ${sd_name} -pin_names {PCIE:PCIE_1_HOT_RST_EXIT}
-sd_mark_pins_unused -sd_name ${sd_name} -pin_names {PCIE:PCIE_1_DLUP_EXIT}
+sd_connect_pins_to_constant -sd_name ${sd_name} -pin_names {PCIE:PCIE_0_INTERRUPT} -value {GND}
+sd_connect_pins_to_constant -sd_name ${sd_name} -pin_names {PCIE:PCIE_0_M_RDERR} -value {GND}
+sd_connect_pins_to_constant -sd_name ${sd_name} -pin_names {PCIE:PCIE_0_S_WDERR} -value {GND}
+sd_mark_pins_unused -sd_name ${sd_name} -pin_names {PCIE:PCIE_0_LTSSM}
+sd_mark_pins_unused -sd_name ${sd_name} -pin_names {PCIE:PCIE_0_M_WDERR}
+sd_mark_pins_unused -sd_name ${sd_name} -pin_names {PCIE:PCIE_0_S_RDERR}
+sd_mark_pins_unused -sd_name ${sd_name} -pin_names {PCIE:PCIE_0_L2_EXIT}
+sd_mark_pins_unused -sd_name ${sd_name} -pin_names {PCIE:PCIE_0_HOT_RST_EXIT}
+sd_mark_pins_unused -sd_name ${sd_name} -pin_names {PCIE:PCIE_0_DLUP_EXIT}
 
 # Add stub for USB PHY connected to M.2 interface
 sd_instantiate_component -sd_name ${sd_name} -component_name {M2_USB} -instance_name {M2_USB_0} 
@@ -70,22 +70,22 @@ sd_connect_pins -sd_name ${sd_name} -pin_names {"PCIE_INITIATOR:ACLK" "PCIE:AXI_
 sd_connect_pins -sd_name ${sd_name} -pin_names {"PCIE_INITIATOR:ARESETN" "PCIE:AXI_CLK_STABLE" "AXI_ADDRESS_SHIM_0:RESETN" "ARESETN" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"RECONFIGURATION_INTERFACE_0:PRESETN" "PRESETN"}
 
-sd_connect_pins -sd_name ${sd_name} -pin_names {"PCIE:AXI_1_MASTER" "AXI_ADDRESS_SHIM_0:AXI4_TARGET" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"PCIE:AXI_0_MASTER" "AXI_ADDRESS_SHIM_0:AXI4_TARGET" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"AXI_ADDRESS_SHIM_0:AXI4_INITIATOR" "PCIE_INITIATOR:AXI4mmaster0" }
 
-sd_connect_pins -sd_name ${sd_name} -pin_names {"PCIE:PCIESS_LANE2_DRI_SLAVE" "RECONFIGURATION_INTERFACE_0:Q0_LANE2_DRI" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"PCIE:PCIESS_LANE3_DRI_SLAVE" "RECONFIGURATION_INTERFACE_0:Q0_LANE3_DRI" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"PCIE:PCIESS_LANE0_DRI_SLAVE" "RECONFIGURATION_INTERFACE_0:Q0_LANE0_DRI" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"PCIE:PCIESS_LANE1_DRI_SLAVE" "RECONFIGURATION_INTERFACE_0:Q0_LANE1_DRI" }
 
-sd_connect_pins -sd_name ${sd_name} -pin_names {"PCIE_REF_CLK" "PCIE:PCIESS_LANE2_CDR_REF_CLK_0" "PCIE:PCIESS_LANE3_CDR_REF_CLK_0" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"PCIE_REF_CLK" "PCIE:PCIESS_LANE0_CDR_REF_CLK_0" "PCIE:PCIESS_LANE1_CDR_REF_CLK_0" }
 
-sd_connect_pins -sd_name ${sd_name} -pin_names {"PCIE_INTERRUPT" "PCIE:PCIE_1_INTERRUPT_OUT" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"PCIE_INTERRUPT" "PCIE:PCIE_0_INTERRUPT_OUT" }
 
 sd_mark_pins_unused -sd_name ${sd_name} -pin_names {RECONFIGURATION_INTERFACE_0:PINTERRUPT}
 sd_mark_pins_unused -sd_name ${sd_name} -pin_names {RECONFIGURATION_INTERFACE_0:PTIMEOUT}
 sd_mark_pins_unused -sd_name ${sd_name} -pin_names {RECONFIGURATION_INTERFACE_0:BUSERROR}
 
 sd_connect_pins_to_constant -sd_name ${sd_name} -pin_names {M2_PERST0n} -value {VCC}
-sd_connect_pins_to_constant -sd_name ${sd_name} -pin_names {PCIE:PCIE_1_PERST_N} -value {VCC} 
+sd_connect_pins_to_constant -sd_name ${sd_name} -pin_names {PCIE:PCIE_0_PERST_N} -value {VCC} 
 
 #-------------------------------------------------------------------------------
 # Promote bus and signals to top level
@@ -97,11 +97,11 @@ sd_rename_port -sd_name ${sd_name} -current_port_name {AXI4mslave0} -new_port_na
 sd_connect_pin_to_port -sd_name ${sd_name} -pin_name {RECONFIGURATION_INTERFACE_0:APBS_SLAVE} -port_name {} 
 sd_rename_port -sd_name ${sd_name} -current_port_name {APBS_SLAVE} -new_port_name {APB_TARGET} 
 
-sd_connect_pin_to_port -sd_name ${sd_name} -pin_name {PCIE:CLKS_FROM_TXPLL_TO_PCIE_1} -port_name {} 
-sd_connect_pin_to_port -sd_name ${sd_name} -pin_name {PCIE:PCIE_1_TL_CLK_125MHz} -port_name {} 
+sd_connect_pin_to_port -sd_name ${sd_name} -pin_name {PCIE:CLKS_FROM_TXPLL_TO_PCIE_0} -port_name {} 
+sd_connect_pin_to_port -sd_name ${sd_name} -pin_name {PCIE:PCIE_0_TL_CLK_125MHz} -port_name {} 
 
-sd_connect_pin_to_port -sd_name ${sd_name} -pin_name {PCIE:AXI_1_SLAVE} -port_name {} 
-sd_rename_port -sd_name ${sd_name} -current_port_name {AXI_1_SLAVE} -new_port_name {AXI_TARGET} 
+sd_connect_pin_to_port -sd_name ${sd_name} -pin_name {PCIE:AXI_0_SLAVE} -port_name {} 
+sd_rename_port -sd_name ${sd_name} -current_port_name {AXI_0_SLAVE} -new_port_name {AXI_TARGET} 
 sd_mark_pins_unused -sd_name ${sd_name} -pin_names {RECONFIGURATION_INTERFACE_0:PLL0_SW_DRI} 
 
 #-------------------------------------------------------------------------------

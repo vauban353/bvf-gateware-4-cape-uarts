@@ -7,8 +7,8 @@ auto_promote_pad_pins -promote_all 0
 
 # Create top level Ports
 sd_create_scalar_port -sd_name ${sd_name} -port_name {PCIe_CLK_125MHz} -port_direction {OUT}
-sd_create_scalar_port -sd_name ${sd_name} -port_name {REF_CLK_PAD_P} -port_direction {IN} -port_is_pad {1}
-sd_create_scalar_port -sd_name ${sd_name} -port_name {REF_CLK_PAD_N} -port_direction {IN} -port_is_pad {1}
+sd_create_scalar_port -sd_name ${sd_name} -port_name {XCVR_0A_REFCLK_P} -port_direction {IN} -port_is_pad {1}
+sd_create_scalar_port -sd_name ${sd_name} -port_name {XCVR_0A_REFCLK_N} -port_direction {IN} -port_is_pad {1}
 sd_create_scalar_port -sd_name ${sd_name} -port_name {PCIe_REFERENCE_CLK} -port_direction {OUT}
 sd_create_scalar_port -sd_name ${sd_name} -port_name {CLK_62_5MHz} -port_direction {OUT}
 sd_create_scalar_port -sd_name ${sd_name} -port_name {CLK_125MHz} -port_direction {OUT}
@@ -110,8 +110,8 @@ sd_connect_pins -sd_name ${sd_name} -pin_names {"CLK_160MHz_to_CLK_80MHz:CLK_IN"
 sd_connect_pins -sd_name ${sd_name} -pin_names {"PCIe_CLK_125MHz" "GLITCHLESS_MUX:CLK_OUT" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"PCIe_CLK_LOCK:Y" "GLITCHLESS_MUX:SEL" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"PCIE_REF_CLK_0:REF_CLK" "TRANSMIT_PLL_0:REF_CLK" "PCIe_REFERENCE_CLK" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"PCIE_REF_CLK_0:REF_CLK_PAD_N" "REF_CLK_PAD_N" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"REF_CLK_PAD_P" "PCIE_REF_CLK_0:REF_CLK_PAD_P" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"PCIE_REF_CLK_0:REF_CLK_PAD_N" "XCVR_0A_REFCLK_N" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"XCVR_0A_REFCLK_P" "PCIE_REF_CLK_0:REF_CLK_PAD_P" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"RESET_CLK_62_5MHz:FABRIC_RESET_N" "RESETN_CLK_62_5MHz" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"RESETN_CLK_125MHz" "RESET_CLK_125MHz:FABRIC_RESET_N" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"RESET_CLK_62_5MHz:PLL_LOCK" "SYSTEM_PLL_LOCKs:Y" "RESET_CLK_125MHz:PLL_LOCK" }
