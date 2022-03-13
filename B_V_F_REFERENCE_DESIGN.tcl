@@ -87,8 +87,8 @@ new_project \
     -linked_files_root_dir_env {} \
     -hdl {VERILOG} \
     -family {PolarFireSoC} \
-    -die {MPFS025T} \
-    -package {FCVG484_Eval} \
+    -die {MPFS250T_ES} \
+    -package {FCVG484} \
     -speed {STD} \
     -die_voltage {1.05} \
     -part_range {EXT} \
@@ -96,7 +96,7 @@ new_project \
     -adv_options {RESTRICTPROBEPINS:0} \
     -adv_options {RESTRICTSPIPINS:0} \
     -adv_options {SYSTEM_CONTROLLER_SUSPEND_MODE:0} \
-    -adv_options {TARGETDEVICESFORMIGRATION:MPFS095T;MPFS160T;MPFS025TL;MPFS095TL;MPFS160TL;} \
+    -adv_options {TARGETDEVICESFORMIGRATION:MPFS095T;MPFS160T;MPFS095TL;MPFS160TL;} \
     -adv_options {TEMPR:EXT} \
     -adv_options {VCCI_1.2_VOLTR:EXT} \
     -adv_options {VCCI_1.5_VOLTR:EXT} \
@@ -147,7 +147,6 @@ import_files \
     -io_pdc "${constraint_path}/cape.pdc" \
     -io_pdc "${constraint_path}/M2.pdc" \
     -io_pdc "${constraint_path}/M2_USB.pdc" \
-    -io_pdc "${constraint_path}/MIPI_CSI_INTERFACE.pdc" \
     -io_pdc "${constraint_path}/ICICLE_USB.pdc"
 
 #
@@ -160,7 +159,6 @@ organize_tool_files \
     -file "${project_dir}/constraint/io/cape.pdc" \
     -file "${project_dir}/constraint/io/M2.pdc" \
     -file "${project_dir}/constraint/io/M2_USB.pdc" \
-    -file "${project_dir}/constraint/io/MIPI_CSI_INTERFACE.pdc" \
     -file "${project_dir}/constraint/io/ICICLE_USB.pdc" \
     -module {B_V_F_BASE_DESIGN::work} \
     -input_type {constraint}
