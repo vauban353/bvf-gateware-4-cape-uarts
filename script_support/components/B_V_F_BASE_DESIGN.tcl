@@ -166,8 +166,6 @@ sd_create_scalar_port -sd_name ${sd_name} -port_name {P9_30} -port_direction {IN
 sd_create_scalar_port -sd_name ${sd_name} -port_name {P9_27} -port_direction {INOUT}
 sd_create_scalar_port -sd_name ${sd_name} -port_name {P9_25} -port_direction {INOUT}
 
-sd_invert_pins -sd_name ${sd_name} -pin_names {USB0_RESETB}
-
 # Add CLOCKS_AND_RESETS instance
 sd_instantiate_component -sd_name ${sd_name} -component_name {CLOCKS_AND_RESETS} -instance_name {CLOCKS_AND_RESETS}
 
