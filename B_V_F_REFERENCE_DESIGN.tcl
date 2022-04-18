@@ -51,23 +51,14 @@ set install_loc [defvar_get -name ACTEL_SW_DIR]
 set mss_config_loc "$install_loc/bin64/pfsoc_mss"
 set local_dir [pwd]
 set constraint_path ./script_support/constraints
+set project_name "B_V_F_025"
 
-if {[info exists I2C_LOOPBACK]} {
-    set project_name "MPFS_ICICLE_I2C_LOOPBACK"
-    set project_dir "$local_dir/MPFS_ICICLE_I2C_LOOPBACK"
-} elseif {[info exists VECTORBLOX]} {
-    set project_name "MPFS_ICICLE_Vectorblox"
-    set project_dir "$local_dir/MPFS_ICICLE_Vectorblox"
-} elseif {[info exists SPI_LOOPBACK]} {
-    set project_name "MPFS_ICICLE_SPI_LOOPBACK"
-    set project_dir "$local_dir/MPFS_ICICLE_SPI_LOOPBACK"
-} elseif {[info exists DRI_CCC_DEMO]} {
-    set project_name "MPFS_ICICLE_DRI_CCC_DEMO"
-    set project_dir "$local_dir/MPFS_ICICLE_DRI_CCC_DEMO"
+if {[info exists PROJECT_LOCATION]} {
+    set project_dir "$PROJECT_LOCATION"
 } else {
-    set project_name "B_V_F_025"
-    set project_dir "$local_dir/B_V_F_025"
+    set project_dir "$local_dir/$project_name"
 }
+
 
 source ./script_support/additional_configurations/functions.tcl
 
@@ -76,7 +67,7 @@ source ./script_support/additional_configurations/functions.tcl
 #
 
 new_project \
-    -location $project_name \
+    -location $project_dir \
     -name $project_name \
     -project_description {} \
     -block_mode 0 \
