@@ -1,5 +1,6 @@
 #
 # // Icicle Kit eMMC Libero design
+# This is based on the Icicle Kit Refernece Design TCL script
 #
 
 #
@@ -8,10 +9,10 @@
 
 set libero_release [split [get_libero_version] .]
 
-if {[string compare [lindex $libero_release 0] "2021"] == 0 && [string compare [lindex $libero_release 1] "3"] == 0} {
-    puts "Libero v2021.3 detected."
+if {[string compare [lindex $libero_release 0] "2022"] == 0 && [string compare [lindex $libero_release 1] "1"] == 0} {
+    puts "Libero v2022.1 detected."
 } else {
-    error "Incorrect Libero version detected. Please use Libero v2021.3 to run these scripts."
+    error "Incorrect Libero version detected. Please use Libero v2022.1 to run these scripts."
 }
 
 if { [lindex $tcl_platform(os) 0]  == "Windows" } {
@@ -162,81 +163,21 @@ build_design_hierarchy
 derive_constraints_sdc 
 
 #
-# // Apply additional design configurations
-#
-
-if {[info exists BFM_SIMULATION]} {
-    source script_support/simulation/Test_bench.tcl
-}
-
-if {[info exists I2C_LOOPBACK]} {
-    if {[file isdirectory $local_dir/script_support/components/MSS_I2C_LOOPBACK]} {
-        file delete -force $local_dir/script_support/components/MSS_I2C_LOOPBACK
-    }
-    file mkdir $local_dir/script_support/components/MSS_I2C_LOOPBACK
-    create_config $local_dir/script_support/components/MSS/ICICLE_MSS.cfg $local_dir/script_support/additional_configurations/I2C_LOOPBACK/ICICLE_MSS_I2C_LOOPBACK.cfg
-    update_param $local_dir/script_support/additional_configurations/I2C_LOOPBACK/ICICLE_MSS_I2C_LOOPBACK.cfg "I2C_1 " "FABRIC"
-    exec $mss_config_loc -CONFIGURATION_FILE:$local_dir/script_support/additional_configurations/I2C_LOOPBACK/ICICLE_MSS_I2C_LOOPBACK.cfg -OUTPUT_DIR:$local_dir/script_support/components/MSS_I2C_LOOPBACK
-    source ./script_support/additional_configurations/I2C_LOOPBACK/I2C_LOOPBACK.tcl
-} elseif {[info exists VECTORBLOX]} {
-    source ./script_support/additional_configurations/Vectorblox/Vectorblox.tcl
-} elseif {[info exists SPI_LOOPBACK]} {
-    if {[file isdirectory $local_dir/script_support/components/MSS_SPI_LOOPBACK]} {
-        file delete -force $local_dir/script_support/components/MSS_SPI_LOOPBACK
-    }
-    file mkdir $local_dir/script_support/components/MSS_SPI_LOOPBACK
-    create_config $local_dir/script_support/components/MSS/ICICLE_MSS.cfg $local_dir/script_support/additional_configurations/SPI_LOOPBACK/ICICLE_MSS_SPI_LOOPBACK.cfg
-    update_param $local_dir/script_support/additional_configurations/SPI_LOOPBACK/ICICLE_MSS_SPI_LOOPBACK.cfg "QSPI                                " "UNUSED"
-    update_param $local_dir/script_support/additional_configurations/SPI_LOOPBACK/ICICLE_MSS_SPI_LOOPBACK.cfg "QSPI_CLK                                " "UNUSED"
-    update_param $local_dir/script_support/additional_configurations/SPI_LOOPBACK/ICICLE_MSS_SPI_LOOPBACK.cfg "QSPI_DATA_3_2                                " "UNUSED"
-    update_param $local_dir/script_support/additional_configurations/SPI_LOOPBACK/ICICLE_MSS_SPI_LOOPBACK.cfg "SPI_1                                " "MSSIO_B2_B"
-    update_param $local_dir/script_support/additional_configurations/SPI_LOOPBACK/ICICLE_MSS_SPI_LOOPBACK.cfg "SPI_1_SS1                                " "FABRIC"
-    exec $mss_config_loc -CONFIGURATION_FILE:$local_dir/script_support/additional_configurations/SPI_LOOPBACK/ICICLE_MSS_SPI_LOOPBACK.cfg -OUTPUT_DIR:$local_dir/script_support/components/MSS_SPI_LOOPBACK
-    source ./script_support/additional_configurations/SPI_LOOPBACK/SPI_LOOPBACK.tcl
-} elseif {[info exists DRI_CCC_DEMO]} {
-    source ./script_support/additional_configurations/DRI_CCC_DEMO/DRI_CCC_DEMO.tcl
-   }
-
-#
 # // Run the design flow and add eNVM clients if required
 #
 
-if {[info exists SYNTHESIZE]} {
+if !{[info exists ONLY_CREATE_DESIGN]} {
     run_tool -name {SYNTHESIZE}
-} elseif {[info exists PLACEROUTE]} {
     run_tool -name {PLACEROUTE}
-} elseif {[info exists VERIFY_TIMING]} {
-    run_tool -name {VERIFYTIMING}
-}
-
-if {[info exists HSS_UPDATE]} {
-    if !{[file exists "./script_support/hss-bm1-p0.hex"]} {
-        if {[catch    {exec wget https://github.com/polarfire-soc/hart-software-services/releases/latest/download/hss-bm1-p0.hex -P ./script_support/} issue]} {
-        }
-    }
-    create_eNVM_config "$local_dir/script_support/components/MSS/ENVM.cfg" "$local_dir/script_support/hss-bm1-p0.hex"
-    run_tool -name {GENERATEPROGRAMMINGDATA}
-    configure_envm -cfg_file {script_support/components/MSS/ENVM.cfg}
-}
-
-if {[info exists GENERATE_PROGRAMMING_DATA]} {
-    run_tool -name {GENERATEPROGRAMMINGDATA} 
-}  elseif {[info exists PROGRAM]} {
-    run_tool -name {PROGRAMDEVICE}
-} elseif {[info exists EXPORT_FPE]} {
-    if {[info exists HSS_UPDATE]} {
-        if {$EXPORT_FPE == 1} {
-            export_fpe_job $project_name $local_dir "ENVM FABRIC_SNVM"
-        } else {
-            export_fpe_job $project_name $EXPORT_FPE "ENVM FABRIC_SNVM"
-        }
+#    run_tool -name {VERIFYTIMING}
+    if {[info exists HSS_IMAGE_PATH]} {
+        create_eNVM_config "$local_dir/script_support/components/MSS/ENVM.cfg" "$HSS_IMAGE_PATH"
+        run_tool -name {GENERATEPROGRAMMINGDATA}
+        configure_envm -cfg_file {script_support/components/MSS/ENVM.cfg}
     } else {
-        if {$EXPORT_FPE == 1} {
-            export_fpe_job $project_name $local_dir "FABRIC_SNVM"
-        } else {
-            export_fpe_job $project_name $EXPORT_FPE "FABRIC_SNVM"
-        }
+        run_tool -name {GENERATEPROGRAMMINGDATA}
     }
-}
+    source ./script_support/export_flashproexpress.tcl
+} 
 
 save_project 
