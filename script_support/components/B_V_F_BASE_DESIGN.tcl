@@ -166,6 +166,14 @@ sd_create_scalar_port -sd_name ${sd_name} -port_name {P9_30} -port_direction {IN
 sd_create_scalar_port -sd_name ${sd_name} -port_name {P9_27} -port_direction {INOUT}
 sd_create_scalar_port -sd_name ${sd_name} -port_name {P9_25} -port_direction {INOUT}
 
+#-------------------------------------------------------------------------------
+# Ethernet PHY top level ports
+#-------------------------------------------------------------------------------
+sd_create_scalar_port -sd_name ${sd_name} -port_name {PHY_RSTn} -port_direction {OUT}
+sd_create_scalar_port -sd_name ${sd_name} -port_name {PHY_INTn} -port_direction {IN}
+sd_create_scalar_port -sd_name ${sd_name} -port_name {PHY_MDC} -port_direction {OUT}
+sd_create_scalar_port -sd_name ${sd_name} -port_name {PHY_MDIO} -port_direction {INOUT}
+
 # Add CLOCKS_AND_RESETS instance
 sd_instantiate_component -sd_name ${sd_name} -component_name {CLOCKS_AND_RESETS} -instance_name {CLOCKS_AND_RESETS}
 
@@ -221,8 +229,8 @@ sd_mark_pins_unused -sd_name ${sd_name} -pin_names {PF_SOC_MSS:MSS_INT_M2F}
 sd_mark_pins_unused -sd_name ${sd_name} -pin_names {PF_SOC_MSS:FIC_2_AXI4_TARGET}
 
 
-# Add MSS_PLL_LOCKS instance
-sd_instantiate_macro -sd_name ${sd_name} -macro_name {AND4} -instance_name {MSS_PLL_LOCKS}
+# Add MSS_DLL_LOCKS instance
+sd_instantiate_macro -sd_name ${sd_name} -macro_name {AND4} -instance_name {MSS_DLL_LOCKS}
 
 
 #-------------------------------------------------------------------------------
@@ -236,10 +244,10 @@ sd_connect_pins -sd_name ${sd_name} -pin_names {"FIC3_INITIATOR:APBmslave16" "M2
 sd_connect_pins -sd_name ${sd_name} -pin_names {"FIC0_INITIATOR:AXI4mslave0" "M2_INTERFACE_0:AXI_TARGET"}
 sd_connect_pins -sd_name ${sd_name} -pin_names {"CLOCKS_AND_RESETS:CLKS_TO_XCVR" "M2_INTERFACE_0:CLKS_FROM_TXPLL_TO_PCIE_0"} 
 
-sd_connect_pins -sd_name ${sd_name} -pin_names {"CLOCKS_AND_RESETS:CLK_125MHz" "M2_INTERFACE_0:ACLK"} 
-sd_connect_pins -sd_name ${sd_name} -pin_names {"CLOCKS_AND_RESETS:CLK_62_5MHz" "M2_INTERFACE_0:PCLK"} 
-sd_connect_pins -sd_name ${sd_name} -pin_names {"CLOCKS_AND_RESETS:RESETN_CLK_62_5MHz" "M2_INTERFACE_0:PRESETN"} 
-sd_connect_pins -sd_name ${sd_name} -pin_names {"CLOCKS_AND_RESETS:RESETN_CLK_125MHz" "M2_INTERFACE_0:ARESETN"} 
+sd_connect_pins -sd_name ${sd_name} -pin_names {"CLOCKS_AND_RESETS:FIC_0_ACLK" "M2_INTERFACE_0:ACLK"} 
+sd_connect_pins -sd_name ${sd_name} -pin_names {"CLOCKS_AND_RESETS:FIC_3_PCLK" "M2_INTERFACE_0:PCLK"} 
+sd_connect_pins -sd_name ${sd_name} -pin_names {"CLOCKS_AND_RESETS:FIC_3_FABRIC_RESET_N" "M2_INTERFACE_0:PRESETN"} 
+sd_connect_pins -sd_name ${sd_name} -pin_names {"CLOCKS_AND_RESETS:FIC_0_FABRIC_RESET_N" "M2_INTERFACE_0:ARESETN"} 
 sd_connect_pins -sd_name ${sd_name} -pin_names {"CLOCKS_AND_RESETS:PCIe_REFERENCE_CLK" "M2_INTERFACE_0:PCIE_REF_CLK"} 
 sd_connect_pins -sd_name ${sd_name} -pin_names {"CLOCKS_AND_RESETS:PCIe_CLK_125MHz" "M2_INTERFACE_0:PCIE_0_TL_CLK_125MHz"} 
 
@@ -303,13 +311,21 @@ sd_connect_pins -sd_name ${sd_name} -pin_names {"M2_INTERFACE_0:USB1_DATA7" "USB
 #sd_invert_pins -sd_name ${sd_name} -pin_names {SW3_OR_GPIO_2_27:A}
 
 
+# Clocks and resets
+sd_connect_pins -sd_name ${sd_name} -pin_names {"CLOCKS_AND_RESETS:FIC_0_ACLK" "PF_SOC_MSS:FIC_0_ACLK" "FIC0_INITIATOR:ACLK"}
+sd_connect_pins -sd_name ${sd_name} -pin_names {"CLOCKS_AND_RESETS:FIC_1_ACLK" "PF_SOC_MSS:FIC_1_ACLK"}
+sd_connect_pins -sd_name ${sd_name} -pin_names {"CLOCKS_AND_RESETS:FIC_2_ACLK" "PF_SOC_MSS:FIC_2_ACLK"}
+sd_connect_pins -sd_name ${sd_name} -pin_names {"CLOCKS_AND_RESETS:FIC_3_PCLK" "IHC_SUBSYSTEM_0:pclk" "PF_SOC_MSS:FIC_3_PCLK" "CAPE:PCLK"}
+sd_connect_pins -sd_name ${sd_name} -pin_names {"CLOCKS_AND_RESETS:FIC_0_FABRIC_RESET_N" "USB1_RESETB" "USB0_RESETB" "FIC0_INITIATOR:ARESETN" "PHY_RSTn"}
+sd_connect_pins -sd_name ${sd_name} -pin_names {"CLOCKS_AND_RESETS:FIC_3_FABRIC_RESET_N" "IHC_SUBSYSTEM_0:presetn" "CAPE:PRESETN" }
+sd_mark_pins_unused -sd_name ${sd_name} -pin_names {CLOCKS_AND_RESETS:FIC_1_FABRIC_RESET_N}
+sd_mark_pins_unused -sd_name ${sd_name} -pin_names {CLOCKS_AND_RESETS:FIC_2_FABRIC_RESET_N}
+
+
 # Add scalar net connections
 sd_connect_pins -sd_name ${sd_name} -pin_names {"CK" "PF_SOC_MSS:CK" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"CK_N" "PF_SOC_MSS:CK_N" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"CKE" "PF_SOC_MSS:CKE" }
-sd_connect_pins -sd_name ${sd_name} -pin_names { "IHC_SUBSYSTEM_0:pclk" "PF_SOC_MSS:FIC_3_PCLK" "CLOCKS_AND_RESETS:CLK_62_5MHz" "CAPE:PCLK"}
-sd_connect_pins -sd_name ${sd_name} -pin_names {"PF_SOC_MSS:FIC_2_ACLK" "PF_SOC_MSS:FIC_1_ACLK" "PF_SOC_MSS:FIC_0_ACLK" "FIC0_INITIATOR:ACLK" "CLOCKS_AND_RESETS:CLK_125MHz" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"IHC_SUBSYSTEM_0:presetn" "CLOCKS_AND_RESETS:RESETN_CLK_62_5MHz" "CAPE:PRESETN" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"CS" "PF_SOC_MSS:CS" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"PF_SOC_MSS:I2C_0_SCL_F2M" "I2C0_SCL_BIBUF:Y" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"PF_SOC_MSS:I2C_0_SDA_F2M" "I2C0_SDA_BIBUF:Y" }
@@ -333,14 +349,14 @@ sd_connect_pins_to_constant -sd_name ${sd_name} -pin_names {PF_SOC_MSS:MMUART_1_
 sd_connect_pins_to_constant -sd_name ${sd_name} -pin_names {PF_SOC_MSS:MMUART_1_RI_F2M} -value {VCC}
 sd_mark_pins_unused -sd_name ${sd_name} -pin_names {PF_SOC_MSS:MMUART_1_DTR_M2F}
 
-sd_connect_pins -sd_name ${sd_name} -pin_names {"MSS_PLL_LOCKS:A" "PF_SOC_MSS:FIC_0_DLL_LOCK_M2F" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"MSS_PLL_LOCKS:D" "PF_SOC_MSS:FIC_1_DLL_LOCK_M2F" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"MSS_PLL_LOCKS:C" "PF_SOC_MSS:FIC_2_DLL_LOCK_M2F" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"MSS_PLL_LOCKS:B" "PF_SOC_MSS:FIC_3_DLL_LOCK_M2F" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"MSS_DLL_LOCKS:A" "PF_SOC_MSS:FIC_0_DLL_LOCK_M2F" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"MSS_DLL_LOCKS:D" "PF_SOC_MSS:FIC_1_DLL_LOCK_M2F" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"MSS_DLL_LOCKS:C" "PF_SOC_MSS:FIC_2_DLL_LOCK_M2F" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"MSS_DLL_LOCKS:B" "PF_SOC_MSS:FIC_3_DLL_LOCK_M2F" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"PF_SOC_MSS:I2C_0_SCL_OE_M2F" "I2C0_SCL_BIBUF:E" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"PF_SOC_MSS:I2C_0_SDA_OE_M2F" "I2C0_SDA_BIBUF:E" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"PF_SOC_MSS:MSS_RESET_N_M2F" "CLOCKS_AND_RESETS:EXT_RST_N" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"MSS_PLL_LOCKS:Y" "CLOCKS_AND_RESETS:MSS_PLL_LOCKS" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"MSS_DLL_LOCKS:Y" "CLOCKS_AND_RESETS:MSS_DLL_LOCKS" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"ODT" "PF_SOC_MSS:ODT" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"M2_PER0_N" "M2_INTERFACE_0:PCIESS_LANE_RXD0_N" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"M2_PER0_P" "M2_INTERFACE_0:PCIESS_LANE_RXD0_P" }
@@ -399,11 +415,6 @@ sd_connect_pins -sd_name ${sd_name} -pin_names {"RESET_N" "PF_SOC_MSS:RESET_N" }
 #-------------------------------------------------------------------------------
 # Ethernet PHY connections
 #-------------------------------------------------------------------------------
-sd_create_scalar_port -sd_name ${sd_name} -port_name {PHY_RSTn} -port_direction {OUT}
-sd_create_scalar_port -sd_name ${sd_name} -port_name {PHY_INTn} -port_direction {IN}
-sd_create_scalar_port -sd_name ${sd_name} -port_name {PHY_MDC} -port_direction {OUT}
-sd_create_scalar_port -sd_name ${sd_name} -port_name {PHY_MDIO} -port_direction {INOUT}
-
 sd_connect_pins -sd_name ${sd_name} -pin_names {"PHY_MDIO" "PF_SOC_MSS:MAC_0_MDIO" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"PHY_MDC" "PF_SOC_MSS:MAC_0_MDC" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"PHY_INTn" "PF_SOC_MSS:MSS_INT_F2M[2:2]" }
@@ -431,7 +442,6 @@ sd_connect_pins -sd_name ${sd_name} -pin_names {"PF_SOC_MSS:USB_NXT" "USB0_NXT" 
 sd_connect_pins -sd_name ${sd_name} -pin_names {"PF_SOC_MSS:USB_STP" "USB0_STP" }
 
 #-------------------------------------------------------------------------------
-sd_connect_pins -sd_name ${sd_name} -pin_names {"USB1_RESETB" "USB0_RESETB" "FIC0_INITIATOR:ARESETN" "CLOCKS_AND_RESETS:RESETN_CLK_125MHz" "PHY_RSTn"}
 sd_connect_pins -sd_name ${sd_name} -pin_names {"SD_CLK_EMMC_CLK" "PF_SOC_MSS:SD_CLK_EMMC_CLK" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"SD_CMD_EMMC_CMD" "PF_SOC_MSS:SD_CMD_EMMC_CMD" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"SD_DATA0_EMMC_DATA0" "PF_SOC_MSS:SD_DATA0_EMMC_DATA0" }

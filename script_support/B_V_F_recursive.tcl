@@ -10,7 +10,9 @@ source script_support/components/EMMC.tcl
 source script_support/components/MIPI_CSI2_RX_IOD.tcl 
 source script_support/components/MIPI_CSI_INTERFACE.tcl 
 source script_support/components/CLOCKS_AND_RESETS/CORERESET_0.tcl
+#source script_support/components/CLOCKS_AND_RESETS/CORERESET_PF_C0.tcl
 source script_support/components/CLOCKS_AND_RESETS/INIT_MONITOR.tcl 
+source script_support/components/CLOCKS_AND_RESETS/FPGA_CCC_C0.tcl
 source script_support/components/PCIE_INITIATOR.tcl 
 source script_support/components/FIC0_INITIATOR.tcl 
 source script_support/components/CLOCKS_AND_RESETS/CLK_DIV.tcl 
