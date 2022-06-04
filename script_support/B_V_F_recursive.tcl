@@ -25,6 +25,7 @@ source script_support/components/FIC3_INITIATOR.tcl
 source script_support/components/CLOCKS_AND_RESETS/OSCILLATOR_160MHz.tcl
 source script_support/components/CLOCKS_AND_RESETS/ADC_MCLK_CCC.tcl 
 source script_support/components/CLOCKS_AND_RESETS/CLOCKS_AND_RESETS.tcl 
+source script_support/components/CLOCKS_AND_RESETS/ADD_PCIE_CLOCKS_AND_RESETS.tcl 
 source script_support/components/IHC_APB.tcl
 source script_support/components/IHC_SUBSYSTEM.tcl
 source script_support/components/APB_BUS_CONVERTER.tcl
