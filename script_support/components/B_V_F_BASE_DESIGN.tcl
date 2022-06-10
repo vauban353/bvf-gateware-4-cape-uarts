@@ -278,8 +278,8 @@ sd_mark_pins_unused -sd_name ${sd_name} -pin_names {BVF_RISCV_SUBSYSTEM:CSI_APB_
 
 #-------------------------------------------------------------------------------
 
-source script_support/components//ADD_CAPE.tcl 
-source script_support/components//ADD_M2_INTERFACE.tcl 
+source script_support/components/CAPE/$cape_option/ADD_CAPE.tcl 
+source script_support/components/ADD_M2_INTERFACE.tcl 
 
 
 #-------------------------------------------------------------------------------

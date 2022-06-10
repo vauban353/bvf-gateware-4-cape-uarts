@@ -54,6 +54,13 @@ set local_dir [pwd]
 set constraint_path ./script_support/constraints
 set project_name "B_V_F_025"
 
+if {[info exists CAPE_OPTION]} {
+    set cape_option "$CAPE_OPTION"
+} else {
+    set cape_option "DEFAULT"
+}
+
+
 if {[info exists PROJECT_LOCATION]} {
     set project_dir "$PROJECT_LOCATION"
 } else {
@@ -136,7 +143,6 @@ source ./script_support/B_V_F_recursive.tcl
 import_files \
     -convert_EDN_to_HDL 0 \
     -io_pdc "${constraint_path}/base_design.pdc" \
-    -io_pdc "${constraint_path}/cape.pdc" \
     -io_pdc "${constraint_path}/M2.pdc" \
     -io_pdc "${constraint_path}/M2_USB.pdc" \
     -io_pdc "${constraint_path}/ICICLE_USB.pdc"
@@ -148,12 +154,29 @@ import_files \
 organize_tool_files \
     -tool {PLACEROUTE} \
     -file "${project_dir}/constraint/io/base_design.pdc" \
-    -file "${project_dir}/constraint/io/cape.pdc" \
     -file "${project_dir}/constraint/io/M2.pdc" \
     -file "${project_dir}/constraint/io/M2_USB.pdc" \
     -file "${project_dir}/constraint/io/ICICLE_USB.pdc" \
     -module {B_V_F_BASE_DESIGN::work} \
     -input_type {constraint}
+
+#
+# Add relevant cape related constraints.
+#
+if {$cape_option == "DEFAULT"} {
+
+    import_files \
+        -convert_EDN_to_HDL 0 \
+        -io_pdc "${constraint_path}/cape.pdc"
+
+    organize_tool_files \
+        -tool {PLACEROUTE} \
+        -file "${project_dir}/constraint/io/cape.pdc" \
+        -module {B_V_F_BASE_DESIGN::work} \
+        -input_type {constraint}
+
+}
+
 
 #
 # // Derive timing constraints

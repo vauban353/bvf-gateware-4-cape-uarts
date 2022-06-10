@@ -28,11 +28,11 @@ source script_support/components/CLOCKS_AND_RESETS/CLOCKS_AND_RESETS.tcl
 source script_support/components/CLOCKS_AND_RESETS/ADD_PCIE_CLOCKS_AND_RESETS.tcl 
 source script_support/components/IHC_APB.tcl
 source script_support/components/IHC_SUBSYSTEM.tcl
-source script_support/components/APB_BUS_CONVERTER.tcl
-source script_support/components/P8_GPIO_LCD.tcl
-source script_support/components/CAPE_DEFAULT_GPIOS.tcl
-source script_support/components/CAPE_PWM.tcl
-source script_support/components/CAPE.tcl
+source script_support/components/CAPE/DEFAULT/APB_BUS_CONVERTER.tcl
+source script_support/components/CAPE/DEFAULT/P8_GPIO_LCD.tcl
+source script_support/components/CAPE/DEFAULT/CAPE_DEFAULT_GPIOS.tcl
+source script_support/components/CAPE/DEFAULT/CAPE_PWM.tcl
+source script_support/components/CAPE/DEFAULT/CAPE.tcl
 source script_support/components/M2_INTERFACE.tcl
 source script_support/components/BVF_RISCV_SUBSYSTEM.tcl
 source script_support/components/B_V_F_BASE_DESIGN.tcl 
