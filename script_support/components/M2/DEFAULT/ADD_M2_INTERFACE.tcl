@@ -1,6 +1,22 @@
 #-------------------------------------------------------------------------------
-# M.2 interface
+# Modify the CLOCKS_AND_RESET block to add the required PCIe clocks generation.
 #-------------------------------------------------------------------------------
+
+source script_support/components/CLOCKS_AND_RESETS/ADD_PCIE_CLOCKS_AND_RESETS.tcl 
+sd_update_instance -sd_name {B_V_F_BASE_DESIGN} -instance_name {CLOCKS_AND_RESETS}
+
+sd_create_scalar_port -sd_name {B_V_F_BASE_DESIGN} -port_name {XCVR_0A_REFCLK_P} -port_direction {IN} -port_is_pad {1}
+sd_create_scalar_port -sd_name {B_V_F_BASE_DESIGN} -port_name {XCVR_0A_REFCLK_N} -port_direction {IN} -port_is_pad {1}
+
+sd_connect_pins -sd_name {B_V_F_BASE_DESIGN} -pin_names {"XCVR_0A_REFCLK_N" "CLOCKS_AND_RESETS:XCVR_0A_REFCLK_N" }
+sd_connect_pins -sd_name {B_V_F_BASE_DESIGN} -pin_names {"XCVR_0A_REFCLK_P" "CLOCKS_AND_RESETS:XCVR_0A_REFCLK_P" }
+
+
+#-------------------------------------------------------------------------------
+# Create the M.2 interface block.
+# This block will be stiched up to the rest of the design in the calling script.
+#-------------------------------------------------------------------------------
+
 set sd_name {B_V_F_BASE_DESIGN}
 
 #-------------------------------------------------------------------------------

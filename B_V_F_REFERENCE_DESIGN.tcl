@@ -60,6 +60,12 @@ if {[info exists CAPE_OPTION]} {
     set cape_option "DEFAULT"
 }
 
+if {[info exists M2_OPTION]} {
+    set m2_option "$M2_OPTION"
+} else {
+    set m2_option "DEFAULT"
+}
+
 
 if {[info exists PROJECT_LOCATION]} {
     set project_dir "$PROJECT_LOCATION"
@@ -154,8 +160,6 @@ import_files \
 organize_tool_files \
     -tool {PLACEROUTE} \
     -file "${project_dir}/constraint/io/base_design.pdc" \
-    -file "${project_dir}/constraint/io/M2.pdc" \
-    -file "${project_dir}/constraint/io/M2_USB.pdc" \
     -file "${project_dir}/constraint/io/ICICLE_USB.pdc" \
     -module {B_V_F_BASE_DESIGN::work} \
     -input_type {constraint}
@@ -174,8 +178,26 @@ if {$cape_option == "DEFAULT"} {
         -file "${project_dir}/constraint/io/cape.pdc" \
         -module {B_V_F_BASE_DESIGN::work} \
         -input_type {constraint}
-
 }
+
+#
+# Add relevant cape related constraints.
+#
+if {$m2_option == "DEFAULT"} {
+
+    import_files \
+        -convert_EDN_to_HDL 0 \
+        -io_pdc "${constraint_path}/M2.pdc" \
+        -io_pdc "${constraint_path}/M2_USB.pdc"
+
+    organize_tool_files \
+        -tool {PLACEROUTE} \
+        -file "${project_dir}/constraint/io/M2.pdc" \
+        -file "${project_dir}/constraint/io/M2_USB.pdc" \
+        -module {B_V_F_BASE_DESIGN::work} \
+        -input_type {constraint}
+}
+
 
 
 #
