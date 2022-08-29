@@ -42,6 +42,12 @@ sd_create_scalar_port -sd_name ${sd_name} -port_name {SGMII_RX0_P} -port_directi
 sd_create_scalar_port -sd_name ${sd_name} -port_name {SGMII_RX0_N} -port_direction {IN} -port_is_pad {1}
 sd_create_scalar_port -sd_name ${sd_name} -port_name {SGMII_TX0_P} -port_direction {OUT} -port_is_pad {1}
 sd_create_scalar_port -sd_name ${sd_name} -port_name {SGMII_TX0_N} -port_direction {OUT} -port_is_pad {1}
+
+sd_create_scalar_port -sd_name ${sd_name} -port_name {SGMII_RX1_P} -port_direction {IN} -port_is_pad {1}
+sd_create_scalar_port -sd_name ${sd_name} -port_name {SGMII_RX1_N} -port_direction {IN} -port_is_pad {1}
+sd_create_scalar_port -sd_name ${sd_name} -port_name {SGMII_TX1_P} -port_direction {OUT} -port_is_pad {1}
+sd_create_scalar_port -sd_name ${sd_name} -port_name {SGMII_TX1_N} -port_direction {OUT} -port_is_pad {1}
+
 sd_create_scalar_port -sd_name ${sd_name} -port_name {I2C_1_SCL} -port_direction {INOUT} -port_is_pad {1}
 sd_create_scalar_port -sd_name ${sd_name} -port_name {I2C_1_SDA} -port_direction {INOUT} -port_is_pad {1}
 
@@ -211,6 +217,12 @@ sd_connect_pins -sd_name ${sd_name} -pin_names {"SGMII_RX0_N" "PF_SOC_MSS:SGMII_
 sd_connect_pins -sd_name ${sd_name} -pin_names {"SGMII_RX0_P" "PF_SOC_MSS:SGMII_RX0_P" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"SGMII_TX0_N" "PF_SOC_MSS:SGMII_TX0_N" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"SGMII_TX0_P" "PF_SOC_MSS:SGMII_TX0_P" }
+
+sd_connect_pins -sd_name ${sd_name} -pin_names {"SGMII_RX1_N" "PF_SOC_MSS:SGMII_RX1_N" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"SGMII_RX1_P" "PF_SOC_MSS:SGMII_RX1_P" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"SGMII_TX1_N" "PF_SOC_MSS:SGMII_TX1_N" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"SGMII_TX1_P" "PF_SOC_MSS:SGMII_TX1_P" }
+
 
 #-------------------------------------------------------------------------------
 # OTG USB

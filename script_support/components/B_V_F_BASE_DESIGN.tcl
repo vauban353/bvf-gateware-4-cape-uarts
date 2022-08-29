@@ -37,6 +37,12 @@ sd_create_scalar_port -sd_name ${sd_name} -port_name {SGMII_RX0_P} -port_directi
 sd_create_scalar_port -sd_name ${sd_name} -port_name {SGMII_RX0_N} -port_direction {IN} -port_is_pad {1}
 sd_create_scalar_port -sd_name ${sd_name} -port_name {SGMII_TX0_P} -port_direction {OUT} -port_is_pad {1}
 sd_create_scalar_port -sd_name ${sd_name} -port_name {SGMII_TX0_N} -port_direction {OUT} -port_is_pad {1}
+
+sd_create_scalar_port -sd_name ${sd_name} -port_name {SGMII_RX1_P} -port_direction {IN} -port_is_pad {1}
+sd_create_scalar_port -sd_name ${sd_name} -port_name {SGMII_RX1_N} -port_direction {IN} -port_is_pad {1}
+sd_create_scalar_port -sd_name ${sd_name} -port_name {SGMII_TX1_P} -port_direction {OUT} -port_is_pad {1}
+sd_create_scalar_port -sd_name ${sd_name} -port_name {SGMII_TX1_N} -port_direction {OUT} -port_is_pad {1}
+
 sd_create_scalar_port -sd_name ${sd_name} -port_name {I2C_1_SCL} -port_direction {INOUT} -port_is_pad {1}
 sd_create_scalar_port -sd_name ${sd_name} -port_name {I2C_1_SDA} -port_direction {INOUT} -port_is_pad {1}
 #sd_create_scalar_port -sd_name ${sd_name} -port_name {XCVR_0A_REFCLK_P} -port_direction {IN} -port_is_pad {1}
@@ -187,6 +193,11 @@ sd_connect_pins -sd_name ${sd_name} -pin_names {"SGMII_RX0_P" "BVF_RISCV_SUBSYST
 sd_connect_pins -sd_name ${sd_name} -pin_names {"SGMII_TX0_N" "BVF_RISCV_SUBSYSTEM:SGMII_TX0_N" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"SGMII_TX0_P" "BVF_RISCV_SUBSYSTEM:SGMII_TX0_P" }
 
+sd_connect_pins -sd_name ${sd_name} -pin_names {"SGMII_RX1_N" "BVF_RISCV_SUBSYSTEM:SGMII_RX1_N" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"SGMII_RX1_P" "BVF_RISCV_SUBSYSTEM:SGMII_RX1_P" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"SGMII_TX1_N" "BVF_RISCV_SUBSYSTEM:SGMII_TX1_N" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"SGMII_TX1_P" "BVF_RISCV_SUBSYSTEM:SGMII_TX1_P" }
+
 #-------------------------------------------------------------------------------
 # OTG USB
 #-------------------------------------------------------------------------------
@@ -278,6 +289,7 @@ sd_mark_pins_unused -sd_name ${sd_name} -pin_names {BVF_RISCV_SUBSYSTEM:CSI_APB_
 
 #-------------------------------------------------------------------------------
 
+source script_support/components/HIGH_SPEED_CONNECTOR/$high_speed_conn_option/ADD_HIGH_SPEED_CONNECTOR.tcl 
 source script_support/components/CAPE/$cape_option/ADD_CAPE.tcl 
 source script_support/components/M2/$m2_option/ADD_M2_INTERFACE.tcl 
 

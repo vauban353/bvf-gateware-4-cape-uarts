@@ -54,6 +54,8 @@ set local_dir [pwd]
 set constraint_path ./script_support/constraints
 set project_name "B_V_F_025"
 
+set high_speed_conn_option "IO_STUB"
+
 if {[info exists CAPE_OPTION]} {
     set cape_option "$CAPE_OPTION"
 } else {
@@ -155,6 +157,7 @@ import_files \
     -io_pdc "${constraint_path}/base_design.pdc" \
     -io_pdc "./script_support/components/CAPE/$cape_option/constraints/cape.pdc" \
     -io_pdc "./script_support/components/M2/$m2_option/constraints/M2.pdc" \
+    -io_pdc "./script_support/components/HIGH_SPEED_CONNECTOR/$high_speed_conn_option/constraints/HIGH_SPEED_CONNECTOR.pdc" \
     -io_pdc "${constraint_path}/MIPI_CSI_INTERFACE.pdc" \
     -io_pdc "${constraint_path}/ICICLE_USB.pdc"
 
@@ -167,6 +170,7 @@ organize_tool_files \
     -file "${project_dir}/constraint/io/base_design.pdc" \
     -file "${project_dir}/constraint/io/cape.pdc" \
     -file "${project_dir}/constraint/io/M2.pdc" \
+    -file "${project_dir}/constraint/io/HIGH_SPEED_CONNECTOR.pdc" \
     -module {B_V_F_BASE_DESIGN::work} \
     -input_type {constraint}
 
