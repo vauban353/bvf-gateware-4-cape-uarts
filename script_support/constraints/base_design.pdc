@@ -23,3 +23,9 @@ set_io -port_name ADC_MCLK	\
     -fixed true	\
     -io_std LVCMOS33  \
     -DIRECTION OUT
+
+set_io -port_name USB0_RESETB \
+    -pin_name B7 \
+    -fixed true \
+    -DIRECTION OUTPUT \
+    -io_std LVCMOS33 

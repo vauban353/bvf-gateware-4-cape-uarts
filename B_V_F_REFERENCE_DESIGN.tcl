@@ -59,13 +59,14 @@ if {[info exists CAPE_OPTION]} {
 } else {
     set cape_option "DEFAULT"
 }
+puts "Cape options selected: $cape_option"
 
 if {[info exists M2_OPTION]} {
     set m2_option "$M2_OPTION"
 } else {
     set m2_option "DEFAULT"
 }
-
+puts "M.2 option selected: $m2_option"
 
 if {[info exists PROJECT_LOCATION]} {
     set project_dir "$PROJECT_LOCATION"
@@ -117,12 +118,12 @@ new_project \
 download_core -vlnv {Actel:SgCore:PF_OSC:1.0.102} -location {www.microchip-ip.com/repositories/SgCore}
 download_core -vlnv {Actel:SgCore:PF_CCC:2.2.100} -location {www.microchip-ip.com/repositories/SgCore}
 download_core -vlnv {Actel:DirectCore:CORERESET_PF:2.3.100} -location {www.microchip-ip.com/repositories/DirectCore}
-download_core -vlnv {Microsemi:SgCore:PFSOC_INIT_MONITOR:1.0.205} -location {www.microchip-ip.com/repositories/SgCore}
+download_core -vlnv {Microsemi:SgCore:PFSOC_INIT_MONITOR:1.0.302} -location {www.microchip-ip.com/repositories/SgCore}
 download_core -vlnv {Actel:DirectCore:COREAXI4INTERCONNECT:2.8.103} -location {www.microchip-ip.com/repositories/DirectCore}
 download_core -vlnv {Actel:SgCore:PF_CLK_DIV:1.0.103} -location {www.microchip-ip.com/repositories/SgCore}
 download_core -vlnv {Actel:SgCore:PF_DRI:1.1.104} -location {www.microchip-ip.com/repositories/SgCore}
 download_core -vlnv {Actel:SgCore:PF_NGMUX:1.0.101} -location {www.microchip-ip.com/repositories/SgCore}
-download_core -vlnv {Actel:SgCore:PF_PCIE:2.0.106} -location {www.microchip-ip.com/repositories/SgCore}
+download_core -vlnv {Actel:SgCore:PF_PCIE:2.0.116} -location {www.microchip-ip.com/repositories/SgCore}
 download_core -vlnv {Actel:SgCore:PF_TX_PLL:2.0.300} -location {www.microchip-ip.com/repositories/SgCore}
 download_core -vlnv {Actel:SgCore:PF_XCVR_REF_CLK:1.0.103} -location {www.microchip-ip.com/repositories/SgCore}
 download_core -vlnv {Actel:DirectCore:CoreAPB3:4.2.100} -location {www.microchip-ip.com/repositories/DirectCore}
@@ -146,11 +147,15 @@ source ./script_support/B_V_F_recursive.tcl
 # // Import I/O constraints
 #
 
+set import_pdc_files "-io_pdc \"./constraints/base_design.pdc\""
+set place_route_pdc_files "-file \"${project_dir}/constraint/io/base_design.pdc\""
+
 import_files \
     -convert_EDN_to_HDL 0 \
     -io_pdc "${constraint_path}/base_design.pdc" \
-    -io_pdc "${constraint_path}/M2.pdc" \
-    -io_pdc "${constraint_path}/M2_USB.pdc" \
+    -io_pdc "./script_support/components/CAPE/$cape_option/constraints/cape.pdc" \
+    -io_pdc "./script_support/components/M2/$m2_option/constraints/M2.pdc" \
+    -io_pdc "${constraint_path}/MIPI_CSI_INTERFACE.pdc" \
     -io_pdc "${constraint_path}/ICICLE_USB.pdc"
 
 #
@@ -160,44 +165,10 @@ import_files \
 organize_tool_files \
     -tool {PLACEROUTE} \
     -file "${project_dir}/constraint/io/base_design.pdc" \
-    -file "${project_dir}/constraint/io/ICICLE_USB.pdc" \
+    -file "${project_dir}/constraint/io/cape.pdc" \
+    -file "${project_dir}/constraint/io/M2.pdc" \
     -module {B_V_F_BASE_DESIGN::work} \
     -input_type {constraint}
-
-#
-# Add relevant cape related constraints.
-#
-if {$cape_option == "DEFAULT"} {
-
-    import_files \
-        -convert_EDN_to_HDL 0 \
-        -io_pdc "${constraint_path}/cape.pdc"
-
-    organize_tool_files \
-        -tool {PLACEROUTE} \
-        -file "${project_dir}/constraint/io/cape.pdc" \
-        -module {B_V_F_BASE_DESIGN::work} \
-        -input_type {constraint}
-}
-
-#
-# Add relevant cape related constraints.
-#
-if {$m2_option == "DEFAULT"} {
-
-    import_files \
-        -convert_EDN_to_HDL 0 \
-        -io_pdc "${constraint_path}/M2.pdc" \
-        -io_pdc "${constraint_path}/M2_USB.pdc"
-
-    organize_tool_files \
-        -tool {PLACEROUTE} \
-        -file "${project_dir}/constraint/io/M2.pdc" \
-        -file "${project_dir}/constraint/io/M2_USB.pdc" \
-        -module {B_V_F_BASE_DESIGN::work} \
-        -input_type {constraint}
-}
-
 
 
 #
