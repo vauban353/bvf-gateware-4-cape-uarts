@@ -1,16 +1,16 @@
+
+source script_support/components/M2/DEFAULT/M2_USB.tcl
+source script_support/components/M2/DEFAULT/PCIE_INITIATOR.tcl 
+source script_support/components/M2/DEFAULT/RECONFIGURATION_INTERFACE.tcl 
+source script_support/components/M2/DEFAULT/PF_PCIE_C0.tcl 
+source script_support/components/M2/DEFAULT/M2_INTERFACE.tcl
+
 #-------------------------------------------------------------------------------
 # Modify the CLOCKS_AND_RESET block to add the required PCIe clocks generation.
 #-------------------------------------------------------------------------------
 
 source script_support/components/CLOCKS_AND_RESETS/ADD_PCIE_CLOCKS_AND_RESETS.tcl 
 sd_update_instance -sd_name {B_V_F_BASE_DESIGN} -instance_name {CLOCKS_AND_RESETS}
-
-sd_create_scalar_port -sd_name {B_V_F_BASE_DESIGN} -port_name {XCVR_0A_REFCLK_P} -port_direction {IN} -port_is_pad {1}
-sd_create_scalar_port -sd_name {B_V_F_BASE_DESIGN} -port_name {XCVR_0A_REFCLK_N} -port_direction {IN} -port_is_pad {1}
-
-sd_connect_pins -sd_name {B_V_F_BASE_DESIGN} -pin_names {"XCVR_0A_REFCLK_N" "CLOCKS_AND_RESETS:XCVR_0A_REFCLK_N" }
-sd_connect_pins -sd_name {B_V_F_BASE_DESIGN} -pin_names {"XCVR_0A_REFCLK_P" "CLOCKS_AND_RESETS:XCVR_0A_REFCLK_P" }
-
 
 #-------------------------------------------------------------------------------
 # Create the M.2 interface block.
@@ -28,15 +28,6 @@ sd_create_scalar_port -sd_name ${sd_name} -port_name {M2_UART_RTS} -port_directi
 sd_create_scalar_port -sd_name ${sd_name} -port_name {M2_UART_CTS} -port_direction {IN}
 
 sd_create_scalar_port -sd_name ${sd_name} -port_name {M2_PERST0n} -port_direction {OUT}
-sd_create_scalar_port -sd_name ${sd_name} -port_name {M2_PER0_P} -port_direction {IN} -port_is_pad {1}
-sd_create_scalar_port -sd_name ${sd_name} -port_name {M2_PER0_N} -port_direction {IN} -port_is_pad {1}
-sd_create_scalar_port -sd_name ${sd_name} -port_name {M2_PER1_P} -port_direction {IN} -port_is_pad {1}
-sd_create_scalar_port -sd_name ${sd_name} -port_name {M2_PER1_N} -port_direction {IN} -port_is_pad {1}
-sd_create_scalar_port -sd_name ${sd_name} -port_name {M2_PET0_P} -port_direction {OUT} -port_is_pad {1}
-sd_create_scalar_port -sd_name ${sd_name} -port_name {M2_PET0_N} -port_direction {OUT} -port_is_pad {1}
-sd_create_scalar_port -sd_name ${sd_name} -port_name {M2_PET1_P} -port_direction {OUT} -port_is_pad {1}
-sd_create_scalar_port -sd_name ${sd_name} -port_name {M2_PET1_N} -port_direction {OUT} -port_is_pad {1}
-
 
 #-------------------------------------------------------------------------------
 
@@ -86,49 +77,21 @@ sd_connect_pin_to_port -sd_name ${sd_name} -pin_name {M2_INTERFACE_0:M2_W_DISABL
 sd_connect_pin_to_port -sd_name ${sd_name} -pin_name {M2_INTERFACE_0:M2_PEWAKEn} -port_name {} 
 sd_connect_pin_to_port -sd_name ${sd_name} -pin_name {M2_INTERFACE_0:M2_I2C_ALTn} -port_name {} 
 
-
-sd_connect_pin_to_port -sd_name ${sd_name} -pin_name {M2_INTERFACE_0:USB1_CLK} -port_name {} 
-sd_connect_pin_to_port -sd_name ${sd_name} -pin_name {M2_INTERFACE_0:USB1_DIR} -port_name {} 
-sd_connect_pin_to_port -sd_name ${sd_name} -pin_name {M2_INTERFACE_0:USB1_NXT} -port_name {} 
-sd_connect_pin_to_port -sd_name ${sd_name} -pin_name {M2_INTERFACE_0:USB1_STP} -port_name {} 
-
-sd_create_scalar_port -sd_name ${sd_name} -port_name {USB1_RESETB} -port_direction {OUT} 
-
-sd_create_scalar_port -sd_name ${sd_name} -port_name {USB1_DATA0} -port_direction {INOUT} 
-sd_create_scalar_port -sd_name ${sd_name} -port_name {USB1_DATA1} -port_direction {INOUT} 
-sd_create_scalar_port -sd_name ${sd_name} -port_name {USB1_DATA2} -port_direction {INOUT} 
-sd_create_scalar_port -sd_name ${sd_name} -port_name {USB1_DATA3} -port_direction {INOUT} 
-sd_create_scalar_port -sd_name ${sd_name} -port_name {USB1_DATA4} -port_direction {INOUT} 
-sd_create_scalar_port -sd_name ${sd_name} -port_name {USB1_DATA5} -port_direction {INOUT} 
-sd_create_scalar_port -sd_name ${sd_name} -port_name {USB1_DATA6} -port_direction {INOUT} 
-sd_create_scalar_port -sd_name ${sd_name} -port_name {USB1_DATA7} -port_direction {INOUT} 
-
-sd_connect_pins -sd_name ${sd_name} -pin_names {"M2_INTERFACE_0:USB1_DATA0" "USB1_DATA0"} 
-sd_connect_pins -sd_name ${sd_name} -pin_names {"M2_INTERFACE_0:USB1_DATA1" "USB1_DATA1"} 
-sd_connect_pins -sd_name ${sd_name} -pin_names {"M2_INTERFACE_0:USB1_DATA2" "USB1_DATA2"} 
-sd_connect_pins -sd_name ${sd_name} -pin_names {"M2_INTERFACE_0:USB1_DATA3" "USB1_DATA3"} 
-sd_connect_pins -sd_name ${sd_name} -pin_names {"M2_INTERFACE_0:USB1_DATA4" "USB1_DATA4"} 
-sd_connect_pins -sd_name ${sd_name} -pin_names {"M2_INTERFACE_0:USB1_DATA5" "USB1_DATA5"} 
-sd_connect_pins -sd_name ${sd_name} -pin_names {"M2_INTERFACE_0:USB1_DATA6" "USB1_DATA6"} 
-sd_connect_pins -sd_name ${sd_name} -pin_names {"M2_INTERFACE_0:USB1_DATA7" "USB1_DATA7"} 
-
-
-sd_connect_pins -sd_name ${sd_name} -pin_names {"M2_PER0_N" "M2_INTERFACE_0:PCIESS_LANE_RXD0_N" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"M2_PER0_P" "M2_INTERFACE_0:PCIESS_LANE_RXD0_P" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"M2_PER1_N" "M2_INTERFACE_0:PCIESS_LANE_RXD1_N" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"M2_PER1_P" "M2_INTERFACE_0:PCIESS_LANE_RXD1_P" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"M2_PET0_N" "M2_INTERFACE_0:PCIESS_LANE_TXD0_N" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"M2_PET0_P" "M2_INTERFACE_0:PCIESS_LANE_TXD0_P" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"M2_PET1_N" "M2_INTERFACE_0:PCIESS_LANE_TXD1_N" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"M2_PET1_P" "M2_INTERFACE_0:PCIESS_LANE_TXD1_P" }
-
 sd_connect_pins -sd_name ${sd_name} -pin_names {"BVF_RISCV_SUBSYSTEM:M2_UART_RXD" "M2_UART_RXD" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"BVF_RISCV_SUBSYSTEM:M2_UART_TXD" "M2_UART_TXD" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"BVF_RISCV_SUBSYSTEM:M2_UART_RTS" "M2_UART_RTS" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"BVF_RISCV_SUBSYSTEM:M2_UART_CTS" "M2_UART_CTS" }
 
-sd_connect_pins -sd_name ${sd_name} -pin_names {"CLOCKS_AND_RESETS:FIC_0_FABRIC_RESET_N" "USB1_RESETB"}
+#<CJ>sd_connect_pins -sd_name ${sd_name} -pin_names {"CLOCKS_AND_RESETS:FIC_0_FABRIC_RESET_N" "USB1_RESETB"}
 
+sd_rename_port -sd_name ${sd_name} -current_port_name {PCIESS_LANE_RXD0_N} -new_port_name {M2_PER0_N}
+sd_rename_port -sd_name ${sd_name} -current_port_name {PCIESS_LANE_RXD0_P} -new_port_name {M2_PER0_P}
+sd_rename_port -sd_name ${sd_name} -current_port_name {PCIESS_LANE_RXD1_N} -new_port_name {M2_PER1_N}
+sd_rename_port -sd_name ${sd_name} -current_port_name {PCIESS_LANE_RXD1_P} -new_port_name {M2_PER1_P}
+sd_rename_port -sd_name ${sd_name} -current_port_name {PCIESS_LANE_TXD0_N} -new_port_name {M2_PET0_N}
+sd_rename_port -sd_name ${sd_name} -current_port_name {PCIESS_LANE_TXD0_P} -new_port_name {M2_PET0_P}
+sd_rename_port -sd_name ${sd_name} -current_port_name {PCIESS_LANE_TXD1_N} -new_port_name {M2_PET1_N}
+sd_rename_port -sd_name ${sd_name} -current_port_name {PCIESS_LANE_TXD1_P} -new_port_name {M2_PET1_P}
 
 sd_mark_pins_unused -sd_name ${sd_name} -pin_names {FIC0_INITIATOR:AXI4mslave1}
 sd_mark_pins_unused -sd_name ${sd_name} -pin_names {FIC0_INITIATOR:AXI4mslave2}

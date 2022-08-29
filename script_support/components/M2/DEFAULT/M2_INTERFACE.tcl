@@ -49,26 +49,19 @@ sd_connect_pins_to_constant -sd_name ${sd_name} -pin_names {PCIE:PCIE_0_S_WDERR}
 sd_mark_pins_unused -sd_name ${sd_name} -pin_names {PCIE:PCIE_0_LTSSM}
 sd_mark_pins_unused -sd_name ${sd_name} -pin_names {PCIE:PCIE_0_M_WDERR}
 sd_mark_pins_unused -sd_name ${sd_name} -pin_names {PCIE:PCIE_0_S_RDERR}
-sd_mark_pins_unused -sd_name ${sd_name} -pin_names {PCIE:PCIE_0_L2_EXIT}
+sd_mark_pins_unused -sd_name ${sd_name} -pin_names {PCIE:PCIE_0_PERST_OUT_N}
 sd_mark_pins_unused -sd_name ${sd_name} -pin_names {PCIE:PCIE_0_HOT_RST_EXIT}
 sd_mark_pins_unused -sd_name ${sd_name} -pin_names {PCIE:PCIE_0_DLUP_EXIT}
-
-# Add stub for USB PHY connected to M.2 interface
-sd_instantiate_component -sd_name ${sd_name} -component_name {M2_USB} -instance_name {M2_USB_0} 
-sd_connect_pin_to_port -sd_name ${sd_name} -pin_name {M2_USB_0:USB1_CLK} -port_name {} 
-sd_connect_pin_to_port -sd_name ${sd_name} -pin_name {M2_USB_0:USB1_DIR} -port_name {} 
-sd_connect_pin_to_port -sd_name ${sd_name} -pin_name {M2_USB_0:USB1_NXT} -port_name {} 
-sd_connect_pin_to_port -sd_name ${sd_name} -pin_name {M2_USB_0:USB1_STP} -port_name {} 
 
 #-------------------------------------------------------------------------------
 # Connections
 #-------------------------------------------------------------------------------
 
-sd_connect_pins -sd_name ${sd_name} -pin_names { "RECONFIGURATION_INTERFACE_0:PCLK" "PCLK"}
+sd_connect_pins -sd_name ${sd_name} -pin_names { "RECONFIGURATION_INTERFACE_0:PCLK" "PCIE:APB_S_PCLK" "PCLK"}
 sd_connect_pins -sd_name ${sd_name} -pin_names {"PCIE_INITIATOR:ACLK" "PCIE:AXI_CLK" "ACLK"}
 
 sd_connect_pins -sd_name ${sd_name} -pin_names {"PCIE_INITIATOR:ARESETN" "PCIE:AXI_CLK_STABLE" "AXI_ADDRESS_SHIM_0:RESETN" "ARESETN" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"RECONFIGURATION_INTERFACE_0:PRESETN" "PRESETN"}
+sd_connect_pins -sd_name ${sd_name} -pin_names {"RECONFIGURATION_INTERFACE_0:PRESETN" "PRESETN" "PCIE:APB_S_PRESET_N"}
 
 sd_connect_pins -sd_name ${sd_name} -pin_names {"PCIE:AXI_0_MASTER" "AXI_ADDRESS_SHIM_0:AXI4_TARGET" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"AXI_ADDRESS_SHIM_0:AXI4_INITIATOR" "PCIE_INITIATOR:AXI4mmaster0" }
@@ -85,7 +78,6 @@ sd_mark_pins_unused -sd_name ${sd_name} -pin_names {RECONFIGURATION_INTERFACE_0:
 sd_mark_pins_unused -sd_name ${sd_name} -pin_names {RECONFIGURATION_INTERFACE_0:BUSERROR}
 
 sd_connect_pins_to_constant -sd_name ${sd_name} -pin_names {M2_PERST0n} -value {VCC}
-sd_connect_pins_to_constant -sd_name ${sd_name} -pin_names {PCIE:PCIE_0_PERST_N} -value {VCC} 
 
 #-------------------------------------------------------------------------------
 # Promote bus and signals to top level
@@ -120,6 +112,9 @@ sd_connect_pins -sd_name ${sd_name} -pin_names {"AND2_0:A" "M2_CLKREQ0n"}
 sd_connect_pins -sd_name ${sd_name} -pin_names {"AND2_0:B" "M2_PEWAKEn"} 
 
 sd_connect_pins -sd_name ${sd_name} -pin_names {"M2_I2C_ALTn" "M2_W_DISABLE2n"} 
+
+# TODO: connect INIT_DONE to clocks and reset block.
+sd_connect_pins_to_constant -sd_name ${sd_name} -pin_names {PCIE:INIT_DONE} -value {GND}
 
 #-------------------------------------------------------------------------------
 

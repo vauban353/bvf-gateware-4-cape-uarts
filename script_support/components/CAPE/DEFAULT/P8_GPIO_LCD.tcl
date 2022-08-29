@@ -2,6 +2,7 @@
 set sd_name {P8_GPIO_LCD}
 create_smartdesign -sd_name ${sd_name}
 
+auto_promote_pad_pins -promote_all 1
 
 # Add GPIO BIBUFs
 sd_instantiate_macro -sd_name ${sd_name} -macro_name {BIBUF} -instance_name {LCD_GPIO_0_BIBUF}
