@@ -54,8 +54,6 @@ set local_dir [pwd]
 set constraint_path ./script_support/constraints
 set project_name "B_V_F_025"
 
-set high_speed_conn_option "IO_STUB"
-
 if {[info exists CAPE_OPTION]} {
     set cape_option "$CAPE_OPTION"
 } else {
@@ -69,6 +67,13 @@ if {[info exists M2_OPTION]} {
     set m2_option "DEFAULT"
 }
 puts "M.2 option selected: $m2_option"
+
+if {[info exists HIGH_SPEED_CONN_OPTION]} {
+    set high_speed_conn_option "$HIGH_SPEED_CONN_OPTION"
+} else {
+    set high_speed_conn_option "NONE"
+}
+puts "High speed connector option option selected: $high_speed_conn_option"
 
 if {[info exists PROJECT_LOCATION]} {
     set project_dir "$PROJECT_LOCATION"
