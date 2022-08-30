@@ -29,21 +29,19 @@ set_io -port_name M2_UART_WAKEn  \
 
 
 set_io -port_name M2_PERST0n \
-    -pin_name E18            \
+    -pin_name Y18            \
     -fixed true              \
-    -DIRECTION OUTPUT        \
-    -io_std LVCMOS33 
+    -DIRECTION OUTPUT
 
 
 set_io -port_name M2_CLKREQ0n  \
-    -pin_name D18              \
+    -pin_name W19              \
     -fixed true                \
-    -DIRECTION INPUT           \
-    -io_std LVCMOS33 
+    -DIRECTION INPUT
 
 
 set_io -port_name M2_W_DISABLE1n  \
-    -pin_name R16                 \
+    -pin_name U19                 \
     -fixed true                   \
     -DIRECTION OUTPUT
 

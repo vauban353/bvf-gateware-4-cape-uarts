@@ -118,6 +118,71 @@ sd_connect_pin_to_port -sd_name ${sd_name} -pin_name {APB_BUS_CONVERTER_0:APB_SL
 sd_connect_pins -sd_name ${sd_name} -pin_names {"APB_BUS_CONVERTER_0:APB_MASTER" "CoreAPB3_CAPE_0:APB3mmaster"} 
 
 
+#-------------------------------------------------------------------------------
+# I/O Stubs for I/O placement check.
+#-------------------------------------------------------------------------------
+sd_create_scalar_port -sd_name ${sd_name} -port_name {P9_PWR_BUT} -port_direction {IN} 
+
+sd_create_scalar_port -sd_name ${sd_name} -port_name {P9_17} -port_direction {OUT} 
+
+sd_connect_pins -sd_name ${sd_name} -pin_names {"P9_17" "P9_PWR_BUT"} 
+
+sd_create_scalar_port -sd_name ${sd_name} -port_name {P9_18} -port_direction {OUT} 
+sd_connect_pins_to_constant -sd_name ${sd_name} -pin_names {P9_18} -value {GND} 
+
+sd_create_scalar_port -sd_name ${sd_name} -port_name {P9_21} -port_direction {OUT} 
+sd_connect_pins_to_constant -sd_name ${sd_name} -pin_names {P9_21} -value {GND} 
+
+sd_create_scalar_port -sd_name ${sd_name} -port_name {P9_22} -port_direction {OUT} 
+sd_connect_pins_to_constant -sd_name ${sd_name} -pin_names {P9_22} -value {GND} 
+
+sd_create_scalar_port -sd_name ${sd_name} -port_name {P9_24} -port_direction {OUT} 
+sd_connect_pins_to_constant -sd_name ${sd_name} -pin_names {P9_24} -value {GND} 
+
+sd_create_scalar_port -sd_name ${sd_name} -port_name {P9_26} -port_direction {OUT} 
+sd_connect_pins_to_constant -sd_name ${sd_name} -pin_names {P9_26} -value {GND} 
+
+sd_create_scalar_port -sd_name ${sd_name} -port_name {P9_28} -port_direction {OUT} 
+sd_connect_pins_to_constant -sd_name ${sd_name} -pin_names {P9_28} -value {GND} 
+
+sd_create_scalar_port -sd_name ${sd_name} -port_name {P9_29} -port_direction {OUT} 
+sd_connect_pins_to_constant -sd_name ${sd_name} -pin_names {P9_29} -value {GND} 
+
+sd_create_scalar_port -sd_name ${sd_name} -port_name {P9_31} -port_direction {OUT} 
+sd_connect_pins_to_constant -sd_name ${sd_name} -pin_names {P9_31} -value {GND} 
+
+sd_create_scalar_port -sd_name ${sd_name} -port_name {P8_3} -port_direction {OUT} 
+sd_connect_pins_to_constant -sd_name ${sd_name} -pin_names {P8_3} -value {GND} 
+
+sd_create_scalar_port -sd_name ${sd_name} -port_name {P8_4} -port_direction {OUT} 
+sd_connect_pins_to_constant -sd_name ${sd_name} -pin_names {P8_4} -value {GND} 
+
+sd_create_scalar_port -sd_name ${sd_name} -port_name {P8_5} -port_direction {OUT} 
+sd_connect_pins_to_constant -sd_name ${sd_name} -pin_names {P8_5} -value {GND} 
+
+sd_create_scalar_port -sd_name ${sd_name} -port_name {P8_6} -port_direction {OUT} 
+sd_connect_pins_to_constant -sd_name ${sd_name} -pin_names {P8_6} -value {GND} 
+
+
+sd_create_scalar_port -sd_name ${sd_name} -port_name {P8_20} -port_direction {OUT} 
+sd_connect_pins_to_constant -sd_name ${sd_name} -pin_names {P8_20} -value {GND} 
+
+sd_create_scalar_port -sd_name ${sd_name} -port_name {P8_21} -port_direction {OUT} 
+sd_connect_pins_to_constant -sd_name ${sd_name} -pin_names {P8_21} -value {GND} 
+
+sd_create_scalar_port -sd_name ${sd_name} -port_name {P8_22} -port_direction {OUT} 
+sd_connect_pins_to_constant -sd_name ${sd_name} -pin_names {P8_22} -value {GND} 
+
+sd_create_scalar_port -sd_name ${sd_name} -port_name {P8_23} -port_direction {OUT} 
+sd_connect_pins_to_constant -sd_name ${sd_name} -pin_names {P8_23} -value {GND} 
+
+sd_create_scalar_port -sd_name ${sd_name} -port_name {P8_24} -port_direction {OUT} 
+sd_connect_pins_to_constant -sd_name ${sd_name} -pin_names {P8_24} -value {GND} 
+
+sd_create_scalar_port -sd_name ${sd_name} -port_name {P8_25} -port_direction {OUT} 
+sd_connect_pins_to_constant -sd_name ${sd_name} -pin_names {P8_25} -value {GND} 
+
+
 # Re-enable auto promotion of pins of type 'pad'
 auto_promote_pad_pins -promote_all 1
 # Save the smartDesign
