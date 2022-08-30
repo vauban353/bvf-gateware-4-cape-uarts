@@ -1,4 +1,7 @@
 
+puts "======== Add High Speed Connector option: IO_STUB ========"
+
+
 source script_support/components/HIGH_SPEED_CONNECTOR/IO_STUB/PF_IO_C0.tcl
 source script_support/components/HIGH_SPEED_CONNECTOR/IO_STUB/PF_IO_C1.tcl
 source script_support/components/HIGH_SPEED_CONNECTOR/IO_STUB/PF_IO_C2.tcl

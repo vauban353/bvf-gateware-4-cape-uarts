@@ -2,6 +2,8 @@
 # Tie off and unused signals when no M.2 interface is included.
 #===============================================================================
 
+puts "======== Add M.2 option: NONE ========"
+
 sd_mark_pins_unused -sd_name {B_V_F_BASE_DESIGN} -pin_names {BVF_RISCV_SUBSYSTEM:FIC_0_AXI4_TARGET} 
 sd_mark_pins_unused -sd_name {B_V_F_BASE_DESIGN} -pin_names {BVF_RISCV_SUBSYSTEM:M2_APB_MTARGET} 
 sd_connect_pins_to_constant -sd_name {B_V_F_BASE_DESIGN} -pin_names {BVF_RISCV_SUBSYSTEM:PCIE_INT_N} -value {VCC} 
