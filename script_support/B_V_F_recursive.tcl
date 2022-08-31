@@ -6,8 +6,6 @@ exec $mss_config_loc -CONFIGURATION_FILE:$local_dir/script_support/PF_SoC_MSS_Ic
 import_mss_component -file "$local_dir/script_support/components/MSS/PF_SOC_MSS.cxz"
 source script_support/hdl_source.tcl
 source script_support/components/EMMC.tcl
-source script_support/components/MIPI_CSI2_RX_IOD.tcl 
-source script_support/components/MIPI_CSI_INTERFACE.tcl 
 source script_support/components/CLOCKS_AND_RESETS/CORERESET_0.tcl
 source script_support/components/CLOCKS_AND_RESETS/INIT_MONITOR.tcl 
 source script_support/components/CLOCKS_AND_RESETS/FPGA_CCC_C0.tcl

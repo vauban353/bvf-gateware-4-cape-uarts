@@ -75,6 +75,13 @@ if {[info exists HIGH_SPEED_CONN_OPTION]} {
 }
 puts "High speed connector option option selected: $high_speed_conn_option"
 
+if {[info exists MIPI_CSI_OPTION]} {
+    set mipi_csi_option "$MIPI_CSI_OPTION"
+} else {
+    set mipi_csi_option "NONE"
+}
+puts "MIPI CSI option option selected: $mipi_csi_option"
+
 if {[info exists PROJECT_LOCATION]} {
     set project_dir "$PROJECT_LOCATION"
 } else {
@@ -163,7 +170,7 @@ import_files \
     -io_pdc "./script_support/components/CAPE/$cape_option/constraints/cape.pdc" \
     -io_pdc "./script_support/components/M2/$m2_option/constraints/M2.pdc" \
     -io_pdc "./script_support/components/HIGH_SPEED_CONNECTOR/$high_speed_conn_option/constraints/HIGH_SPEED_CONNECTOR.pdc" \
-    -io_pdc "${constraint_path}/MIPI_CSI_INTERFACE.pdc" \
+    -io_pdc "./script_support/components/MIPI_CSI/$mipi_csi_option/constraints/MIPI_CSI_INTERFACE.pdc" \
     -io_pdc "${constraint_path}/ICICLE_USB.pdc"
 
 #
@@ -176,6 +183,7 @@ organize_tool_files \
     -file "${project_dir}/constraint/io/cape.pdc" \
     -file "${project_dir}/constraint/io/M2.pdc" \
     -file "${project_dir}/constraint/io/HIGH_SPEED_CONNECTOR.pdc" \
+    -file "${project_dir}/constraint/io/MIPI_CSI_INTERFACE.pdc" \
     -module {B_V_F_BASE_DESIGN::work} \
     -input_type {constraint}
 

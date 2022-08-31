@@ -292,7 +292,7 @@ sd_mark_pins_unused -sd_name ${sd_name} -pin_names {BVF_RISCV_SUBSYSTEM:CSI_APB_
 source script_support/components/HIGH_SPEED_CONNECTOR/$high_speed_conn_option/ADD_HIGH_SPEED_CONNECTOR.tcl 
 source script_support/components/CAPE/$cape_option/ADD_CAPE.tcl 
 source script_support/components/M2/$m2_option/ADD_M2_INTERFACE.tcl 
-
+source script_support/components/MIPI_CSI/$mipi_csi_option/ADD_MIPI_CSI_INTERFACE.tcl
 
 #-------------------------------------------------------------------------------
 

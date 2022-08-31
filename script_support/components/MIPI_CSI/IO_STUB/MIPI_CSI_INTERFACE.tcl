@@ -13,15 +13,15 @@ create_smartdesign -sd_name ${sd_name}
 auto_promote_pad_pins -promote_all 0
 
 # Create top level Scalar Ports
-sd_create_scalar_port -sd_name ${sd_name} -port_name {RX_CLK_N} -port_direction {IN} -port_is_pad {1}
-sd_create_scalar_port -sd_name ${sd_name} -port_name {RX_CLK_P} -port_direction {IN} -port_is_pad {1}
+sd_create_scalar_port -sd_name ${sd_name} -port_name {CAM_C_N} -port_direction {IN} -port_is_pad {1}
+sd_create_scalar_port -sd_name ${sd_name} -port_name {CAM_C_P} -port_direction {IN} -port_is_pad {1}
 
 sd_create_scalar_port -sd_name ${sd_name} -port_name {CSI1_PWND} -port_direction {OUT}
 
 
 # Create top level Bus Ports
-sd_create_bus_port -sd_name ${sd_name} -port_name {RXD_N} -port_direction {IN} -port_range {[3:0]} -port_is_pad {1}
-sd_create_bus_port -sd_name ${sd_name} -port_name {RXD} -port_direction {IN} -port_range {[3:0]} -port_is_pad {1}
+sd_create_bus_port -sd_name ${sd_name} -port_name {CAM_D_N} -port_direction {IN} -port_range {[3:0]} -port_is_pad {1}
+sd_create_bus_port -sd_name ${sd_name} -port_name {CAM_D_P} -port_direction {IN} -port_range {[3:0]} -port_is_pad {1}
 
 
 # Add AND2_0 instance
@@ -83,12 +83,12 @@ sd_connect_pins -sd_name ${sd_name} -pin_names {"AND2_3:Y" "AND4_0:C" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"AND2_4:A" "MIPI_CSI2_RX_IOD_0:L3_RXD_DATA[1:1]" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"AND2_4:B" "MIPI_CSI2_RX_IOD_0:L3_RXD_DATA[0:0]" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"AND2_4:Y" "AND4_0:D" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"MIPI_CSI2_RX_IOD_0:RX_CLK_N" "RX_CLK_N" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"MIPI_CSI2_RX_IOD_0:RX_CLK_P" "RX_CLK_P" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"MIPI_CSI2_RX_IOD_0:RX_CLK_N" "CAM_C_N" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"MIPI_CSI2_RX_IOD_0:RX_CLK_P" "CAM_C_P" }
 
 # Add bus net connections
-sd_connect_pins -sd_name ${sd_name} -pin_names {"MIPI_CSI2_RX_IOD_0:RXD" "RXD" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"MIPI_CSI2_RX_IOD_0:RXD_N" "RXD_N" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"MIPI_CSI2_RX_IOD_0:RXD" "CAM_D_P" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"MIPI_CSI2_RX_IOD_0:RXD_N" "CAM_D_N" }
 
 
 # Re-enable auto promotion of pins of type 'pad'
