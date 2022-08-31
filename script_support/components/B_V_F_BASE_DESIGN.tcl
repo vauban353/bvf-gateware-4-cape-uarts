@@ -48,21 +48,6 @@ sd_create_scalar_port -sd_name ${sd_name} -port_name {I2C_1_SDA} -port_direction
 #sd_create_scalar_port -sd_name ${sd_name} -port_name {XCVR_0A_REFCLK_P} -port_direction {IN} -port_is_pad {1}
 #sd_create_scalar_port -sd_name ${sd_name} -port_name {XCVR_0A_REFCLK_N} -port_direction {IN} -port_is_pad {1}
 
-sd_create_scalar_port -sd_name ${sd_name} -port_name {SD_CLK_EMMC_CLK} -port_direction {OUT}
-sd_create_scalar_port -sd_name ${sd_name} -port_name {SD_CMD_EMMC_CMD} -port_direction {INOUT}
-sd_create_scalar_port -sd_name ${sd_name} -port_name {SD_DATA0_EMMC_DATA0} -port_direction {INOUT}
-sd_create_scalar_port -sd_name ${sd_name} -port_name {SD_DATA1_EMMC_DATA1} -port_direction {INOUT}
-sd_create_scalar_port -sd_name ${sd_name} -port_name {SD_DATA2_EMMC_DATA2} -port_direction {INOUT}
-sd_create_scalar_port -sd_name ${sd_name} -port_name {SD_DATA3_EMMC_DATA3} -port_direction {INOUT}
-sd_create_scalar_port -sd_name ${sd_name} -port_name {SD_POW_EMMC_DATA4} -port_direction {OUT}
-sd_create_scalar_port -sd_name ${sd_name} -port_name {SD_VOLT_SEL_EMMC_DATA5} -port_direction {OUT}
-sd_create_scalar_port -sd_name ${sd_name} -port_name {SD_VOLT_EN_EMMC_DATA6} -port_direction {OUT}
-sd_create_scalar_port -sd_name ${sd_name} -port_name {SD_VOLT_CMD_DIR_EMMC_DATA7} -port_direction {OUT}
-sd_create_scalar_port -sd_name ${sd_name} -port_name {SD_VOLT_DIR_1_3_EMMC_UNUSED} -port_direction {OUT}
-sd_create_scalar_port -sd_name ${sd_name} -port_name {SD_VOLT_DIR_0_EMMC_UNUSED} -port_direction {OUT}
-sd_create_scalar_port -sd_name ${sd_name} -port_name {SD_CD_EMMC_STRB} -port_direction {IN}
-sd_create_scalar_port -sd_name ${sd_name} -port_name {SD_WP_EMMC_RSTN} -port_direction {IN}
-
 sd_create_bus_port -sd_name ${sd_name} -port_name {CA} -port_direction {OUT} -port_range {[5:0]} -port_is_pad {1}
 sd_create_bus_port -sd_name ${sd_name} -port_name {DQ} -port_direction {INOUT} -port_range {[31:0]} -port_is_pad {1}
 sd_create_bus_port -sd_name ${sd_name} -port_name {DQS} -port_direction {INOUT} -port_range {[3:0]} -port_is_pad {1}
@@ -138,31 +123,10 @@ sd_connect_pins -sd_name ${sd_name} -pin_names {"ODT" "BVF_RISCV_SUBSYSTEM:ODT" 
 
 
 #-------------------------------------------------------------------------------
-# eMMC stub
-#-------------------------------------------------------------------------------d
-#sd_instantiate_component -sd_name ${sd_name} -component_name {EMMC} -instance_name {EMMC_0} 
-#sd_connect_pin_to_port -sd_name ${sd_name} -pin_name {EMMC_0:EMMC_CMD} -port_name {} 
-#sd_connect_pin_to_port -sd_name ${sd_name} -pin_name {EMMC_0:EMMC_CLK} -port_name {} 
-#sd_connect_pin_to_port -sd_name ${sd_name} -pin_name {EMMC_0:EMMC_DQ} -port_name {} 
-#sd_connect_pin_to_port -sd_name ${sd_name} -pin_name {EMMC_0:EMMC_RSTn} -port_name {} 
-
-#sd_create_scalar_port -sd_name ${sd_name} -port_name {EMMC_DATA0} -port_direction {INOUT} 
-#sd_create_scalar_port -sd_name ${sd_name} -port_name {EMMC_DATA1} -port_direction {INOUT} 
-#sd_create_scalar_port -sd_name ${sd_name} -port_name {EMMC_DATA2} -port_direction {INOUT} 
-#sd_create_scalar_port -sd_name ${sd_name} -port_name {EMMC_DATA3} -port_direction {INOUT} 
-#sd_create_scalar_port -sd_name ${sd_name} -port_name {EMMC_DATA4} -port_direction {INOUT} 
-#sd_create_scalar_port -sd_name ${sd_name} -port_name {EMMC_DATA5} -port_direction {INOUT} 
-#sd_create_scalar_port -sd_name ${sd_name} -port_name {EMMC_DATA6} -port_direction {INOUT} 
-#sd_create_scalar_port -sd_name ${sd_name} -port_name {EMMC_DATA7} -port_direction {INOUT} 
-
-#sd_connect_pins -sd_name ${sd_name} -pin_names {"EMMC_0:EMMC_DATA0" "EMMC_DATA0"} 
-#sd_connect_pins -sd_name ${sd_name} -pin_names {"EMMC_0:EMMC_DATA1" "EMMC_DATA1"} 
-#sd_connect_pins -sd_name ${sd_name} -pin_names {"EMMC_0:EMMC_DATA2" "EMMC_DATA2"} 
-#sd_connect_pins -sd_name ${sd_name} -pin_names {"EMMC_0:EMMC_DATA3" "EMMC_DATA3"} 
-#sd_connect_pins -sd_name ${sd_name} -pin_names {"EMMC_0:EMMC_DATA4" "EMMC_DATA4"} 
-#sd_connect_pins -sd_name ${sd_name} -pin_names {"EMMC_0:EMMC_DATA5" "EMMC_DATA5"} 
-#sd_connect_pins -sd_name ${sd_name} -pin_names {"EMMC_0:EMMC_DATA6" "EMMC_DATA6"} 
-#sd_connect_pins -sd_name ${sd_name} -pin_names {"EMMC_0:EMMC_DATA7" "EMMC_DATA7"} 
+# eMMC
+#-------------------------------------------------------------------------------
+sd_connect_pin_to_port -sd_name {B_V_F_BASE_DESIGN} -pin_name {BVF_RISCV_SUBSYSTEM:EMMC} -port_name {} 
+sd_connect_pin_to_port -sd_name {B_V_F_BASE_DESIGN} -pin_name {BVF_RISCV_SUBSYSTEM:EMMC_IN} -port_name {} 
 
 #-------------------------------------------------------------------------------
 # Connect ADC.
@@ -216,21 +180,6 @@ sd_connect_pins -sd_name ${sd_name} -pin_names {"BVF_RISCV_SUBSYSTEM:USB_NXT" "U
 sd_connect_pins -sd_name ${sd_name} -pin_names {"BVF_RISCV_SUBSYSTEM:USB_STP" "USB0_STP" }
 
 #-------------------------------------------------------------------------------
-sd_connect_pins -sd_name ${sd_name} -pin_names {"SD_CLK_EMMC_CLK" "BVF_RISCV_SUBSYSTEM:SD_CLK_EMMC_CLK" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"SD_CMD_EMMC_CMD" "BVF_RISCV_SUBSYSTEM:SD_CMD_EMMC_CMD" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"SD_DATA0_EMMC_DATA0" "BVF_RISCV_SUBSYSTEM:SD_DATA0_EMMC_DATA0" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"SD_DATA1_EMMC_DATA1" "BVF_RISCV_SUBSYSTEM:SD_DATA1_EMMC_DATA1" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"SD_DATA2_EMMC_DATA2" "BVF_RISCV_SUBSYSTEM:SD_DATA2_EMMC_DATA2" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"SD_DATA3_EMMC_DATA3" "BVF_RISCV_SUBSYSTEM:SD_DATA3_EMMC_DATA3" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"SD_POW_EMMC_DATA4" "BVF_RISCV_SUBSYSTEM:SD_POW_EMMC_DATA4" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"SD_VOLT_SEL_EMMC_DATA5" "BVF_RISCV_SUBSYSTEM:SD_VOLT_SEL_EMMC_DATA5" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"SD_VOLT_EN_EMMC_DATA6" "BVF_RISCV_SUBSYSTEM:SD_VOLT_EN_EMMC_DATA6" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"SD_VOLT_CMD_DIR_EMMC_DATA7" "BVF_RISCV_SUBSYSTEM:SD_VOLT_CMD_DIR_EMMC_DATA7" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"SD_VOLT_DIR_1_3_EMMC_UNUSED" "BVF_RISCV_SUBSYSTEM:SD_VOLT_DIR_1_3_EMMC_UNUSED" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"SD_VOLT_DIR_0_EMMC_UNUSED" "BVF_RISCV_SUBSYSTEM:SD_VOLT_DIR_0_EMMC_UNUSED" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"SD_CD_EMMC_STRB" "BVF_RISCV_SUBSYSTEM:SD_CD_EMMC_STRB" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"SD_WP_EMMC_RSTN" "BVF_RISCV_SUBSYSTEM:SD_WP_EMMC_RSTN" }
-
 # Add bus net connections
 sd_connect_pins -sd_name ${sd_name} -pin_names {"BVF_RISCV_SUBSYSTEM:CA" "CA" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"DM" "BVF_RISCV_SUBSYSTEM:DM" }
