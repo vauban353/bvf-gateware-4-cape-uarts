@@ -41,18 +41,6 @@ set_io -port_name XCVR_0B_REFCLK_N  \
     -DIRECTION INPUT
 
 
-#set_io -port_name HSIO69_N  \
-#    -pin_name AA22          \
-#    -fixed true             \
-#    -DIRECTION INPUT
-
-
-#set_io -port_name HSIO69_P  \
-#    -pin_name AA21          \
-#    -fixed true             \
-#    -DIRECTION INPUT
-
-
 set_io -port_name HSIO70_N  \
     -pin_name AB20          \
     -fixed true             \
@@ -77,28 +65,16 @@ set_io -port_name HSIO71_P  \
     -DIRECTION INPUT
 
 
-#set_io -port_name HSIO76_N  \
-#    -pin_name V16           \
-#    -fixed true             \
-#    -DIRECTION OUTPUT
+set_io -port_name HSIO73_N  \
+    -pin_name U17           \
+    -fixed true             \
+    -DIRECTION OUTPUT
 
 
-#set_io -port_name HSIO76_P  \
-#    -pin_name V17           \
-#    -fixed true             \
-#    -DIRECTION OUTPUT
-
-
-#set_io -port_name HSIO78_N  \
-#    -pin_name AA18          \
-#    -fixed true             \
-#    -DIRECTION INPUT
-
-
-#set_io -port_name HSIO78_P  \
-#    -pin_name AB18          \
-#    -fixed true             \
-#    -DIRECTION INPUT
+set_io -port_name HSIO73_P  \
+    -pin_name T17           \
+    -fixed true             \
+    -DIRECTION OUTPUT
 
 
 set_io -port_name HSIO81_N  \
