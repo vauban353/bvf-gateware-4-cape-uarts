@@ -51,3 +51,9 @@ set_io -port_name P9_20	\
     -fixed true	\
     -io_std LVCMOS33  \
     -DIRECTION INOUT
+
+set_io -port_name SD_DET  \
+    -pin_name C7          \
+    -fixed true           \
+    -io_std LVCMOS33      \
+    -DIRECTION INPUT
