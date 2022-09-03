@@ -10,6 +10,18 @@ This repository supports Libero SoC v2021.3, which is available for download [he
 
 ## Using the reference design generation Tcl script
 
+```
+libero SCRIPT:B_V_F_REFERENCE_DESIGN.tcl "SCRIPT_ARGS: ONLY_CREATE_DESIGN M2_OPTION:NONE"
+```
+
+Create absolute minimal design:
+```
+libero SCRIPT:B_V_F_REFERENCE_DESIGN.tcl "SCRIPT_ARGS: ONLY_CREATE_DESIGN M2_OPTION:NONE CAPE_OPTION:NONE"
+```
+
+
+
+
 #### Standard design generation
 
 To generate the standard reference design which is capable of running the majority of bare metal example applications and run Linux&reg; the following flow can be used:
