@@ -107,7 +107,7 @@ new_project \
     -linked_files_root_dir_env {} \
     -hdl {VERILOG} \
     -family {PolarFireSoC} \
-    -die {MPFS250T_ES} \
+    -die {MPFS025T} \
     -package {FCVG484} \
     -speed {STD} \
     -die_voltage {1.05} \
