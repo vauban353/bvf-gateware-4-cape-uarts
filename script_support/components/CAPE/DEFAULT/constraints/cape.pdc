@@ -11,7 +11,7 @@ set_io -port_name P9_12	\
     -DIRECTION INOUT
 
 set_io -port_name P9_14	\
-    -pin_name D19	\
+    -pin_name C6	\
     -fixed true	\
     -io_std LVCMOS33  \
     -DIRECTION OUT
