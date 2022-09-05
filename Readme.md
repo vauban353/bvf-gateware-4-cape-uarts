@@ -47,29 +47,29 @@ To generate the standard reference design which is capable of running the majori
 |      6     |    n/a   | VDD_5V       |
 |      7     |    n/a   | SYS_5V       |
 |      8     |    n/a   | SYS_5V       |
-|      9     |    n/a   | PWR_BUT      | -> TODO
+|      9     |    n/a   | Not connected |
 |     10     |    n/a   | SYSRESETn    |
 |     11     |     B5   | MMUART_4 Rx  |
 |     12     |     C5   | GPIO 9       |
-|     13     |     C7   | MMUART_4 Tx  |
+|     13     |    D19   | MMUART_4 Tx  |
 |     14     |     C6   | PWM channel 1 |
 |     15     |     A5   | GPIO 7        |
 |     16     |     A6   | PWM channel 2 |
-|     17     |     H4   | check - MSSIO7 - 1.8V  |
-|     18     |     J6   | check - MSSIO8 - 1.8V  |
-|     19     |    E13 - not connected on MPFS025  | MSS I2C0 SCL |
-|     20     |    F13 - not connected on MPFS025  | MSS I2C0 SDA |
-|     21     |    G12 - not connected on MPFS025  |              |
-|     22     |    H12 - not connected on MPFS025  |              |
-|     23     |    H13 - not connected on MPFS025  | GPIO 8       |
-|     24     |    G13 - not connected on MPFS025  |              |
-|     25     |    F15 - not connected on MPFS025  | GPIO 18      |
-|     26     |    G14 - not connected on MPFS025  |              |
-|     27     |    G15 - not connected on MPFS025  | GPIO 17      |
-|     28     |    H15 - not connected on MPFS025  |              |
-|     29     |    F17   | Design TODO - SPI1_DO |
-|     30     |    F16   | GPIO 16      |
-|     31     |    E16 - not connected on MPFS025  |              |
+|     17     |     C9   |              |
+|     18     |    C10   |              |
+|     19     |    A11   | MSS I2C0 SCL |
+|     20     |    A10   | MSS I2C0 SDA |
+|     21     |     B8   |              |
+|     22     |     A8   |              |
+|     23     |    C12   |              |
+|     24     |    B12   |              |
+|     25     |     B7   |              |
+|     26     |     A7   |              |
+|     27     |    D11   |              |
+|     28     |    C11   |              |
+|     29     |    F17   |              |
+|     30     |    F16   |              |
+|     31     |    E18   |              |
 |     32     |    n/a   | VDD_ADC      |
 |     33     |    n/a   | ADC channel 4 |
 |     34     |    n/a   | GNDA_ADC     |
@@ -92,29 +92,29 @@ To generate the standard reference design which is capable of running the majori
 |------------|----------|------------|
 |      1     |    n/a   | DGND       |
 |      2     |    n/a   | DGND       |
-|      3     |     A7   | Design TODO           |
-|      4     |     D6   | Design TODO  |
-|      5     |     D7   | Design TODO  |
-|      6     |     D8   | Design TODO  |
-|      7     |     D9   |  GPIO 12     |
-|      8     |     B8   |  GPIO 13     |
-|      9     |     A8   |  GPIO 15     |
-|     10     |     C9   |  GPIO 14     |
-|     11     |    C10   |  GPIO 4      |
-|     12     |     B9   |  GPIO 3     |
+|      3     |    V22   |            |
+|      4     |    W22   |            |
+|      5     |    V19   |            |
+|      6     |    V20   |            |
+|      7     |    V15   |            |
+|      8     |    V14   |            |
+|      9     |    V21   |            |
+|     10     |    W21   |            |
+|     11     |    Y21   |            |
+|     12     |    Y20   |            |
 |     13     |    B10   | PWM channel4 |
-|     14     |    F10 - not connected on MPFS025  |  GPIO 1    | -> needs new pin assignment
-|     15     |    E10 - not connected on MPFS025  |  GPIO 6    | -> needs new pin assignment
-|     16     |    A11   |  GPIO 5     |
-|     17     |    A10   |  GPIO 2     |
-|     18     |    D11   |  GPIO 11    |
-|     19     |    C11   | PWM channel 3 |
-|     20     |    F11 - not connected on MPFS025        |   |
-|     21     |    F12 - not connected on MPFS025        |   |
-|     22     |    E11 - not connected on MPFS025        |   |
-|     23     |    D12 - not connected on MPFS025 |   |
-|     24     |    C12   | Design TODO  |
-|     25     |    B12   | Design TODO  |
+|     14     |     B9   |            |
+|     15     |    T12   |  GPIO 6    |
+|     16     |    U12   |  GPIO 5     |
+|     17     |    W13   |  GPIO 2     |
+|     18     |    T16   |  GPIO 11    |
+|     19     |    W18   | PWM channel 3 |
+|     20     |    R16   |           |
+|     21     |   AA21   |           |
+|     22     |   AA22   |           |
+|     23     |   AB18   |           |
+|     24     |   AA18   |           |
+|     25     |    V17   |           |
 |     26     |    A12   |  GPIO      |
 |     27     |    A13   | GPIO (LCD group) |
 |     28     |    B14   | GPIO (LCD group) |
@@ -125,17 +125,17 @@ To generate the standard reference design which is capable of running the majori
 |     33     |    A15   | GPIO (LCD group) |
 |     34     |    C15   | GPIO (LCD group) |
 |     35     |    C14   | GPIO (LCD group) |
-|     36     |    A17 - not connected on MPFS025 | GPIO (LCD group) |
-|     37     |    A16 - not connected on MPFS025 | GPIO (LCD group) |
+|     36     |     B4   | GPIO (LCD group) |
+|     37     |     C4   | GPIO (LCD group) |
 |     38     |    C17   | GPIO (LCD group) |
 |     39     |    B17   | GPIO (LCD group) |
-|     40     |    D17 - not connected on MPFS025 | GPIO (LCD group) |
-|     41     |    C16 - not connected on MPFS025 | GPIO (LCD group) |
-|     42     |    D16 - not connected on MPFS025 | GPIO (LCD group) |
-|     43     |    B19 - not connected on MPFS025 | GPIO (LCD group) |
-|     44     |    B20 - not connected on MPFS025 | GPIO (LCD group) |
-|     45     |    C20 - not connected on MPFS025 | GPIO (LCD group) |
-|     46     |    C19 - not connected on MPFS025 | GPIO (LCD group) |
+|     40     |    B18   | GPIO (LCD group) |
+|     41     |    A18   | GPIO (LCD group) |
+|     42     |     D6   | GPIO (LCD group) |
+|     43     |     D7   | GPIO (LCD group) |
+|     44     |     D8   | GPIO (LCD group) |
+|     45     |     D9   | GPIO (LCD group) |
+|     46     |    D18   | GPIO (LCD group) |
 
 ### J9: M.2 Interface
 
@@ -143,28 +143,17 @@ To generate the standard reference design which is capable of running the majori
 |------------|----------|---------------------------------------------------|
 |      1     |   n/a    |      GND                                          |
 |      2     |   n/a    |      3.3V                                         |
-|      3     |   n/a    |  USB PHY                                          |
+|      3     |   n/a    |      not connected                                |
 |      4     |   n/a    |      3.3V                                         |
-|      5     |   n/a    |  USB PHY                                          |
-|      6     |   n/a    |      not connected                                |
+|    5 to 6  |   n/a    |      not connected                                |
 |      7     |   n/a    |      GND                                          |
-|      8     |   U19    |  M2_PCM_CLK                                       |
-|      9     |   n/a    |      not connected                                |
-|     10     |   T16    |  M2_PCM_SYNC                                      |
-|     11     |   n/a    |      not connected                                |
-|     12     |   T17    |  M2_PCM_IN                                        |
-|     13     |   n/a    |      not connected                                |
-|     14     |   U17    |  M2_PCM_OUT                                       |
-|     15     |   n/a    |      not connected                                |
-|     16     |   n/a    |      not connected                                |
-|     17     |   n/a    |      not connected                                |
+|   8 to 17  |   n/a    |      not connected                                |
 |     18     |   n/a    |      GND                                          |
 |     19     |   n/a    |      not connected                                |
-|     20     |   T15    |  M2_UART_WAKEn                                    |
+|     20     |   R14    |  M2_UART_WAKEn                                    |
 |     21     |   n/a    |      not connected                                |
 |     22     |   T13    |  M2_UART_RXD - MSS MMUART_1 through FPGA fabric   |
-|     23     |   n/a    |      not connected                                |
-|  24 to 31  |   n/a    |      ---                                          |
+|  24 to 31  |   n/a    |      not connected                                |
 |     32     |   R12    |  M2_UART_TXD - MSS MMUART_1 through FPGA fabric   |
 |     33     |   n/a    |      GND                                          |
 |     34     |   U14    |  M2_UART_CTS - MSS MMUART_1 through FPGA fabric   |
@@ -180,31 +169,26 @@ To generate the standard reference design which is capable of running the majori
 |     44     |   n/a    |      not connected                                |
 |     45     |   n/a    |      GND                                          |
 |     46     |   n/a    |      not connected                                |
-|     47     |   G17    |  M2_REFCLK_P                                      |
+|     47     |   n/a    |  M2_REFCLK_P - 100MHz                             |
 |     48     |   n/a    |      not connected                                |
-|     49     |   H17    |  M2_REFCLK_N                                      |
+|     49     |   n/a    |  M2_REFCLK_N - 100MHz                             |
 |     50     |   n/a    |  M2_32KHZ - connected to 32.687kHz oscillator     |
 |     51     |   n/a    |      GND                                          |
 |     52     |   E18    |  M2_PERST0n                                       |
-|     53     |   D18    |  M2_CLKREQ0n                                      |
+|     53     |   W19    |  M2_CLKREQ0n                                      |
 |     54     |   R15    |  W _DISABLE2n - pull-up to 3.3V                   |
-|     55     |   R14    |  M2_PEW AKEn                                      |
-|     56     |   R16    |  W _DISABLE1n - pull-up to 3.3V                   |
+|     55     |   R14    |  M2_PEWAKEn                                       |
+|     56     |   U19    |  W _DISABLE1n - pull-up to 3.3V                   |
 |     57     |   n/a    |      GND                                          |
 |     58     |    B1    |  MSS I2C1 SDA                                     |
-|     59     |   H22    |  M2_PET1_P                                        |
+|     59     |   n/a    |      not connected                                |
 |     60     |    C1    |  MSS I2C1 SCL                                     |
-|     61     |   H21    |  M2_PET1_N                                        |
+|     61     |   n/a    |      not connected                                |
 |     62     |   U15    |  M2_I2C_ALTn                                      |
 |     63     |   n/a    |      GND                                          |
-|     64     |   n/a    |      not connected                                |
-|     65     |   K22    |  M2_PER1_P                                        |
-|     66     |   n/a    |      not connected                                |
-|     67     |   K21    |  M2_PER1_N                                        |
-|     68     |   n/a    |      not connected                                |
+|   64 to 68 |   n/a    |      not connected                                |
 |     69     |   n/a    |      GND                                          |
-|     70     |   n/a    |      not connected                                |
-|     71     |   n/a    |      not connected                                |
+|   70 to 71 |   n/a    |      not connected                                |
 |     72     |   n/a    |      3.3V                                         |
 |     73     |   n/a    |      not connected                                |
 |     74     |   n/a    |      3.3V                                         |
