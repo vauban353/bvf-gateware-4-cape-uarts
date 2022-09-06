@@ -170,8 +170,7 @@ import_files \
     -io_pdc "./script_support/components/CAPE/$cape_option/constraints/cape.pdc" \
     -io_pdc "./script_support/components/M2/$m2_option/constraints/M2.pdc" \
     -io_pdc "./script_support/components/HIGH_SPEED_CONNECTOR/$high_speed_conn_option/constraints/HIGH_SPEED_CONNECTOR.pdc" \
-    -io_pdc "./script_support/components/MIPI_CSI/$mipi_csi_option/constraints/MIPI_CSI_INTERFACE.pdc" \
-    -io_pdc "${constraint_path}/ICICLE_USB.pdc"
+    -io_pdc "./script_support/components/MIPI_CSI/$mipi_csi_option/constraints/MIPI_CSI_INTERFACE.pdc" 
 
 #
 # // Associate imported constraints with the design flow
