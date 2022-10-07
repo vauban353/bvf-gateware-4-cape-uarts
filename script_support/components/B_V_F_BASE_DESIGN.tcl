@@ -236,7 +236,7 @@ sd_connect_pins -sd_name ${sd_name} -pin_names {"DQS_N" "BVF_RISCV_SUBSYSTEM:DQS
 #-------------------------------------------------------------------------------
 # Unused ports.
 #-------------------------------------------------------------------------------
-sd_mark_pins_unused -sd_name ${sd_name} -pin_names {BVF_RISCV_SUBSYSTEM:FIC_1_AXI4_TARGET}
+# sd_mark_pins_unused -sd_name ${sd_name} -pin_names {BVF_RISCV_SUBSYSTEM:FIC_1_AXI4_TARGET}
 sd_mark_pins_unused -sd_name ${sd_name} -pin_names {BVF_RISCV_SUBSYSTEM:FIC_2_AXI4_TARGET}
 
 sd_mark_pins_unused -sd_name ${sd_name} -pin_names {BVF_RISCV_SUBSYSTEM:HSI_APB_MTARGET}
