@@ -149,7 +149,9 @@ download_core -vlnv {Actel:Simulation:RESET_GEN:1.0.1} -location {www.microchip-
 download_core -vlnv {Actel:DirectCore:corepwm:4.5.100} -location {www.microchip-ip.com/repositories/DirectCore} 
 download_core -vlnv {Actel:DirectCore:COREI2C:7.2.101} -location {www.microchip-ip.com/repositories/DirectCore} 
 download_core -vlnv {Actel:DirectCore:CoreUARTapb:5.7.100} -location {www.microchip-ip.com/repositories/DirectCore} 
-download_core -vlnv {Actel:SystemBuilder:PF_IOD_GENERIC_RX:2.1.106} -location {www.microchip-ip.com/repositories/SgCore}
+download_core -vlnv {Actel:SystemBuilder:PF_IOD_GENERIC_RX:2.1.109} -location {www.microchip-ip.com/repositories/SgCore}
+download_core -vlnv {Actel:SgCore:PF_IO:2.0.104} -location {www.microchip-ip.com/repositories/SgCore}
+download_core -vlnv {Actel:SystemBuilder:PF_XCVR_ERM:3.1.200} -location {www.microchip-ip.com/repositories/SgCore}
 
 #
 # // Generate base design
