@@ -1,3 +1,5 @@
+source script_support/components/BVF_RISCV_SUBSYSTEM/USER_LED_GPIO.tcl
+
 # Creating SmartDesign BVF_RISCV_SUBSYSTEM
 set sd_name {BVF_RISCV_SUBSYSTEM}
 create_smartdesign -sd_name ${sd_name}
@@ -6,6 +8,7 @@ create_smartdesign -sd_name ${sd_name}
 auto_promote_pad_pins -promote_all 0
 
 # Create top level Ports
+sd_create_scalar_port -sd_name ${sd_name} -port_name {PRESETN} -port_direction {IN}
 sd_create_scalar_port -sd_name ${sd_name} -port_name {REFCLK} -port_direction {IN} -port_is_pad {1}
 sd_create_scalar_port -sd_name ${sd_name} -port_name {REFCLK_N} -port_direction {IN} -port_is_pad {1}
 sd_create_scalar_port -sd_name ${sd_name} -port_name {USB_CLK} -port_direction {IN} -port_is_pad {1}
@@ -89,6 +92,14 @@ sd_create_scalar_port -sd_name ${sd_name} -port_name {I2C0_SDA} -port_direction 
 sd_create_scalar_port -sd_name ${sd_name} -port_name {PHY_INTn} -port_direction {IN}
 sd_create_scalar_port -sd_name ${sd_name} -port_name {PHY_MDC} -port_direction {OUT}
 sd_create_scalar_port -sd_name ${sd_name} -port_name {PHY_MDIO} -port_direction {INOUT}
+
+
+#-------------------------------------------------------------------------------
+# User LEDs
+#-------------------------------------------------------------------------------
+sd_create_bus_port -sd_name ${sd_name} -port_name {USER_LED_GPIO_OUT} -port_direction {OUT} -port_range {[11:0]} 
+sd_create_bus_port -sd_name ${sd_name} -port_name {USER_LED_GPIO_OE} -port_direction {OUT} -port_range {[11:0]} 
+sd_create_bus_port -sd_name ${sd_name} -port_name {USER_LED_GPIO_IN} -port_direction {IN} -port_range {[11:0]} 
 
 
 
@@ -235,6 +246,22 @@ sd_connect_pins -sd_name ${sd_name} -pin_names {"PF_SOC_MSS:USB_NXT" "USB_NXT" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"PF_SOC_MSS:USB_STP" "USB_STP" }
 
 #-------------------------------------------------------------------------------
+# sd_connect_pins -sd_name ${sd_name} -pin_names {"SD_CLK_EMMC_CLK" "PF_SOC_MSS:SD_CLK" }
+# sd_connect_pins -sd_name ${sd_name} -pin_names {"SD_CMD_EMMC_CMD" "PF_SOC_MSS:SD_CMD" }
+# sd_connect_pins -sd_name ${sd_name} -pin_names {"SD_DATA0_EMMC_DATA0" "PF_SOC_MSS:SD_DATA0" }
+# sd_connect_pins -sd_name ${sd_name} -pin_names {"SD_DATA1_EMMC_DATA1" "PF_SOC_MSS:SD_DATA1" }
+# sd_connect_pins -sd_name ${sd_name} -pin_names {"SD_DATA2_EMMC_DATA2" "PF_SOC_MSS:SD_DATA2" }
+# sd_connect_pins -sd_name ${sd_name} -pin_names {"SD_DATA3_EMMC_DATA3" "PF_SOC_MSS:SD_DATA3" }
+# sd_connect_pins -sd_name ${sd_name} -pin_names {"SD_POW_EMMC_DATA4" "PF_SOC_MSS:SD_POW" }
+# sd_connect_pins -sd_name ${sd_name} -pin_names {"SD_VOLT_SEL_EMMC_DATA5" "PF_SOC_MSS:SD_VOLT_SEL" }
+# sd_connect_pins -sd_name ${sd_name} -pin_names {"SD_VOLT_EN_EMMC_DATA6" "PF_SOC_MSS:SD_VOLT_EN" }
+# sd_connect_pins -sd_name ${sd_name} -pin_names {"SD_VOLT_CMD_DIR_EMMC_DATA7" "PF_SOC_MSS:SD_VOLT_CMD_DIR" }
+# sd_connect_pins -sd_name ${sd_name} -pin_names {"SD_VOLT_DIR_1_3_EMMC_UNUSED" "PF_SOC_MSS:SD_VOLT_DIR_1_3" }
+# sd_connect_pins -sd_name ${sd_name} -pin_names {"SD_VOLT_DIR_0_EMMC_UNUSED" "PF_SOC_MSS:SD_VOLT_DIR_0" }
+# sd_connect_pins -sd_name ${sd_name} -pin_names {"SD_CD_EMMC_STRB" "PF_SOC_MSS:SD_CD" }
+# sd_connect_pins -sd_name ${sd_name} -pin_names {"SD_WP_EMMC_RSTN" "PF_SOC_MSS:SD_WP" }
+
+sd_connect_pins -sd_name ${sd_name} -pin_names {"IHC_SUBSYSTEM_0:presetn" "PRESETN"}
 sd_connect_pins -sd_name ${sd_name} -pin_names {"PF_SOC_MSS:MSS_INT_F2M[63]" "IHC_SUBSYSTEM_0:E51_IRQ" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"PF_SOC_MSS:MSS_INT_F2M[62]" "IHC_SUBSYSTEM_0:U54_1_IRQ" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"PF_SOC_MSS:MSS_INT_F2M[61]" "IHC_SUBSYSTEM_0:U54_2_IRQ" }
@@ -274,17 +301,28 @@ sd_connect_pins -sd_name ${sd_name} -pin_names {"PF_SOC_MSS:MMUART_4_RXD_F2M" "M
 
 
 #-------------------------------------------------------------------------------
+# User LEDs
+#-------------------------------------------------------------------------------
+sd_instantiate_component -sd_name ${sd_name} -component_name {USER_LED_GPIO} -instance_name {}
+sd_connect_pins -sd_name ${sd_name} -pin_names {"FIC3_INITIATOR:APBmslave0" "USER_LED_GPIO_0:APB_bif"}
+sd_connect_pins -sd_name ${sd_name} -pin_names {"USER_LED_GPIO_0:PRESETN" "PRESETN"} 
+sd_connect_pins -sd_name ${sd_name} -pin_names {"FIC_3_PCLK" "USER_LED_GPIO_0:PCLK"} 
+sd_connect_pins -sd_name ${sd_name} -pin_names {"USER_LED_GPIO_0:GPIO_OE" "USER_LED_GPIO_OE"} 
+sd_connect_pins -sd_name ${sd_name} -pin_names {"USER_LED_GPIO_0:GPIO_OUT" "USER_LED_GPIO_OUT"} 
+sd_connect_pins -sd_name ${sd_name} -pin_names {"USER_LED_GPIO_0:GPIO_IN" "USER_LED_GPIO_IN"}
+sd_mark_pins_unused -sd_name ${sd_name} -pin_names {USER_LED_GPIO_0:INT}
+
+#-------------------------------------------------------------------------------
 # Promote signals to module's top level
 #-------------------------------------------------------------------------------
 sd_connect_pin_to_port -sd_name ${sd_name} -pin_name {PF_SOC_MSS:FIC_2_AXI4_TARGET} -port_name {} 
 sd_connect_pin_to_port -sd_name ${sd_name} -pin_name {PF_SOC_MSS:FIC_1_AXI4_TARGET} -port_name {} 
 sd_connect_pin_to_port -sd_name ${sd_name} -pin_name {PF_SOC_MSS:FIC_0_AXI4_TARGET} -port_name {} 
 
-sd_connect_pin_to_port -sd_name ${sd_name} -pin_name {FIC3_INITIATOR:APBmslave0} -port_name {} 
 sd_connect_pin_to_port -sd_name ${sd_name} -pin_name {FIC3_INITIATOR:APBmslave1} -port_name {} 
 sd_connect_pin_to_port -sd_name ${sd_name} -pin_name {FIC3_INITIATOR:APBmslave2} -port_name {} 
+sd_connect_pin_to_port -sd_name ${sd_name} -pin_name {FIC3_INITIATOR:APBmslave4} -port_name {} 
 sd_connect_pin_to_port -sd_name ${sd_name} -pin_name {FIC3_INITIATOR:APBmslave16} -port_name {} 
-sd_connect_pin_to_port -sd_name ${sd_name} -pin_name {IHC_SUBSYSTEM_0:presetn} -port_name {} 
 sd_connect_pin_to_port -sd_name ${sd_name} -pin_name {PF_SOC_MSS:FIC_0_ACLK} -port_name {} 
 sd_connect_pin_to_port -sd_name ${sd_name} -pin_name {PF_SOC_MSS:FIC_1_ACLK} -port_name {} 
 sd_connect_pin_to_port -sd_name ${sd_name} -pin_name {PF_SOC_MSS:FIC_2_ACLK} -port_name {} 
@@ -352,9 +390,9 @@ sd_connect_pin_to_port -sd_name ${sd_name} -pin_name {PF_SOC_MSS:FIC_1_AXI4_INIT
 
 sd_mark_pins_unused -sd_name ${sd_name} -pin_names {PF_SOC_MSS:MMUART_1_TXD_OE_M2F} 
 
-sd_rename_port -sd_name ${sd_name} -current_port_name {APBmslave0} -new_port_name {CAPE_APB_MTARGET} 
-sd_rename_port -sd_name ${sd_name} -current_port_name {APBmslave1} -new_port_name {CSI_APB_MTARGET} 
-sd_rename_port -sd_name ${sd_name} -current_port_name {APBmslave2} -new_port_name {HSI_APB_MTARGET} 
+sd_rename_port -sd_name ${sd_name} -current_port_name {APBmslave1} -new_port_name {CAPE_APB_MTARGET} 
+sd_rename_port -sd_name ${sd_name} -current_port_name {APBmslave2} -new_port_name {CSI_APB_MTARGET} 
+sd_rename_port -sd_name ${sd_name} -current_port_name {APBmslave4} -new_port_name {HSI_APB_MTARGET} 
 sd_rename_port -sd_name ${sd_name} -current_port_name {APBmslave16} -new_port_name {M2_APB_MTARGET} 
 
 

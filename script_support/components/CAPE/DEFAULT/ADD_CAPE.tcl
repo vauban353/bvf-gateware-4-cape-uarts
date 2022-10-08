@@ -17,7 +17,6 @@ set sd_name {B_V_F_BASE_DESIGN}
 #-------------------------------------------------------------------------------
 # Cape pins
 #-------------------------------------------------------------------------------
-sd_create_scalar_port -sd_name ${sd_name} -port_name {P8_13} -port_direction {OUT}
 sd_create_scalar_port -sd_name ${sd_name} -port_name {P8_19} -port_direction {OUT}
 
 sd_create_scalar_port -sd_name ${sd_name} -port_name {P9_PWR_BUT} -port_direction {IN}
@@ -29,23 +28,12 @@ sd_create_scalar_port -sd_name ${sd_name} -port_name {P9_42} -port_direction {OU
 
 sd_create_scalar_port -sd_name ${sd_name} -port_name {P9_17} -port_direction {OUT} 
 sd_create_scalar_port -sd_name ${sd_name} -port_name {P9_18} -port_direction {OUT} 
-sd_create_scalar_port -sd_name ${sd_name} -port_name {P9_21} -port_direction {OUT} 
 sd_create_scalar_port -sd_name ${sd_name} -port_name {P9_22} -port_direction {OUT} 
 sd_create_scalar_port -sd_name ${sd_name} -port_name {P9_24} -port_direction {OUT} 
 sd_create_scalar_port -sd_name ${sd_name} -port_name {P9_26} -port_direction {OUT} 
 sd_create_scalar_port -sd_name ${sd_name} -port_name {P9_28} -port_direction {OUT} 
 sd_create_scalar_port -sd_name ${sd_name} -port_name {P9_29} -port_direction {OUT} 
 sd_create_scalar_port -sd_name ${sd_name} -port_name {P9_31} -port_direction {OUT} 
-sd_create_scalar_port -sd_name ${sd_name} -port_name {P8_3} -port_direction {OUT} 
-sd_create_scalar_port -sd_name ${sd_name} -port_name {P8_4} -port_direction {OUT} 
-sd_create_scalar_port -sd_name ${sd_name} -port_name {P8_5} -port_direction {OUT} 
-sd_create_scalar_port -sd_name ${sd_name} -port_name {P8_6} -port_direction {OUT} 
-sd_create_scalar_port -sd_name ${sd_name} -port_name {P8_20} -port_direction {OUT} 
-sd_create_scalar_port -sd_name ${sd_name} -port_name {P8_21} -port_direction {OUT} 
-sd_create_scalar_port -sd_name ${sd_name} -port_name {P8_22} -port_direction {OUT} 
-sd_create_scalar_port -sd_name ${sd_name} -port_name {P8_23} -port_direction {OUT} 
-sd_create_scalar_port -sd_name ${sd_name} -port_name {P8_24} -port_direction {OUT} 
-sd_create_scalar_port -sd_name ${sd_name} -port_name {P8_25} -port_direction {OUT} 
 
 #-------------------------------------------------------------------------------
 # Instantiate.
@@ -191,7 +179,6 @@ sd_connect_pins -sd_name ${sd_name} -pin_names {"CAPE:GPIO_IN[16:16]" "BVF_RISCV
 sd_connect_pins -sd_name ${sd_name} -pin_names {"CAPE:GPIO_IN[17:17]" "BVF_RISCV_SUBSYSTEM:GPIO_2_F2M_17"}
 sd_connect_pins -sd_name ${sd_name} -pin_names {"CAPE:GPIO_IN[18:18]" "BVF_RISCV_SUBSYSTEM:GPIO_2_F2M_18"}
 
-sd_connect_pins -sd_name ${sd_name} -pin_names {"CAPE:P8_13" "P8_13"}
 sd_connect_pins -sd_name ${sd_name} -pin_names {"CAPE:P8_19" "P8_19"}
 sd_connect_pins -sd_name ${sd_name} -pin_names {"CAPE:P9_14" "P9_14"}
 sd_connect_pins -sd_name ${sd_name} -pin_names {"CAPE:P9_16" "P9_16"}
@@ -201,24 +188,12 @@ sd_connect_pins -sd_name ${sd_name} -pin_names {"CAPE:P9_PWR_BUT" "P9_PWR_BUT"}
 
 sd_connect_pins -sd_name ${sd_name} -pin_names {"CAPE:P9_17" "P9_17"}
 sd_connect_pins -sd_name ${sd_name} -pin_names {"CAPE:P9_18" "P9_18"}
-sd_connect_pins -sd_name ${sd_name} -pin_names {"CAPE:P9_21" "P9_21"}
 sd_connect_pins -sd_name ${sd_name} -pin_names {"CAPE:P9_22" "P9_22"}
 sd_connect_pins -sd_name ${sd_name} -pin_names {"CAPE:P9_24" "P9_24"}
 sd_connect_pins -sd_name ${sd_name} -pin_names {"CAPE:P9_26" "P9_26"}
 sd_connect_pins -sd_name ${sd_name} -pin_names {"CAPE:P9_28" "P9_28"}
 sd_connect_pins -sd_name ${sd_name} -pin_names {"CAPE:P9_29" "P9_29"}
 sd_connect_pins -sd_name ${sd_name} -pin_names {"CAPE:P9_31" "P9_31"}
-sd_connect_pins -sd_name ${sd_name} -pin_names {"CAPE:P8_3" "P8_3"}
-sd_connect_pins -sd_name ${sd_name} -pin_names {"CAPE:P8_4" "P8_4"}
-sd_connect_pins -sd_name ${sd_name} -pin_names {"CAPE:P8_5" "P8_5"}
-sd_connect_pins -sd_name ${sd_name} -pin_names {"CAPE:P8_6" "P8_6"}
-
-sd_connect_pins -sd_name ${sd_name} -pin_names {"CAPE:P8_20" "P8_20"}
-sd_connect_pins -sd_name ${sd_name} -pin_names {"CAPE:P8_21" "P8_21"}
-sd_connect_pins -sd_name ${sd_name} -pin_names {"CAPE:P8_22" "P8_22"}
-sd_connect_pins -sd_name ${sd_name} -pin_names {"CAPE:P8_23" "P8_23"}
-sd_connect_pins -sd_name ${sd_name} -pin_names {"CAPE:P8_24" "P8_24"}
-sd_connect_pins -sd_name ${sd_name} -pin_names {"CAPE:P8_25" "P8_25"}
 
 sd_connect_pins -sd_name ${sd_name} -pin_names {"CAPE:APB_SLAVE" "BVF_RISCV_SUBSYSTEM:CAPE_APB_MTARGET"}
 

@@ -36,21 +36,21 @@ sd_connect_pin_to_port -sd_name ${sd_name} -pin_name {CAPE_DEFAULT_GPIOS:GPIO_OE
 sd_connect_pin_to_port -sd_name ${sd_name} -pin_name {CAPE_DEFAULT_GPIOS:GPIO_IN} -port_name {} 
 
 sd_rename_port -sd_name ${sd_name} -current_port_name {GPIO_0_PAD} -new_port_name {P9_41}
-sd_rename_port -sd_name ${sd_name} -current_port_name {GPIO_1_PAD} -new_port_name {P8_14}
+sd_rename_port -sd_name ${sd_name} -current_port_name {GPIO_1_PAD} -new_port_name {P9_21}
 sd_rename_port -sd_name ${sd_name} -current_port_name {GPIO_2_PAD} -new_port_name {P8_17}
-sd_rename_port -sd_name ${sd_name} -current_port_name {GPIO_3_PAD} -new_port_name {P8_12}
-sd_rename_port -sd_name ${sd_name} -current_port_name {GPIO_4_PAD} -new_port_name {P8_11}
+sd_rename_port -sd_name ${sd_name} -current_port_name {GPIO_3_PAD} -new_port_name {P8_15}
+sd_rename_port -sd_name ${sd_name} -current_port_name {GPIO_4_PAD} -new_port_name {P8_24}
 sd_rename_port -sd_name ${sd_name} -current_port_name {GPIO_5_PAD} -new_port_name {P8_16}
-sd_rename_port -sd_name ${sd_name} -current_port_name {GPIO_6_PAD} -new_port_name {P8_15}
+sd_rename_port -sd_name ${sd_name} -current_port_name {GPIO_6_PAD} -new_port_name {P8_25}
 sd_rename_port -sd_name ${sd_name} -current_port_name {GPIO_7_PAD} -new_port_name {P9_15}
 sd_rename_port -sd_name ${sd_name} -current_port_name {GPIO_8_PAD} -new_port_name {P9_23}
 sd_rename_port -sd_name ${sd_name} -current_port_name {GPIO_9_PAD} -new_port_name {P9_12}
 sd_rename_port -sd_name ${sd_name} -current_port_name {GPIO_10_PAD} -new_port_name {P8_26}
 sd_rename_port -sd_name ${sd_name} -current_port_name {GPIO_11_PAD} -new_port_name {P8_18}
-sd_rename_port -sd_name ${sd_name} -current_port_name {GPIO_12_PAD} -new_port_name {P8_7}
-sd_rename_port -sd_name ${sd_name} -current_port_name {GPIO_13_PAD} -new_port_name {P8_8}
-sd_rename_port -sd_name ${sd_name} -current_port_name {GPIO_14_PAD} -new_port_name {P8_10}
-sd_rename_port -sd_name ${sd_name} -current_port_name {GPIO_15_PAD} -new_port_name {P8_9}
+sd_rename_port -sd_name ${sd_name} -current_port_name {GPIO_12_PAD} -new_port_name {P8_20}
+sd_rename_port -sd_name ${sd_name} -current_port_name {GPIO_13_PAD} -new_port_name {P8_21}
+sd_rename_port -sd_name ${sd_name} -current_port_name {GPIO_14_PAD} -new_port_name {P8_23}
+sd_rename_port -sd_name ${sd_name} -current_port_name {GPIO_15_PAD} -new_port_name {P8_22}
 sd_rename_port -sd_name ${sd_name} -current_port_name {GPIO_16_PAD} -new_port_name {P9_30}
 sd_rename_port -sd_name ${sd_name} -current_port_name {GPIO_17_PAD} -new_port_name {P9_27}
 sd_rename_port -sd_name ${sd_name} -current_port_name {GPIO_18_PAD} -new_port_name {P9_25}
@@ -102,7 +102,7 @@ sd_rename_port -sd_name {CAPE} -current_port_name {PWM_0_0} -new_port_name {P9_4
 sd_rename_port -sd_name {CAPE} -current_port_name {PWM_1} -new_port_name {P9_14} 
 sd_rename_port -sd_name {CAPE} -current_port_name {PWM_2} -new_port_name {P9_16} 
 sd_rename_port -sd_name {CAPE} -current_port_name {PWM_3} -new_port_name {P8_19} 
-sd_rename_port -sd_name {CAPE} -current_port_name {PWM_4} -new_port_name {P8_13} 
+sd_rename_port -sd_name {CAPE} -current_port_name {PWM_4} -new_port_name {P9_18} 
 
 
 #-------------------------------------------------------------------------------
@@ -127,12 +127,6 @@ sd_create_scalar_port -sd_name ${sd_name} -port_name {P9_17} -port_direction {OU
 
 sd_connect_pins -sd_name ${sd_name} -pin_names {"P9_17" "P9_PWR_BUT"} 
 
-sd_create_scalar_port -sd_name ${sd_name} -port_name {P9_18} -port_direction {OUT} 
-sd_connect_pins_to_constant -sd_name ${sd_name} -pin_names {P9_18} -value {GND} 
-
-sd_create_scalar_port -sd_name ${sd_name} -port_name {P9_21} -port_direction {OUT} 
-sd_connect_pins_to_constant -sd_name ${sd_name} -pin_names {P9_21} -value {GND} 
-
 sd_create_scalar_port -sd_name ${sd_name} -port_name {P9_22} -port_direction {OUT} 
 sd_connect_pins_to_constant -sd_name ${sd_name} -pin_names {P9_22} -value {GND} 
 
@@ -150,37 +144,6 @@ sd_connect_pins_to_constant -sd_name ${sd_name} -pin_names {P9_29} -value {GND}
 
 sd_create_scalar_port -sd_name ${sd_name} -port_name {P9_31} -port_direction {OUT} 
 sd_connect_pins_to_constant -sd_name ${sd_name} -pin_names {P9_31} -value {GND} 
-
-sd_create_scalar_port -sd_name ${sd_name} -port_name {P8_3} -port_direction {OUT} 
-sd_connect_pins_to_constant -sd_name ${sd_name} -pin_names {P8_3} -value {GND} 
-
-sd_create_scalar_port -sd_name ${sd_name} -port_name {P8_4} -port_direction {OUT} 
-sd_connect_pins_to_constant -sd_name ${sd_name} -pin_names {P8_4} -value {GND} 
-
-sd_create_scalar_port -sd_name ${sd_name} -port_name {P8_5} -port_direction {OUT} 
-sd_connect_pins_to_constant -sd_name ${sd_name} -pin_names {P8_5} -value {GND} 
-
-sd_create_scalar_port -sd_name ${sd_name} -port_name {P8_6} -port_direction {OUT} 
-sd_connect_pins_to_constant -sd_name ${sd_name} -pin_names {P8_6} -value {GND} 
-
-
-sd_create_scalar_port -sd_name ${sd_name} -port_name {P8_20} -port_direction {OUT} 
-sd_connect_pins_to_constant -sd_name ${sd_name} -pin_names {P8_20} -value {GND} 
-
-sd_create_scalar_port -sd_name ${sd_name} -port_name {P8_21} -port_direction {OUT} 
-sd_connect_pins_to_constant -sd_name ${sd_name} -pin_names {P8_21} -value {GND} 
-
-sd_create_scalar_port -sd_name ${sd_name} -port_name {P8_22} -port_direction {OUT} 
-sd_connect_pins_to_constant -sd_name ${sd_name} -pin_names {P8_22} -value {GND} 
-
-sd_create_scalar_port -sd_name ${sd_name} -port_name {P8_23} -port_direction {OUT} 
-sd_connect_pins_to_constant -sd_name ${sd_name} -pin_names {P8_23} -value {GND} 
-
-sd_create_scalar_port -sd_name ${sd_name} -port_name {P8_24} -port_direction {OUT} 
-sd_connect_pins_to_constant -sd_name ${sd_name} -pin_names {P8_24} -value {GND} 
-
-sd_create_scalar_port -sd_name ${sd_name} -port_name {P8_25} -port_direction {OUT} 
-sd_connect_pins_to_constant -sd_name ${sd_name} -pin_names {P8_25} -value {GND} 
 
 
 # Re-enable auto promotion of pins of type 'pad'
