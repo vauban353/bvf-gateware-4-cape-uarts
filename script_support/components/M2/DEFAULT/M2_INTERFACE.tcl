@@ -44,7 +44,6 @@ sd_connect_pins_to_constant -sd_name ${sd_name} -pin_names {PCIE:PCIE_0_S_WDERR}
 sd_mark_pins_unused -sd_name ${sd_name} -pin_names {PCIE:PCIE_0_LTSSM}
 sd_mark_pins_unused -sd_name ${sd_name} -pin_names {PCIE:PCIE_0_M_WDERR}
 sd_mark_pins_unused -sd_name ${sd_name} -pin_names {PCIE:PCIE_0_S_RDERR}
-sd_mark_pins_unused -sd_name ${sd_name} -pin_names {PCIE:PCIE_0_PERST_OUT_N}
 sd_mark_pins_unused -sd_name ${sd_name} -pin_names {PCIE:PCIE_0_HOT_RST_EXIT}
 sd_mark_pins_unused -sd_name ${sd_name} -pin_names {PCIE:PCIE_0_DLUP_EXIT}
 
@@ -71,8 +70,6 @@ sd_mark_pins_unused -sd_name ${sd_name} -pin_names {RECONFIGURATION_INTERFACE_0:
 sd_mark_pins_unused -sd_name ${sd_name} -pin_names {RECONFIGURATION_INTERFACE_0:PTIMEOUT}
 sd_mark_pins_unused -sd_name ${sd_name} -pin_names {RECONFIGURATION_INTERFACE_0:BUSERROR}
 
-sd_connect_pins_to_constant -sd_name ${sd_name} -pin_names {M2_PERST0n} -value {VCC}
-
 #-------------------------------------------------------------------------------
 # Promote bus and signals to top level
 #-------------------------------------------------------------------------------
@@ -90,6 +87,12 @@ sd_connect_pin_to_port -sd_name ${sd_name} -pin_name {PCIE:AXI_0_SLAVE} -port_na
 sd_rename_port -sd_name ${sd_name} -current_port_name {AXI_0_SLAVE} -new_port_name {AXI_TARGET} 
 sd_mark_pins_unused -sd_name ${sd_name} -pin_names {RECONFIGURATION_INTERFACE_0:PLL0_SW_DRI} 
 
+
+sd_connect_pin_to_port -sd_name ${sd_name} -pin_name {PCIE:INIT_DONE} -port_name {} 
+sd_rename_port -sd_name ${sd_name} -current_port_name {INIT_DONE} -new_port_name {PCIE_INIT_DONE} 
+
+sd_connect_pins -sd_name ${sd_name} -pin_names {"M2_PERST0n" "PCIE:PCIE_0_PERST_OUT_N"}
+
 #-------------------------------------------------------------------------------
 # Temporary - rework once pin assignment confirmed.
 #-------------------------------------------------------------------------------
@@ -101,9 +104,6 @@ sd_connect_pins -sd_name ${sd_name} -pin_names {"AND2_0:B" "M2_PEWAKEn"}
 sd_connect_pins -sd_name ${sd_name} -pin_names {"M2_I2C_ALTn" "M2_W_DISABLE2n"} 
 
 sd_connect_pins_to_constant -sd_name ${sd_name} -pin_names {M2_UART_WAKEn} -value {VCC}
-
-# TODO: connect INIT_DONE to clocks and reset block.
-sd_connect_pins_to_constant -sd_name ${sd_name} -pin_names {PCIE:INIT_DONE} -value {GND}
 
 #-------------------------------------------------------------------------------
 

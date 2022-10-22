@@ -63,6 +63,7 @@ sd_connect_pins -sd_name ${sd_name} -pin_names {"INIT_MONITOR_0:PCIE_INIT_DONE" 
 sd_connect_pins -sd_name ${sd_name} -pin_names {"PCIE_REF_CLK_0:REF_CLK" "PCIe_REFERENCE_CLK" "TRANSMIT_PLL_0:REF_CLK" }
 sd_rename_port -sd_name ${sd_name} -current_port_name {REF_CLK_PAD_N} -new_port_name {XCVR_0A_REFCLK_N}
 sd_rename_port -sd_name ${sd_name} -current_port_name {REF_CLK_PAD_P} -new_port_name {XCVR_0A_REFCLK_P}
+sd_connect_pin_to_port -sd_name ${sd_name} -pin_name {INIT_MONITOR_0:PCIE_INIT_DONE} -port_name {}
 
 #-------------------------------------------------------------------------------
 # Save the SmartDesign
