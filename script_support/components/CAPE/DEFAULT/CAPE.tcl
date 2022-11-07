@@ -55,6 +55,27 @@ sd_rename_port -sd_name ${sd_name} -current_port_name {GPIO_16_PAD} -new_port_na
 sd_rename_port -sd_name ${sd_name} -current_port_name {GPIO_17_PAD} -new_port_name {P9_27}
 sd_rename_port -sd_name ${sd_name} -current_port_name {GPIO_18_PAD} -new_port_name {P9_25}
 
+sd_rename_port -sd_name ${sd_name} -current_port_name {GPIO_19_PAD} -new_port_name {P9_18}
+
+sd_rename_port -sd_name ${sd_name} -current_port_name {GPIO_20_PAD} -new_port_name {P9_22}
+sd_rename_port -sd_name ${sd_name} -current_port_name {GPIO_21_PAD} -new_port_name {P9_24}
+sd_rename_port -sd_name ${sd_name} -current_port_name {GPIO_22_PAD} -new_port_name {P9_26}
+sd_rename_port -sd_name ${sd_name} -current_port_name {GPIO_23_PAD} -new_port_name {P9_28}
+sd_rename_port -sd_name ${sd_name} -current_port_name {GPIO_24_PAD} -new_port_name {P9_29}
+sd_rename_port -sd_name ${sd_name} -current_port_name {GPIO_25_PAD} -new_port_name {P9_31}
+sd_rename_port -sd_name ${sd_name} -current_port_name {GPIO_26_PAD} -new_port_name {P9_17}
+
+#sd_rename_port -sd_name ${sd_name} -current_port_name {GPIO_27_PAD} -new_port_name {P8_4}
+#sd_rename_port -sd_name ${sd_name} -current_port_name {GPIO_28_PAD} -new_port_name {P8_5}
+#sd_rename_port -sd_name ${sd_name} -current_port_name {GPIO_29_PAD} -new_port_name {P8_6}
+#sd_rename_port -sd_name ${sd_name} -current_port_name {GPIO_30_PAD} -new_port_name {P8_7}
+
+
+
+
+
+
+
 
 #-------------------------------------------------------------------------------
 # LCD interface stub
@@ -92,7 +113,6 @@ sd_rename_port -sd_name ${sd_name} -current_port_name {LCD_PCLK} -new_port_name 
 #-------------------------------------------------------------------------------
 sd_instantiate_component -sd_name ${sd_name} -component_name {CAPE_PWM} -instance_name {PWM_0}
 
-sd_connect_pin_to_port -sd_name {CAPE} -pin_name {PWM_0:PWM_4} -port_name {} 
 sd_connect_pin_to_port -sd_name {CAPE} -pin_name {PWM_0:PWM_0} -port_name {} 
 sd_connect_pin_to_port -sd_name {CAPE} -pin_name {PWM_0:PWM_1} -port_name {} 
 sd_connect_pin_to_port -sd_name {CAPE} -pin_name {PWM_0:PWM_2} -port_name {} 
@@ -102,7 +122,6 @@ sd_rename_port -sd_name {CAPE} -current_port_name {PWM_0_0} -new_port_name {P9_4
 sd_rename_port -sd_name {CAPE} -current_port_name {PWM_1} -new_port_name {P9_14} 
 sd_rename_port -sd_name {CAPE} -current_port_name {PWM_2} -new_port_name {P9_16} 
 sd_rename_port -sd_name {CAPE} -current_port_name {PWM_3} -new_port_name {P8_19} 
-sd_rename_port -sd_name {CAPE} -current_port_name {PWM_4} -new_port_name {P9_18} 
 
 
 #-------------------------------------------------------------------------------
@@ -116,34 +135,6 @@ sd_connect_pins -sd_name ${sd_name} -pin_names {"CAPE_LCD_STUB:APB_bif" "CoreAPB
 
 sd_connect_pin_to_port -sd_name ${sd_name} -pin_name {APB_BUS_CONVERTER_0:APB_SLAVE} -port_name {} 
 sd_connect_pins -sd_name ${sd_name} -pin_names {"APB_BUS_CONVERTER_0:APB_MASTER" "CoreAPB3_CAPE_0:APB3mmaster"} 
-
-
-#-------------------------------------------------------------------------------
-# I/O Stubs for I/O placement check.
-#-------------------------------------------------------------------------------
-sd_create_scalar_port -sd_name ${sd_name} -port_name {P9_PWR_BUT} -port_direction {IN} 
-
-sd_create_scalar_port -sd_name ${sd_name} -port_name {P9_17} -port_direction {OUT} 
-
-sd_connect_pins -sd_name ${sd_name} -pin_names {"P9_17" "P9_PWR_BUT"} 
-
-sd_create_scalar_port -sd_name ${sd_name} -port_name {P9_22} -port_direction {OUT} 
-sd_connect_pins_to_constant -sd_name ${sd_name} -pin_names {P9_22} -value {GND} 
-
-sd_create_scalar_port -sd_name ${sd_name} -port_name {P9_24} -port_direction {OUT} 
-sd_connect_pins_to_constant -sd_name ${sd_name} -pin_names {P9_24} -value {GND} 
-
-sd_create_scalar_port -sd_name ${sd_name} -port_name {P9_26} -port_direction {OUT} 
-sd_connect_pins_to_constant -sd_name ${sd_name} -pin_names {P9_26} -value {GND} 
-
-sd_create_scalar_port -sd_name ${sd_name} -port_name {P9_28} -port_direction {OUT} 
-sd_connect_pins_to_constant -sd_name ${sd_name} -pin_names {P9_28} -value {GND} 
-
-sd_create_scalar_port -sd_name ${sd_name} -port_name {P9_29} -port_direction {OUT} 
-sd_connect_pins_to_constant -sd_name ${sd_name} -pin_names {P9_29} -value {GND} 
-
-sd_create_scalar_port -sd_name ${sd_name} -port_name {P9_31} -port_direction {OUT} 
-sd_connect_pins_to_constant -sd_name ${sd_name} -pin_names {P9_31} -value {GND} 
 
 
 # Re-enable auto promotion of pins of type 'pad'

@@ -66,6 +66,10 @@ sd_create_scalar_port -sd_name ${sd_name} -port_name {USER_BUTTON} -port_directi
 sd_create_scalar_port -sd_name ${sd_name} -port_name {SD_CARD_CS} -port_direction {OUT} 
 sd_create_scalar_port -sd_name ${sd_name} -port_name {SD_DET} -port_direction {IN} 
 
+sd_create_bus_port -sd_name ${sd_name} -port_name {GPIO_2_M2F} -port_direction {OUT} -port_range {[26:0]}
+sd_create_bus_port -sd_name ${sd_name} -port_name {GPIO_2_OE_M2F} -port_direction {OUT} -port_range {[26:0]} 
+sd_create_bus_port -sd_name ${sd_name} -port_name {GPIO_2_F2M} -port_direction {IN} -port_range {[26:0]} 
+
 #-------------------------------------------------------------------------------
 # Analog to Digital Converter pins (for cape analog inputs)
 #-------------------------------------------------------------------------------
@@ -246,20 +250,6 @@ sd_connect_pins -sd_name ${sd_name} -pin_names {"PF_SOC_MSS:USB_NXT" "USB_NXT" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"PF_SOC_MSS:USB_STP" "USB_STP" }
 
 #-------------------------------------------------------------------------------
-# sd_connect_pins -sd_name ${sd_name} -pin_names {"SD_CLK_EMMC_CLK" "PF_SOC_MSS:SD_CLK" }
-# sd_connect_pins -sd_name ${sd_name} -pin_names {"SD_CMD_EMMC_CMD" "PF_SOC_MSS:SD_CMD" }
-# sd_connect_pins -sd_name ${sd_name} -pin_names {"SD_DATA0_EMMC_DATA0" "PF_SOC_MSS:SD_DATA0" }
-# sd_connect_pins -sd_name ${sd_name} -pin_names {"SD_DATA1_EMMC_DATA1" "PF_SOC_MSS:SD_DATA1" }
-# sd_connect_pins -sd_name ${sd_name} -pin_names {"SD_DATA2_EMMC_DATA2" "PF_SOC_MSS:SD_DATA2" }
-# sd_connect_pins -sd_name ${sd_name} -pin_names {"SD_DATA3_EMMC_DATA3" "PF_SOC_MSS:SD_DATA3" }
-# sd_connect_pins -sd_name ${sd_name} -pin_names {"SD_POW_EMMC_DATA4" "PF_SOC_MSS:SD_POW" }
-# sd_connect_pins -sd_name ${sd_name} -pin_names {"SD_VOLT_SEL_EMMC_DATA5" "PF_SOC_MSS:SD_VOLT_SEL" }
-# sd_connect_pins -sd_name ${sd_name} -pin_names {"SD_VOLT_EN_EMMC_DATA6" "PF_SOC_MSS:SD_VOLT_EN" }
-# sd_connect_pins -sd_name ${sd_name} -pin_names {"SD_VOLT_CMD_DIR_EMMC_DATA7" "PF_SOC_MSS:SD_VOLT_CMD_DIR" }
-# sd_connect_pins -sd_name ${sd_name} -pin_names {"SD_VOLT_DIR_1_3_EMMC_UNUSED" "PF_SOC_MSS:SD_VOLT_DIR_1_3" }
-# sd_connect_pins -sd_name ${sd_name} -pin_names {"SD_VOLT_DIR_0_EMMC_UNUSED" "PF_SOC_MSS:SD_VOLT_DIR_0" }
-# sd_connect_pins -sd_name ${sd_name} -pin_names {"SD_CD_EMMC_STRB" "PF_SOC_MSS:SD_CD" }
-# sd_connect_pins -sd_name ${sd_name} -pin_names {"SD_WP_EMMC_RSTN" "PF_SOC_MSS:SD_WP" }
 
 sd_connect_pins -sd_name ${sd_name} -pin_names {"IHC_SUBSYSTEM_0:presetn" "PRESETN"}
 sd_connect_pins -sd_name ${sd_name} -pin_names {"PF_SOC_MSS:MSS_INT_F2M[63]" "IHC_SUBSYSTEM_0:E51_IRQ" }
@@ -326,64 +316,208 @@ sd_connect_pin_to_port -sd_name ${sd_name} -pin_name {FIC3_INITIATOR:APBmslave16
 sd_connect_pin_to_port -sd_name ${sd_name} -pin_name {PF_SOC_MSS:FIC_0_ACLK} -port_name {} 
 sd_connect_pin_to_port -sd_name ${sd_name} -pin_name {PF_SOC_MSS:FIC_1_ACLK} -port_name {} 
 sd_connect_pin_to_port -sd_name ${sd_name} -pin_name {PF_SOC_MSS:FIC_2_ACLK} -port_name {} 
-sd_connect_pin_to_port -sd_name ${sd_name} -pin_name {PF_SOC_MSS:GPIO_2_F2M_6} -port_name {} 
-sd_connect_pin_to_port -sd_name ${sd_name} -pin_name {PF_SOC_MSS:GPIO_2_F2M_12} -port_name {} 
-sd_connect_pin_to_port -sd_name ${sd_name} -pin_name {PF_SOC_MSS:GPIO_2_F2M_15} -port_name {} 
-sd_connect_pin_to_port -sd_name ${sd_name} -pin_name {PF_SOC_MSS:GPIO_2_F2M_1} -port_name {} 
-sd_connect_pin_to_port -sd_name ${sd_name} -pin_name {PF_SOC_MSS:GPIO_2_F2M_16} -port_name {} 
-sd_connect_pin_to_port -sd_name ${sd_name} -pin_name {PF_SOC_MSS:GPIO_2_F2M_2} -port_name {} 
-sd_connect_pin_to_port -sd_name ${sd_name} -pin_name {PF_SOC_MSS:GPIO_2_F2M_0} -port_name {} 
-sd_connect_pin_to_port -sd_name ${sd_name} -pin_name {PF_SOC_MSS:GPIO_2_F2M_5} -port_name {} 
-sd_connect_pin_to_port -sd_name ${sd_name} -pin_name {PF_SOC_MSS:GPIO_2_F2M_9} -port_name {} 
-sd_connect_pin_to_port -sd_name ${sd_name} -pin_name {PF_SOC_MSS:GPIO_2_F2M_3} -port_name {} 
-sd_connect_pin_to_port -sd_name ${sd_name} -pin_name {PF_SOC_MSS:GPIO_2_F2M_10} -port_name {} 
-sd_connect_pin_to_port -sd_name ${sd_name} -pin_name {PF_SOC_MSS:GPIO_2_F2M_4} -port_name {} 
-sd_connect_pin_to_port -sd_name ${sd_name} -pin_name {PF_SOC_MSS:GPIO_2_F2M_7} -port_name {} 
-sd_connect_pin_to_port -sd_name ${sd_name} -pin_name {PF_SOC_MSS:GPIO_2_F2M_8} -port_name {} 
-sd_connect_pin_to_port -sd_name ${sd_name} -pin_name {PF_SOC_MSS:GPIO_2_F2M_13} -port_name {} 
-sd_connect_pin_to_port -sd_name ${sd_name} -pin_name {PF_SOC_MSS:GPIO_2_F2M_14} -port_name {} 
-sd_connect_pin_to_port -sd_name ${sd_name} -pin_name {PF_SOC_MSS:GPIO_2_F2M_17} -port_name {} 
-sd_connect_pin_to_port -sd_name ${sd_name} -pin_name {PF_SOC_MSS:GPIO_2_F2M_11} -port_name {} 
-sd_connect_pin_to_port -sd_name ${sd_name} -pin_name {PF_SOC_MSS:GPIO_2_F2M_18} -port_name {} 
 sd_connect_pin_to_port -sd_name ${sd_name} -pin_name {PF_SOC_MSS:MSS_RESET_N_M2F} -port_name {} 
-sd_connect_pin_to_port -sd_name ${sd_name} -pin_name {PF_SOC_MSS:GPIO_2_OE_M2F_0} -port_name {} 
-sd_connect_pin_to_port -sd_name ${sd_name} -pin_name {PF_SOC_MSS:GPIO_2_M2F_18} -port_name {} 
-sd_connect_pin_to_port -sd_name ${sd_name} -pin_name {PF_SOC_MSS:GPIO_2_M2F_17} -port_name {} 
-sd_connect_pin_to_port -sd_name ${sd_name} -pin_name {PF_SOC_MSS:GPIO_2_M2F_16} -port_name {} 
-sd_connect_pin_to_port -sd_name ${sd_name} -pin_name {PF_SOC_MSS:GPIO_2_M2F_15} -port_name {} 
-sd_connect_pin_to_port -sd_name ${sd_name} -pin_name {PF_SOC_MSS:GPIO_2_M2F_14} -port_name {} 
-sd_connect_pin_to_port -sd_name ${sd_name} -pin_name {PF_SOC_MSS:GPIO_2_M2F_13} -port_name {} 
-sd_connect_pin_to_port -sd_name ${sd_name} -pin_name {PF_SOC_MSS:GPIO_2_M2F_12} -port_name {} 
-sd_connect_pin_to_port -sd_name ${sd_name} -pin_name {PF_SOC_MSS:GPIO_2_M2F_11} -port_name {} 
-sd_connect_pin_to_port -sd_name ${sd_name} -pin_name {PF_SOC_MSS:GPIO_2_M2F_10} -port_name {} 
-sd_connect_pin_to_port -sd_name ${sd_name} -pin_name {PF_SOC_MSS:GPIO_2_M2F_9} -port_name {} 
-sd_connect_pin_to_port -sd_name ${sd_name} -pin_name {PF_SOC_MSS:GPIO_2_M2F_8} -port_name {} 
-sd_connect_pin_to_port -sd_name ${sd_name} -pin_name {PF_SOC_MSS:GPIO_2_M2F_7} -port_name {} 
-sd_connect_pin_to_port -sd_name ${sd_name} -pin_name {PF_SOC_MSS:GPIO_2_M2F_6} -port_name {} 
-sd_connect_pin_to_port -sd_name ${sd_name} -pin_name {PF_SOC_MSS:GPIO_2_M2F_5} -port_name {} 
-sd_connect_pin_to_port -sd_name ${sd_name} -pin_name {PF_SOC_MSS:GPIO_2_M2F_4} -port_name {} 
-sd_connect_pin_to_port -sd_name ${sd_name} -pin_name {PF_SOC_MSS:GPIO_2_M2F_3} -port_name {} 
-sd_connect_pin_to_port -sd_name ${sd_name} -pin_name {PF_SOC_MSS:GPIO_2_M2F_2} -port_name {} 
-sd_connect_pin_to_port -sd_name ${sd_name} -pin_name {PF_SOC_MSS:GPIO_2_M2F_1} -port_name {} 
-sd_connect_pin_to_port -sd_name ${sd_name} -pin_name {PF_SOC_MSS:GPIO_2_M2F_0} -port_name {} 
-sd_connect_pin_to_port -sd_name ${sd_name} -pin_name {PF_SOC_MSS:GPIO_2_OE_M2F_18} -port_name {} 
-sd_connect_pin_to_port -sd_name ${sd_name} -pin_name {PF_SOC_MSS:GPIO_2_OE_M2F_17} -port_name {} 
-sd_connect_pin_to_port -sd_name ${sd_name} -pin_name {PF_SOC_MSS:GPIO_2_OE_M2F_16} -port_name {} 
-sd_connect_pin_to_port -sd_name ${sd_name} -pin_name {PF_SOC_MSS:GPIO_2_OE_M2F_15} -port_name {} 
-sd_connect_pin_to_port -sd_name ${sd_name} -pin_name {PF_SOC_MSS:GPIO_2_OE_M2F_14} -port_name {} 
-sd_connect_pin_to_port -sd_name ${sd_name} -pin_name {PF_SOC_MSS:GPIO_2_OE_M2F_13} -port_name {} 
-sd_connect_pin_to_port -sd_name ${sd_name} -pin_name {PF_SOC_MSS:GPIO_2_OE_M2F_12} -port_name {} 
-sd_connect_pin_to_port -sd_name ${sd_name} -pin_name {PF_SOC_MSS:GPIO_2_OE_M2F_11} -port_name {} 
-sd_connect_pin_to_port -sd_name ${sd_name} -pin_name {PF_SOC_MSS:GPIO_2_OE_M2F_10} -port_name {} 
-sd_connect_pin_to_port -sd_name ${sd_name} -pin_name {PF_SOC_MSS:GPIO_2_OE_M2F_9} -port_name {} 
-sd_connect_pin_to_port -sd_name ${sd_name} -pin_name {PF_SOC_MSS:GPIO_2_OE_M2F_8} -port_name {} 
-sd_connect_pin_to_port -sd_name ${sd_name} -pin_name {PF_SOC_MSS:GPIO_2_OE_M2F_7} -port_name {} 
-sd_connect_pin_to_port -sd_name ${sd_name} -pin_name {PF_SOC_MSS:GPIO_2_OE_M2F_6} -port_name {} 
-sd_connect_pin_to_port -sd_name ${sd_name} -pin_name {PF_SOC_MSS:GPIO_2_OE_M2F_5} -port_name {} 
-sd_connect_pin_to_port -sd_name ${sd_name} -pin_name {PF_SOC_MSS:GPIO_2_OE_M2F_4} -port_name {} 
-sd_connect_pin_to_port -sd_name ${sd_name} -pin_name {PF_SOC_MSS:GPIO_2_OE_M2F_3} -port_name {} 
-sd_connect_pin_to_port -sd_name ${sd_name} -pin_name {PF_SOC_MSS:GPIO_2_OE_M2F_2} -port_name {} 
-sd_connect_pin_to_port -sd_name ${sd_name} -pin_name {PF_SOC_MSS:GPIO_2_OE_M2F_1} -port_name {} 
+
+#-------------------------------------------------------------------------------
+
+#sd_create_pin_slices -sd_name ${sd_name} -pin_name {GPIO_2_F2M} -pin_slices {"[30:30]"} 
+#sd_create_pin_slices -sd_name ${sd_name} -pin_name {GPIO_2_F2M} -pin_slices {"[29:29]"} 
+#sd_create_pin_slices -sd_name ${sd_name} -pin_name {GPIO_2_F2M} -pin_slices {"[28:28]"} 
+#sd_create_pin_slices -sd_name ${sd_name} -pin_name {GPIO_2_F2M} -pin_slices {"[27:27]"} 
+sd_create_pin_slices -sd_name ${sd_name} -pin_name {GPIO_2_F2M} -pin_slices {"[26:26]"} 
+sd_create_pin_slices -sd_name ${sd_name} -pin_name {GPIO_2_F2M} -pin_slices {"[25:25]"} 
+sd_create_pin_slices -sd_name ${sd_name} -pin_name {GPIO_2_F2M} -pin_slices {"[24:24]"} 
+sd_create_pin_slices -sd_name ${sd_name} -pin_name {GPIO_2_F2M} -pin_slices {"[23:23]"} 
+sd_create_pin_slices -sd_name ${sd_name} -pin_name {GPIO_2_F2M} -pin_slices {"[22:22]"} 
+sd_create_pin_slices -sd_name ${sd_name} -pin_name {GPIO_2_F2M} -pin_slices {"[21:21]"} 
+sd_create_pin_slices -sd_name ${sd_name} -pin_name {GPIO_2_F2M} -pin_slices {"[20:20]"} 
+sd_create_pin_slices -sd_name ${sd_name} -pin_name {GPIO_2_F2M} -pin_slices {"[19:19]"} 
+sd_create_pin_slices -sd_name ${sd_name} -pin_name {GPIO_2_F2M} -pin_slices {"[18:18]"} 
+sd_create_pin_slices -sd_name ${sd_name} -pin_name {GPIO_2_F2M} -pin_slices {"[17:17]"} 
+sd_create_pin_slices -sd_name ${sd_name} -pin_name {GPIO_2_F2M} -pin_slices {"[16:16]"} 
+sd_create_pin_slices -sd_name ${sd_name} -pin_name {GPIO_2_F2M} -pin_slices {"[15:15]"} 
+sd_create_pin_slices -sd_name ${sd_name} -pin_name {GPIO_2_F2M} -pin_slices {"[14:14]"} 
+sd_create_pin_slices -sd_name ${sd_name} -pin_name {GPIO_2_F2M} -pin_slices {"[13:13]"} 
+sd_create_pin_slices -sd_name ${sd_name} -pin_name {GPIO_2_F2M} -pin_slices {"[12:12]"} 
+sd_create_pin_slices -sd_name ${sd_name} -pin_name {GPIO_2_F2M} -pin_slices {"[11:11]"} 
+sd_create_pin_slices -sd_name ${sd_name} -pin_name {GPIO_2_F2M} -pin_slices {"[10:10]"} 
+sd_create_pin_slices -sd_name ${sd_name} -pin_name {GPIO_2_F2M} -pin_slices {"[9:9]"} 
+sd_create_pin_slices -sd_name ${sd_name} -pin_name {GPIO_2_F2M} -pin_slices {"[8:8]"} 
+sd_create_pin_slices -sd_name ${sd_name} -pin_name {GPIO_2_F2M} -pin_slices {"[7:7]"} 
+sd_create_pin_slices -sd_name ${sd_name} -pin_name {GPIO_2_F2M} -pin_slices {"[6:6]"} 
+sd_create_pin_slices -sd_name ${sd_name} -pin_name {GPIO_2_F2M} -pin_slices {"[5:5]"} 
+sd_create_pin_slices -sd_name ${sd_name} -pin_name {GPIO_2_F2M} -pin_slices {"[4:4]"} 
+sd_create_pin_slices -sd_name ${sd_name} -pin_name {GPIO_2_F2M} -pin_slices {"[3:3]"} 
+sd_create_pin_slices -sd_name ${sd_name} -pin_name {GPIO_2_F2M} -pin_slices {"[2:2]"} 
+sd_create_pin_slices -sd_name ${sd_name} -pin_name {GPIO_2_F2M} -pin_slices {"[1:1]"} 
+sd_create_pin_slices -sd_name ${sd_name} -pin_name {GPIO_2_F2M} -pin_slices {"[0:0]"} 
+
+#sd_connect_pins -sd_name ${sd_name} -pin_names {"GPIO_2_F2M[30:30]" "PF_SOC_MSS:GPIO_2_F2M_30"} 
+#sd_connect_pins -sd_name ${sd_name} -pin_names {"GPIO_2_F2M[29:29]" "PF_SOC_MSS:GPIO_2_F2M_29"} 
+#sd_connect_pins -sd_name ${sd_name} -pin_names {"GPIO_2_F2M[28:28]" "PF_SOC_MSS:GPIO_2_F2M_28"} 
+#sd_connect_pins -sd_name ${sd_name} -pin_names {"GPIO_2_F2M[27:27]" "PF_SOC_MSS:GPIO_2_F2M_27"} 
+sd_connect_pins -sd_name ${sd_name} -pin_names {"GPIO_2_F2M[26:26]" "PF_SOC_MSS:GPIO_2_F2M_26"} 
+sd_connect_pins -sd_name ${sd_name} -pin_names {"GPIO_2_F2M[25:25]" "PF_SOC_MSS:GPIO_2_F2M_25"} 
+sd_connect_pins -sd_name ${sd_name} -pin_names {"GPIO_2_F2M[24:24]" "PF_SOC_MSS:GPIO_2_F2M_24"} 
+sd_connect_pins -sd_name ${sd_name} -pin_names {"GPIO_2_F2M[23:23]" "PF_SOC_MSS:GPIO_2_F2M_23"} 
+sd_connect_pins -sd_name ${sd_name} -pin_names {"GPIO_2_F2M[22:22]" "PF_SOC_MSS:GPIO_2_F2M_22"} 
+sd_connect_pins -sd_name ${sd_name} -pin_names {"GPIO_2_F2M[21:21]" "PF_SOC_MSS:GPIO_2_F2M_21"} 
+sd_connect_pins -sd_name ${sd_name} -pin_names {"GPIO_2_F2M[20:20]" "PF_SOC_MSS:GPIO_2_F2M_20"} 
+sd_connect_pins -sd_name ${sd_name} -pin_names {"GPIO_2_F2M[19:19]" "PF_SOC_MSS:GPIO_2_F2M_19"} 
+sd_connect_pins -sd_name ${sd_name} -pin_names {"GPIO_2_F2M[18:18]" "PF_SOC_MSS:GPIO_2_F2M_18"} 
+sd_connect_pins -sd_name ${sd_name} -pin_names {"GPIO_2_F2M[17:17]" "PF_SOC_MSS:GPIO_2_F2M_17"} 
+sd_connect_pins -sd_name ${sd_name} -pin_names {"GPIO_2_F2M[16:16]" "PF_SOC_MSS:GPIO_2_F2M_16"} 
+sd_connect_pins -sd_name ${sd_name} -pin_names {"GPIO_2_F2M[15:15]" "PF_SOC_MSS:GPIO_2_F2M_15"} 
+sd_connect_pins -sd_name ${sd_name} -pin_names {"GPIO_2_F2M[14:14]" "PF_SOC_MSS:GPIO_2_F2M_14"} 
+sd_connect_pins -sd_name ${sd_name} -pin_names {"GPIO_2_F2M[13:13]" "PF_SOC_MSS:GPIO_2_F2M_13"} 
+sd_connect_pins -sd_name ${sd_name} -pin_names {"GPIO_2_F2M[12:12]" "PF_SOC_MSS:GPIO_2_F2M_12"} 
+sd_connect_pins -sd_name ${sd_name} -pin_names {"GPIO_2_F2M[11:11]" "PF_SOC_MSS:GPIO_2_F2M_11"} 
+sd_connect_pins -sd_name ${sd_name} -pin_names {"GPIO_2_F2M[10:10]" "PF_SOC_MSS:GPIO_2_F2M_10"} 
+sd_connect_pins -sd_name ${sd_name} -pin_names {"GPIO_2_F2M[9:9]" "PF_SOC_MSS:GPIO_2_F2M_9"} 
+sd_connect_pins -sd_name ${sd_name} -pin_names {"GPIO_2_F2M[8:8]" "PF_SOC_MSS:GPIO_2_F2M_8"} 
+sd_connect_pins -sd_name ${sd_name} -pin_names {"GPIO_2_F2M[7:7]" "PF_SOC_MSS:GPIO_2_F2M_7"} 
+sd_connect_pins -sd_name ${sd_name} -pin_names {"GPIO_2_F2M[6:6]" "PF_SOC_MSS:GPIO_2_F2M_6"} 
+sd_connect_pins -sd_name ${sd_name} -pin_names {"GPIO_2_F2M[5:5]" "PF_SOC_MSS:GPIO_2_F2M_5"} 
+sd_connect_pins -sd_name ${sd_name} -pin_names {"GPIO_2_F2M[4:4]" "PF_SOC_MSS:GPIO_2_F2M_4"} 
+sd_connect_pins -sd_name ${sd_name} -pin_names {"GPIO_2_F2M[3:3]" "PF_SOC_MSS:GPIO_2_F2M_3"} 
+sd_connect_pins -sd_name ${sd_name} -pin_names {"GPIO_2_F2M[2:2]" "PF_SOC_MSS:GPIO_2_F2M_2"} 
+sd_connect_pins -sd_name ${sd_name} -pin_names {"GPIO_2_F2M[1:1]" "PF_SOC_MSS:GPIO_2_F2M_1"} 
+sd_connect_pins -sd_name ${sd_name} -pin_names {"GPIO_2_F2M[0:0]" "PF_SOC_MSS:GPIO_2_F2M_0"} 
+
+
+#-------------------------------------------------------------------------------
+
+#sd_create_pin_slices -sd_name ${sd_name} -pin_name {GPIO_2_M2F} -pin_slices {"[30:30]"} 
+#sd_create_pin_slices -sd_name ${sd_name} -pin_name {GPIO_2_M2F} -pin_slices {"[29:29]"} 
+#sd_create_pin_slices -sd_name ${sd_name} -pin_name {GPIO_2_M2F} -pin_slices {"[28:28]"} 
+#sd_create_pin_slices -sd_name ${sd_name} -pin_name {GPIO_2_M2F} -pin_slices {"[27:27]"} 
+sd_create_pin_slices -sd_name ${sd_name} -pin_name {GPIO_2_M2F} -pin_slices {"[26:26]"} 
+sd_create_pin_slices -sd_name ${sd_name} -pin_name {GPIO_2_M2F} -pin_slices {"[25:25]"} 
+sd_create_pin_slices -sd_name ${sd_name} -pin_name {GPIO_2_M2F} -pin_slices {"[24:24]"} 
+sd_create_pin_slices -sd_name ${sd_name} -pin_name {GPIO_2_M2F} -pin_slices {"[23:23]"} 
+sd_create_pin_slices -sd_name ${sd_name} -pin_name {GPIO_2_M2F} -pin_slices {"[22:22]"} 
+sd_create_pin_slices -sd_name ${sd_name} -pin_name {GPIO_2_M2F} -pin_slices {"[21:21]"} 
+sd_create_pin_slices -sd_name ${sd_name} -pin_name {GPIO_2_M2F} -pin_slices {"[20:20]"} 
+sd_create_pin_slices -sd_name ${sd_name} -pin_name {GPIO_2_M2F} -pin_slices {"[19:19]"} 
+sd_create_pin_slices -sd_name ${sd_name} -pin_name {GPIO_2_M2F} -pin_slices {"[18:18]"} 
+sd_create_pin_slices -sd_name ${sd_name} -pin_name {GPIO_2_M2F} -pin_slices {"[17:17]"} 
+sd_create_pin_slices -sd_name ${sd_name} -pin_name {GPIO_2_M2F} -pin_slices {"[16:16]"} 
+sd_create_pin_slices -sd_name ${sd_name} -pin_name {GPIO_2_M2F} -pin_slices {"[15:15]"} 
+sd_create_pin_slices -sd_name ${sd_name} -pin_name {GPIO_2_M2F} -pin_slices {"[14:14]"} 
+sd_create_pin_slices -sd_name ${sd_name} -pin_name {GPIO_2_M2F} -pin_slices {"[13:13]"} 
+sd_create_pin_slices -sd_name ${sd_name} -pin_name {GPIO_2_M2F} -pin_slices {"[12:12]"} 
+sd_create_pin_slices -sd_name ${sd_name} -pin_name {GPIO_2_M2F} -pin_slices {"[11:11]"} 
+sd_create_pin_slices -sd_name ${sd_name} -pin_name {GPIO_2_M2F} -pin_slices {"[10:10]"} 
+sd_create_pin_slices -sd_name ${sd_name} -pin_name {GPIO_2_M2F} -pin_slices {"[9:9]"} 
+sd_create_pin_slices -sd_name ${sd_name} -pin_name {GPIO_2_M2F} -pin_slices {"[8:8]"} 
+sd_create_pin_slices -sd_name ${sd_name} -pin_name {GPIO_2_M2F} -pin_slices {"[7:7]"} 
+sd_create_pin_slices -sd_name ${sd_name} -pin_name {GPIO_2_M2F} -pin_slices {"[6:6]"} 
+sd_create_pin_slices -sd_name ${sd_name} -pin_name {GPIO_2_M2F} -pin_slices {"[5:5]"} 
+sd_create_pin_slices -sd_name ${sd_name} -pin_name {GPIO_2_M2F} -pin_slices {"[4:4]"} 
+sd_create_pin_slices -sd_name ${sd_name} -pin_name {GPIO_2_M2F} -pin_slices {"[3:3]"} 
+sd_create_pin_slices -sd_name ${sd_name} -pin_name {GPIO_2_M2F} -pin_slices {"[2:2]"} 
+sd_create_pin_slices -sd_name ${sd_name} -pin_name {GPIO_2_M2F} -pin_slices {"[1:1]"} 
+sd_create_pin_slices -sd_name ${sd_name} -pin_name {GPIO_2_M2F} -pin_slices {"[0:0]"} 
+
+#sd_connect_pins -sd_name ${sd_name} -pin_names {"PF_SOC_MSS:GPIO_2_M2F_30" "GPIO_2_M2F[30:30]"} 
+#sd_connect_pins -sd_name ${sd_name} -pin_names {"PF_SOC_MSS:GPIO_2_M2F_29" "GPIO_2_M2F[29:29]"} 
+#sd_connect_pins -sd_name ${sd_name} -pin_names {"PF_SOC_MSS:GPIO_2_M2F_28" "GPIO_2_M2F[28:28]"} 
+#sd_connect_pins -sd_name ${sd_name} -pin_names {"PF_SOC_MSS:GPIO_2_M2F_27" "GPIO_2_M2F[27:27]"} 
+sd_connect_pins -sd_name ${sd_name} -pin_names {"PF_SOC_MSS:GPIO_2_M2F_26" "GPIO_2_M2F[26:26]"} 
+sd_connect_pins -sd_name ${sd_name} -pin_names {"PF_SOC_MSS:GPIO_2_M2F_25" "GPIO_2_M2F[25:25]"} 
+sd_connect_pins -sd_name ${sd_name} -pin_names {"PF_SOC_MSS:GPIO_2_M2F_24" "GPIO_2_M2F[24:24]"} 
+sd_connect_pins -sd_name ${sd_name} -pin_names {"PF_SOC_MSS:GPIO_2_M2F_23" "GPIO_2_M2F[23:23]"} 
+sd_connect_pins -sd_name ${sd_name} -pin_names {"PF_SOC_MSS:GPIO_2_M2F_22" "GPIO_2_M2F[22:22]"} 
+sd_connect_pins -sd_name ${sd_name} -pin_names {"PF_SOC_MSS:GPIO_2_M2F_21" "GPIO_2_M2F[21:21]"} 
+sd_connect_pins -sd_name ${sd_name} -pin_names {"PF_SOC_MSS:GPIO_2_M2F_20" "GPIO_2_M2F[20:20]"} 
+sd_connect_pins -sd_name ${sd_name} -pin_names {"PF_SOC_MSS:GPIO_2_M2F_19" "GPIO_2_M2F[19:19]"} 
+sd_connect_pins -sd_name ${sd_name} -pin_names {"PF_SOC_MSS:GPIO_2_M2F_18" "GPIO_2_M2F[18:18]"} 
+sd_connect_pins -sd_name ${sd_name} -pin_names {"PF_SOC_MSS:GPIO_2_M2F_17" "GPIO_2_M2F[17:17]"} 
+sd_connect_pins -sd_name ${sd_name} -pin_names {"PF_SOC_MSS:GPIO_2_M2F_16" "GPIO_2_M2F[16:16]"} 
+sd_connect_pins -sd_name ${sd_name} -pin_names {"PF_SOC_MSS:GPIO_2_M2F_15" "GPIO_2_M2F[15:15]"} 
+sd_connect_pins -sd_name ${sd_name} -pin_names {"PF_SOC_MSS:GPIO_2_M2F_14" "GPIO_2_M2F[14:14]"} 
+sd_connect_pins -sd_name ${sd_name} -pin_names {"PF_SOC_MSS:GPIO_2_M2F_13" "GPIO_2_M2F[13:13]"} 
+sd_connect_pins -sd_name ${sd_name} -pin_names {"PF_SOC_MSS:GPIO_2_M2F_12" "GPIO_2_M2F[12:12]"} 
+sd_connect_pins -sd_name ${sd_name} -pin_names {"PF_SOC_MSS:GPIO_2_M2F_11" "GPIO_2_M2F[11:11]"} 
+sd_connect_pins -sd_name ${sd_name} -pin_names {"PF_SOC_MSS:GPIO_2_M2F_10" "GPIO_2_M2F[10:10]"} 
+sd_connect_pins -sd_name ${sd_name} -pin_names {"PF_SOC_MSS:GPIO_2_M2F_9" "GPIO_2_M2F[9:9]"} 
+sd_connect_pins -sd_name ${sd_name} -pin_names {"PF_SOC_MSS:GPIO_2_M2F_8" "GPIO_2_M2F[8:8]"} 
+sd_connect_pins -sd_name ${sd_name} -pin_names {"PF_SOC_MSS:GPIO_2_M2F_7" "GPIO_2_M2F[7:7]"} 
+sd_connect_pins -sd_name ${sd_name} -pin_names {"PF_SOC_MSS:GPIO_2_M2F_6" "GPIO_2_M2F[6:6]"} 
+sd_connect_pins -sd_name ${sd_name} -pin_names {"PF_SOC_MSS:GPIO_2_M2F_5" "GPIO_2_M2F[5:5]"} 
+sd_connect_pins -sd_name ${sd_name} -pin_names {"PF_SOC_MSS:GPIO_2_M2F_4" "GPIO_2_M2F[4:4]"} 
+sd_connect_pins -sd_name ${sd_name} -pin_names {"PF_SOC_MSS:GPIO_2_M2F_3" "GPIO_2_M2F[3:3]"} 
+sd_connect_pins -sd_name ${sd_name} -pin_names {"PF_SOC_MSS:GPIO_2_M2F_2" "GPIO_2_M2F[2:2]"} 
+sd_connect_pins -sd_name ${sd_name} -pin_names {"PF_SOC_MSS:GPIO_2_M2F_1" "GPIO_2_M2F[1:1]"} 
+sd_connect_pins -sd_name ${sd_name} -pin_names {"PF_SOC_MSS:GPIO_2_M2F_0" "GPIO_2_M2F[0:0]"} 
+
+#-------------------------------------------------------------------------------
+
+#sd_create_pin_slices -sd_name ${sd_name} -pin_name {GPIO_2_OE_M2F} -pin_slices {"[30:30]"} 
+#sd_create_pin_slices -sd_name ${sd_name} -pin_name {GPIO_2_OE_M2F} -pin_slices {"[29:29]"} 
+#sd_create_pin_slices -sd_name ${sd_name} -pin_name {GPIO_2_OE_M2F} -pin_slices {"[28:28]"} 
+#sd_create_pin_slices -sd_name ${sd_name} -pin_name {GPIO_2_OE_M2F} -pin_slices {"[27:27]"} 
+sd_create_pin_slices -sd_name ${sd_name} -pin_name {GPIO_2_OE_M2F} -pin_slices {"[26:26]"} 
+sd_create_pin_slices -sd_name ${sd_name} -pin_name {GPIO_2_OE_M2F} -pin_slices {"[25:25]"} 
+sd_create_pin_slices -sd_name ${sd_name} -pin_name {GPIO_2_OE_M2F} -pin_slices {"[24:24]"} 
+sd_create_pin_slices -sd_name ${sd_name} -pin_name {GPIO_2_OE_M2F} -pin_slices {"[23:23]"} 
+sd_create_pin_slices -sd_name ${sd_name} -pin_name {GPIO_2_OE_M2F} -pin_slices {"[22:22]"} 
+sd_create_pin_slices -sd_name ${sd_name} -pin_name {GPIO_2_OE_M2F} -pin_slices {"[21:21]"} 
+sd_create_pin_slices -sd_name ${sd_name} -pin_name {GPIO_2_OE_M2F} -pin_slices {"[20:20]"} 
+sd_create_pin_slices -sd_name ${sd_name} -pin_name {GPIO_2_OE_M2F} -pin_slices {"[19:19]"} 
+sd_create_pin_slices -sd_name ${sd_name} -pin_name {GPIO_2_OE_M2F} -pin_slices {"[18:18]"} 
+sd_create_pin_slices -sd_name ${sd_name} -pin_name {GPIO_2_OE_M2F} -pin_slices {"[17:17]"} 
+sd_create_pin_slices -sd_name ${sd_name} -pin_name {GPIO_2_OE_M2F} -pin_slices {"[16:16]"} 
+sd_create_pin_slices -sd_name ${sd_name} -pin_name {GPIO_2_OE_M2F} -pin_slices {"[15:15]"} 
+sd_create_pin_slices -sd_name ${sd_name} -pin_name {GPIO_2_OE_M2F} -pin_slices {"[14:14]"} 
+sd_create_pin_slices -sd_name ${sd_name} -pin_name {GPIO_2_OE_M2F} -pin_slices {"[13:13]"} 
+sd_create_pin_slices -sd_name ${sd_name} -pin_name {GPIO_2_OE_M2F} -pin_slices {"[12:12]"} 
+sd_create_pin_slices -sd_name ${sd_name} -pin_name {GPIO_2_OE_M2F} -pin_slices {"[11:11]"} 
+sd_create_pin_slices -sd_name ${sd_name} -pin_name {GPIO_2_OE_M2F} -pin_slices {"[10:10]"} 
+sd_create_pin_slices -sd_name ${sd_name} -pin_name {GPIO_2_OE_M2F} -pin_slices {"[9:9]"} 
+sd_create_pin_slices -sd_name ${sd_name} -pin_name {GPIO_2_OE_M2F} -pin_slices {"[8:8]"} 
+sd_create_pin_slices -sd_name ${sd_name} -pin_name {GPIO_2_OE_M2F} -pin_slices {"[7:7]"} 
+sd_create_pin_slices -sd_name ${sd_name} -pin_name {GPIO_2_OE_M2F} -pin_slices {"[6:6]"} 
+sd_create_pin_slices -sd_name ${sd_name} -pin_name {GPIO_2_OE_M2F} -pin_slices {"[5:5]"} 
+sd_create_pin_slices -sd_name ${sd_name} -pin_name {GPIO_2_OE_M2F} -pin_slices {"[4:4]"} 
+sd_create_pin_slices -sd_name ${sd_name} -pin_name {GPIO_2_OE_M2F} -pin_slices {"[3:3]"} 
+sd_create_pin_slices -sd_name ${sd_name} -pin_name {GPIO_2_OE_M2F} -pin_slices {"[2:2]"} 
+sd_create_pin_slices -sd_name ${sd_name} -pin_name {GPIO_2_OE_M2F} -pin_slices {"[1:1]"} 
+sd_create_pin_slices -sd_name ${sd_name} -pin_name {GPIO_2_OE_M2F} -pin_slices {"[0:0]"} 
+
+
+#sd_connect_pins -sd_name ${sd_name} -pin_names {"GPIO_2_OE_M2F[30:30]" "PF_SOC_MSS:GPIO_2_OE_M2F_30"} 
+#sd_connect_pins -sd_name ${sd_name} -pin_names {"GPIO_2_OE_M2F[29:29]" "PF_SOC_MSS:GPIO_2_OE_M2F_29"} 
+#sd_connect_pins -sd_name ${sd_name} -pin_names {"GPIO_2_OE_M2F[28:28]" "PF_SOC_MSS:GPIO_2_OE_M2F_28"} 
+#sd_connect_pins -sd_name ${sd_name} -pin_names {"GPIO_2_OE_M2F[27:27]" "PF_SOC_MSS:GPIO_2_OE_M2F_27"} 
+sd_connect_pins -sd_name ${sd_name} -pin_names {"GPIO_2_OE_M2F[26:26]" "PF_SOC_MSS:GPIO_2_OE_M2F_26"} 
+sd_connect_pins -sd_name ${sd_name} -pin_names {"GPIO_2_OE_M2F[25:25]" "PF_SOC_MSS:GPIO_2_OE_M2F_25"} 
+sd_connect_pins -sd_name ${sd_name} -pin_names {"GPIO_2_OE_M2F[24:24]" "PF_SOC_MSS:GPIO_2_OE_M2F_24"} 
+sd_connect_pins -sd_name ${sd_name} -pin_names {"GPIO_2_OE_M2F[23:23]" "PF_SOC_MSS:GPIO_2_OE_M2F_23"} 
+sd_connect_pins -sd_name ${sd_name} -pin_names {"GPIO_2_OE_M2F[22:22]" "PF_SOC_MSS:GPIO_2_OE_M2F_22"} 
+sd_connect_pins -sd_name ${sd_name} -pin_names {"GPIO_2_OE_M2F[21:21]" "PF_SOC_MSS:GPIO_2_OE_M2F_21"} 
+sd_connect_pins -sd_name ${sd_name} -pin_names {"GPIO_2_OE_M2F[20:20]" "PF_SOC_MSS:GPIO_2_OE_M2F_20"} 
+sd_connect_pins -sd_name ${sd_name} -pin_names {"GPIO_2_OE_M2F[19:19]" "PF_SOC_MSS:GPIO_2_OE_M2F_19"} 
+sd_connect_pins -sd_name ${sd_name} -pin_names {"GPIO_2_OE_M2F[18:18]" "PF_SOC_MSS:GPIO_2_OE_M2F_18"} 
+sd_connect_pins -sd_name ${sd_name} -pin_names {"GPIO_2_OE_M2F[17:17]" "PF_SOC_MSS:GPIO_2_OE_M2F_17"} 
+sd_connect_pins -sd_name ${sd_name} -pin_names {"GPIO_2_OE_M2F[16:16]" "PF_SOC_MSS:GPIO_2_OE_M2F_16"} 
+sd_connect_pins -sd_name ${sd_name} -pin_names {"GPIO_2_OE_M2F[15:15]" "PF_SOC_MSS:GPIO_2_OE_M2F_15"} 
+sd_connect_pins -sd_name ${sd_name} -pin_names {"GPIO_2_OE_M2F[14:14]" "PF_SOC_MSS:GPIO_2_OE_M2F_14"} 
+sd_connect_pins -sd_name ${sd_name} -pin_names {"GPIO_2_OE_M2F[13:13]" "PF_SOC_MSS:GPIO_2_OE_M2F_13"} 
+sd_connect_pins -sd_name ${sd_name} -pin_names {"GPIO_2_OE_M2F[12:12]" "PF_SOC_MSS:GPIO_2_OE_M2F_12"} 
+sd_connect_pins -sd_name ${sd_name} -pin_names {"GPIO_2_OE_M2F[11:11]" "PF_SOC_MSS:GPIO_2_OE_M2F_11"} 
+sd_connect_pins -sd_name ${sd_name} -pin_names {"GPIO_2_OE_M2F[10:10]" "PF_SOC_MSS:GPIO_2_OE_M2F_10"} 
+sd_connect_pins -sd_name ${sd_name} -pin_names {"GPIO_2_OE_M2F[9:9]" "PF_SOC_MSS:GPIO_2_OE_M2F_9"} 
+sd_connect_pins -sd_name ${sd_name} -pin_names {"GPIO_2_OE_M2F[8:8]" "PF_SOC_MSS:GPIO_2_OE_M2F_8"} 
+sd_connect_pins -sd_name ${sd_name} -pin_names {"GPIO_2_OE_M2F[7:7]" "PF_SOC_MSS:GPIO_2_OE_M2F_7"} 
+sd_connect_pins -sd_name ${sd_name} -pin_names {"GPIO_2_OE_M2F[6:6]" "PF_SOC_MSS:GPIO_2_OE_M2F_6"} 
+sd_connect_pins -sd_name ${sd_name} -pin_names {"GPIO_2_OE_M2F[5:5]" "PF_SOC_MSS:GPIO_2_OE_M2F_5"} 
+sd_connect_pins -sd_name ${sd_name} -pin_names {"GPIO_2_OE_M2F[4:4]" "PF_SOC_MSS:GPIO_2_OE_M2F_4"} 
+sd_connect_pins -sd_name ${sd_name} -pin_names {"GPIO_2_OE_M2F[3:3]" "PF_SOC_MSS:GPIO_2_OE_M2F_3"} 
+sd_connect_pins -sd_name ${sd_name} -pin_names {"GPIO_2_OE_M2F[2:2]" "PF_SOC_MSS:GPIO_2_OE_M2F_2"} 
+sd_connect_pins -sd_name ${sd_name} -pin_names {"GPIO_2_OE_M2F[1:1]" "PF_SOC_MSS:GPIO_2_OE_M2F_1"} 
+sd_connect_pins -sd_name ${sd_name} -pin_names {"GPIO_2_OE_M2F[0:0]" "PF_SOC_MSS:GPIO_2_OE_M2F_0"} 
+
 
 sd_connect_pin_to_port -sd_name ${sd_name} -pin_name {PF_SOC_MSS:FIC_0_AXI4_INITIATOR} -port_name {} 
 sd_connect_pin_to_port -sd_name ${sd_name} -pin_name {PF_SOC_MSS:FIC_1_AXI4_INITIATOR} -port_name {}

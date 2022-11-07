@@ -1,8 +1,8 @@
 
-set_io -port_name P9_PWR_BUT  \
-    -pin_name V16        \
-    -fixed true          \
-    -DIRECTION INPUT
+#set_io -port_name P9_PWR_BUT  \
+#    -pin_name V16        \
+#    -fixed true          \
+#    -DIRECTION INPUT
 
 set_io -port_name P9_12	\
     -pin_name C5	\
