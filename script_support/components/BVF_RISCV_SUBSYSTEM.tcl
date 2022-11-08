@@ -303,6 +303,12 @@ sd_connect_pins -sd_name ${sd_name} -pin_names {"USER_LED_GPIO_0:GPIO_IN" "USER_
 sd_mark_pins_unused -sd_name ${sd_name} -pin_names {USER_LED_GPIO_0:INT}
 
 #-------------------------------------------------------------------------------
+# High speed connector VIO_ENABLE.
+#-------------------------------------------------------------------------------
+sd_connect_pin_to_port -sd_name ${sd_name} -pin_name {PF_SOC_MSS:GPIO_2_M2F_30} -port_name {} 
+sd_rename_port -sd_name ${sd_name} -current_port_name {GPIO_2_M2F_30} -new_port_name {VIO_ENABLE} 
+
+#-------------------------------------------------------------------------------
 # Promote signals to module's top level
 #-------------------------------------------------------------------------------
 sd_connect_pin_to_port -sd_name ${sd_name} -pin_name {PF_SOC_MSS:FIC_2_AXI4_TARGET} -port_name {} 

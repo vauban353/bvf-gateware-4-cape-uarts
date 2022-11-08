@@ -247,6 +247,11 @@ auto_promote_pad_pins -promote_all 0
 
 
 #-------------------------------------------------------------------------------
+# High speed connector VIO_ENABLE.
+#-------------------------------------------------------------------------------
+sd_connect_pin_to_port -sd_name ${sd_name} -pin_name {BVF_RISCV_SUBSYSTEM:VIO_ENABLE} -port_name {}
+
+#-------------------------------------------------------------------------------
 # Unused ports.
 #-------------------------------------------------------------------------------
 # sd_mark_pins_unused -sd_name ${sd_name} -pin_names {BVF_RISCV_SUBSYSTEM:FIC_1_AXI4_TARGET}
