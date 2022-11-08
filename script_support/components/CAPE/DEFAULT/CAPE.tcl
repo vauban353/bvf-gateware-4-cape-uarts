@@ -35,46 +35,38 @@ sd_connect_pin_to_port -sd_name ${sd_name} -pin_name {CAPE_DEFAULT_GPIOS:GPIO_OU
 sd_connect_pin_to_port -sd_name ${sd_name} -pin_name {CAPE_DEFAULT_GPIOS:GPIO_OE} -port_name {} 
 sd_connect_pin_to_port -sd_name ${sd_name} -pin_name {CAPE_DEFAULT_GPIOS:GPIO_IN} -port_name {} 
 
-sd_rename_port -sd_name ${sd_name} -current_port_name {GPIO_0_PAD} -new_port_name {P9_41}
-sd_rename_port -sd_name ${sd_name} -current_port_name {GPIO_1_PAD} -new_port_name {P9_21}
+sd_rename_port -sd_name ${sd_name} -current_port_name {GPIO_0_PAD} -new_port_name {P8_15}
+sd_rename_port -sd_name ${sd_name} -current_port_name {GPIO_1_PAD} -new_port_name {P8_16}
 sd_rename_port -sd_name ${sd_name} -current_port_name {GPIO_2_PAD} -new_port_name {P8_17}
-sd_rename_port -sd_name ${sd_name} -current_port_name {GPIO_3_PAD} -new_port_name {P8_15}
-sd_rename_port -sd_name ${sd_name} -current_port_name {GPIO_4_PAD} -new_port_name {P8_24}
-sd_rename_port -sd_name ${sd_name} -current_port_name {GPIO_5_PAD} -new_port_name {P8_16}
-sd_rename_port -sd_name ${sd_name} -current_port_name {GPIO_6_PAD} -new_port_name {P8_25}
-sd_rename_port -sd_name ${sd_name} -current_port_name {GPIO_7_PAD} -new_port_name {P9_15}
-sd_rename_port -sd_name ${sd_name} -current_port_name {GPIO_8_PAD} -new_port_name {P9_23}
-sd_rename_port -sd_name ${sd_name} -current_port_name {GPIO_9_PAD} -new_port_name {P9_12}
+sd_rename_port -sd_name ${sd_name} -current_port_name {GPIO_3_PAD} -new_port_name {P8_18}
+sd_rename_port -sd_name ${sd_name} -current_port_name {GPIO_4_PAD} -new_port_name {P8_20}
+sd_rename_port -sd_name ${sd_name} -current_port_name {GPIO_5_PAD} -new_port_name {P8_21}
+sd_rename_port -sd_name ${sd_name} -current_port_name {GPIO_6_PAD} -new_port_name {P8_22}
+sd_rename_port -sd_name ${sd_name} -current_port_name {GPIO_7_PAD} -new_port_name {P8_23}
+sd_rename_port -sd_name ${sd_name} -current_port_name {GPIO_8_PAD} -new_port_name {P8_24}
+sd_rename_port -sd_name ${sd_name} -current_port_name {GPIO_9_PAD} -new_port_name {P8_25}
 sd_rename_port -sd_name ${sd_name} -current_port_name {GPIO_10_PAD} -new_port_name {P8_26}
-sd_rename_port -sd_name ${sd_name} -current_port_name {GPIO_11_PAD} -new_port_name {P8_18}
-sd_rename_port -sd_name ${sd_name} -current_port_name {GPIO_12_PAD} -new_port_name {P8_20}
-sd_rename_port -sd_name ${sd_name} -current_port_name {GPIO_13_PAD} -new_port_name {P8_21}
-sd_rename_port -sd_name ${sd_name} -current_port_name {GPIO_14_PAD} -new_port_name {P8_23}
-sd_rename_port -sd_name ${sd_name} -current_port_name {GPIO_15_PAD} -new_port_name {P8_22}
-sd_rename_port -sd_name ${sd_name} -current_port_name {GPIO_16_PAD} -new_port_name {P9_30}
-sd_rename_port -sd_name ${sd_name} -current_port_name {GPIO_17_PAD} -new_port_name {P9_27}
-sd_rename_port -sd_name ${sd_name} -current_port_name {GPIO_18_PAD} -new_port_name {P9_25}
-
-sd_rename_port -sd_name ${sd_name} -current_port_name {GPIO_19_PAD} -new_port_name {P9_18}
-
-sd_rename_port -sd_name ${sd_name} -current_port_name {GPIO_20_PAD} -new_port_name {P9_22}
-sd_rename_port -sd_name ${sd_name} -current_port_name {GPIO_21_PAD} -new_port_name {P9_24}
-sd_rename_port -sd_name ${sd_name} -current_port_name {GPIO_22_PAD} -new_port_name {P9_26}
-sd_rename_port -sd_name ${sd_name} -current_port_name {GPIO_23_PAD} -new_port_name {P9_28}
-sd_rename_port -sd_name ${sd_name} -current_port_name {GPIO_24_PAD} -new_port_name {P9_29}
+sd_rename_port -sd_name ${sd_name} -current_port_name {GPIO_11_PAD} -new_port_name {P9_12}
+sd_rename_port -sd_name ${sd_name} -current_port_name {GPIO_12_PAD} -new_port_name {P9_15}
+sd_rename_port -sd_name ${sd_name} -current_port_name {GPIO_13_PAD} -new_port_name {P9_17}
+sd_rename_port -sd_name ${sd_name} -current_port_name {GPIO_14_PAD} -new_port_name {P9_18}
+sd_rename_port -sd_name ${sd_name} -current_port_name {GPIO_15_PAD} -new_port_name {P9_21}
+sd_rename_port -sd_name ${sd_name} -current_port_name {GPIO_16_PAD} -new_port_name {P9_22}
+sd_rename_port -sd_name ${sd_name} -current_port_name {GPIO_17_PAD} -new_port_name {P9_23}
+sd_rename_port -sd_name ${sd_name} -current_port_name {GPIO_18_PAD} -new_port_name {P9_24}
+sd_rename_port -sd_name ${sd_name} -current_port_name {GPIO_19_PAD} -new_port_name {P9_25}
+sd_rename_port -sd_name ${sd_name} -current_port_name {GPIO_20_PAD} -new_port_name {P9_26}
+sd_rename_port -sd_name ${sd_name} -current_port_name {GPIO_21_PAD} -new_port_name {P9_27}
+sd_rename_port -sd_name ${sd_name} -current_port_name {GPIO_22_PAD} -new_port_name {P9_28}
+sd_rename_port -sd_name ${sd_name} -current_port_name {GPIO_23_PAD} -new_port_name {P9_29}
+sd_rename_port -sd_name ${sd_name} -current_port_name {GPIO_24_PAD} -new_port_name {P9_30}
 sd_rename_port -sd_name ${sd_name} -current_port_name {GPIO_25_PAD} -new_port_name {P9_31}
-sd_rename_port -sd_name ${sd_name} -current_port_name {GPIO_26_PAD} -new_port_name {P9_17}
+sd_rename_port -sd_name ${sd_name} -current_port_name {GPIO_26_PAD} -new_port_name {P9_41}
 
 #sd_rename_port -sd_name ${sd_name} -current_port_name {GPIO_27_PAD} -new_port_name {P8_4}
 #sd_rename_port -sd_name ${sd_name} -current_port_name {GPIO_28_PAD} -new_port_name {P8_5}
 #sd_rename_port -sd_name ${sd_name} -current_port_name {GPIO_29_PAD} -new_port_name {P8_6}
 #sd_rename_port -sd_name ${sd_name} -current_port_name {GPIO_30_PAD} -new_port_name {P8_7}
-
-
-
-
-
-
 
 
 #-------------------------------------------------------------------------------
