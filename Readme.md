@@ -37,105 +37,105 @@ To generate the standard reference design which is capable of running the majori
 
 ### P9
 
-| Header Pin | FPGA Pin | Usage        |
-|------------|----------|--------------|
-|      1     |    n/a   | DGND         |
-|      2     |    n/a   | DGND         |
-|      3     |    n/a   | VDD_3V3      |
-|      4     |    n/a   | VDD_3V3      |
-|      5     |    n/a   | VDD_5V       |
-|      6     |    n/a   | VDD_5V       |
-|      7     |    n/a   | SYS_5V       |
-|      8     |    n/a   | SYS_5V       |
-|      9     |    n/a   | Not connected |
-|     10     |    n/a   | SYSRESETn    |
-|     11     |     B5   | MMUART_4 Rx  |
-|     12     |     C5   | GPIO 9       |
-|     13     |    D19   | MMUART_4 Tx  |
-|     14     |     C6   | PWM channel 1 |
-|     15     |     A5   | GPIO 7        |
-|     16     |     A6   | PWM channel 2 |
-|     17     |     C9   |              |
-|     18     |    C10   |              |
-|     19     |    A11   | MSS I2C0 SCL |
-|     20     |    A10   | MSS I2C0 SDA |
-|     21     |     B8   |              |
-|     22     |     A8   |              |
-|     23     |    C12   |              |
-|     24     |    B12   |              |
-|     25     |     B7   |              |
-|     26     |     A7   |              |
-|     27     |    D11   |              |
-|     28     |    C11   |              |
-|     29     |    F17   |              |
-|     30     |    F16   |              |
-|     31     |    E18   |              |
-|     32     |    n/a   | VDD_ADC      |
-|     33     |    n/a   | ADC channel 4 |
-|     34     |    n/a   | GNDA_ADC     |
-|     35     |    n/a   | ADC channel 6 |
-|     36     |    n/a   | ADC channel 5 |
-|     37     |    n/a   | ADC channel 2 |
-|     38     |    n/a   | ADC channel 3 |
-|     39     |    n/a   | ADC channel 0 |
-|     40     |    n/a   | ADC channel 1 |
-|     41     |    E15   | GPIO 0        |
-|     42     |    E14   | PWM channel 0 |
-|     43     |    n/a   | GND           |
-|     44     |    n/a   | GND           |
-|     45     |    n/a   | GND           |
-|     46     |    n/a   | GND           |
+| Header Pin | FPGA Pin | Usage                        |
+|------------|----------|------------------------------|
+|      1     |    n/a   | DGND                         |
+|      2     |    n/a   | DGND                         |
+|      3     |    n/a   | VDD_3V3                      |
+|      4     |    n/a   | VDD_3V3                      |
+|      5     |    n/a   | VDD_5V                       |
+|      6     |    n/a   | VDD_5V                       |
+|      7     |    n/a   | SYS_5V                       |
+|      8     |    n/a   | SYS_5V                       |
+|      9     |    n/a   | Not connected                |
+|     10     |    n/a   | SYSRESETn                    |
+|     11     |     B5   | MMUART_4 Rx                  |
+|     12     |     C5   | MSS GPIO_2[11] (@0x20122000) |
+|     13     |    D19   | MMUART_4 Tx                  |
+|     14     |     C6   | PWM channel 1  (@0x41000000) |
+|     15     |     A5   | MSS GPIO_2[12] (@0x20122000) |
+|     16     |     A6   | PWM channel 2  (@0x41000000) |
+|     17     |     C9   | MSS GPIO_2[13] (@0x20122000) |
+|     18     |    C10   | MSS GPIO_2[14] (@0x20122000) |
+|     19     |    A11   | MSS I2C0 SCL                 |
+|     20     |    A10   | MSS I2C0 SDA                 |
+|     21     |     B8   | MSS GPIO_2[15] (@0x20122000) |
+|     22     |     A8   | MSS GPIO_2[16] (@0x20122000) |
+|     23     |    C12   | MSS GPIO_2[17] (@0x20122000) |
+|     24     |    B12   | MSS GPIO_2[18] (@0x20122000) |
+|     25     |     B7   | MSS GPIO_2[19] (@0x20122000) |
+|     26     |     A7   | MSS GPIO_2[20] (@0x20122000) |
+|     27     |    D11   | MSS GPIO_2[21] (@0x20122000) |
+|     28     |    C11   | MSS GPIO_2[22] (@0x20122000) |
+|     29     |    F17   | MSS GPIO_2[23] (@0x20122000) |
+|     30     |    F16   | MSS GPIO_2[24] (@0x20122000) |
+|     31     |    E18   | MSS GPIO_2[25] (@0x20122000) |
+|     32     |    n/a   | VDD_ADC                      |
+|     33     |    n/a   | ADC channel 4                |
+|     34     |    n/a   | GNDA_ADC                     |
+|     35     |    n/a   | ADC channel 6                |
+|     36     |    n/a   | ADC channel 5                |
+|     37     |    n/a   | ADC channel 2                |
+|     38     |    n/a   | ADC channel 3                |
+|     39     |    n/a   | ADC channel 0                |
+|     40     |    n/a   | ADC channel 1                |
+|     41     |    E15   | MSS GPIO_2[26] (@0x20122000) |
+|     42     |    E14   | PWM channel 0  (@0x41000000) |
+|     43     |    n/a   | GND                          |
+|     44     |    n/a   | GND                          |
+|     45     |    n/a   | GND                          |
+|     46     |    n/a   | GND                          |
 
 ### P8
 
-| Header Pin | FPGA Pin | Usage      |
-|------------|----------|------------|
-|      1     |    n/a   | DGND       |
-|      2     |    n/a   | DGND       |
-|      3     |    V22   |            |
-|      4     |    W22   |            |
-|      5     |    V19   |            |
-|      6     |    V20   |            |
-|      7     |    V15   |            |
-|      8     |    V14   |            |
-|      9     |    V21   |            |
-|     10     |    W21   |            |
-|     11     |    Y21   |            |
-|     12     |    Y20   |            |
-|     13     |    B10   | PWM channel4 |
-|     14     |     B9   |            |
-|     15     |    T12   |  GPIO 6    |
-|     16     |    U12   |  GPIO 5     |
-|     17     |    W13   |  GPIO 2     |
-|     18     |    T16   |  GPIO 11    |
-|     19     |    W18   | PWM channel 3 |
-|     20     |    R16   |           |
-|     21     |   AA21   |           |
-|     22     |   AA22   |           |
-|     23     |   AB18   |           |
-|     24     |   AA18   |           |
-|     25     |    V17   |           |
-|     26     |    A12   |  GPIO      |
-|     27     |    A13   | GPIO (LCD group) |
-|     28     |    B14   | GPIO (LCD group) |
-|     29     |    B13   | GPIO (LCD group) |
-|     30     |    D14   | GPIO (LCD group) |
-|     31     |    D13   | GPIO (LCD group) |
-|     32     |    B15   | GPIO (LCD group) |
-|     33     |    A15   | GPIO (LCD group) |
-|     34     |    C15   | GPIO (LCD group) |
-|     35     |    C14   | GPIO (LCD group) |
-|     36     |     B4   | GPIO (LCD group) |
-|     37     |     C4   | GPIO (LCD group) |
-|     38     |    C17   | GPIO (LCD group) |
-|     39     |    B17   | GPIO (LCD group) |
-|     40     |    B18   | GPIO (LCD group) |
-|     41     |    A18   | GPIO (LCD group) |
-|     42     |     D6   | GPIO (LCD group) |
-|     43     |     D7   | GPIO (LCD group) |
-|     44     |     D8   | GPIO (LCD group) |
-|     45     |     D9   | GPIO (LCD group) |
-|     46     |    D18   | GPIO (LCD group) |
+| Header Pin | FPGA Pin | Usage                                   |
+|------------|----------|-----------------------------------------|
+|      1     |    n/a   | DGND                                    |
+|      2     |    n/a   | DGND                                    |
+|      3     |    V22   | Base design FPGA GPIO[0]  (@0x40000000) |
+|      4     |    W22   | Base design FPGA GPIO[1]  (@0x40000000) |
+|      5     |    V19   | Base design FPGA GPIO[2]  (@0x40000000) |
+|      6     |    V20   | Base design FPGA GPIO[3]  (@0x40000000) |
+|      7     |    V15   | Base design FPGA GPIO[4]  (@0x40000000) |
+|      8     |    V14   | Base design FPGA GPIO[5]  (@0x40000000) |
+|      9     |    V21   | Base design FPGA GPIO[6]  (@0x40000000) |
+|     10     |    W21   | Base design FPGA GPIO[7]  (@0x40000000) |
+|     11     |    Y21   | Base design FPGA GPIO[8]  (@0x40000000) |
+|     12     |    Y20   | Base design FPGA GPIO[9]  (@0x40000000) |
+|     13     |    B10   | Base design FPGA GPIO[10] (@0x40000000) |
+|     14     |     B9   | Base design FPGA GPIO[11] (@0x40000000) |
+|     15     |    T12   | MSS GPIO_2[0]  (@0x20122000)            |
+|     16     |    U12   | MSS GPIO_2[1]  (@0x20122000)            |
+|     17     |    W13   | MSS GPIO_2[2]  (@0x20122000)            |
+|     18     |    T16   | MSS GPIO_2[3]  (@0x20122000)            |
+|     19     |    W18   | PWM channel 3  (@0x41000000)            |
+|     20     |    R16   | MSS GPIO_2[4]  (@0x20122000)            |
+|     21     |   AA21   | MSS GPIO_2[5]  (@0x20122000)            |
+|     22     |   AA22   | MSS GPIO_2[6]  (@0x20122000)            |
+|     23     |   AB18   | MSS GPIO_2[7]  (@0x20122000)            |
+|     24     |   AA18   | MSS GPIO_2[8]  (@0x20122000)            |
+|     25     |    V17   | MSS GPIO_2[9]  (@0x20122000)            |
+|     26     |    A12   | MSS GPIO_2[10] (@0x20122000)            |
+|     27     |    A13   | FPGA GPIO[18] (@0x41100000)             |
+|     28     |    B14   | FPGA GPIO[19] (@0x41100000)             |
+|     29     |    B13   | FPGA GPIO[16] (@0x41100000)             |
+|     30     |    D14   | FPGA GPIO[17] (@0x41100000)             |
+|     31     |    D13   | FPGA GPIO[0]  (@0x41100000)             |
+|     32     |    B15   | FPGA GPIO[1]  (@0x41100000)             |
+|     33     |    A15   | FPGA GPIO[2]  (@0x41100000)             |
+|     34     |    C15   | FPGA GPIO[3]  (@0x41100000)             |
+|     35     |    C14   | FPGA GPIO[4]  (@0x41100000)             |
+|     36     |     B4   | FPGA GPIO[5]  (@0x41100000)             |
+|     37     |     C4   | FPGA GPIO[6]  (@0x41100000)             |
+|     38     |    C17   | FPGA GPIO[7]  (@0x41100000)             |
+|     39     |    B17   | FPGA GPIO[8]  (@0x41100000)             |
+|     40     |    B18   | FPGA GPIO[9]  (@0x41100000)             |
+|     41     |    A18   | FPGA GPIO[10] (@0x41100000)             |
+|     42     |     D6   | FPGA GPIO[11] (@0x41100000)             |
+|     43     |     D7   | FPGA GPIO[12] (@0x41100000)             |
+|     44     |     D8   | FPGA GPIO[13] (@0x41100000)             |
+|     45     |     D9   | FPGA GPIO[14] (@0x41100000)             |
+|     46     |    D18   | FPGA GPIO[15] (@0x41100000)             |
 
 ### J9: M.2 Interface
 
