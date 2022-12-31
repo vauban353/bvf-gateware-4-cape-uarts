@@ -260,6 +260,11 @@ sd_mark_pins_unused -sd_name ${sd_name} -pin_names {BVF_RISCV_SUBSYSTEM:FIC_2_AX
 sd_mark_pins_unused -sd_name ${sd_name} -pin_names {BVF_RISCV_SUBSYSTEM:HSI_APB_MTARGET}
 sd_mark_pins_unused -sd_name ${sd_name} -pin_names {BVF_RISCV_SUBSYSTEM:CSI_APB_MTARGET}
 
+sd_mark_pins_unused -sd_name {B_V_F_BASE_DESIGN} -pin_names {BVF_RISCV_SUBSYSTEM:MAC_1_MDO_M2F} 
+sd_mark_pins_unused -sd_name {B_V_F_BASE_DESIGN} -pin_names {BVF_RISCV_SUBSYSTEM:MAC_1_MDO_OE_M2F} 
+sd_mark_pins_unused -sd_name {B_V_F_BASE_DESIGN} -pin_names {BVF_RISCV_SUBSYSTEM:MAC_1_MDC_M2F} 
+sd_connect_pins_to_constant -sd_name {B_V_F_BASE_DESIGN} -pin_names {BVF_RISCV_SUBSYSTEM:MAC_1_MDI_F2M} -value {GND} 
+
 
 #-------------------------------------------------------------------------------
 

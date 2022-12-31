@@ -231,6 +231,10 @@ sd_connect_pins -sd_name ${sd_name} -pin_names {"SGMII_RX1_P" "PF_SOC_MSS:SGMII_
 sd_connect_pins -sd_name ${sd_name} -pin_names {"SGMII_TX1_N" "PF_SOC_MSS:SGMII_TX1_N" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"SGMII_TX1_P" "PF_SOC_MSS:SGMII_TX1_P" }
 
+sd_connect_pin_to_port -sd_name ${sd_name} -pin_name {PF_SOC_MSS:MAC_1_MDI_F2M} -port_name {} 
+sd_connect_pin_to_port -sd_name ${sd_name} -pin_name {PF_SOC_MSS:MAC_1_MDO_OE_M2F} -port_name {} 
+sd_connect_pin_to_port -sd_name ${sd_name} -pin_name {PF_SOC_MSS:MAC_1_MDC_M2F} -port_name {} 
+sd_connect_pin_to_port -sd_name ${sd_name} -pin_name {PF_SOC_MSS:MAC_1_MDO_M2F} -port_name {} 
 
 #-------------------------------------------------------------------------------
 # OTG USB
