@@ -73,9 +73,9 @@ input [3:0] DISP_ERR, LCV_ERR; //XCVR dispartity and code violations status
 
 output  LANE_ARST_N;//PCS reset 
 output reg [g_DATA_WID-1:0]error_count_o;//error counter
-output reg error_o;//error flag
-output reg rx_val_o;
-output reg lock_o;//data lock status
+output error_o;//error flag
+output rx_val_o;
+output lock_o;//data lock status
 
 
 
@@ -99,6 +99,11 @@ reg LANE_RESET_INIT,LANE_RESET_INIT_0;
 reg LANE_RESET_INIT_1;
 reg LANE_RESET_INIT_2;
 reg LANE_RESET_INIT_3;
+
+
+assign rx_val_o = s_rx_val;
+assign lock_o = s_lock;
+assign error_o = s_error;
 
 //Logic for resetting XCVR PCS in the event of 
 //receiving disparity error and code violations
@@ -336,13 +341,13 @@ always@(posedge clk_i,negedge reset_n_i)
         s_error_count <= 32'h00000000;
         s_error <= 1'b1;
     end
-    else if(clear_d2==1'b1)
-    begin
-        s_rx_val <= rx_val_i;
-        s_lock <= 1'b1;
-        s_error_count <= 32'h00000000;
-        s_error <= 1'b0; 
-    end    
+//    else if(clear_d2==1'b1)
+//    begin
+//        s_rx_val <= rx_val_i;
+//        s_lock <= 1'b1;
+//        s_error_count <= 32'h00000000;
+//        s_error <= 1'b0; 
+//    end    
     else
     begin
         s_rx_val <= rx_val_i;
@@ -370,17 +375,17 @@ always@(posedge clk_i,negedge reset_n_i)
 begin
     if (reset_n_i == 1'b0)
     begin
-        rx_val_o <= 1'b0;
-        lock_o <= 1'b0;
+//        rx_val_o <= 1'b0;
+//        lock_o <= 1'b0;
         error_count_o <= 32'h00000000;
-        error_o <= 1'b0;
+//        error_o <= 1'b0;
     end
     else if(start_d2 == 1'b1)
     begin
-        rx_val_o <= s_rx_val;
-        lock_o <= s_lock;
+//        rx_val_o <= s_rx_val;
+//        lock_o <= s_lock;
         error_count_o <= s_error_count;
-        error_o <= s_error;
+//        error_o <= s_error;
     end
 end
    
