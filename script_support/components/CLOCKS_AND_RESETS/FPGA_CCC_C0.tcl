@@ -78,7 +78,7 @@ create_and_configure_core -core_vlnv {Actel:SgCore:PF_CCC:2.2.214} -component_na
 "GL1_0_FABCLK_USED:true"  \
 "GL1_0_FREQ_SEL:false"  \
 "GL1_0_IS_USED:true"  \
-"GL1_0_OUT_FREQ:150"  \
+"GL1_0_OUT_FREQ:125"  \
 "GL1_0_PHASE_INDEX:0"  \
 "GL1_0_PHASE_SEL:false"  \
 "GL1_0_PLL_PHASE:0"  \
@@ -109,7 +109,7 @@ create_and_configure_core -core_vlnv {Actel:SgCore:PF_CCC:2.2.214} -component_na
 "GL2_0_FABCLK_USED:true"  \
 "GL2_0_FREQ_SEL:false"  \
 "GL2_0_IS_USED:true"  \
-"GL2_0_OUT_FREQ:150"  \
+"GL2_0_OUT_FREQ:125"  \
 "GL2_0_PHASE_INDEX:0"  \
 "GL2_0_PHASE_SEL:false"  \
 "GL2_0_PLL_PHASE:0"  \
@@ -140,7 +140,7 @@ create_and_configure_core -core_vlnv {Actel:SgCore:PF_CCC:2.2.214} -component_na
 "GL3_0_FABCLK_USED:true"  \
 "GL3_0_FREQ_SEL:false"  \
 "GL3_0_IS_USED:true"  \
-"GL3_0_OUT_FREQ:75"  \
+"GL3_0_OUT_FREQ:50"  \
 "GL3_0_PHASE_INDEX:0"  \
 "GL3_0_PHASE_SEL:false"  \
 "GL3_0_PLL_PHASE:0"  \
@@ -227,8 +227,9 @@ create_and_configure_core -core_vlnv {Actel:SgCore:PF_CCC:2.2.214} -component_na
 "PLL_POSTDIVIDERADDSOFTLOGIC_0:true"  \
 "PLL_REF_CLK_SEL_0:false"  \
 "PLL_REF_CLK_SEL_1:false"  \
-"PLL_REFDIV_0:1"  \
+"PLL_REFDIV_0:4"  \
 "PLL_REFDIV_1:1"  \
+"PLL_RESET_ON_LOCK_0:true"  \
 "PLL_SPREAD_MODE_0:false"  \
 "PLL_SPREAD_MODE_1:false"  \
 "PLL_SSM_DEPTH_0:5"  \
