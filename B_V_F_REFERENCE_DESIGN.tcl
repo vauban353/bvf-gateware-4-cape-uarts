@@ -110,7 +110,7 @@ new_project \
     -die {MPFS025T} \
     -package {FCVG484} \
     -speed {STD} \
-    -die_voltage {1.05} \
+    -die_voltage {1.0} \
     -part_range {EXT} \
     -adv_options {IO_DEFT_STD:LVCMOS 1.8V} \
     -adv_options {RESTRICTPROBEPINS:0} \
