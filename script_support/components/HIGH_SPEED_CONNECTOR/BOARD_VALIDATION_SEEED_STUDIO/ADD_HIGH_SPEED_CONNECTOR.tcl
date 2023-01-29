@@ -110,3 +110,8 @@ sd_connect_pin_to_port -sd_name ${sd_name} -pin_name {HIGH_SPEED_INTERFACE_0:B0_
 sd_connect_pin_to_port -sd_name ${sd_name} -pin_name {HIGH_SPEED_INTERFACE_0:B0_HSIO73N_C2P_CLKN} -port_name {} 
 sd_connect_pin_to_port -sd_name ${sd_name} -pin_name {HIGH_SPEED_INTERFACE_0:B0_HSIO81P} -port_name {} 
 
+# Override software control of VIO.
+sd_delete_nets -sd_name ${sd_name} -net_names {VIO_ENABLE} 
+sd_mark_pins_unused -sd_name ${sd_name} -pin_names {BVF_RISCV_SUBSYSTEM:VIO_ENABLE} 
+sd_connect_pins_to_constant -sd_name ${sd_name} -pin_names {VIO_ENABLE} -value {VCC} 
+
