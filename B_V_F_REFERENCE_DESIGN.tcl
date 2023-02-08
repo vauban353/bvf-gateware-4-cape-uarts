@@ -1,5 +1,4 @@
 #
-# // Icicle Kit eMMC Libero design
 # This is based on the Icicle Kit Refernece Design TCL script
 #
 
@@ -9,7 +8,7 @@
 
 set libero_release [split [get_libero_version] .]
 
-if {[string compare [lindex $libero_release 0] "2022"] == 0 && [string compare [lindex $libero_release 1] "2"] == 0} {
+if {[string compare [lindex $libero_release 0] "2022"] == 0 && [string compare [lindex $libero_release 1] "3"] == 0} {
     puts "Libero v2022.2 detected."
 } else {
     error "Incorrect Libero version detected. Please use Libero v2022.2 to run these scripts."
@@ -130,7 +129,7 @@ new_project \
 #
 
 download_core -vlnv {Actel:SgCore:PF_OSC:1.0.102} -location {www.microchip-ip.com/repositories/SgCore}
-download_core -vlnv {Actel:SgCore:PF_CCC:2.2.214} -location {www.microchip-ip.com/repositories/SgCore}
+download_core -vlnv {Actel:SgCore:PF_CCC:*} -location {www.microchip-ip.com/repositories/SgCore}
 download_core -vlnv {Actel:DirectCore:CORERESET_PF:2.3.100} -location {www.microchip-ip.com/repositories/DirectCore}
 download_core -vlnv {Microsemi:SgCore:PFSOC_INIT_MONITOR:1.0.304} -location {www.microchip-ip.com/repositories/SgCore}
 download_core -vlnv {Actel:DirectCore:COREAXI4INTERCONNECT:2.8.103} -location {www.microchip-ip.com/repositories/DirectCore}
