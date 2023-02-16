@@ -1,7 +1,7 @@
 
 source script_support/components/BVF_RISCV_SUBSYSTEM/USER_LED_GPIO_PADS.tcl
 
-# Creating SmartDesign B_V_F_BASE_DESIGN
+# Creating SmartDesign B_V_F_BASE_DESIGNB_V_F_BASE_DESIGN
 set sd_name {B_V_F_BASE_DESIGN}
 create_smartdesign -sd_name ${sd_name}
 
@@ -135,8 +135,8 @@ sd_connect_pins -sd_name ${sd_name} -pin_names {"BVF_RISCV_SUBSYSTEM:SD_DET" "SD
 #-------------------------------------------------------------------------------
 # eMMC
 #-------------------------------------------------------------------------------
-sd_connect_pin_to_port -sd_name {B_V_F_BASE_DESIGN} -pin_name {BVF_RISCV_SUBSYSTEM:EMMC} -port_name {} 
-sd_connect_pin_to_port -sd_name {B_V_F_BASE_DESIGN} -pin_name {BVF_RISCV_SUBSYSTEM:EMMC_IN} -port_name {} 
+sd_connect_pin_to_port -sd_name ${sd_name} -pin_name {BVF_RISCV_SUBSYSTEM:EMMC} -port_name {} 
+sd_connect_pin_to_port -sd_name ${sd_name} -pin_name {BVF_RISCV_SUBSYSTEM:EMMC_IN} -port_name {} 
 
 #-------------------------------------------------------------------------------
 # Connect ADC.
@@ -260,10 +260,10 @@ sd_mark_pins_unused -sd_name ${sd_name} -pin_names {BVF_RISCV_SUBSYSTEM:FIC_2_AX
 sd_mark_pins_unused -sd_name ${sd_name} -pin_names {BVF_RISCV_SUBSYSTEM:HSI_APB_MTARGET}
 sd_mark_pins_unused -sd_name ${sd_name} -pin_names {BVF_RISCV_SUBSYSTEM:CSI_APB_MTARGET}
 
-sd_mark_pins_unused -sd_name {B_V_F_BASE_DESIGN} -pin_names {BVF_RISCV_SUBSYSTEM:MAC_1_MDO_M2F} 
-sd_mark_pins_unused -sd_name {B_V_F_BASE_DESIGN} -pin_names {BVF_RISCV_SUBSYSTEM:MAC_1_MDO_OE_M2F} 
-sd_mark_pins_unused -sd_name {B_V_F_BASE_DESIGN} -pin_names {BVF_RISCV_SUBSYSTEM:MAC_1_MDC_M2F} 
-sd_connect_pins_to_constant -sd_name {B_V_F_BASE_DESIGN} -pin_names {BVF_RISCV_SUBSYSTEM:MAC_1_MDI_F2M} -value {GND} 
+sd_mark_pins_unused -sd_name ${sd_name} -pin_names {BVF_RISCV_SUBSYSTEM:MAC_1_MDO_M2F} 
+sd_mark_pins_unused -sd_name ${sd_name} -pin_names {BVF_RISCV_SUBSYSTEM:MAC_1_MDO_OE_M2F} 
+sd_mark_pins_unused -sd_name ${sd_name} -pin_names {BVF_RISCV_SUBSYSTEM:MAC_1_MDC_M2F} 
+sd_connect_pins_to_constant -sd_name ${sd_name} -pin_names {BVF_RISCV_SUBSYSTEM:MAC_1_MDI_F2M} -value {GND} 
 
 
 #-------------------------------------------------------------------------------

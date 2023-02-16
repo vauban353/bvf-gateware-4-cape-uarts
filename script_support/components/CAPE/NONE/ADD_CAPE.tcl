@@ -30,7 +30,7 @@ sd_connect_pins -sd_name ${sd_name} -pin_names {"BVF_RISCV_SUBSYSTEM:MMUART_4_RX
 
 #-------------------------------------------------------------------------------
 
-sd_mark_pins_unused -sd_name {B_V_F_BASE_DESIGN} -pin_names {BVF_RISCV_SUBSYSTEM:CAPE_APB_MTARGET} 
+sd_mark_pins_unused -sd_name ${sd_name} -pin_names {BVF_RISCV_SUBSYSTEM:CAPE_APB_MTARGET} 
 
 #-------------------------------------------------------------------------------
 

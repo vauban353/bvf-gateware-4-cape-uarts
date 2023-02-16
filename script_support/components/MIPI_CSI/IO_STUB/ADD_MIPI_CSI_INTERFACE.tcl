@@ -29,15 +29,15 @@ sd_connect_pin_to_port -sd_name ${sd_name} -pin_name {MIPI_CSI_INTERFACE_0:CSI1_
 #sd_instantiate_component -sd_name ${sd_name} -component_name {MIPI_CSI_INTERFACE} -instance_name {MIPI_CSI_INTERFACE_0} 
 #sd_connect_pin_to_port -sd_name ${sd_name} -pin_name {MIPI_CSI_INTERFACE_0:CSI1_PWND} -port_name {} 
 
-#sd_create_pin_slices -sd_name {B_V_F_BASE_DESIGN} -pin_name {RXD_N} -pin_slices {"[3:3]"} 
-#sd_create_pin_slices -sd_name {B_V_F_BASE_DESIGN} -pin_name {RXD_N} -pin_slices {"[2:2]"} 
-#sd_create_pin_slices -sd_name {B_V_F_BASE_DESIGN} -pin_name {RXD_N} -pin_slices {"[1:1]"} 
-#sd_create_pin_slices -sd_name {B_V_F_BASE_DESIGN} -pin_name {RXD_N} -pin_slices {"[0:0]"} 
+#sd_create_pin_slices -sd_name ${sd_name} -pin_name {RXD_N} -pin_slices {"[3:3]"} 
+#sd_create_pin_slices -sd_name ${sd_name} -pin_name {RXD_N} -pin_slices {"[2:2]"} 
+#sd_create_pin_slices -sd_name ${sd_name} -pin_name {RXD_N} -pin_slices {"[1:1]"} 
+#sd_create_pin_slices -sd_name ${sd_name} -pin_name {RXD_N} -pin_slices {"[0:0]"} 
 #
-#sd_create_pin_slices -sd_name {B_V_F_BASE_DESIGN} -pin_name {RXD} -pin_slices {"[3:3]"} 
-#sd_create_pin_slices -sd_name {B_V_F_BASE_DESIGN} -pin_name {RXD} -pin_slices {"[2:2]"} 
-#sd_create_pin_slices -sd_name {B_V_F_BASE_DESIGN} -pin_name {RXD} -pin_slices {"[1:1]"} 
-#sd_create_pin_slices -sd_name {B_V_F_BASE_DESIGN} -pin_name {RXD} -pin_slices {"[0:0]"}
+#sd_create_pin_slices -sd_name ${sd_name} -pin_name {RXD} -pin_slices {"[3:3]"} 
+#sd_create_pin_slices -sd_name ${sd_name} -pin_name {RXD} -pin_slices {"[2:2]"} 
+#sd_create_pin_slices -sd_name ${sd_name} -pin_name {RXD} -pin_slices {"[1:1]"} 
+#sd_create_pin_slices -sd_name ${sd_name} -pin_name {RXD} -pin_slices {"[0:0]"}
 #
 
 #sd_create_pin_slices -sd_name ${sd_name} -pin_name {MIPI_CSI_INTERFACE_0:RXD_N} -pin_slices {"[3:3]"} 
