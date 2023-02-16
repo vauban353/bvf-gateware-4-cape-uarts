@@ -51,7 +51,7 @@ set install_loc [defvar_get -name ACTEL_SW_DIR]
 set mss_config_loc "$install_loc/bin64/pfsoc_mss"
 set local_dir [pwd]
 set constraint_path ./script_support/constraints
-set project_name "B_V_F_025"
+set project_name "BVF_GATEWARE_025T"
 
 if {[info exists CAPE_OPTION]} {
     set cape_option "$CAPE_OPTION"
