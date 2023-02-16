@@ -39,7 +39,7 @@ source script_support/components/HIGH_SPEED_CONNECTOR/BOARD_VALIDATION_OPAL_KELL
 
 
 
-set sd_name {B_V_F_BASE_DESIGN}
+set sd_name {BVF_GATEWARE}
 
 sd_instantiate_component -sd_name ${sd_name} -component_name {HIGH_SPEED_INTERFACE} -instance_name {HIGH_SPEED_INTERFACE_0} 
 

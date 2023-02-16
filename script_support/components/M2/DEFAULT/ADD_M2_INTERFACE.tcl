@@ -13,14 +13,14 @@ source script_support/components/FIC_1_INITIATOR.tcl
 #-------------------------------------------------------------------------------
 
 source script_support/components/CLOCKS_AND_RESETS/ADD_PCIE_CLOCKS_AND_RESETS.tcl 
-sd_update_instance -sd_name {B_V_F_BASE_DESIGN} -instance_name {CLOCKS_AND_RESETS}
+sd_update_instance -sd_name {BVF_GATEWARE} -instance_name {CLOCKS_AND_RESETS}
 
 #-------------------------------------------------------------------------------
 # Create the M.2 interface block.
 # This block will be stiched up to the rest of the design in the calling script.
 #-------------------------------------------------------------------------------
 
-set sd_name {B_V_F_BASE_DESIGN}
+set sd_name {BVF_GATEWARE}
 
 
 #-------------------------------------------------------------------------------

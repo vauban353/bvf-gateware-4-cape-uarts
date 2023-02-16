@@ -1,6 +1,6 @@
 puts "======== Add cape option: NONE ========"
 
-set sd_name {B_V_F_BASE_DESIGN}
+set sd_name {BVF_GATEWARE}
 
 #-------------------------------------------------------------------------------
 # Cape pins

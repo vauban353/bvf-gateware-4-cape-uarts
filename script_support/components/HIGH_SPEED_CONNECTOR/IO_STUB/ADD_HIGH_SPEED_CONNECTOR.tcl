@@ -14,7 +14,7 @@ source script_support/components/HIGH_SPEED_CONNECTOR/IO_STUB/PF_XCVR_ERM_C1.tcl
 source script_support/components/HIGH_SPEED_CONNECTOR/IO_STUB/PF_XCVR_REF_CLK_C0.tcl
 source script_support/components/HIGH_SPEED_CONNECTOR/IO_STUB/HIGH_SPEED_CONNECTOR.tcl
 
-set sd_name {B_V_F_BASE_DESIGN}
+set sd_name {BVF_GATEWARE}
 
 sd_instantiate_component -sd_name ${sd_name} -component_name {HIGH_SPEED_INTERFACE} -instance_name {HIGH_SPEED_INTERFACE_0} 
 

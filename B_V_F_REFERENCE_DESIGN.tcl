@@ -184,7 +184,7 @@ organize_tool_files \
     -file "${project_dir}/constraint/io/M2.pdc" \
     -file "${project_dir}/constraint/io/HIGH_SPEED_CONNECTOR.pdc" \
     -file "${project_dir}/constraint/io/MIPI_CSI_INTERFACE.pdc" \
-    -module {B_V_F_BASE_DESIGN::work} \
+    -module {BVF_GATEWARE::work} \
     -input_type {constraint}
 
 

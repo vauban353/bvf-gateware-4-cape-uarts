@@ -6,7 +6,7 @@ puts "======== Add MIPI CSI option: IO_STUB ========"
 source script_support/components/MIPI_CSI/IO_STUB/MIPI_CSI2_RX_IOD.tcl
 source script_support/components/MIPI_CSI/IO_STUB/MIPI_CSI_INTERFACE.tcl
 
-set sd_name {B_V_F_BASE_DESIGN}
+set sd_name {BVF_GATEWARE}
 
 #auto_promote_pad_pins -promote_all 0
 sd_instantiate_component -sd_name ${sd_name} -component_name {MIPI_CSI_INTERFACE} -instance_name {MIPI_CSI_INTERFACE_0} 

@@ -1,8 +1,8 @@
 
 source script_support/components/BVF_RISCV_SUBSYSTEM/USER_LED_GPIO_PADS.tcl
 
-# Creating SmartDesign B_V_F_BASE_DESIGNB_V_F_BASE_DESIGN
-set sd_name {B_V_F_BASE_DESIGN}
+# Creating SmartDesign BVF_GATEWARE
+set sd_name {BVF_GATEWARE}
 create_smartdesign -sd_name ${sd_name}
 
 # Disable auto promotion of pins of type 'pad'
@@ -282,6 +282,6 @@ source script_support/components/MIPI_CSI/$mipi_csi_option/ADD_MIPI_CSI_INTERFAC
 auto_promote_pad_pins -promote_all 1
 # Save the smartDesign
 save_smartdesign -sd_name ${sd_name}
-# Generate SmartDesign B_V_F_BASE_DESIGN
+# Generate SmartDesign BVF_GATEWARE
 generate_component -component_name ${sd_name}
 
