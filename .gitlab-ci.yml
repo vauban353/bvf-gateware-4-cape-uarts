@@ -1,0 +1,28 @@
+
+stages:          # List of stages for jobs, and their order of execution
+  - build
+
+
+build-job:       # This job runs in the build stage, which runs first.
+  stage: build
+  script:
+    - echo "Compiling the code..."
+    - export
+    - source ~/Microchip/Microchip-FPGA-Tools-Setup/setup-microchip-tools.sh
+    - git clone https://gitlab-ci-token:${CI_JOB_TOKEN}@git.beagleboard.org/beaglev-fire/gateware-builds-tester.git
+    - cd gateware-builds-tester
+    - git clone https://gitlab-ci-token:${CI_JOB_TOKEN}@git.beagleboard.org/beaglev-fire/bitstream-builder.git -b develop
+    - python3 bitstream-builds-tester.py ci gateware "$CI_MERGE_REQUEST_SOURCE_BRANCH_NAME" "$CI_MERGE_REQUEST_TARGET_BRANCH_NAME"
+    - echo "$CI_MERGE_REQUEST_SOURCE_BRANCH_NAME"
+    - echo "$CI_MERGE_REQUEST_TARGET_BRANCH_NAME"
+    - echo "Compile complete."
+  rules:
+    - if: $CI_PIPELINE_SOURCE == "merge_request_event"
+      when: always
+  artifacts:
+    when: always
+    paths:
+      - gateware-builds-tester/artifacts/tests_report.xml
+      - gateware-builds-tester/artifacts.zip
+    reports:
+      junit: gateware-builds-tester/artifacts/tests_report.xml
