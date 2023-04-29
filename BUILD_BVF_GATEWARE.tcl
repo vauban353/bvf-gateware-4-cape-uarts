@@ -87,6 +87,17 @@ if {[info exists PROJECT_LOCATION]} {
     set project_dir "$local_dir/$project_name"
 }
 
+if {[info exists DESIGN_VERSION]} {
+    set gateware_design_version "$DESIGN_VERSION"
+} else {
+    set gateware_design_version "1"
+}
+
+if {[info exists SILICON_SIGNATURE]} {
+    set gateware_silicon_signature "$SILICON_SIGNATURE"
+} else {
+    set gateware_silicon_signature "deadc001"
+}
 
 source ./script_support/additional_configurations/functions.tcl
 
@@ -197,11 +208,17 @@ organize_tool_files \
     -module {BVF_GATEWARE::work} \
     -input_type {constraint}
 
-    organize_tool_files \
-        -tool {VERIFYTIMING} \
-        -file "${project_dir}/constraint/fic_clocks.sdc" \
-        -module {BVF_GATEWARE::work} \
-        -input_type {constraint}
+organize_tool_files \
+    -tool {VERIFYTIMING} \
+    -file "${project_dir}/constraint/fic_clocks.sdc" \
+    -module {BVF_GATEWARE::work} \
+    -input_type {constraint}
+
+configure_tool \
+         -name {CONFIGURE_PROG_OPTIONS} \
+         -params {back_level_version:0} \
+         -params design_version:$gateware_design_version \
+         -params silicon_signature:$gateware_silicon_signature 
 
 #
 # // Derive timing constraints
