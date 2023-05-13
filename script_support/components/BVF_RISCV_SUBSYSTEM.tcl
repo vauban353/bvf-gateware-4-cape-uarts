@@ -283,8 +283,8 @@ sd_connect_pin_to_port -sd_name ${sd_name} -pin_name {PF_SOC_MSS:EMMC_IN} -port_
 #-------------------------------------------------------------------------------
 # PCIe interrupt.
 #-------------------------------------------------------------------------------
-sd_create_scalar_port -sd_name ${sd_name} -port_name {PCIE_INT_N} -port_direction {IN}
-sd_connect_pins -sd_name ${sd_name} -pin_names {"PCIE_INT_N" "PF_SOC_MSS:MSS_INT_F2M[1:1]" }
+sd_create_scalar_port -sd_name ${sd_name} -port_name {PCIE_INT} -port_direction {IN}
+sd_connect_pins -sd_name ${sd_name} -pin_names {"PCIE_INT" "PF_SOC_MSS:MSS_INT_F2M[1:1]" }
 
 
 #-------------------------------------------------------------------------------
