@@ -27,6 +27,7 @@ sd_create_scalar_port -sd_name ${sd_name} -port_name {M2_PERST0n} -port_directio
 sd_instantiate_component -sd_name ${sd_name} -component_name {PCIE_INITIATOR} -instance_name {PCIE_INITIATOR}
 sd_instantiate_hdl_core -sd_name ${sd_name} -hdl_core_name {AXI_ADDRESS_SHIM} -instance_name {AXI_ADDRESS_SHIM_0} 
 sd_instantiate_component -sd_name ${sd_name} -component_name {RECONFIGURATION_INTERFACE} -instance_name {RECONFIGURATION_INTERFACE_0}
+sd_instantiate_component -sd_name ${sd_name} -component_name {FIC_1_INITIATOR} -instance_name {FIC1_INITIATOR}
 
 # Add PCIE instance
 sd_instantiate_component -sd_name ${sd_name} -component_name {PF_PCIE_C0} -instance_name {PCIE}
@@ -44,9 +45,9 @@ sd_mark_pins_unused -sd_name ${sd_name} -pin_names {PCIE:PCIE_0_DLUP_EXIT}
 #-------------------------------------------------------------------------------
 
 sd_connect_pins -sd_name ${sd_name} -pin_names { "RECONFIGURATION_INTERFACE_0:PCLK" "PCIE:APB_S_PCLK" "PCLK"}
-sd_connect_pins -sd_name ${sd_name} -pin_names {"PCIE_INITIATOR:ACLK" "PCIE:AXI_CLK" "ACLK"}
+sd_connect_pins -sd_name ${sd_name} -pin_names {"PCIE_INITIATOR:ACLK" "PCIE:AXI_CLK" "ACLK" "FIC1_INITIATOR:ACLK"}
 
-sd_connect_pins -sd_name ${sd_name} -pin_names {"PCIE_INITIATOR:ARESETN" "PCIE:AXI_CLK_STABLE" "AXI_ADDRESS_SHIM_0:RESETN" "ARESETN" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"PCIE_INITIATOR:ARESETN" "PCIE:AXI_CLK_STABLE" "AXI_ADDRESS_SHIM_0:RESETN" "FIC1_INITIATOR:ARESETN" "ARESETN" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"RECONFIGURATION_INTERFACE_0:PRESETN" "PRESETN" "PCIE:APB_S_PRESET_N"}
 
 sd_connect_pins -sd_name ${sd_name} -pin_names {"PCIE:AXI_0_MASTER" "AXI_ADDRESS_SHIM_0:AXI4_TARGET" }
@@ -62,6 +63,8 @@ sd_mark_pins_unused -sd_name ${sd_name} -pin_names {RECONFIGURATION_INTERFACE_0:
 sd_mark_pins_unused -sd_name ${sd_name} -pin_names {RECONFIGURATION_INTERFACE_0:PTIMEOUT}
 sd_mark_pins_unused -sd_name ${sd_name} -pin_names {RECONFIGURATION_INTERFACE_0:BUSERROR}
 
+sd_connect_pins -sd_name ${sd_name} -pin_names {"FIC1_INITIATOR:AXI4mslave0" "PCIE:AXI_0_SLAVE"} 
+
 #-------------------------------------------------------------------------------
 # Promote bus and signals to top level
 #-------------------------------------------------------------------------------
@@ -75,8 +78,8 @@ sd_rename_port -sd_name ${sd_name} -current_port_name {APBS_SLAVE} -new_port_nam
 sd_connect_pin_to_port -sd_name ${sd_name} -pin_name {PCIE:CLKS_FROM_TXPLL_TO_PCIE_0} -port_name {} 
 sd_connect_pin_to_port -sd_name ${sd_name} -pin_name {PCIE:PCIE_0_TL_CLK_125MHz} -port_name {} 
 
-sd_connect_pin_to_port -sd_name ${sd_name} -pin_name {PCIE:AXI_0_SLAVE} -port_name {} 
-sd_rename_port -sd_name ${sd_name} -current_port_name {AXI_0_SLAVE} -new_port_name {AXI_TARGET} 
+sd_connect_pin_to_port -sd_name {M2_INTERFACE} -pin_name {FIC1_INITIATOR:AXI4mmaster0} -port_name {} 
+sd_rename_port -sd_name ${sd_name} -current_port_name {AXI4mmaster0} -new_port_name {AXI_TARGET} 
 sd_mark_pins_unused -sd_name ${sd_name} -pin_names {RECONFIGURATION_INTERFACE_0:PLL0_SW_DRI} 
 
 
