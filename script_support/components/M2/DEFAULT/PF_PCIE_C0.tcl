@@ -20,7 +20,7 @@ create_and_configure_core -core_vlnv {Actel:SgCore:PF_PCIE:*} -component_name {P
 "UI_PCIE_0_DE_EMPHASIS:-3.5 dB"  \
 "UI_PCIE_0_DEVICE_ID:0x1556"  \
 "UI_PCIE_0_EXPOSE_WAKE_SIG:Disabled"  \
-"UI_PCIE_0_INTERRUPTS:MSI1"  \
+"UI_PCIE_0_INTERRUPTS:MSI8"  \
 "UI_PCIE_0_L0_ACC_LATENCY:No limit"  \
 "UI_PCIE_0_L0_EXIT_LATENCY:64 ns to less than 128 ns"  \
 "UI_PCIE_0_L1_ACC_LATENCY:No limit"  \
@@ -63,7 +63,7 @@ create_and_configure_core -core_vlnv {Actel:SgCore:PF_PCIE:*} -component_name {P
 "UI_PCIE_0_PORT_TYPE:Root Port"  \
 "UI_PCIE_0_REF_CLK_FREQ:100"  \
 "UI_PCIE_0_REVISION_ID:0x0000"  \
-"UI_PCIE_0_SLAVE_SIZE_TABLE_0:4 KB"  \
+"UI_PCIE_0_SLAVE_SIZE_TABLE_0:2 GB"  \
 "UI_PCIE_0_SLAVE_SIZE_TABLE_1:4 KB"  \
 "UI_PCIE_0_SLAVE_SIZE_TABLE_2:4 KB"  \
 "UI_PCIE_0_SLAVE_SIZE_TABLE_3:4 KB"  \
