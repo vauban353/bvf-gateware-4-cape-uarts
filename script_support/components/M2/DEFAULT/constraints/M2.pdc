@@ -22,46 +22,10 @@ set_io -port_name M2_UART_RTS  \
     -DIRECTION OUTPUT
 
 
-set_io -port_name M2_UART_WAKEn  \
-    -pin_name T15              \
-    -fixed true                \
-    -DIRECTION INPUT
-
-
 set_io -port_name M2_PERST0n \
     -pin_name Y18            \
     -fixed true              \
     -DIRECTION OUTPUT
-
-
-set_io -port_name M2_CLKREQ0n  \
-    -pin_name W19              \
-    -fixed true                \
-    -DIRECTION INPUT
-
-
-set_io -port_name M2_W_DISABLE1n  \
-    -pin_name U19                 \
-    -fixed true                   \
-    -DIRECTION OUTPUT
-
-
-set_io -port_name M2_W_DISABLE2n  \
-    -pin_name R15                 \
-    -fixed true                   \
-    -DIRECTION OUTPUT
-
-
-set_io -port_name M2_PEWAKEn  \
-    -pin_name R14             \
-    -fixed true               \
-    -DIRECTION INPUT
-
-
-set_io -port_name M2_I2C_ALTn  \
-    -pin_name U15              \
-    -fixed true                \
-    -DIRECTION INPUT
 
 
 set_io -port_name M2_PET0_N    \

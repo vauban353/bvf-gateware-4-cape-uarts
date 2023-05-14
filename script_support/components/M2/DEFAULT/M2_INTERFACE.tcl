@@ -20,14 +20,6 @@ sd_create_scalar_port -sd_name ${sd_name} -port_name {PCIE_INTERRUPT} -port_dire
 
 sd_create_scalar_port -sd_name ${sd_name} -port_name {M2_PERST0n} -port_direction {OUT} 
 
-sd_create_scalar_port -sd_name ${sd_name} -port_name {M2_UART_WAKEn} -port_direction {OUT} 
-
-sd_create_scalar_port -sd_name ${sd_name} -port_name {M2_CLKREQ0n} -port_direction {IN} 
-sd_create_scalar_port -sd_name ${sd_name} -port_name {M2_W_DISABLE1n} -port_direction {OUT} 
-sd_create_scalar_port -sd_name ${sd_name} -port_name {M2_W_DISABLE2n} -port_direction {OUT} 
-sd_create_scalar_port -sd_name ${sd_name} -port_name {M2_PEWAKEn} -port_direction {IN} 
-sd_create_scalar_port -sd_name ${sd_name} -port_name {M2_I2C_ALTn} -port_direction {IN} 
-
 #-------------------------------------------------------------------------------
 # Instantiate components
 #-------------------------------------------------------------------------------
@@ -92,18 +84,6 @@ sd_connect_pin_to_port -sd_name ${sd_name} -pin_name {PCIE:INIT_DONE} -port_name
 sd_rename_port -sd_name ${sd_name} -current_port_name {INIT_DONE} -new_port_name {PCIE_INIT_DONE} 
 
 sd_connect_pins -sd_name ${sd_name} -pin_names {"M2_PERST0n" "PCIE:PCIE_0_PERST_OUT_N"}
-
-#-------------------------------------------------------------------------------
-# Temporary - rework once pin assignment confirmed.
-#-------------------------------------------------------------------------------
-sd_instantiate_macro -sd_name ${sd_name} -macro_name {AND2} -instance_name {AND2_0}
-sd_connect_pins -sd_name ${sd_name} -pin_names {"AND2_0:Y" "M2_W_DISABLE1n"} 
-sd_connect_pins -sd_name ${sd_name} -pin_names {"AND2_0:A" "M2_CLKREQ0n"} 
-sd_connect_pins -sd_name ${sd_name} -pin_names {"AND2_0:B" "M2_PEWAKEn"} 
-
-sd_connect_pins -sd_name ${sd_name} -pin_names {"M2_I2C_ALTn" "M2_W_DISABLE2n"} 
-
-sd_connect_pins_to_constant -sd_name ${sd_name} -pin_names {M2_UART_WAKEn} -value {VCC}
 
 #-------------------------------------------------------------------------------
 
