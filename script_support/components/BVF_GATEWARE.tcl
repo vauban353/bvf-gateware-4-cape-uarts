@@ -64,6 +64,9 @@ sd_create_scalar_port -sd_name ${sd_name} -port_name {USER_BUTTON} -port_directi
 sd_create_scalar_port -sd_name ${sd_name} -port_name {SD_CARD_CS} -port_direction {OUT} 
 sd_create_scalar_port -sd_name ${sd_name} -port_name {SD_DET} -port_direction {IN} 
 
+sd_create_scalar_port -sd_name ${sd_name} -port_name {M2_W_DISABLE1} -port_direction {OUT} 
+sd_create_scalar_port -sd_name ${sd_name} -port_name {M2_W_DISABLE2} -port_direction {OUT} 
+
 #-------------------------------------------------------------------------------
 # Analog to Digital Converter pins (for cape analog inputs)
 #-------------------------------------------------------------------------------
@@ -265,6 +268,8 @@ sd_mark_pins_unused -sd_name ${sd_name} -pin_names {BVF_RISCV_SUBSYSTEM:MAC_1_MD
 sd_mark_pins_unused -sd_name ${sd_name} -pin_names {BVF_RISCV_SUBSYSTEM:MAC_1_MDC_M2F} 
 sd_connect_pins_to_constant -sd_name ${sd_name} -pin_names {BVF_RISCV_SUBSYSTEM:MAC_1_MDI_F2M} -value {GND} 
 
+sd_connect_pins_to_constant -sd_name {BVF_GATEWARE} -pin_names {M2_W_DISABLE1} -value {GND} 
+sd_connect_pins_to_constant -sd_name {BVF_GATEWARE} -pin_names {M2_W_DISABLE2} -value {GND} 
 
 #-------------------------------------------------------------------------------
 

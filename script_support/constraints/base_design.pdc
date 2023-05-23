@@ -32,6 +32,15 @@ set_io -port_name VIO_ENABLE \
     -fixed true \
     -DIRECTION OUTPUT
 
+set_io -port_name M2_W_DISABLE1  \
+    -pin_name U19                \
+    -fixed true                  \
+    -DIRECTION OUTPUT
+
+set_io -port_name M2_W_DISABLE2  \
+    -pin_name R15                \
+    -fixed true                  \
+    -DIRECTION OUTPUT
 
 set_io -port_name P9_11  \
     -pin_name B5        \
@@ -125,3 +134,4 @@ set_io -port_name P8_PIN14_USER_LED_11  \
     -io_std LVCMOS33  \
     -fixed true          \
     -DIRECTION INOUT
+
