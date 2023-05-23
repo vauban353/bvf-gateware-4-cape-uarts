@@ -88,6 +88,8 @@ sd_rename_port -sd_name ${sd_name} -current_port_name {INIT_DONE} -new_port_name
 
 sd_connect_pins -sd_name ${sd_name} -pin_names {"M2_PERST0n" "PCIE:PCIE_0_PERST_OUT_N"}
 
+sd_connect_pin_to_port -sd_name ${sd_name} -pin_name {RECONFIGURATION_INTERFACE_0:PSTRB} -port_name {}
+
 #-------------------------------------------------------------------------------
 
 # Re-enable auto promotion of pins of type 'pad'

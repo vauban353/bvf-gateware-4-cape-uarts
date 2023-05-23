@@ -327,6 +327,7 @@ sd_connect_pin_to_port -sd_name ${sd_name} -pin_name {PF_SOC_MSS:FIC_0_ACLK} -po
 sd_connect_pin_to_port -sd_name ${sd_name} -pin_name {PF_SOC_MSS:FIC_1_ACLK} -port_name {} 
 sd_connect_pin_to_port -sd_name ${sd_name} -pin_name {PF_SOC_MSS:FIC_2_ACLK} -port_name {} 
 sd_connect_pin_to_port -sd_name ${sd_name} -pin_name {PF_SOC_MSS:MSS_RESET_N_M2F} -port_name {} 
+sd_connect_pin_to_port -sd_name ${sd_name} -pin_name {PF_SOC_MSS:FIC_3_APB_M_PSTRB} -port_name {}
 
 #-------------------------------------------------------------------------------
 
@@ -551,7 +552,6 @@ sd_connect_pins_to_constant -sd_name ${sd_name} -pin_names {PF_SOC_MSS:MSS_RESET
 
 
 # Mark pins unused
-sd_mark_pins_unused -sd_name ${sd_name} -pin_names {PF_SOC_MSS:FIC_3_APB_M_PSTRB}
 sd_mark_pins_unused -sd_name ${sd_name} -pin_names {PF_SOC_MSS:PLL_CPU_LOCK_M2F}
 sd_mark_pins_unused -sd_name ${sd_name} -pin_names {PF_SOC_MSS:PLL_DDR_LOCK_M2F}
 sd_mark_pins_unused -sd_name ${sd_name} -pin_names {PF_SOC_MSS:PLL_SGMII_LOCK_M2F}
