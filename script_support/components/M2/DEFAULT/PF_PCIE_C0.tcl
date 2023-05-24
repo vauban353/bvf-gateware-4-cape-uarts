@@ -15,7 +15,7 @@ create_and_configure_core -core_vlnv {Actel:SgCore:PF_PCIE:*} -component_name {P
 "UI_PCIE_0_BAR_MODE:Custom"  \
 "UI_PCIE_0_CDR_REF_CLK_NUMBER:1"  \
 "UI_PCIE_0_CDR_REF_CLK_SOURCE:Dedicated"  \
-"UI_PCIE_0_CLASS_CODE:0x060400"  \
+"UI_PCIE_0_CLASS_CODE:0x0604"  \
 "UI_PCIE_0_CONTROLLER_ENABLED:Enabled"  \
 "UI_PCIE_0_DE_EMPHASIS:-3.5 dB"  \
 "UI_PCIE_0_DEVICE_ID:0x1556"  \
@@ -27,7 +27,7 @@ create_and_configure_core -core_vlnv {Actel:SgCore:PF_PCIE:*} -component_name {P
 "UI_PCIE_0_L1_ENABLE:Disabled"  \
 "UI_PCIE_0_L1_EXIT_LATENCY:16 us to less than 32 us"  \
 "UI_PCIE_0_LANE_RATE:Gen2 (5.0 Gbps)"  \
-"UI_PCIE_0_MASTER_SIZE_BAR_0_TABLE:4 KB"  \
+"UI_PCIE_0_MASTER_SIZE_BAR_0_TABLE:2 GB"  \
 "UI_PCIE_0_MASTER_SIZE_BAR_1_TABLE:4 KB"  \
 "UI_PCIE_0_MASTER_SIZE_BAR_2_TABLE:4 KB"  \
 "UI_PCIE_0_MASTER_SIZE_BAR_3_TABLE:4 KB"  \
@@ -63,7 +63,7 @@ create_and_configure_core -core_vlnv {Actel:SgCore:PF_PCIE:*} -component_name {P
 "UI_PCIE_0_PORT_TYPE:Root Port"  \
 "UI_PCIE_0_REF_CLK_FREQ:100"  \
 "UI_PCIE_0_REVISION_ID:0x0000"  \
-"UI_PCIE_0_SLAVE_SIZE_TABLE_0:2 GB"  \
+"UI_PCIE_0_SLAVE_SIZE_TABLE_0:4 KB"  \
 "UI_PCIE_0_SLAVE_SIZE_TABLE_1:4 KB"  \
 "UI_PCIE_0_SLAVE_SIZE_TABLE_2:4 KB"  \
 "UI_PCIE_0_SLAVE_SIZE_TABLE_3:4 KB"  \
