@@ -242,6 +242,7 @@ if !{[info exists ONLY_CREATE_DESIGN]} {
     } else {
         run_tool -name {GENERATEPROGRAMMINGDATA}
     }
+    configure_spiflash -cfg_file {./script_support/spiflash.cfg} 
     source ./script_support/export_flashproexpress.tcl
 } 
 
