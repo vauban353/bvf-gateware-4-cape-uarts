@@ -3,7 +3,7 @@
 #===============================================================================
 
 puts "======== Add M.2 option: NONE ========"
-set sd_name {BVF_GATEWARE}
+set sd_name ${top_level_name}
 
 sd_mark_pins_unused -sd_name ${sd_name} -pin_names {BVF_RISCV_SUBSYSTEM:FIC_0_AXI4_TARGET} 
 sd_mark_pins_unused -sd_name ${sd_name} -pin_names {BVF_RISCV_SUBSYSTEM:M2_APB_MTARGET} 

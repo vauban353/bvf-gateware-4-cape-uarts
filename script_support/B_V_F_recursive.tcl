@@ -21,4 +21,4 @@ source script_support/components/IHC_APB.tcl
 source script_support/components/IHC_SUBSYSTEM.tcl
 source script_support/components/BVF_RISCV_SUBSYSTEM.tcl
 source script_support/components/BVF_GATEWARE.tcl 
-set_root -module {BVF_GATEWARE::work} 
+set_root -module ${top_level_name}::work 

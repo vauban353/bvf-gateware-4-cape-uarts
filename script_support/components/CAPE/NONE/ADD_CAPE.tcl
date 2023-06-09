@@ -1,6 +1,6 @@
 puts "======== Add cape option: NONE ========"
 
-set sd_name {BVF_GATEWARE}
+set sd_name ${top_level_name}
 
 #-------------------------------------------------------------------------------
 # Cape pins

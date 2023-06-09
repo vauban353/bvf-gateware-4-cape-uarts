@@ -52,6 +52,13 @@ set mss_config_loc "$install_loc/bin64/pfsoc_mss"
 set local_dir [pwd]
 set constraint_path ./script_support/constraints
 set project_name "BVF_GATEWARE_025T"
+#set top_level_name BVF_GATEWARE
+
+if {[info exists TOP_LEVEL_NAME]} {
+    set top_level_name $TOP_LEVEL_NAME
+} else {
+    set top_level_name BVF_GATEWARE
+}
 
 if {[info exists CAPE_OPTION]} {
     set cape_option "$CAPE_OPTION"
@@ -193,7 +200,7 @@ import_files \
 organize_tool_files \
     -tool {SYNTHESIZE} \
     -file "${project_dir}/constraint/fic_clocks.sdc" \
-    -module {BVF_GATEWARE::work} \
+    -module ${top_level_name}::work \
     -input_type {constraint}
 
 organize_tool_files \
@@ -205,13 +212,13 @@ organize_tool_files \
     -file "${project_dir}/constraint/io/M2.pdc" \
     -file "${project_dir}/constraint/io/HIGH_SPEED_CONNECTOR.pdc" \
     -file "${project_dir}/constraint/io/MIPI_CSI_INTERFACE.pdc" \
-    -module {BVF_GATEWARE::work} \
+    -module ${top_level_name}::work \
     -input_type {constraint}
 
 organize_tool_files \
     -tool {VERIFYTIMING} \
     -file "${project_dir}/constraint/fic_clocks.sdc" \
-    -module {BVF_GATEWARE::work} \
+    -module ${top_level_name}::work \
     -input_type {constraint}
 
 configure_tool \

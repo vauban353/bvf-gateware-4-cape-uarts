@@ -19,7 +19,7 @@ source script_support/components/HIGH_SPEED_CONNECTOR/IO_BOARD_VALIDATION/HIGH_S
 
 #source script_support/components/HIGH_SPEED_CONNECTOR/IO_BOARD_VALIDATION/HIGH_SPEED_CONNECTOR.tcl
 
-set sd_name {BVF_GATEWARE}
+set sd_name ${top_level_name}
 
 sd_instantiate_component -sd_name ${sd_name} -component_name {HIGH_SPEED_INTERFACE} -instance_name {HIGH_SPEED_INTERFACE_0} 
 

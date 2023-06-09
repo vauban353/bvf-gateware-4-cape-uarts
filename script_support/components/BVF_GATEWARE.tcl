@@ -2,7 +2,7 @@
 source script_support/components/BVF_RISCV_SUBSYSTEM/USER_LED_GPIO_PADS.tcl
 
 # Creating SmartDesign BVF_GATEWARE
-set sd_name {BVF_GATEWARE}
+set sd_name ${top_level_name}
 create_smartdesign -sd_name ${sd_name}
 
 # Disable auto promotion of pins of type 'pad'
@@ -268,8 +268,8 @@ sd_mark_pins_unused -sd_name ${sd_name} -pin_names {BVF_RISCV_SUBSYSTEM:MAC_1_MD
 sd_mark_pins_unused -sd_name ${sd_name} -pin_names {BVF_RISCV_SUBSYSTEM:MAC_1_MDC_M2F} 
 sd_connect_pins_to_constant -sd_name ${sd_name} -pin_names {BVF_RISCV_SUBSYSTEM:MAC_1_MDI_F2M} -value {GND} 
 
-sd_connect_pins_to_constant -sd_name {BVF_GATEWARE} -pin_names {M2_W_DISABLE1} -value {GND} 
-sd_connect_pins_to_constant -sd_name {BVF_GATEWARE} -pin_names {M2_W_DISABLE2} -value {GND} 
+sd_connect_pins_to_constant -sd_name ${sd_name} -pin_names {M2_W_DISABLE1} -value {GND} 
+sd_connect_pins_to_constant -sd_name ${sd_name} -pin_names {M2_W_DISABLE2} -value {GND} 
 
 #-------------------------------------------------------------------------------
 
