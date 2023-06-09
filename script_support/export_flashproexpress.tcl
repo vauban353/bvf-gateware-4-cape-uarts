@@ -1,7 +1,7 @@
 
 
 export_prog_job \
-         -job_file_name {BVF_GATEWARE} \
+         -job_file_name ${top_level_name} \
          -export_dir $FPE_EXPORT_PATH \
          -bitstream_file_type {TRUSTED_FACILITY} \
          -bitstream_file_components {ENVM FABRIC_SNVM} \
