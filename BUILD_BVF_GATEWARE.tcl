@@ -54,6 +54,18 @@ set constraint_path ./script_support/constraints
 set project_name "BVF_GATEWARE_025T"
 #set top_level_name BVF_GATEWARE
 
+if {[info exists PROG_EXPORT_PATH]} {
+    set prog_export_path $PROG_EXPORT_PATH/bitstream
+} else {
+    set prog_export_path $local_dir/bitstream
+}
+
+if {[info exists FPE_EXPORT_PATH]} {
+    set fpe_export_path $FPE_EXPORT_PATH
+} else {
+    set fpe_export_path $prog_export_path/FlashProExpress
+}
+
 if {[info exists TOP_LEVEL_NAME]} {
     set top_level_name $TOP_LEVEL_NAME
 } else {
@@ -237,6 +249,10 @@ derive_constraints_sdc
 #
 # // Run the design flow and add eNVM clients if required
 #
+file mkdir $prog_export_path
+file mkdir $prog_export_path/FlashProExpress
+file mkdir $prog_export_path/LinuxProgramming
+file mkdir $prog_export_path/DirectC
 
 if !{[info exists ONLY_CREATE_DESIGN]} {
     run_tool -name {SYNTHESIZE}
@@ -246,14 +262,20 @@ if !{[info exists ONLY_CREATE_DESIGN]} {
         create_eNVM_config "$local_dir/script_support/components/MSS/ENVM.cfg" "$HSS_IMAGE_PATH"
         run_tool -name {GENERATEPROGRAMMINGDATA}
         configure_envm -cfg_file {script_support/components/MSS/ENVM.cfg}
+        source ./script_support/export_spi_prog_file.tcl
+#       configure_spiflash -cfg_file {./script_support/spiflash.cfg} 
+        run_tool -name {GENERATEPROGRAMMINGFILE} 
+#       run_tool -name {GENERATE_SPI_FLASH_IMAGE} 
+        source ./script_support/export_flashproexpress.tcl
     } else {
         run_tool -name {GENERATEPROGRAMMINGDATA}
+        puts "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
+        puts "!!!              No Hart Software Services (HSS) image provided.             !!!"
+        puts "!!! Make sure this is what you were planning. If so, you know what you are   !!!"
+        puts "!!! doing: Open the Libero project to generate the design's programming      !!!"
+        puts "!!! bitstream flavor you need.                                               !!!"
+        puts "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
     }
-    source ./script_support/export_spi_prog_file.tcl
-    configure_spiflash -cfg_file {./script_support/spiflash.cfg} 
-    run_tool -name {GENERATEPROGRAMMINGFILE} 
-#    run_tool -name {GENERATE_SPI_FLASH_IMAGE} 
-    source ./script_support/export_flashproexpress.tcl
 } 
 
 save_project 

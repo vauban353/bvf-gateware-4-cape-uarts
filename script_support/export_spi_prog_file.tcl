@@ -1,6 +1,6 @@
 export_bitstream_file \
-         -file_name ${top_level_name} \
-         -export_dir $FPE_EXPORT_PATH/../LinuxProgramming \
+         -file_name {mpfs_bitstream} \
+         -export_dir $prog_export_path/LinuxProgramming \
          -format {SPI} \
          -for_ihp 0 \
          -limit_SVF_file_size 0 \

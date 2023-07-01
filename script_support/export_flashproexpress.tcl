@@ -2,9 +2,9 @@
 
 export_prog_job \
          -job_file_name ${top_level_name} \
-         -export_dir $FPE_EXPORT_PATH \
+         -export_dir $fpe_export_path \
          -bitstream_file_type {TRUSTED_FACILITY} \
-         -bitstream_file_components {ENVM FABRIC_SNVM} \
+         -bitstream_file_components {FABRIC SNVM ENVM} \
          -zeroization_likenew_action 0 \
          -zeroization_unrecoverable_action 0 \
          -program_design 1 \
