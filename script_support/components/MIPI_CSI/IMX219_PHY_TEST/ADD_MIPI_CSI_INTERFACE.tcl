@@ -57,7 +57,9 @@ sd_connect_pins -sd_name ${sd_name} -pin_names {"IMX219_IF_TOP_0:DATA_OUT[4:4]" 
 sd_connect_pins -sd_name ${sd_name} -pin_names {"IMX219_IF_TOP_0:DATA_OUT[5:5]" "P8_PIN35"} 
 sd_connect_pins -sd_name ${sd_name} -pin_names {"IMX219_IF_TOP_0:DATA_OUT[6:6]" "P8_PIN34"} 
 sd_connect_pins -sd_name ${sd_name} -pin_names {"IMX219_IF_TOP_0:DATA_OUT[7:7]" "P8_PIN33"} 
+
+sd_connect_pins_to_constant -sd_name ${sd_name} -pin_names {CSI1_PWND} -value {VCC}
+
 sd_connect_pins_to_constant -sd_name ${sd_name} -pin_names {P8_PIN32} -value {GND} 
 sd_connect_pins_to_constant -sd_name ${sd_name} -pin_names {IMX219_IF_TOP_0:TRNG_RST_N} -value {VCC} 
-sd_connect_pins_to_constant -sd_name ${sd_name} -pin_names {CSI1_PWND} -value {VCC} 
 
