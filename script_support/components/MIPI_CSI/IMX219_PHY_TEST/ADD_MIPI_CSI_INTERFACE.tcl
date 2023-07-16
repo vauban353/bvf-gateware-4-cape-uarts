@@ -13,7 +13,7 @@ source script_support/components/MIPI_CSI/IMX219_PHY_TEST/mipicsi2rxdecoderPF_C0
 source script_support/components/MIPI_CSI/IMX219_PHY_TEST/IMX219_IF_TOP.tcl
 
 
-set sd_name {BVF_GATEWARE}
+set sd_name ${top_level_name}
 
 sd_create_scalar_port -sd_name ${sd_name} -port_name {P8_PIN32} -port_direction {OUT}
 sd_create_scalar_port -sd_name ${sd_name} -port_name {P8_PIN33} -port_direction {OUT}
