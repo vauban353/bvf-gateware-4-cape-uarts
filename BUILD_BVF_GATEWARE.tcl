@@ -89,14 +89,14 @@ puts "M.2 option selected: $m2_option"
 if {[info exists HIGH_SPEED_CONN_OPTION]} {
     set high_speed_conn_option "$HIGH_SPEED_CONN_OPTION"
 } else {
-    set high_speed_conn_option "NONE"
+    set high_speed_conn_option "DEFAULT"
 }
 puts "High speed connector option option selected: $high_speed_conn_option"
 
 if {[info exists MIPI_CSI_OPTION]} {
     set mipi_csi_option "$MIPI_CSI_OPTION"
 } else {
-    set mipi_csi_option "NONE"
+    set mipi_csi_option "DEFAULT"
 }
 puts "MIPI CSI option option selected: $mipi_csi_option"
 
