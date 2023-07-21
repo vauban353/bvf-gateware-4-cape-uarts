@@ -55,13 +55,13 @@ set_io -port_name P9_13  \
     -DIRECTION OUTPUT
 
 set_io -port_name P9_19 \
-    -pin_name A11	\
+    -pin_name A10	\
     -fixed true	\
     -io_std LVCMOS33  \
     -DIRECTION INOUT    
 
 set_io -port_name P9_20	\
-    -pin_name A10	\
+    -pin_name A11	\
     -fixed true	\
     -io_std LVCMOS33  \
     -DIRECTION INOUT
