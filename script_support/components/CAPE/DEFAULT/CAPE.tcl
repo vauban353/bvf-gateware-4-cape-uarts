@@ -63,7 +63,7 @@ sd_rename_port -sd_name ${sd_name} -current_port_name {GPIO_24_PAD} -new_port_na
 sd_rename_port -sd_name ${sd_name} -current_port_name {GPIO_25_PAD} -new_port_name {P9_31}
 sd_rename_port -sd_name ${sd_name} -current_port_name {GPIO_26_PAD} -new_port_name {P9_41}
 
-#sd_rename_port -sd_name ${sd_name} -current_port_name {GPIO_27_PAD} -new_port_name {P8_4}
+sd_rename_port -sd_name ${sd_name} -current_port_name {GPIO_27_PAD} -new_port_name {P8_28}
 #sd_rename_port -sd_name ${sd_name} -current_port_name {GPIO_28_PAD} -new_port_name {P8_5}
 #sd_rename_port -sd_name ${sd_name} -current_port_name {GPIO_29_PAD} -new_port_name {P8_6}
 #sd_rename_port -sd_name ${sd_name} -current_port_name {GPIO_30_PAD} -new_port_name {P8_7}
@@ -97,7 +97,6 @@ sd_rename_port -sd_name ${sd_name} -current_port_name {LCD_DATA15} -new_port_nam
 sd_rename_port -sd_name ${sd_name} -current_port_name {LCD_HSYNC} -new_port_name {P8_29}
 sd_rename_port -sd_name ${sd_name} -current_port_name {LCD_AC_BIAS} -new_port_name {P8_30}
 sd_rename_port -sd_name ${sd_name} -current_port_name {LCD_VSYNC} -new_port_name {P8_27}
-sd_rename_port -sd_name ${sd_name} -current_port_name {LCD_PCLK} -new_port_name {P8_28}
 
 
 #-------------------------------------------------------------------------------

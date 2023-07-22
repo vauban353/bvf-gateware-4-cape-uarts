@@ -66,9 +66,9 @@ sd_create_scalar_port -sd_name ${sd_name} -port_name {USER_BUTTON} -port_directi
 sd_create_scalar_port -sd_name ${sd_name} -port_name {SD_CARD_CS} -port_direction {OUT} 
 sd_create_scalar_port -sd_name ${sd_name} -port_name {SD_DET} -port_direction {IN} 
 
-sd_create_bus_port -sd_name ${sd_name} -port_name {GPIO_2_M2F} -port_direction {OUT} -port_range {[26:0]}
-sd_create_bus_port -sd_name ${sd_name} -port_name {GPIO_2_OE_M2F} -port_direction {OUT} -port_range {[26:0]} 
-sd_create_bus_port -sd_name ${sd_name} -port_name {GPIO_2_F2M} -port_direction {IN} -port_range {[26:0]} 
+sd_create_bus_port -sd_name ${sd_name} -port_name {GPIO_2_M2F} -port_direction {OUT} -port_range {[27:0]}
+sd_create_bus_port -sd_name ${sd_name} -port_name {GPIO_2_OE_M2F} -port_direction {OUT} -port_range {[27:0]} 
+sd_create_bus_port -sd_name ${sd_name} -port_name {GPIO_2_F2M} -port_direction {IN} -port_range {[27:0]} 
 
 #-------------------------------------------------------------------------------
 # Analog to Digital Converter pins (for cape analog inputs)
@@ -170,6 +170,11 @@ sd_connect_pins -sd_name ${sd_name} -pin_names {"PF_SOC_MSS:I2C_0_SDA_F2M" "I2C0
 sd_connect_pins -sd_name ${sd_name} -pin_names {"I2C0_SDA_BIBUF:PAD" "I2C0_SDA"}
 sd_connect_pins -sd_name ${sd_name} -pin_names {"I2C0_SCL_BIBUF:PAD" "I2C0_SCL"}
 
+sd_create_scalar_port -sd_name ${sd_name} -port_name {M2_W_DISABLE1} -port_direction {OUT} 
+sd_create_scalar_port -sd_name ${sd_name} -port_name {M2_W_DISABLE2} -port_direction {OUT} 
+
+sd_connect_pins -sd_name ${sd_name} -pin_names {"M2_W_DISABLE1" "PF_SOC_MSS:GPIO_2_M2F_28"} 
+sd_connect_pins -sd_name ${sd_name} -pin_names {"M2_W_DISABLE2" "PF_SOC_MSS:GPIO_2_M2F_29"} 
 
 
 sd_connect_pins -sd_name ${sd_name} -pin_names {"PF_SOC_MSS:I2C_1_SCL" "I2C_1_SCL" }
@@ -334,7 +339,7 @@ sd_connect_pin_to_port -sd_name ${sd_name} -pin_name {PF_SOC_MSS:FIC_3_APB_M_PST
 #sd_create_pin_slices -sd_name ${sd_name} -pin_name {GPIO_2_F2M} -pin_slices {"[30:30]"} 
 #sd_create_pin_slices -sd_name ${sd_name} -pin_name {GPIO_2_F2M} -pin_slices {"[29:29]"} 
 #sd_create_pin_slices -sd_name ${sd_name} -pin_name {GPIO_2_F2M} -pin_slices {"[28:28]"} 
-#sd_create_pin_slices -sd_name ${sd_name} -pin_name {GPIO_2_F2M} -pin_slices {"[27:27]"} 
+sd_create_pin_slices -sd_name ${sd_name} -pin_name {GPIO_2_F2M} -pin_slices {"[27:27]"} 
 sd_create_pin_slices -sd_name ${sd_name} -pin_name {GPIO_2_F2M} -pin_slices {"[26:26]"} 
 sd_create_pin_slices -sd_name ${sd_name} -pin_name {GPIO_2_F2M} -pin_slices {"[25:25]"} 
 sd_create_pin_slices -sd_name ${sd_name} -pin_name {GPIO_2_F2M} -pin_slices {"[24:24]"} 
@@ -366,7 +371,7 @@ sd_create_pin_slices -sd_name ${sd_name} -pin_name {GPIO_2_F2M} -pin_slices {"[0
 #sd_connect_pins -sd_name ${sd_name} -pin_names {"GPIO_2_F2M[30:30]" "PF_SOC_MSS:GPIO_2_F2M_30"} 
 #sd_connect_pins -sd_name ${sd_name} -pin_names {"GPIO_2_F2M[29:29]" "PF_SOC_MSS:GPIO_2_F2M_29"} 
 #sd_connect_pins -sd_name ${sd_name} -pin_names {"GPIO_2_F2M[28:28]" "PF_SOC_MSS:GPIO_2_F2M_28"} 
-#sd_connect_pins -sd_name ${sd_name} -pin_names {"GPIO_2_F2M[27:27]" "PF_SOC_MSS:GPIO_2_F2M_27"} 
+sd_connect_pins -sd_name ${sd_name} -pin_names {"GPIO_2_F2M[27:27]" "PF_SOC_MSS:GPIO_2_F2M_27"} 
 sd_connect_pins -sd_name ${sd_name} -pin_names {"GPIO_2_F2M[26:26]" "PF_SOC_MSS:GPIO_2_F2M_26"} 
 sd_connect_pins -sd_name ${sd_name} -pin_names {"GPIO_2_F2M[25:25]" "PF_SOC_MSS:GPIO_2_F2M_25"} 
 sd_connect_pins -sd_name ${sd_name} -pin_names {"GPIO_2_F2M[24:24]" "PF_SOC_MSS:GPIO_2_F2M_24"} 
@@ -401,7 +406,7 @@ sd_connect_pins -sd_name ${sd_name} -pin_names {"GPIO_2_F2M[0:0]" "PF_SOC_MSS:GP
 #sd_create_pin_slices -sd_name ${sd_name} -pin_name {GPIO_2_M2F} -pin_slices {"[30:30]"} 
 #sd_create_pin_slices -sd_name ${sd_name} -pin_name {GPIO_2_M2F} -pin_slices {"[29:29]"} 
 #sd_create_pin_slices -sd_name ${sd_name} -pin_name {GPIO_2_M2F} -pin_slices {"[28:28]"} 
-#sd_create_pin_slices -sd_name ${sd_name} -pin_name {GPIO_2_M2F} -pin_slices {"[27:27]"} 
+sd_create_pin_slices -sd_name ${sd_name} -pin_name {GPIO_2_M2F} -pin_slices {"[27:27]"} 
 sd_create_pin_slices -sd_name ${sd_name} -pin_name {GPIO_2_M2F} -pin_slices {"[26:26]"} 
 sd_create_pin_slices -sd_name ${sd_name} -pin_name {GPIO_2_M2F} -pin_slices {"[25:25]"} 
 sd_create_pin_slices -sd_name ${sd_name} -pin_name {GPIO_2_M2F} -pin_slices {"[24:24]"} 
@@ -433,7 +438,7 @@ sd_create_pin_slices -sd_name ${sd_name} -pin_name {GPIO_2_M2F} -pin_slices {"[0
 #sd_connect_pins -sd_name ${sd_name} -pin_names {"PF_SOC_MSS:GPIO_2_M2F_30" "GPIO_2_M2F[30:30]"} 
 #sd_connect_pins -sd_name ${sd_name} -pin_names {"PF_SOC_MSS:GPIO_2_M2F_29" "GPIO_2_M2F[29:29]"} 
 #sd_connect_pins -sd_name ${sd_name} -pin_names {"PF_SOC_MSS:GPIO_2_M2F_28" "GPIO_2_M2F[28:28]"} 
-#sd_connect_pins -sd_name ${sd_name} -pin_names {"PF_SOC_MSS:GPIO_2_M2F_27" "GPIO_2_M2F[27:27]"} 
+sd_connect_pins -sd_name ${sd_name} -pin_names {"PF_SOC_MSS:GPIO_2_M2F_27" "GPIO_2_M2F[27:27]"} 
 sd_connect_pins -sd_name ${sd_name} -pin_names {"PF_SOC_MSS:GPIO_2_M2F_26" "GPIO_2_M2F[26:26]"} 
 sd_connect_pins -sd_name ${sd_name} -pin_names {"PF_SOC_MSS:GPIO_2_M2F_25" "GPIO_2_M2F[25:25]"} 
 sd_connect_pins -sd_name ${sd_name} -pin_names {"PF_SOC_MSS:GPIO_2_M2F_24" "GPIO_2_M2F[24:24]"} 
@@ -467,7 +472,7 @@ sd_connect_pins -sd_name ${sd_name} -pin_names {"PF_SOC_MSS:GPIO_2_M2F_0" "GPIO_
 #sd_create_pin_slices -sd_name ${sd_name} -pin_name {GPIO_2_OE_M2F} -pin_slices {"[30:30]"} 
 #sd_create_pin_slices -sd_name ${sd_name} -pin_name {GPIO_2_OE_M2F} -pin_slices {"[29:29]"} 
 #sd_create_pin_slices -sd_name ${sd_name} -pin_name {GPIO_2_OE_M2F} -pin_slices {"[28:28]"} 
-#sd_create_pin_slices -sd_name ${sd_name} -pin_name {GPIO_2_OE_M2F} -pin_slices {"[27:27]"} 
+sd_create_pin_slices -sd_name ${sd_name} -pin_name {GPIO_2_OE_M2F} -pin_slices {"[27:27]"} 
 sd_create_pin_slices -sd_name ${sd_name} -pin_name {GPIO_2_OE_M2F} -pin_slices {"[26:26]"} 
 sd_create_pin_slices -sd_name ${sd_name} -pin_name {GPIO_2_OE_M2F} -pin_slices {"[25:25]"} 
 sd_create_pin_slices -sd_name ${sd_name} -pin_name {GPIO_2_OE_M2F} -pin_slices {"[24:24]"} 
@@ -500,7 +505,7 @@ sd_create_pin_slices -sd_name ${sd_name} -pin_name {GPIO_2_OE_M2F} -pin_slices {
 #sd_connect_pins -sd_name ${sd_name} -pin_names {"GPIO_2_OE_M2F[30:30]" "PF_SOC_MSS:GPIO_2_OE_M2F_30"} 
 #sd_connect_pins -sd_name ${sd_name} -pin_names {"GPIO_2_OE_M2F[29:29]" "PF_SOC_MSS:GPIO_2_OE_M2F_29"} 
 #sd_connect_pins -sd_name ${sd_name} -pin_names {"GPIO_2_OE_M2F[28:28]" "PF_SOC_MSS:GPIO_2_OE_M2F_28"} 
-#sd_connect_pins -sd_name ${sd_name} -pin_names {"GPIO_2_OE_M2F[27:27]" "PF_SOC_MSS:GPIO_2_OE_M2F_27"} 
+sd_connect_pins -sd_name ${sd_name} -pin_names {"GPIO_2_OE_M2F[27:27]" "PF_SOC_MSS:GPIO_2_OE_M2F_27"} 
 sd_connect_pins -sd_name ${sd_name} -pin_names {"GPIO_2_OE_M2F[26:26]" "PF_SOC_MSS:GPIO_2_OE_M2F_26"} 
 sd_connect_pins -sd_name ${sd_name} -pin_names {"GPIO_2_OE_M2F[25:25]" "PF_SOC_MSS:GPIO_2_OE_M2F_25"} 
 sd_connect_pins -sd_name ${sd_name} -pin_names {"GPIO_2_OE_M2F[24:24]" "PF_SOC_MSS:GPIO_2_OE_M2F_24"} 

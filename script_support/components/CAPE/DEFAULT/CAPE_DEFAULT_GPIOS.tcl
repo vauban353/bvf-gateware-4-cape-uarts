@@ -31,14 +31,14 @@ sd_instantiate_macro -sd_name ${sd_name} -macro_name {BIBUF} -instance_name {GPI
 sd_instantiate_macro -sd_name ${sd_name} -macro_name {BIBUF} -instance_name {GPIO_24_BIBUF}
 sd_instantiate_macro -sd_name ${sd_name} -macro_name {BIBUF} -instance_name {GPIO_25_BIBUF}
 sd_instantiate_macro -sd_name ${sd_name} -macro_name {BIBUF} -instance_name {GPIO_26_BIBUF}
-#sd_instantiate_macro -sd_name ${sd_name} -macro_name {BIBUF} -instance_name {GPIO_27_BIBUF}
+sd_instantiate_macro -sd_name ${sd_name} -macro_name {BIBUF} -instance_name {GPIO_27_BIBUF}
 #sd_instantiate_macro -sd_name ${sd_name} -macro_name {BIBUF} -instance_name {GPIO_28_BIBUF}
 #sd_instantiate_macro -sd_name ${sd_name} -macro_name {BIBUF} -instance_name {GPIO_29_BIBUF}
 #sd_instantiate_macro -sd_name ${sd_name} -macro_name {BIBUF} -instance_name {GPIO_30_BIBUF}
 
 
 
-sd_create_bus_port -sd_name {CAPE_DEFAULT_GPIOS} -port_name {GPIO_OUT} -port_direction {IN} -port_range {[26:0]}
+sd_create_bus_port -sd_name {CAPE_DEFAULT_GPIOS} -port_name {GPIO_OUT} -port_direction {IN} -port_range {[27:0]}
 sd_create_pin_slices -sd_name {CAPE_DEFAULT_GPIOS} -pin_name {GPIO_OUT} -pin_slices {"[0:0]"}
 sd_create_pin_slices -sd_name {CAPE_DEFAULT_GPIOS} -pin_name {GPIO_OUT} -pin_slices {"[1:1]"}
 sd_create_pin_slices -sd_name {CAPE_DEFAULT_GPIOS} -pin_name {GPIO_OUT} -pin_slices {"[2:2]"}
@@ -66,13 +66,13 @@ sd_create_pin_slices -sd_name {CAPE_DEFAULT_GPIOS} -pin_name {GPIO_OUT} -pin_sli
 sd_create_pin_slices -sd_name {CAPE_DEFAULT_GPIOS} -pin_name {GPIO_OUT} -pin_slices {"[24:24]"}
 sd_create_pin_slices -sd_name {CAPE_DEFAULT_GPIOS} -pin_name {GPIO_OUT} -pin_slices {"[25:25]"}
 sd_create_pin_slices -sd_name {CAPE_DEFAULT_GPIOS} -pin_name {GPIO_OUT} -pin_slices {"[26:26]"}
-#sd_create_pin_slices -sd_name {CAPE_DEFAULT_GPIOS} -pin_name {GPIO_OUT} -pin_slices {"[27:27]"}
+sd_create_pin_slices -sd_name {CAPE_DEFAULT_GPIOS} -pin_name {GPIO_OUT} -pin_slices {"[27:27]"}
 #sd_create_pin_slices -sd_name {CAPE_DEFAULT_GPIOS} -pin_name {GPIO_OUT} -pin_slices {"[28:28]"}
 #sd_create_pin_slices -sd_name {CAPE_DEFAULT_GPIOS} -pin_name {GPIO_OUT} -pin_slices {"[29:29]"}
 #sd_create_pin_slices -sd_name {CAPE_DEFAULT_GPIOS} -pin_name {GPIO_OUT} -pin_slices {"[30:30]"}
 
 
-sd_create_bus_port -sd_name {CAPE_DEFAULT_GPIOS} -port_name {GPIO_OE} -port_direction {IN} -port_range {[26:0]}
+sd_create_bus_port -sd_name {CAPE_DEFAULT_GPIOS} -port_name {GPIO_OE} -port_direction {IN} -port_range {[27:0]}
 sd_create_pin_slices -sd_name {CAPE_DEFAULT_GPIOS} -pin_name {GPIO_OE} -pin_slices {"[0:0]"}
 sd_create_pin_slices -sd_name {CAPE_DEFAULT_GPIOS} -pin_name {GPIO_OE} -pin_slices {"[1:1]"}
 sd_create_pin_slices -sd_name {CAPE_DEFAULT_GPIOS} -pin_name {GPIO_OE} -pin_slices {"[2:2]"}
@@ -100,13 +100,13 @@ sd_create_pin_slices -sd_name {CAPE_DEFAULT_GPIOS} -pin_name {GPIO_OE} -pin_slic
 sd_create_pin_slices -sd_name {CAPE_DEFAULT_GPIOS} -pin_name {GPIO_OE} -pin_slices {"[24:24]"}
 sd_create_pin_slices -sd_name {CAPE_DEFAULT_GPIOS} -pin_name {GPIO_OE} -pin_slices {"[25:25]"}
 sd_create_pin_slices -sd_name {CAPE_DEFAULT_GPIOS} -pin_name {GPIO_OE} -pin_slices {"[26:26]"}
-#sd_create_pin_slices -sd_name {CAPE_DEFAULT_GPIOS} -pin_name {GPIO_OE} -pin_slices {"[27:27]"}
+sd_create_pin_slices -sd_name {CAPE_DEFAULT_GPIOS} -pin_name {GPIO_OE} -pin_slices {"[27:27]"}
 #sd_create_pin_slices -sd_name {CAPE_DEFAULT_GPIOS} -pin_name {GPIO_OE} -pin_slices {"[28:28]"}
 #sd_create_pin_slices -sd_name {CAPE_DEFAULT_GPIOS} -pin_name {GPIO_OE} -pin_slices {"[29:29]"}
 #sd_create_pin_slices -sd_name {CAPE_DEFAULT_GPIOS} -pin_name {GPIO_OE} -pin_slices {"[30:30]"}
 
 
-sd_create_bus_port -sd_name {CAPE_DEFAULT_GPIOS} -port_name {GPIO_IN} -port_direction {OUT} -port_range {[26:0]}
+sd_create_bus_port -sd_name {CAPE_DEFAULT_GPIOS} -port_name {GPIO_IN} -port_direction {OUT} -port_range {[27:0]}
 sd_create_pin_slices -sd_name {CAPE_DEFAULT_GPIOS} -pin_name {GPIO_IN} -pin_slices {"[0:0]"}
 sd_create_pin_slices -sd_name {CAPE_DEFAULT_GPIOS} -pin_name {GPIO_IN} -pin_slices {"[1:1]"}
 sd_create_pin_slices -sd_name {CAPE_DEFAULT_GPIOS} -pin_name {GPIO_IN} -pin_slices {"[2:2]"}
@@ -134,7 +134,7 @@ sd_create_pin_slices -sd_name {CAPE_DEFAULT_GPIOS} -pin_name {GPIO_IN} -pin_slic
 sd_create_pin_slices -sd_name {CAPE_DEFAULT_GPIOS} -pin_name {GPIO_IN} -pin_slices {"[24:24]"}
 sd_create_pin_slices -sd_name {CAPE_DEFAULT_GPIOS} -pin_name {GPIO_IN} -pin_slices {"[25:25]"}
 sd_create_pin_slices -sd_name {CAPE_DEFAULT_GPIOS} -pin_name {GPIO_IN} -pin_slices {"[26:26]"}
-#sd_create_pin_slices -sd_name {CAPE_DEFAULT_GPIOS} -pin_name {GPIO_IN} -pin_slices {"[27:27]"}
+sd_create_pin_slices -sd_name {CAPE_DEFAULT_GPIOS} -pin_name {GPIO_IN} -pin_slices {"[27:27]"}
 #sd_create_pin_slices -sd_name {CAPE_DEFAULT_GPIOS} -pin_name {GPIO_IN} -pin_slices {"[28:28]"}
 #sd_create_pin_slices -sd_name {CAPE_DEFAULT_GPIOS} -pin_name {GPIO_IN} -pin_slices {"[29:29]"}
 #sd_create_pin_slices -sd_name {CAPE_DEFAULT_GPIOS} -pin_name {GPIO_IN} -pin_slices {"[30:30]"}
@@ -167,7 +167,7 @@ sd_connect_pins -sd_name {CAPE_DEFAULT_GPIOS} -pin_names {"GPIO_23_BIBUF:D" "GPI
 sd_connect_pins -sd_name {CAPE_DEFAULT_GPIOS} -pin_names {"GPIO_24_BIBUF:D" "GPIO_OUT[24:24]"}
 sd_connect_pins -sd_name {CAPE_DEFAULT_GPIOS} -pin_names {"GPIO_25_BIBUF:D" "GPIO_OUT[25:25]"}
 sd_connect_pins -sd_name {CAPE_DEFAULT_GPIOS} -pin_names {"GPIO_26_BIBUF:D" "GPIO_OUT[26:26]"}
-#sd_connect_pins -sd_name {CAPE_DEFAULT_GPIOS} -pin_names {"GPIO_27_BIBUF:D" "GPIO_OUT[27:27]"}
+sd_connect_pins -sd_name {CAPE_DEFAULT_GPIOS} -pin_names {"GPIO_27_BIBUF:D" "GPIO_OUT[27:27]"}
 #sd_connect_pins -sd_name {CAPE_DEFAULT_GPIOS} -pin_names {"GPIO_28_BIBUF:D" "GPIO_OUT[28:28]"}
 #sd_connect_pins -sd_name {CAPE_DEFAULT_GPIOS} -pin_names {"GPIO_29_BIBUF:D" "GPIO_OUT[29:29]"}
 #sd_connect_pins -sd_name {CAPE_DEFAULT_GPIOS} -pin_names {"GPIO_30_BIBUF:D" "GPIO_OUT[30:30]"}
@@ -200,7 +200,7 @@ sd_connect_pins -sd_name {CAPE_DEFAULT_GPIOS} -pin_names {"GPIO_23_BIBUF:E" "GPI
 sd_connect_pins -sd_name {CAPE_DEFAULT_GPIOS} -pin_names {"GPIO_24_BIBUF:E" "GPIO_OE[24:24]"}
 sd_connect_pins -sd_name {CAPE_DEFAULT_GPIOS} -pin_names {"GPIO_25_BIBUF:E" "GPIO_OE[25:25]"}
 sd_connect_pins -sd_name {CAPE_DEFAULT_GPIOS} -pin_names {"GPIO_26_BIBUF:E" "GPIO_OE[26:26]"}
-#sd_connect_pins -sd_name {CAPE_DEFAULT_GPIOS} -pin_names {"GPIO_27_BIBUF:E" "GPIO_OE[27:27]"}
+sd_connect_pins -sd_name {CAPE_DEFAULT_GPIOS} -pin_names {"GPIO_27_BIBUF:E" "GPIO_OE[27:27]"}
 #sd_connect_pins -sd_name {CAPE_DEFAULT_GPIOS} -pin_names {"GPIO_28_BIBUF:E" "GPIO_OE[28:28]"}
 #sd_connect_pins -sd_name {CAPE_DEFAULT_GPIOS} -pin_names {"GPIO_29_BIBUF:E" "GPIO_OE[29:29]"}
 #sd_connect_pins -sd_name {CAPE_DEFAULT_GPIOS} -pin_names {"GPIO_30_BIBUF:E" "GPIO_OE[30:30]"}
@@ -233,7 +233,7 @@ sd_connect_pins -sd_name {CAPE_DEFAULT_GPIOS} -pin_names {"GPIO_23_BIBUF:Y" "GPI
 sd_connect_pins -sd_name {CAPE_DEFAULT_GPIOS} -pin_names {"GPIO_24_BIBUF:Y" "GPIO_IN[24:24]"}
 sd_connect_pins -sd_name {CAPE_DEFAULT_GPIOS} -pin_names {"GPIO_25_BIBUF:Y" "GPIO_IN[25:25]"}
 sd_connect_pins -sd_name {CAPE_DEFAULT_GPIOS} -pin_names {"GPIO_26_BIBUF:Y" "GPIO_IN[26:26]"}
-#sd_connect_pins -sd_name {CAPE_DEFAULT_GPIOS} -pin_names {"GPIO_27_BIBUF:Y" "GPIO_IN[27:27]"}
+sd_connect_pins -sd_name {CAPE_DEFAULT_GPIOS} -pin_names {"GPIO_27_BIBUF:Y" "GPIO_IN[27:27]"}
 #sd_connect_pins -sd_name {CAPE_DEFAULT_GPIOS} -pin_names {"GPIO_28_BIBUF:Y" "GPIO_IN[28:28]"}
 #sd_connect_pins -sd_name {CAPE_DEFAULT_GPIOS} -pin_names {"GPIO_29_BIBUF:Y" "GPIO_IN[29:29]"}
 #sd_connect_pins -sd_name {CAPE_DEFAULT_GPIOS} -pin_names {"GPIO_30_BIBUF:Y" "GPIO_IN[30:30]"}
@@ -266,7 +266,7 @@ sd_rename_port -sd_name {CAPE_DEFAULT_GPIOS} -current_port_name {PAD_22} -new_po
 sd_rename_port -sd_name {CAPE_DEFAULT_GPIOS} -current_port_name {PAD_23} -new_port_name {GPIO_24_PAD}
 sd_rename_port -sd_name {CAPE_DEFAULT_GPIOS} -current_port_name {PAD_24} -new_port_name {GPIO_25_PAD}
 sd_rename_port -sd_name {CAPE_DEFAULT_GPIOS} -current_port_name {PAD_25} -new_port_name {GPIO_26_PAD}
-#sd_rename_port -sd_name {CAPE_DEFAULT_GPIOS} -current_port_name {PAD_26} -new_port_name {GPIO_27_PAD}
+sd_rename_port -sd_name {CAPE_DEFAULT_GPIOS} -current_port_name {PAD_26} -new_port_name {GPIO_27_PAD}
 #sd_rename_port -sd_name {CAPE_DEFAULT_GPIOS} -current_port_name {PAD_27} -new_port_name {GPIO_28_PAD}
 #sd_rename_port -sd_name {CAPE_DEFAULT_GPIOS} -current_port_name {PAD_28} -new_port_name {GPIO_29_PAD}
 #sd_rename_port -sd_name {CAPE_DEFAULT_GPIOS} -current_port_name {PAD_29} -new_port_name {GPIO_30_PAD}

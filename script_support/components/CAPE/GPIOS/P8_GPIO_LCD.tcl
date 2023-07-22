@@ -24,7 +24,6 @@ sd_instantiate_macro -sd_name ${sd_name} -macro_name {BIBUF} -instance_name {LCD
 sd_instantiate_macro -sd_name ${sd_name} -macro_name {BIBUF} -instance_name {LCD_GPIO_16_BIBUF}
 sd_instantiate_macro -sd_name ${sd_name} -macro_name {BIBUF} -instance_name {LCD_GPIO_17_BIBUF}
 sd_instantiate_macro -sd_name ${sd_name} -macro_name {BIBUF} -instance_name {LCD_GPIO_18_BIBUF}
-sd_instantiate_macro -sd_name ${sd_name} -macro_name {BIBUF} -instance_name {LCD_GPIO_19_BIBUF}
 sd_instantiate_macro -sd_name ${sd_name} -macro_name {BIBUF} -instance_name {LCD_HSYNC_GPIO_BIBUF}
 sd_instantiate_macro -sd_name ${sd_name} -macro_name {BIBUF} -instance_name {LCD_AC_BIAS_GPIO_BIBUF}
 sd_instantiate_macro -sd_name ${sd_name} -macro_name {BIBUF} -instance_name {LCD_VSYNC_GPIO_BIBUF}
@@ -33,7 +32,6 @@ sd_instantiate_macro -sd_name ${sd_name} -macro_name {BIBUF} -instance_name {LCD
 
 sd_instantiate_component -sd_name {P8_GPIO_LCD} -component_name {CoreGPIO_LCD} -instance_name {} 
 
-sd_create_pin_slices -sd_name {P8_GPIO_LCD} -pin_name {CoreGPIO_LCD_0:GPIO_OE} -pin_slices {"[23:23]"} 
 sd_create_pin_slices -sd_name {P8_GPIO_LCD} -pin_name {CoreGPIO_LCD_0:GPIO_OE} -pin_slices {"[22:22]"} 
 sd_create_pin_slices -sd_name {P8_GPIO_LCD} -pin_name {CoreGPIO_LCD_0:GPIO_OE} -pin_slices {"[21:21]"} 
 sd_create_pin_slices -sd_name {P8_GPIO_LCD} -pin_name {CoreGPIO_LCD_0:GPIO_OE} -pin_slices {"[20:20]"} 
@@ -59,7 +57,6 @@ sd_create_pin_slices -sd_name {P8_GPIO_LCD} -pin_name {CoreGPIO_LCD_0:GPIO_OE} -
 sd_create_pin_slices -sd_name {P8_GPIO_LCD} -pin_name {CoreGPIO_LCD_0:GPIO_OE} -pin_slices {"[1:1]"} 
 sd_create_pin_slices -sd_name {P8_GPIO_LCD} -pin_name {CoreGPIO_LCD_0:GPIO_OE} -pin_slices {"[0:0]"} 
 
-sd_create_pin_slices -sd_name {P8_GPIO_LCD} -pin_name {CoreGPIO_LCD_0:GPIO_OUT} -pin_slices {"[23:23]"} 
 sd_create_pin_slices -sd_name {P8_GPIO_LCD} -pin_name {CoreGPIO_LCD_0:GPIO_OUT} -pin_slices {"[22:22]"} 
 sd_create_pin_slices -sd_name {P8_GPIO_LCD} -pin_name {CoreGPIO_LCD_0:GPIO_OUT} -pin_slices {"[21:21]"} 
 sd_create_pin_slices -sd_name {P8_GPIO_LCD} -pin_name {CoreGPIO_LCD_0:GPIO_OUT} -pin_slices {"[20:20]"} 
@@ -85,7 +82,6 @@ sd_create_pin_slices -sd_name {P8_GPIO_LCD} -pin_name {CoreGPIO_LCD_0:GPIO_OUT} 
 sd_create_pin_slices -sd_name {P8_GPIO_LCD} -pin_name {CoreGPIO_LCD_0:GPIO_OUT} -pin_slices {"[1:1]"} 
 sd_create_pin_slices -sd_name {P8_GPIO_LCD} -pin_name {CoreGPIO_LCD_0:GPIO_OUT} -pin_slices {"[0:0]"} 
 
-sd_create_pin_slices -sd_name {P8_GPIO_LCD} -pin_name {CoreGPIO_LCD_0:GPIO_IN} -pin_slices {"[23:23]"} 
 sd_create_pin_slices -sd_name {P8_GPIO_LCD} -pin_name {CoreGPIO_LCD_0:GPIO_IN} -pin_slices {"[22:22]"} 
 sd_create_pin_slices -sd_name {P8_GPIO_LCD} -pin_name {CoreGPIO_LCD_0:GPIO_IN} -pin_slices {"[21:21]"} 
 sd_create_pin_slices -sd_name {P8_GPIO_LCD} -pin_name {CoreGPIO_LCD_0:GPIO_IN} -pin_slices {"[20:20]"} 
@@ -207,10 +203,6 @@ sd_connect_pins -sd_name {P8_GPIO_LCD} -pin_names {"CoreGPIO_LCD_0:GPIO_OUT[22:2
 sd_connect_pins -sd_name {P8_GPIO_LCD} -pin_names {"CoreGPIO_LCD_0:GPIO_IN[22:22]" "LCD_GPIO_18_BIBUF:Y"} 
 sd_connect_pins -sd_name {P8_GPIO_LCD} -pin_names {"CoreGPIO_LCD_0:GPIO_OE[22:22]" "LCD_GPIO_18_BIBUF:E"} 
 
-sd_connect_pins -sd_name {P8_GPIO_LCD} -pin_names {"CoreGPIO_LCD_0:GPIO_OUT[23:23]" "LCD_GPIO_19_BIBUF:D"} 
-sd_connect_pins -sd_name {P8_GPIO_LCD} -pin_names {"CoreGPIO_LCD_0:GPIO_IN[23:23]" "LCD_GPIO_19_BIBUF:Y"} 
-sd_connect_pins -sd_name {P8_GPIO_LCD} -pin_names {"CoreGPIO_LCD_0:GPIO_OE[23:23]" "LCD_GPIO_19_BIBUF:E"} 
-
 
 
 
@@ -236,13 +228,12 @@ sd_rename_port -sd_name {P8_GPIO_LCD} -current_port_name {PAD_14} -new_port_name
 sd_rename_port -sd_name {P8_GPIO_LCD} -current_port_name {PAD_15} -new_port_name {P8_19}
 sd_rename_port -sd_name {P8_GPIO_LCD} -current_port_name {PAD_16} -new_port_name {P9_14}
 sd_rename_port -sd_name {P8_GPIO_LCD} -current_port_name {PAD_17} -new_port_name {P9_16}
-sd_rename_port -sd_name {P8_GPIO_LCD} -current_port_name {PAD_18} -new_port_name {P9_42}
+sd_rename_port -sd_name {P8_GPIO_LCD} -current_port_name {PAD_18} -new_port_name {LCD_PCLK}
 
 
 sd_rename_port -sd_name {P8_GPIO_LCD} -current_port_name {PAD_19} -new_port_name {LCD_HSYNC}
 sd_rename_port -sd_name {P8_GPIO_LCD} -current_port_name {PAD_20} -new_port_name {LCD_AC_BIAS}
 sd_rename_port -sd_name {P8_GPIO_LCD} -current_port_name {PAD_21} -new_port_name {LCD_VSYNC}
-sd_rename_port -sd_name {P8_GPIO_LCD} -current_port_name {PAD_22} -new_port_name {LCD_PCLK}
 
 
 sd_connect_pin_to_port -sd_name {P8_GPIO_LCD} -pin_name {CoreGPIO_LCD_0:PRESETN} -port_name {} 
