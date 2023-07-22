@@ -6,8 +6,10 @@ puts "======== Add cape option: GPIOS ========"
 source script_support/components/CAPE/GPIOS/APB_BUS_CONVERTER.tcl
 source script_support/components/CAPE/GPIOS/CoreGPIO_LCD.tcl
 source script_support/components/CAPE/GPIOS/P8_GPIO_LCD.tcl
+source script_support/components/CAPE/GPIOS/CoreGPIO_P9.tcl
+source script_support/components/CAPE/GPIOS/P9_GPIO.tcl
 source script_support/components/CAPE/GPIOS/CAPE_DEFAULT_GPIOS.tcl
-source script_support/components/CAPE/GPIOS/CAPE_PWM.tcl
+#source script_support/components/CAPE/GPIOS/CAPE_PWM.tcl
 source script_support/components/CAPE/GPIOS/CAPE.tcl
 
 #-------------------------------------------------------------------------------
@@ -46,4 +48,9 @@ sd_connect_pins -sd_name ${sd_name} -pin_names {"BVF_RISCV_SUBSYSTEM:GPIO_2_OE_M
 
 
 sd_connect_pins -sd_name ${sd_name} -pin_names {"CAPE:APB_SLAVE" "BVF_RISCV_SUBSYSTEM:CAPE_APB_MTARGET"}
+
+sd_delete_ports -sd_name ${sd_name} -port_names {P9_11} 
+sd_connect_pins_to_constant -sd_name ${sd_name} -pin_names {BVF_RISCV_SUBSYSTEM:MMUART_4_RXD} -value {GND} 
+sd_delete_ports -sd_name ${sd_name} -port_names {P9_13} 
+sd_mark_pins_unused -sd_name ${sd_name} -pin_names {BVF_RISCV_SUBSYSTEM:MMUART_4_TXD} 
 

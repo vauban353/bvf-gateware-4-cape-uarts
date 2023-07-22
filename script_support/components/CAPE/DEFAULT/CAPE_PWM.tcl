@@ -26,7 +26,7 @@ create_and_configure_core -core_vlnv {Actel:DirectCore:corepwm:4.5.100} -compone
 "FIXED_PWM_POS_EN6:true" "FIXED_PWM_POS_EN7:true" "FIXED_PWM_POS_EN8:true" "FIXED_PWM_POS_EN9:true" "FIXED_PWM_POS_EN10:true" \
 "FIXED_PWM_POS_EN11:true" "FIXED_PWM_POS_EN12:true" "FIXED_PWM_POS_EN13:true" "FIXED_PWM_POS_EN14:true" "FIXED_PWM_POS_EN15:true" \
 "FIXED_PWM_POS_EN16:true" \
-"PWM_NUM:4" \
+"PWM_NUM:5" \
 "PWM_STRETCH_VALUE1:false" "PWM_STRETCH_VALUE2:false" "PWM_STRETCH_VALUE3:false" "PWM_STRETCH_VALUE4:false" "PWM_STRETCH_VALUE5:false" \
 "PWM_STRETCH_VALUE6:false" "PWM_STRETCH_VALUE7:false" "PWM_STRETCH_VALUE8:false" "PWM_STRETCH_VALUE9:false" "PWM_STRETCH_VALUE10:false" \
 "PWM_STRETCH_VALUE11:false" "PWM_STRETCH_VALUE12:false" "PWM_STRETCH_VALUE13:false" "PWM_STRETCH_VALUE14:false" "PWM_STRETCH_VALUE15:false" \
@@ -45,6 +45,7 @@ create_and_configure_core -core_vlnv {Actel:DirectCore:corepwm:4.5.100} -compone
 
 sd_instantiate_component -sd_name ${sd_name} -component_name {corepwm_C1} -instance_name {} 
 
+sd_create_pin_slices -sd_name ${sd_name} -pin_name {corepwm_C1_0:PWM} -pin_slices {"[4:4]"} 
 sd_create_pin_slices -sd_name ${sd_name} -pin_name {corepwm_C1_0:PWM} -pin_slices {"[3:3]"} 
 sd_create_pin_slices -sd_name ${sd_name} -pin_name {corepwm_C1_0:PWM} -pin_slices {"[2:2]"} 
 sd_create_pin_slices -sd_name ${sd_name} -pin_name {corepwm_C1_0:PWM} -pin_slices {"[1:1]"} 
@@ -54,10 +55,12 @@ sd_connect_pin_to_port -sd_name ${sd_name} -pin_name {corepwm_C1_0:APBslave} -po
 sd_connect_pin_to_port -sd_name ${sd_name} -pin_name {corepwm_C1_0:PRESETN} -port_name {} 
 sd_connect_pin_to_port -sd_name ${sd_name} -pin_name {corepwm_C1_0:PCLK} -port_name {} 
 sd_connect_pin_to_port -sd_name ${sd_name} -pin_name {corepwm_C1_0:PWM[0:0]} -port_name {} 
+sd_connect_pin_to_port -sd_name ${sd_name} -pin_name {corepwm_C1_0:PWM[4:4]} -port_name {} 
 sd_connect_pin_to_port -sd_name ${sd_name} -pin_name {corepwm_C1_0:PWM[3:3]} -port_name {} 
 sd_connect_pin_to_port -sd_name ${sd_name} -pin_name {corepwm_C1_0:PWM[2:2]} -port_name {} 
 sd_connect_pin_to_port -sd_name ${sd_name} -pin_name {corepwm_C1_0:PWM[1:1]} -port_name {} 
 
+sd_rename_port -sd_name ${sd_name} -current_port_name {PWM_3} -new_port_name {PWM_4}
 sd_rename_port -sd_name ${sd_name} -current_port_name {PWM_2} -new_port_name {PWM_3}
 sd_rename_port -sd_name ${sd_name} -current_port_name {PWM_1} -new_port_name {PWM_2}
 sd_rename_port -sd_name ${sd_name} -current_port_name {PWM_0} -new_port_name {PWM_1}

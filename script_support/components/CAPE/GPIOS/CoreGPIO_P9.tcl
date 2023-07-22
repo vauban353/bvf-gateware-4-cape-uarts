@@ -1,8 +1,8 @@
-# Exporting Component Description of CoreGPIO_P8_UPPER to TCL
+# Exporting Component Description of CoreGPIO_P9 to TCL
 # Family: PolarFireSoC
 # Part Number: MPFS025T-FCVG484E
-# Create and Configure the core component CoreGPIO_P8_UPPER
-create_and_configure_core -core_vlnv {Actel:DirectCore:CoreGPIO:3.2.102} -component_name {CoreGPIO_P8_UPPER} -params {\
+# Create and Configure the core component CoreGPIO_P9
+create_and_configure_core -core_vlnv {Actel:DirectCore:CoreGPIO:3.2.102} -component_name {CoreGPIO_P9} -params {\
 "APB_WIDTH:32"  \
 "FIXED_CONFIG_0:true"  \
 "FIXED_CONFIG_1:true"  \
@@ -20,11 +20,11 @@ create_and_configure_core -core_vlnv {Actel:DirectCore:CoreGPIO:3.2.102} -compon
 "FIXED_CONFIG_13:true"  \
 "FIXED_CONFIG_14:true"  \
 "FIXED_CONFIG_15:true"  \
-"FIXED_CONFIG_16:false"  \
-"FIXED_CONFIG_17:false"  \
-"FIXED_CONFIG_18:false"  \
-"FIXED_CONFIG_19:false"  \
-"FIXED_CONFIG_20:false"  \
+"FIXED_CONFIG_16:true"  \
+"FIXED_CONFIG_17:true"  \
+"FIXED_CONFIG_18:true"  \
+"FIXED_CONFIG_19:true"  \
+"FIXED_CONFIG_20:true"  \
 "FIXED_CONFIG_21:false"  \
 "FIXED_CONFIG_22:false"  \
 "FIXED_CONFIG_23:false"  \
@@ -69,7 +69,7 @@ create_and_configure_core -core_vlnv {Actel:DirectCore:CoreGPIO:3.2.102} -compon
 "IO_INT_TYPE_29:7"  \
 "IO_INT_TYPE_30:7"  \
 "IO_INT_TYPE_31:7"  \
-"IO_NUM:16"  \
+"IO_NUM:21"  \
 "IO_TYPE_0:2"  \
 "IO_TYPE_1:2"  \
 "IO_TYPE_2:2"  \
@@ -135,4 +135,4 @@ create_and_configure_core -core_vlnv {Actel:DirectCore:CoreGPIO:3.2.102} -compon
 "IO_VAL_30:0"  \
 "IO_VAL_31:0"  \
 "OE_TYPE:0"   }
-# Exporting Component Description of CoreGPIO_P8_UPPER to TCL done
+# Exporting Component Description of CoreGPIO_P9 to TCL done

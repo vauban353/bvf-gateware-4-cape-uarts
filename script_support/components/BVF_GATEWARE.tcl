@@ -1,5 +1,5 @@
 
-source script_support/components/BVF_RISCV_SUBSYSTEM/USER_LED_GPIO_PADS.tcl
+#source script_support/components/BVF_RISCV_SUBSYSTEM/USER_LED_GPIO_PADS.tcl
 
 # Creating SmartDesign BVF_GATEWARE
 set sd_name ${top_level_name}
@@ -204,12 +204,12 @@ sd_connect_pins -sd_name ${sd_name} -pin_names {"DQS_N" "BVF_RISCV_SUBSYSTEM:DQS
 #-------------------------------------------------------------------------------
 # User LEDs
 #-------------------------------------------------------------------------------
-auto_promote_pad_pins -promote_all 1
-sd_instantiate_component -sd_name ${sd_name} -component_name {USER_LED_PADS} -instance_name {USER_LED_PADS_0} 
-sd_connect_pins -sd_name ${sd_name} -pin_names {"BVF_RISCV_SUBSYSTEM:USER_LED_GPIO_OUT" "USER_LED_PADS_0:USER_LED_GPIO_OUT"} 
-sd_connect_pins -sd_name ${sd_name} -pin_names {"BVF_RISCV_SUBSYSTEM:USER_LED_GPIO_OE" "USER_LED_PADS_0:USER_LED_GPIO_OE"} 
-sd_connect_pins -sd_name ${sd_name} -pin_names {"BVF_RISCV_SUBSYSTEM:USER_LED_GPIO_IN" "USER_LED_PADS_0:USER_LED_GPIO_IN"} 
-auto_promote_pad_pins -promote_all 0
+#auto_promote_pad_pins -promote_all 1
+#sd_instantiate_component -sd_name ${sd_name} -component_name {USER_LED_PADS} -instance_name {USER_LED_PADS_0} 
+#sd_connect_pins -sd_name ${sd_name} -pin_names {"BVF_RISCV_SUBSYSTEM:USER_LED_GPIO_OUT" "USER_LED_PADS_0:USER_LED_GPIO_OUT"} 
+#sd_connect_pins -sd_name ${sd_name} -pin_names {"BVF_RISCV_SUBSYSTEM:USER_LED_GPIO_OE" "USER_LED_PADS_0:USER_LED_GPIO_OE"} 
+#sd_connect_pins -sd_name ${sd_name} -pin_names {"BVF_RISCV_SUBSYSTEM:USER_LED_GPIO_IN" "USER_LED_PADS_0:USER_LED_GPIO_IN"} 
+#auto_promote_pad_pins -promote_all 0
 
 #-------------------------------------------------------------------------------
 # MIPI CSI-2 RX interface

@@ -1,4 +1,4 @@
-source script_support/components/BVF_RISCV_SUBSYSTEM/USER_LED_GPIO.tcl
+#source script_support/components/BVF_RISCV_SUBSYSTEM/USER_LED_GPIO.tcl
 
 # Creating SmartDesign BVF_RISCV_SUBSYSTEM
 set sd_name {BVF_RISCV_SUBSYSTEM}
@@ -101,9 +101,9 @@ sd_create_scalar_port -sd_name ${sd_name} -port_name {PHY_MDIO} -port_direction 
 #-------------------------------------------------------------------------------
 # User LEDs
 #-------------------------------------------------------------------------------
-sd_create_bus_port -sd_name ${sd_name} -port_name {USER_LED_GPIO_OUT} -port_direction {OUT} -port_range {[11:0]} 
-sd_create_bus_port -sd_name ${sd_name} -port_name {USER_LED_GPIO_OE} -port_direction {OUT} -port_range {[11:0]} 
-sd_create_bus_port -sd_name ${sd_name} -port_name {USER_LED_GPIO_IN} -port_direction {IN} -port_range {[11:0]} 
+#sd_create_bus_port -sd_name ${sd_name} -port_name {USER_LED_GPIO_OUT} -port_direction {OUT} -port_range {[11:0]} 
+#sd_create_bus_port -sd_name ${sd_name} -port_name {USER_LED_GPIO_OE} -port_direction {OUT} -port_range {[11:0]} 
+#sd_create_bus_port -sd_name ${sd_name} -port_name {USER_LED_GPIO_IN} -port_direction {IN} -port_range {[11:0]} 
 
 
 
@@ -302,14 +302,14 @@ sd_connect_pins -sd_name ${sd_name} -pin_names {"PF_SOC_MSS:MMUART_4_RXD_F2M" "M
 #-------------------------------------------------------------------------------
 # User LEDs
 #-------------------------------------------------------------------------------
-sd_instantiate_component -sd_name ${sd_name} -component_name {USER_LED_GPIO} -instance_name {}
-sd_connect_pins -sd_name ${sd_name} -pin_names {"FIC3_INITIATOR:APBmslave0" "USER_LED_GPIO_0:APB_bif"}
-sd_connect_pins -sd_name ${sd_name} -pin_names {"USER_LED_GPIO_0:PRESETN" "PRESETN"} 
-sd_connect_pins -sd_name ${sd_name} -pin_names {"FIC_3_PCLK" "USER_LED_GPIO_0:PCLK"} 
-sd_connect_pins -sd_name ${sd_name} -pin_names {"USER_LED_GPIO_0:GPIO_OE" "USER_LED_GPIO_OE"} 
-sd_connect_pins -sd_name ${sd_name} -pin_names {"USER_LED_GPIO_0:GPIO_OUT" "USER_LED_GPIO_OUT"} 
-sd_connect_pins -sd_name ${sd_name} -pin_names {"USER_LED_GPIO_0:GPIO_IN" "USER_LED_GPIO_IN"}
-sd_mark_pins_unused -sd_name ${sd_name} -pin_names {USER_LED_GPIO_0:INT}
+#sd_instantiate_component -sd_name ${sd_name} -component_name {USER_LED_GPIO} -instance_name {}
+#sd_connect_pins -sd_name ${sd_name} -pin_names {"FIC3_INITIATOR:APBmslave0" "USER_LED_GPIO_0:APB_bif"}
+#sd_connect_pins -sd_name ${sd_name} -pin_names {"USER_LED_GPIO_0:PRESETN" "PRESETN"} 
+#sd_connect_pins -sd_name ${sd_name} -pin_names {"FIC_3_PCLK" "USER_LED_GPIO_0:PCLK"} 
+#sd_connect_pins -sd_name ${sd_name} -pin_names {"USER_LED_GPIO_0:GPIO_OE" "USER_LED_GPIO_OE"} 
+#sd_connect_pins -sd_name ${sd_name} -pin_names {"USER_LED_GPIO_0:GPIO_OUT" "USER_LED_GPIO_OUT"} 
+#sd_connect_pins -sd_name ${sd_name} -pin_names {"USER_LED_GPIO_0:GPIO_IN" "USER_LED_GPIO_IN"}
+#sd_mark_pins_unused -sd_name ${sd_name} -pin_names {USER_LED_GPIO_0:INT}
 
 #-------------------------------------------------------------------------------
 # High speed connector VIO_ENABLE.
