@@ -57,8 +57,8 @@ sd_create_scalar_port -sd_name ${sd_name} -port_name {XCVR2_RX_VALID} -port_dire
 sd_create_scalar_port -sd_name ${sd_name} -port_name {XCVR3_ERROR} -port_direction {OUT}
 sd_create_scalar_port -sd_name ${sd_name} -port_name {XCVR3_LOCK} -port_direction {OUT}
 sd_create_scalar_port -sd_name ${sd_name} -port_name {XCVR3_RX_VALID} -port_direction {OUT}
-sd_create_scalar_port -sd_name ${sd_name} -port_name {XCVR_0C_REFCLK_CCC_OUT} -port_direction {OUT}
-sd_create_scalar_port -sd_name ${sd_name} -port_name {XCVR_0C_REFCLK_PLL_LOCK} -port_direction {OUT}
+sd_create_scalar_port -sd_name ${sd_name} -port_name {XCVR_0B_REF_CLK_PLL_LOCK} -port_direction {OUT}
+sd_create_scalar_port -sd_name ${sd_name} -port_name {XCVR_0C_REF_CLK_PLL_LOCK} -port_direction {OUT}
 sd_create_scalar_port -sd_name ${sd_name} -port_name {XCVR_TX1_N} -port_direction {OUT} -port_is_pad {1}
 sd_create_scalar_port -sd_name ${sd_name} -port_name {XCVR_TX1_P} -port_direction {OUT} -port_is_pad {1}
 sd_create_scalar_port -sd_name ${sd_name} -port_name {XCVR_TX2_N} -port_direction {OUT} -port_is_pad {1}
@@ -88,6 +88,11 @@ sd_create_bif_port -sd_name ${sd_name} -port_name {APB_TARGET} -port_bif_vlnv {A
 
 # Add AND2_0 instance
 sd_instantiate_macro -sd_name ${sd_name} -macro_name {AND2} -instance_name {AND2_0}
+
+
+
+# Add AND2_1 instance
+sd_instantiate_macro -sd_name ${sd_name} -macro_name {AND2} -instance_name {AND2_1}
 
 
 
@@ -170,6 +175,12 @@ sd_mark_pins_unused -sd_name ${sd_name} -pin_names {PF_TX_PLL_0_0:CLK_125}
 
 
 
+# Add PF_TX_PLL_XCVR1_0 instance
+sd_instantiate_component -sd_name ${sd_name} -component_name {PF_TX_PLL_XCVR1} -instance_name {PF_TX_PLL_XCVR1_0}
+sd_mark_pins_unused -sd_name ${sd_name} -pin_names {PF_TX_PLL_XCVR1_0:CLK_125}
+
+
+
 # Add PF_XCVR_REF_CLK_0_0 instance
 sd_instantiate_component -sd_name ${sd_name} -component_name {PF_XCVR_REF_CLK_0} -instance_name {PF_XCVR_REF_CLK_0_0}
 
@@ -205,9 +216,12 @@ sd_mark_pins_unused -sd_name ${sd_name} -pin_names {XCVR_LOOPBACK_2:TEST_MODE_3_
 
 
 # Add scalar net connections
-sd_connect_pins -sd_name ${sd_name} -pin_names {"AND2_0:A" "PF_CCC_C0_0:PLL_LOCK_0" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"AND2_0:A" "PF_CCC_C0_0:PLL_LOCK_0" "XCVR_0B_REF_CLK_PLL_LOCK" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"AND2_0:B" "PF_TX_PLL_0_0:PLL_LOCK" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"AND2_0:Y" "XCVR_LOOPBACK_0:XCVR_REF_CLK_LOCK" "XCVR_LOOPBACK_1:XCVR_REF_CLK_LOCK" "XCVR_LOOPBACK_2:XCVR_REF_CLK_LOCK" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"AND2_0:Y" "XCVR_LOOPBACK_0:XCVR_REF_CLK_LOCK" "XCVR_LOOPBACK_2:XCVR_REF_CLK_LOCK" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"AND2_1:A" "PF_TX_PLL_XCVR1_0:PLL_LOCK" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"AND2_1:B" "PF_CCC_C1_0:PLL_LOCK_0" "XCVR_0C_REF_CLK_PLL_LOCK" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"AND2_1:Y" "XCVR_LOOPBACK_1:XCVR_REF_CLK_LOCK" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"B0_HSIO70N" "HSIO_CoreGPIO_C0_0:GPIO_OUT[0:0]" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"B0_HSIO70P" "HSIO_CoreGPIO_C0_0:GPIO_IN[0:0]" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"B0_HSIO71N" "HSIO_CoreGPIO_C0_0:GPIO_OUT[1:1]" }
@@ -236,10 +250,9 @@ sd_connect_pins -sd_name ${sd_name} -pin_names {"HSIO_CoreGPIO_C0_0:GPIO_IN[8:8]
 sd_connect_pins -sd_name ${sd_name} -pin_names {"HSIO_CoreGPIO_C0_0:GPIO_IN[9:9]" "XCVR2_ERROR" "XCVR_LOOPBACK_2:error_o" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"HSIO_CoreGPIO_C0_0:PCLK" "PCLK" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"HSIO_CoreGPIO_C0_0:PRESETN" "PRESETN" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"PF_CCC_C0_0:OUT0_FABCLK_0" "PF_TX_PLL_0_0:FAB_REF_CLK" "XCVR_LOOPBACK_0:XCVR_REF_CLK" "XCVR_LOOPBACK_1:XCVR_REF_CLK" "XCVR_LOOPBACK_2:XCVR_REF_CLK" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"PF_CCC_C0_0:OUT0_FABCLK_0" "PF_TX_PLL_0_0:FAB_REF_CLK" "XCVR_LOOPBACK_0:XCVR_REF_CLK" "XCVR_LOOPBACK_2:XCVR_REF_CLK" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"PF_CCC_C0_0:REF_CLK_0" "PF_XCVR_REF_CLK_0_0:REF_CLK" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"PF_CCC_C1_0:OUT0_FABCLK_0" "XCVR_0C_REFCLK_CCC_OUT" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"PF_CCC_C1_0:PLL_LOCK_0" "XCVR_0C_REFCLK_PLL_LOCK" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"PF_CCC_C1_0:OUT0_FABCLK_0" "PF_TX_PLL_XCVR1_0:FAB_REF_CLK" "XCVR_LOOPBACK_1:XCVR_REF_CLK" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"PF_CCC_C1_0:REF_CLK_0" "PF_XCVR_REF_CLK_C0_0:FAB_REF_CLK" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"PF_CLK_DIV_C0_0:CLK_IN" "RCOSC_160MHZ_GL" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"PF_CLK_DIV_C0_0:CLK_OUT" "XCVR_LOOPBACK_0:RCOSC_160MHZ_GL" "XCVR_LOOPBACK_1:RCOSC_160MHZ_GL" "XCVR_LOOPBACK_2:RCOSC_160MHZ_GL" }
@@ -268,7 +281,8 @@ sd_connect_pins -sd_name ${sd_name} -pin_names {"XCVR_LOOPBACK_2:LANE0_TXD_P" "X
 
 # Add bus interface net connections
 sd_connect_pins -sd_name ${sd_name} -pin_names {"APB_TARGET" "HSIO_CoreGPIO_C0_0:APB_bif" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"PF_TX_PLL_0_0:CLKS_TO_XCVR" "XCVR_LOOPBACK_0:CLKS_FROM_TXPLL_0" "XCVR_LOOPBACK_1:CLKS_FROM_TXPLL_0" "XCVR_LOOPBACK_2:CLKS_FROM_TXPLL_0" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"PF_TX_PLL_0_0:CLKS_TO_XCVR" "XCVR_LOOPBACK_0:CLKS_FROM_TXPLL_0" "XCVR_LOOPBACK_2:CLKS_FROM_TXPLL_0" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"PF_TX_PLL_XCVR1_0:CLKS_TO_XCVR" "XCVR_LOOPBACK_1:CLKS_FROM_TXPLL_0" }
 
 # Re-enable auto promotion of pins of type 'pad'
 auto_promote_pad_pins -promote_all 1

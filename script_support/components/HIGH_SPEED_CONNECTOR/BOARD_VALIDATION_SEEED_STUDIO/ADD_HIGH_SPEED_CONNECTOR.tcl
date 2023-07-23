@@ -26,6 +26,7 @@ source script_support/components/HIGH_SPEED_CONNECTOR/BOARD_VALIDATION_SEEED_STU
 
 source script_support/components/HIGH_SPEED_CONNECTOR/BOARD_VALIDATION_SEEED_STUDIO/PF_CCC_C1.tcl
 source script_support/components/HIGH_SPEED_CONNECTOR/BOARD_VALIDATION_SEEED_STUDIO/PF_XCVR_REF_CLK_C0.tcl
+source script_support/components/HIGH_SPEED_CONNECTOR/BOARD_VALIDATION_SEEED_STUDIO/PF_TX_PLL_XCVR1.tcl
 source script_support/components/HIGH_SPEED_CONNECTOR/BOARD_VALIDATION_SEEED_STUDIO/HSIO_CoreGPIO_C0.tcl
 source script_support/components/HIGH_SPEED_CONNECTOR/BOARD_VALIDATION_SEEED_STUDIO/HIGH_SPEED_INTERFACE.tcl
 
@@ -69,8 +70,9 @@ sd_connect_pins -sd_name ${sd_name} -pin_names {"HIGH_SPEED_INTERFACE_0:XCVR3_RX
 sd_connect_pins -sd_name ${sd_name} -pin_names {"HIGH_SPEED_INTERFACE_0:XCVR3_LOCK" "P8_PIN10_USER_LED_7"} 
 sd_connect_pins -sd_name ${sd_name} -pin_names {"HIGH_SPEED_INTERFACE_0:XCVR3_ERROR" "P8_PIN11_USER_LED_8"} 
 
-sd_connect_pins_to_constant -sd_name ${sd_name} -pin_names {P8_PIN12_USER_LED_9} -value {GND} 
-sd_connect_pins_to_constant -sd_name ${sd_name} -pin_names {P8_PIN13_USER_LED_10} -value {GND} 
+sd_connect_pins -sd_name ${sd_name} -pin_names {"HIGH_SPEED_INTERFACE_0:XCVR_0B_REF_CLK_PLL_LOCK" "P8_PIN12_USER_LED_9"} 
+sd_connect_pins -sd_name ${sd_name} -pin_names {"HIGH_SPEED_INTERFACE_0:XCVR_0C_REF_CLK_PLL_LOCK" "P8_PIN13_USER_LED_10"} 
+
 sd_connect_pins_to_constant -sd_name ${sd_name} -pin_names {P8_PIN14_USER_LED_11} -value {GND} 
 
 

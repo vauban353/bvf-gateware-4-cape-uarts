@@ -129,13 +129,13 @@ set_io -port_name XCVR_0B_REFCLK_N  \
     -DIRECTION INPUT
 
 
-#set_io -port_name XCVR_0C_REFCLK_P  \
-#    -pin_name J19                \
-#    -DIRECTION INPUT
-#    
-#set_io -port_name XCVR_0C_REFCLK_N  \
-#    -pin_name J20                \
-#    -DIRECTION INPUT
+set_io -port_name XCVR_0C_REFCLK_P  \
+    -pin_name J19                \
+    -DIRECTION INPUT
+    
+set_io -port_name XCVR_0C_REFCLK_N  \
+    -pin_name J20                \
+    -DIRECTION INPUT
 
 
 
