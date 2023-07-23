@@ -13,7 +13,6 @@ create_hdl_core -file $project_dir/hdl/pattern_gen.v -module {PATTERN_GEN} -libr
 
 
 source script_support/components/HIGH_SPEED_CONNECTOR/BOARD_VALIDATION_SEEED_STUDIO/XCVR_LOOPBACK/PF_CLK_DIV_C0.tcl
-#source script_support/components/HIGH_SPEED_CONNECTOR/BOARD_VALIDATION_SEEED_STUDIO/XCVR_LOOPBACK/PF_OSC_0.tcl
 source script_support/components/HIGH_SPEED_CONNECTOR/BOARD_VALIDATION_SEEED_STUDIO/XCVR_LOOPBACK/PF_TX_PLL_0.tcl
 source script_support/components/HIGH_SPEED_CONNECTOR/BOARD_VALIDATION_SEEED_STUDIO/XCVR_LOOPBACK/PF_CCC_C0.tcl
 source script_support/components/HIGH_SPEED_CONNECTOR/BOARD_VALIDATION_SEEED_STUDIO/XCVR_LOOPBACK/PF_XCVR_0.tcl
@@ -28,7 +27,6 @@ source script_support/components/HIGH_SPEED_CONNECTOR/BOARD_VALIDATION_SEEED_STU
 source script_support/components/HIGH_SPEED_CONNECTOR/BOARD_VALIDATION_SEEED_STUDIO/PF_CCC_C1.tcl
 source script_support/components/HIGH_SPEED_CONNECTOR/BOARD_VALIDATION_SEEED_STUDIO/PF_XCVR_REF_CLK_C0.tcl
 source script_support/components/HIGH_SPEED_CONNECTOR/BOARD_VALIDATION_SEEED_STUDIO/HSIO_CoreGPIO_C0.tcl
-#source script_support/components/HIGH_SPEED_CONNECTOR/BOARD_VALIDATION_SEEED_STUDIO/HSIO_PWM_C0.tcl
 source script_support/components/HIGH_SPEED_CONNECTOR/BOARD_VALIDATION_SEEED_STUDIO/HIGH_SPEED_INTERFACE.tcl
 
 
@@ -46,39 +44,35 @@ sd_connect_pins -sd_name ${sd_name} -pin_names {"CLOCKS_AND_RESETS:XCVR_INIT_DON
 sd_connect_pins -sd_name ${sd_name} -pin_names {"CLOCKS_AND_RESETS:RCOSC_160MHZ_GL" "HIGH_SPEED_INTERFACE_0:RCOSC_160MHZ_GL"}
 
 
-sd_delete_nets -sd_name ${sd_name} -net_names {BVF_RISCV_SUBSYSTEM_USER_LED_GPIO_OUT} 
-sd_delete_nets -sd_name ${sd_name} -net_names {BVF_RISCV_SUBSYSTEM_USER_LED_GPIO_OE} 
-sd_mark_pins_unused -sd_name ${sd_name} -pin_names {BVF_RISCV_SUBSYSTEM:USER_LED_GPIO_OUT} 
-sd_mark_pins_unused -sd_name ${sd_name} -pin_names {BVF_RISCV_SUBSYSTEM:USER_LED_GPIO_OE} 
-sd_connect_pins_to_constant -sd_name ${sd_name} -pin_names {USER_LED_PADS_0:USER_LED_GPIO_OE} -value {VCC} 
-sd_create_pin_slices -sd_name ${sd_name} -pin_name {USER_LED_PADS_0:USER_LED_GPIO_OUT} -pin_slices {"[11:11]"} 
-sd_create_pin_slices -sd_name ${sd_name} -pin_name {USER_LED_PADS_0:USER_LED_GPIO_OUT} -pin_slices {"[10:10]"} 
-sd_create_pin_slices -sd_name ${sd_name} -pin_name {USER_LED_PADS_0:USER_LED_GPIO_OUT} -pin_slices {"[9:9]"} 
-sd_create_pin_slices -sd_name ${sd_name} -pin_name {USER_LED_PADS_0:USER_LED_GPIO_OUT} -pin_slices {"[8:8]"} 
-sd_create_pin_slices -sd_name ${sd_name} -pin_name {USER_LED_PADS_0:USER_LED_GPIO_OUT} -pin_slices {"[7:7]"} 
-sd_create_pin_slices -sd_name ${sd_name} -pin_name {USER_LED_PADS_0:USER_LED_GPIO_OUT} -pin_slices {"[6:6]"} 
-sd_create_pin_slices -sd_name ${sd_name} -pin_name {USER_LED_PADS_0:USER_LED_GPIO_OUT} -pin_slices {"[5:5]"} 
-sd_create_pin_slices -sd_name ${sd_name} -pin_name {USER_LED_PADS_0:USER_LED_GPIO_OUT} -pin_slices {"[4:4]"} 
-sd_create_pin_slices -sd_name ${sd_name} -pin_name {USER_LED_PADS_0:USER_LED_GPIO_OUT} -pin_slices {"[3:3]"} 
-sd_create_pin_slices -sd_name ${sd_name} -pin_name {USER_LED_PADS_0:USER_LED_GPIO_OUT} -pin_slices {"[2:2]"} 
-sd_create_pin_slices -sd_name ${sd_name} -pin_name {USER_LED_PADS_0:USER_LED_GPIO_OUT} -pin_slices {"[1:1]"} 
-sd_create_pin_slices -sd_name ${sd_name} -pin_name {USER_LED_PADS_0:USER_LED_GPIO_OUT} -pin_slices {"[0:0]"} 
+sd_create_scalar_port -sd_name ${sd_name} -port_name {P8_PIN3_USER_LED_0} -port_direction {OUT} 
+sd_create_scalar_port -sd_name ${sd_name} -port_name {P8_PIN4_USER_LED_1} -port_direction {OUT} 
+sd_create_scalar_port -sd_name ${sd_name} -port_name {P8_PIN5_USER_LED_2} -port_direction {OUT} 
+sd_create_scalar_port -sd_name ${sd_name} -port_name {P8_PIN6_USER_LED_3} -port_direction {OUT} 
+sd_create_scalar_port -sd_name ${sd_name} -port_name {P8_PIN7_USER_LED_4} -port_direction {OUT} 
+sd_create_scalar_port -sd_name ${sd_name} -port_name {P8_PIN8_USER_LED_5} -port_direction {OUT} 
+sd_create_scalar_port -sd_name ${sd_name} -port_name {P8_PIN9_USER_LED_6} -port_direction {OUT} 
+sd_create_scalar_port -sd_name ${sd_name} -port_name {P8_PIN10_USER_LED_7} -port_direction {OUT} 
+sd_create_scalar_port -sd_name ${sd_name} -port_name {P8_PIN11_USER_LED_8} -port_direction {OUT} 
+sd_create_scalar_port -sd_name ${sd_name} -port_name {P8_PIN12_USER_LED_9} -port_direction {OUT} 
+sd_create_scalar_port -sd_name ${sd_name} -port_name {P8_PIN13_USER_LED_10} -port_direction {OUT} 
+sd_create_scalar_port -sd_name ${sd_name} -port_name {P8_PIN14_USER_LED_11} -port_direction {OUT} 
 
+sd_connect_pins -sd_name ${sd_name} -pin_names {"HIGH_SPEED_INTERFACE_0:XCVR1_RX_VALID" "P8_PIN3_USER_LED_0"} 
+sd_connect_pins -sd_name ${sd_name} -pin_names {"HIGH_SPEED_INTERFACE_0:XCVR1_LOCK" "P8_PIN4_USER_LED_1"} 
+sd_connect_pins -sd_name ${sd_name} -pin_names {"HIGH_SPEED_INTERFACE_0:XCVR1_ERROR" "P8_PIN5_USER_LED_2"} 
 
+sd_connect_pins -sd_name ${sd_name} -pin_names {"HIGH_SPEED_INTERFACE_0:XCVR2_RX_VALID" "P8_PIN6_USER_LED_3"} 
+sd_connect_pins -sd_name ${sd_name} -pin_names {"HIGH_SPEED_INTERFACE_0:XCVR2_LOCK" "P8_PIN7_USER_LED_4"} 
+sd_connect_pins -sd_name ${sd_name} -pin_names {"HIGH_SPEED_INTERFACE_0:XCVR2_ERROR" "P8_PIN8_USER_LED_5"} 
 
-sd_connect_pins -sd_name ${sd_name} -pin_names {"HIGH_SPEED_INTERFACE_0:XCVR1_RX_VALID" "USER_LED_PADS_0:USER_LED_GPIO_OUT[0:0]"} 
-sd_connect_pins -sd_name ${sd_name} -pin_names {"HIGH_SPEED_INTERFACE_0:XCVR1_LOCK" "USER_LED_PADS_0:USER_LED_GPIO_OUT[1:1]"} 
-sd_connect_pins -sd_name ${sd_name} -pin_names {"HIGH_SPEED_INTERFACE_0:XCVR1_ERROR" "USER_LED_PADS_0:USER_LED_GPIO_OUT[2:2]"} 
-sd_connect_pins -sd_name ${sd_name} -pin_names {"HIGH_SPEED_INTERFACE_0:XCVR2_RX_VALID" "USER_LED_PADS_0:USER_LED_GPIO_OUT[3:3]"} 
-sd_connect_pins -sd_name ${sd_name} -pin_names {"HIGH_SPEED_INTERFACE_0:XCVR2_LOCK" "USER_LED_PADS_0:USER_LED_GPIO_OUT[4:4]"} 
-sd_connect_pins -sd_name ${sd_name} -pin_names {"HIGH_SPEED_INTERFACE_0:XCVR2_ERROR" "USER_LED_PADS_0:USER_LED_GPIO_OUT[5:5]"} 
-sd_connect_pins -sd_name ${sd_name} -pin_names {"HIGH_SPEED_INTERFACE_0:XCVR3_RX_VALID" "USER_LED_PADS_0:USER_LED_GPIO_OUT[6:6]"} 
-sd_connect_pins -sd_name ${sd_name} -pin_names {"HIGH_SPEED_INTERFACE_0:XCVR3_LOCK" "USER_LED_PADS_0:USER_LED_GPIO_OUT[7:7]"} 
-sd_connect_pins -sd_name ${sd_name} -pin_names {"HIGH_SPEED_INTERFACE_0:XCVR3_ERROR" "USER_LED_PADS_0:USER_LED_GPIO_OUT[8:8]"} 
-sd_connect_pins -sd_name ${sd_name} -pin_names {"HIGH_SPEED_INTERFACE_0:TEST_MODE_0_LED" "USER_LED_PADS_0:USER_LED_GPIO_OUT[9:9]"} 
+sd_connect_pins -sd_name ${sd_name} -pin_names {"HIGH_SPEED_INTERFACE_0:XCVR3_RX_VALID" "P8_PIN9_USER_LED_6"} 
+sd_connect_pins -sd_name ${sd_name} -pin_names {"HIGH_SPEED_INTERFACE_0:XCVR3_LOCK" "P8_PIN10_USER_LED_7"} 
+sd_connect_pins -sd_name ${sd_name} -pin_names {"HIGH_SPEED_INTERFACE_0:XCVR3_ERROR" "P8_PIN11_USER_LED_8"} 
 
-sd_connect_pins -sd_name ${sd_name} -pin_names {"HIGH_SPEED_INTERFACE_0:XCVR_0C_REFCLK_PLL_LOCK" "USER_LED_PADS_0:USER_LED_GPIO_OUT[11:11]"} 
-sd_connect_pins -sd_name ${sd_name} -pin_names {"HIGH_SPEED_INTERFACE_0:XCVR_0C_REFCLK_CCC_OUT" "USER_LED_PADS_0:USER_LED_GPIO_OUT[10:10]"} 
+sd_connect_pins_to_constant -sd_name ${sd_name} -pin_names {P8_PIN12_USER_LED_9} -value {GND} 
+sd_connect_pins_to_constant -sd_name ${sd_name} -pin_names {P8_PIN13_USER_LED_10} -value {GND} 
+sd_connect_pins_to_constant -sd_name ${sd_name} -pin_names {P8_PIN14_USER_LED_11} -value {GND} 
+
 
 sd_mark_pins_unused -sd_name ${sd_name} -pin_names {HIGH_SPEED_INTERFACE_0:TEST_MODE_3_LED} 
 sd_mark_pins_unused -sd_name ${sd_name} -pin_names {HIGH_SPEED_INTERFACE_0:TEST_MODE_2_LED} 
@@ -113,5 +107,5 @@ sd_connect_pin_to_port -sd_name ${sd_name} -pin_name {HIGH_SPEED_INTERFACE_0:B0_
 # Override software control of VIO.
 sd_delete_nets -sd_name ${sd_name} -net_names {VIO_ENABLE} 
 sd_mark_pins_unused -sd_name ${sd_name} -pin_names {BVF_RISCV_SUBSYSTEM:VIO_ENABLE} 
-sd_connect_pins_to_constant -sd_name ${sd_name} -pin_names {VIO_ENABLE} -value {VCC} 
+sd_connect_pins_to_constant -sd_name ${sd_name} -pin_names {VIO_ENABLE} -value {GND} 
 
