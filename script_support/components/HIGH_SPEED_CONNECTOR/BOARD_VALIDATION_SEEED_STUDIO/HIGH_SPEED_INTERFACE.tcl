@@ -104,17 +104,23 @@ sd_instantiate_macro -sd_name ${sd_name} -macro_name {BIBUF} -instance_name {BIB
 # Add HSIO_CoreGPIO_C0_0 instance
 sd_instantiate_component -sd_name ${sd_name} -component_name {HSIO_CoreGPIO_C0} -instance_name {HSIO_CoreGPIO_C0_0}
 sd_create_pin_slices -sd_name ${sd_name} -pin_name {HSIO_CoreGPIO_C0_0:GPIO_IN} -pin_slices {[0:0]}
+sd_connect_pins_to_constant -sd_name ${sd_name} -pin_names {HSIO_CoreGPIO_C0_0:GPIO_IN[0:0]} -value {GND}
 sd_create_pin_slices -sd_name ${sd_name} -pin_name {HSIO_CoreGPIO_C0_0:GPIO_IN} -pin_slices {[10:10]}
 sd_create_pin_slices -sd_name ${sd_name} -pin_name {HSIO_CoreGPIO_C0_0:GPIO_IN} -pin_slices {[11:11]}
 sd_create_pin_slices -sd_name ${sd_name} -pin_name {HSIO_CoreGPIO_C0_0:GPIO_IN} -pin_slices {[12:12]}
 sd_create_pin_slices -sd_name ${sd_name} -pin_name {HSIO_CoreGPIO_C0_0:GPIO_IN} -pin_slices {[13:13]}
-sd_connect_pins_to_constant -sd_name ${sd_name} -pin_names {HSIO_CoreGPIO_C0_0:GPIO_IN[13:13]} -value {GND}
 sd_create_pin_slices -sd_name ${sd_name} -pin_name {HSIO_CoreGPIO_C0_0:GPIO_IN} -pin_slices {[14:14]}
-sd_connect_pins_to_constant -sd_name ${sd_name} -pin_names {HSIO_CoreGPIO_C0_0:GPIO_IN[14:14]} -value {GND}
 sd_create_pin_slices -sd_name ${sd_name} -pin_name {HSIO_CoreGPIO_C0_0:GPIO_IN} -pin_slices {[15:15]}
+sd_create_pin_slices -sd_name ${sd_name} -pin_name {HSIO_CoreGPIO_C0_0:GPIO_IN} -pin_slices {[16:16]}
+sd_create_pin_slices -sd_name ${sd_name} -pin_name {HSIO_CoreGPIO_C0_0:GPIO_IN} -pin_slices {[17:17]}
+sd_create_pin_slices -sd_name ${sd_name} -pin_name {HSIO_CoreGPIO_C0_0:GPIO_IN} -pin_slices {[18:18]}
+sd_create_pin_slices -sd_name ${sd_name} -pin_name {HSIO_CoreGPIO_C0_0:GPIO_IN} -pin_slices {[19:19]}
 sd_create_pin_slices -sd_name ${sd_name} -pin_name {HSIO_CoreGPIO_C0_0:GPIO_IN} -pin_slices {[1:1]}
+sd_connect_pins_to_constant -sd_name ${sd_name} -pin_names {HSIO_CoreGPIO_C0_0:GPIO_IN[1:1]} -value {GND}
 sd_create_pin_slices -sd_name ${sd_name} -pin_name {HSIO_CoreGPIO_C0_0:GPIO_IN} -pin_slices {[2:2]}
+sd_connect_pins_to_constant -sd_name ${sd_name} -pin_names {HSIO_CoreGPIO_C0_0:GPIO_IN[2:2]} -value {GND}
 sd_create_pin_slices -sd_name ${sd_name} -pin_name {HSIO_CoreGPIO_C0_0:GPIO_IN} -pin_slices {[3:3]}
+sd_connect_pins_to_constant -sd_name ${sd_name} -pin_names {HSIO_CoreGPIO_C0_0:GPIO_IN[3:3]} -value {GND}
 sd_create_pin_slices -sd_name ${sd_name} -pin_name {HSIO_CoreGPIO_C0_0:GPIO_IN} -pin_slices {[4:4]}
 sd_create_pin_slices -sd_name ${sd_name} -pin_name {HSIO_CoreGPIO_C0_0:GPIO_IN} -pin_slices {[5:5]}
 sd_create_pin_slices -sd_name ${sd_name} -pin_name {HSIO_CoreGPIO_C0_0:GPIO_IN} -pin_slices {[6:6]}
@@ -134,6 +140,14 @@ sd_create_pin_slices -sd_name ${sd_name} -pin_name {HSIO_CoreGPIO_C0_0:GPIO_OUT}
 sd_mark_pins_unused -sd_name ${sd_name} -pin_names {HSIO_CoreGPIO_C0_0:GPIO_OUT[14:14]}
 sd_create_pin_slices -sd_name ${sd_name} -pin_name {HSIO_CoreGPIO_C0_0:GPIO_OUT} -pin_slices {[15:15]}
 sd_mark_pins_unused -sd_name ${sd_name} -pin_names {HSIO_CoreGPIO_C0_0:GPIO_OUT[15:15]}
+sd_create_pin_slices -sd_name ${sd_name} -pin_name {HSIO_CoreGPIO_C0_0:GPIO_OUT} -pin_slices {[16:16]}
+sd_mark_pins_unused -sd_name ${sd_name} -pin_names {HSIO_CoreGPIO_C0_0:GPIO_OUT[16:16]}
+sd_create_pin_slices -sd_name ${sd_name} -pin_name {HSIO_CoreGPIO_C0_0:GPIO_OUT} -pin_slices {[17:17]}
+sd_mark_pins_unused -sd_name ${sd_name} -pin_names {HSIO_CoreGPIO_C0_0:GPIO_OUT[17:17]}
+sd_create_pin_slices -sd_name ${sd_name} -pin_name {HSIO_CoreGPIO_C0_0:GPIO_OUT} -pin_slices {[18:18]}
+sd_mark_pins_unused -sd_name ${sd_name} -pin_names {HSIO_CoreGPIO_C0_0:GPIO_OUT[18:18]}
+sd_create_pin_slices -sd_name ${sd_name} -pin_name {HSIO_CoreGPIO_C0_0:GPIO_OUT} -pin_slices {[19:19]}
+sd_mark_pins_unused -sd_name ${sd_name} -pin_names {HSIO_CoreGPIO_C0_0:GPIO_OUT[19:19]}
 sd_create_pin_slices -sd_name ${sd_name} -pin_name {HSIO_CoreGPIO_C0_0:GPIO_OUT} -pin_slices {[1:1]}
 sd_create_pin_slices -sd_name ${sd_name} -pin_name {HSIO_CoreGPIO_C0_0:GPIO_OUT} -pin_slices {[2:2]}
 sd_create_pin_slices -sd_name ${sd_name} -pin_name {HSIO_CoreGPIO_C0_0:GPIO_OUT} -pin_slices {[3:3]}
@@ -216,38 +230,38 @@ sd_mark_pins_unused -sd_name ${sd_name} -pin_names {XCVR_LOOPBACK_2:TEST_MODE_3_
 
 
 # Add scalar net connections
-sd_connect_pins -sd_name ${sd_name} -pin_names {"AND2_0:A" "PF_CCC_C0_0:PLL_LOCK_0" "XCVR_0B_REF_CLK_PLL_LOCK" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"AND2_0:A" "HSIO_CoreGPIO_C0_0:GPIO_IN[17:17]" "PF_CCC_C0_0:PLL_LOCK_0" "XCVR_0B_REF_CLK_PLL_LOCK" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"AND2_0:B" "PF_TX_PLL_0_0:PLL_LOCK" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"AND2_0:Y" "XCVR_LOOPBACK_0:XCVR_REF_CLK_LOCK" "XCVR_LOOPBACK_2:XCVR_REF_CLK_LOCK" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"AND2_1:A" "PF_TX_PLL_XCVR1_0:PLL_LOCK" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"AND2_1:B" "PF_CCC_C1_0:PLL_LOCK_0" "XCVR_0C_REF_CLK_PLL_LOCK" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"AND2_1:B" "HSIO_CoreGPIO_C0_0:GPIO_IN[18:18]" "PF_CCC_C1_0:PLL_LOCK_0" "XCVR_0C_REF_CLK_PLL_LOCK" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"AND2_1:Y" "XCVR_LOOPBACK_1:XCVR_REF_CLK_LOCK" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"B0_HSIO70N" "HSIO_CoreGPIO_C0_0:GPIO_OUT[0:0]" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"B0_HSIO70P" "HSIO_CoreGPIO_C0_0:GPIO_IN[0:0]" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"B0_HSIO70P" "HSIO_CoreGPIO_C0_0:GPIO_IN[4:4]" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"B0_HSIO71N" "HSIO_CoreGPIO_C0_0:GPIO_OUT[1:1]" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"B0_HSIO71P" "HSIO_CoreGPIO_C0_0:GPIO_IN[1:1]" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"B0_HSIO73N_C2P_CLKN" "HSIO_CoreGPIO_C0_0:GPIO_OUT[2:2]" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"B0_HSIO73P_C2P_CLKP" "HSIO_CoreGPIO_C0_0:GPIO_IN[2:2]" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"B0_HSIO81N" "HSIO_CoreGPIO_C0_0:GPIO_IN[15:15]" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"B0_HSIO71P" "HSIO_CoreGPIO_C0_0:GPIO_IN[5:5]" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"B0_HSIO73N_C2P_CLKN" "HSIO_CoreGPIO_C0_0:GPIO_OUT[3:3]" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"B0_HSIO73P_C2P_CLKP" "HSIO_CoreGPIO_C0_0:GPIO_IN[7:7]" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"B0_HSIO81N" "HSIO_CoreGPIO_C0_0:GPIO_IN[19:19]" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"B0_HSIO81P" "SYS_RESET_N" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"B0_HSIO82N" "BIBUF_0:PAD" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"B0_HSIO82P" "MAC_1_MDC_M2F" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"B0_HSIO83N" "HSIO_CoreGPIO_C0_0:GPIO_OUT[3:3]" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"B0_HSIO83P" "HSIO_CoreGPIO_C0_0:GPIO_IN[3:3]" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"B0_HSIO83N" "HSIO_CoreGPIO_C0_0:GPIO_OUT[2:2]" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"B0_HSIO83P" "HSIO_CoreGPIO_C0_0:GPIO_IN[6:6]" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"BIBUF_0:D" "MAC_1_MDO_M2F" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"BIBUF_0:E" "MAC_1_MDO_OE_M2F" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"BIBUF_0:Y" "MAC_1_MDI_F2M" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"DEVICE_INIT_DONE" "XCVR_LOOPBACK_0:DEVICE_INIT_DONE" "XCVR_LOOPBACK_1:DEVICE_INIT_DONE" "XCVR_LOOPBACK_2:DEVICE_INIT_DONE" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"EXT_RST_N" "XCVR_LOOPBACK_0:EXT_RST_N" "XCVR_LOOPBACK_1:EXT_RST_N" "XCVR_LOOPBACK_2:EXT_RST_N" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"HSIO_CoreGPIO_C0_0:GPIO_IN[10:10]" "XCVR3_RX_VALID" "XCVR_LOOPBACK_0:rx_val_o" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"HSIO_CoreGPIO_C0_0:GPIO_IN[11:11]" "XCVR3_LOCK" "XCVR_LOOPBACK_0:lock_o" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"HSIO_CoreGPIO_C0_0:GPIO_IN[12:12]" "XCVR3_ERROR" "XCVR_LOOPBACK_0:error_o" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"HSIO_CoreGPIO_C0_0:GPIO_IN[4:4]" "XCVR1_RX_VALID" "XCVR_LOOPBACK_1:rx_val_o" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"HSIO_CoreGPIO_C0_0:GPIO_IN[5:5]" "XCVR1_LOCK" "XCVR_LOOPBACK_1:lock_o" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"HSIO_CoreGPIO_C0_0:GPIO_IN[6:6]" "XCVR1_ERROR" "XCVR_LOOPBACK_1:error_o" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"HSIO_CoreGPIO_C0_0:GPIO_IN[7:7]" "XCVR2_RX_VALID" "XCVR_LOOPBACK_2:rx_val_o" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"HSIO_CoreGPIO_C0_0:GPIO_IN[8:8]" "XCVR2_LOCK" "XCVR_LOOPBACK_2:lock_o" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"HSIO_CoreGPIO_C0_0:GPIO_IN[9:9]" "XCVR2_ERROR" "XCVR_LOOPBACK_2:error_o" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"HSIO_CoreGPIO_C0_0:GPIO_IN[10:10]" "XCVR1_ERROR" "XCVR_LOOPBACK_1:error_o" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"HSIO_CoreGPIO_C0_0:GPIO_IN[11:11]" "XCVR2_RX_VALID" "XCVR_LOOPBACK_2:rx_val_o" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"HSIO_CoreGPIO_C0_0:GPIO_IN[12:12]" "XCVR2_LOCK" "XCVR_LOOPBACK_2:lock_o" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"HSIO_CoreGPIO_C0_0:GPIO_IN[13:13]" "XCVR2_ERROR" "XCVR_LOOPBACK_2:error_o" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"HSIO_CoreGPIO_C0_0:GPIO_IN[14:14]" "XCVR3_RX_VALID" "XCVR_LOOPBACK_0:rx_val_o" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"HSIO_CoreGPIO_C0_0:GPIO_IN[15:15]" "XCVR3_LOCK" "XCVR_LOOPBACK_0:lock_o" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"HSIO_CoreGPIO_C0_0:GPIO_IN[16:16]" "XCVR3_ERROR" "XCVR_LOOPBACK_0:error_o" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"HSIO_CoreGPIO_C0_0:GPIO_IN[8:8]" "XCVR1_RX_VALID" "XCVR_LOOPBACK_1:rx_val_o" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"HSIO_CoreGPIO_C0_0:GPIO_IN[9:9]" "XCVR1_LOCK" "XCVR_LOOPBACK_1:lock_o" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"HSIO_CoreGPIO_C0_0:PCLK" "PCLK" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"HSIO_CoreGPIO_C0_0:PRESETN" "PRESETN" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"PF_CCC_C0_0:OUT0_FABCLK_0" "PF_TX_PLL_0_0:FAB_REF_CLK" "XCVR_LOOPBACK_0:XCVR_REF_CLK" "XCVR_LOOPBACK_2:XCVR_REF_CLK" }
