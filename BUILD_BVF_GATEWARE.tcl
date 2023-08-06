@@ -170,7 +170,6 @@ download_core -vlnv {Actel:SgCore:PF_PCIE:*} -location {www.microchip-ip.com/rep
 download_core -vlnv {Actel:SgCore:PF_TX_PLL:*} -location {www.microchip-ip.com/repositories/SgCore}
 download_core -vlnv {Actel:SgCore:PF_XCVR_REF_CLK:*} -location {www.microchip-ip.com/repositories/SgCore}
 download_core -vlnv {Actel:DirectCore:CoreAPB3:4.2.100} -location {www.microchip-ip.com/repositories/DirectCore}
-#download_core -vlnv {Actel:DirectCore:COREAXI4DMACONTROLLER:2.0.100} -location {www.microchip-ip.com/repositories/DirectCore}
 download_core -vlnv {Actel:DirectCore:CoreGPIO:3.2.102} -location {www.microchip-ip.com/repositories/DirectCore}
 download_core -vlnv {Actel:SystemBuilder:PF_SRAM_AHBL_AXI:1.2.108} -location {www.microchip-ip.com/repositories/SgCore}
 download_core -vlnv {Actel:Simulation:CLK_GEN:1.0.1} -location {www.microchip-ip.com/repositories/SgCore}
@@ -181,6 +180,7 @@ download_core -vlnv {Actel:DirectCore:CoreUARTapb:5.7.100} -location {www.microc
 download_core -vlnv {Actel:SystemBuilder:PF_IOD_GENERIC_RX:*} -location {www.microchip-ip.com/repositories/SgCore}
 download_core -vlnv {Actel:SgCore:PF_IO:*} -location {www.microchip-ip.com/repositories/SgCore}
 download_core -vlnv {Actel:SystemBuilder:PF_XCVR_ERM:*} -location {www.microchip-ip.com/repositories/SgCore}
+download_core -vlnv {Microchip:SolutionCore:mipicsi2rxdecoderPF:4.7.0} -location {www.microchip-ip.com/repositories/DirectCore} 
 
 #
 # // Generate base design
