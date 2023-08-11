@@ -115,7 +115,7 @@ if {[info exists DESIGN_VERSION]} {
 if {[info exists SILICON_SIGNATURE]} {
     set gateware_silicon_signature "$SILICON_SIGNATURE"
 } else {
-    set gateware_silicon_signature "deadc001"
+    set gateware_silicon_signature "bea913b0"
 }
 
 source ./script_support/additional_configurations/functions.tcl
