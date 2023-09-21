@@ -1,6 +1,28 @@
 puts "======== Add cape option: ROBOTICS ========"
 
 #-------------------------------------------------------------------------------
+# Import HDL source files
+#-------------------------------------------------------------------------------
+import_files -hdl_source {script_support/components/CAPE/ROBOTICS/HDL/apb_rotary_enc.v}
+import_files -hdl_source {script_support/components/CAPE/ROBOTICS/HDL/debounce.v}
+import_files -hdl_source {script_support/components/CAPE/ROBOTICS/HDL/rotary_encoder.v}
+
+build_design_hierarchy
+create_hdl_core -file $project_dir/hdl/apb_rotary_enc.v -module {apb_rotary_enc} -library {work} -package {}
+
+
+hdl_core_add_bif -hdl_core_name {apb_rotary_enc} -bif_definition {APB:AMBA:AMBA2:slave} -bif_name {BIF_1} -signal_map {} 
+hdl_core_assign_bif_signal -hdl_core_name {apb_rotary_enc} -bif_name {BIF_1} -bif_signal_name {PADDR} -core_signal_name {paddr} 
+hdl_core_assign_bif_signal -hdl_core_name {apb_rotary_enc} -bif_name {BIF_1} -bif_signal_name {PENABLE} -core_signal_name {penable} 
+hdl_core_assign_bif_signal -hdl_core_name {apb_rotary_enc} -bif_name {BIF_1} -bif_signal_name {PWRITE} -core_signal_name {pwrite} 
+hdl_core_assign_bif_signal -hdl_core_name {apb_rotary_enc} -bif_name {BIF_1} -bif_signal_name {PRDATA} -core_signal_name {prdata} 
+hdl_core_assign_bif_signal -hdl_core_name {apb_rotary_enc} -bif_name {BIF_1} -bif_signal_name {PWDATA} -core_signal_name {pwdata} 
+hdl_core_assign_bif_signal -hdl_core_name {apb_rotary_enc} -bif_name {BIF_1} -bif_signal_name {PREADY} -core_signal_name {pready} 
+hdl_core_assign_bif_signal -hdl_core_name {apb_rotary_enc} -bif_name {BIF_1} -bif_signal_name {PSLVERR} -core_signal_name {pslverr} 
+hdl_core_assign_bif_signal -hdl_core_name {apb_rotary_enc} -bif_name {BIF_1} -bif_signal_name {PSELx} -core_signal_name {psel} 
+hdl_core_rename_bif -hdl_core_name {apb_rotary_enc} -current_bif_name {BIF_1} -new_bif_name {APB_TARGET} 
+
+#-------------------------------------------------------------------------------
 # Build cape's submodules
 #-------------------------------------------------------------------------------
 source script_support/components/CAPE/ROBOTICS/APB_BUS_CONVERTER.tcl
@@ -29,7 +51,6 @@ sd_create_scalar_port -sd_name ${sd_name} -port_name {P9_11} -port_direction {IN
 sd_create_scalar_port -sd_name ${sd_name} -port_name {P9_13} -port_direction {OUT}
 sd_create_scalar_port -sd_name ${sd_name} -port_name {P9_PIN14} -port_direction {OUT}
 sd_create_scalar_port -sd_name ${sd_name} -port_name {P9_PIN16} -port_direction {OUT}
-sd_create_scalar_port -sd_name ${sd_name} -port_name {P9_PIN42} -port_direction {OUT}
 
 #-------------------------------------------------------------------------------
 # Instantiate.
@@ -57,7 +78,11 @@ sd_connect_pins -sd_name ${sd_name} -pin_names {"CAPE:P8_PIN13_USER_LED_10" "P8_
 sd_connect_pins -sd_name ${sd_name} -pin_names {"CAPE:P8_PIN19" "P8_PIN19"}
 sd_connect_pins -sd_name ${sd_name} -pin_names {"CAPE:P9_PIN14" "P9_PIN14"}
 sd_connect_pins -sd_name ${sd_name} -pin_names {"CAPE:P9_PIN16" "P9_PIN16"}
-sd_connect_pins -sd_name ${sd_name} -pin_names {"CAPE:P9_PIN42" "P9_PIN42"}
+
+sd_connect_pin_to_port -sd_name {BVF_GATEWARE} -pin_name {CAPE:P9_PIN27} -port_name {} 
+sd_connect_pin_to_port -sd_name {BVF_GATEWARE} -pin_name {CAPE:P8_PIN35} -port_name {} 
+sd_connect_pin_to_port -sd_name {BVF_GATEWARE} -pin_name {CAPE:P8_PIN33} -port_name {} 
+sd_connect_pin_to_port -sd_name {BVF_GATEWARE} -pin_name {CAPE:P9_PIN42} -port_name {} 
 
 sd_connect_pins -sd_name ${sd_name} -pin_names {"CAPE:APB_SLAVE" "BVF_RISCV_SUBSYSTEM:CAPE_APB_MTARGET"}
 

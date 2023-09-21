@@ -18,7 +18,6 @@ sd_create_scalar_port -sd_name ${sd_name} -port_name {APB_bif_PSLVERR} -port_dir
 sd_create_scalar_port -sd_name ${sd_name} -port_name {PAD_0} -port_direction {INOUT} -port_is_pad {1}
 sd_create_scalar_port -sd_name ${sd_name} -port_name {PAD_1} -port_direction {INOUT} -port_is_pad {1}
 sd_create_scalar_port -sd_name ${sd_name} -port_name {PAD_2} -port_direction {INOUT} -port_is_pad {1}
-sd_create_scalar_port -sd_name ${sd_name} -port_name {PAD_3} -port_direction {INOUT} -port_is_pad {1}
 sd_create_scalar_port -sd_name ${sd_name} -port_name {PAD_4} -port_direction {INOUT} -port_is_pad {1}
 sd_create_scalar_port -sd_name ${sd_name} -port_name {PAD_5} -port_direction {INOUT} -port_is_pad {1}
 sd_create_scalar_port -sd_name ${sd_name} -port_name {PAD_6} -port_direction {INOUT} -port_is_pad {1}
@@ -62,11 +61,6 @@ sd_instantiate_macro -sd_name ${sd_name} -macro_name {BIBUF} -instance_name {BIB
 
 
 
-# Add BIBUF_4 instance
-sd_instantiate_macro -sd_name ${sd_name} -macro_name {BIBUF} -instance_name {BIBUF_4}
-
-
-
 # Add BIBUF_5 instance
 sd_instantiate_macro -sd_name ${sd_name} -macro_name {BIBUF} -instance_name {BIBUF_5}
 
@@ -89,6 +83,7 @@ sd_create_pin_slices -sd_name ${sd_name} -pin_name {CoreGPIO_P9_0:GPIO_IN} -pin_
 sd_create_pin_slices -sd_name ${sd_name} -pin_name {CoreGPIO_P9_0:GPIO_IN} -pin_slices {[2:2]}
 sd_create_pin_slices -sd_name ${sd_name} -pin_name {CoreGPIO_P9_0:GPIO_IN} -pin_slices {[3:3]}
 sd_create_pin_slices -sd_name ${sd_name} -pin_name {CoreGPIO_P9_0:GPIO_IN} -pin_slices {[4:4]}
+sd_connect_pins_to_constant -sd_name ${sd_name} -pin_names {CoreGPIO_P9_0:GPIO_IN[4:4]} -value {GND}
 sd_create_pin_slices -sd_name ${sd_name} -pin_name {CoreGPIO_P9_0:GPIO_IN} -pin_slices {[5:5]}
 sd_create_pin_slices -sd_name ${sd_name} -pin_name {CoreGPIO_P9_0:GPIO_IN} -pin_slices {[6:6]}
 sd_create_pin_slices -sd_name ${sd_name} -pin_name {CoreGPIO_P9_0:GPIO_IN} -pin_slices {[7:7]}
@@ -97,6 +92,7 @@ sd_create_pin_slices -sd_name ${sd_name} -pin_name {CoreGPIO_P9_0:GPIO_OUT} -pin
 sd_create_pin_slices -sd_name ${sd_name} -pin_name {CoreGPIO_P9_0:GPIO_OUT} -pin_slices {[2:2]}
 sd_create_pin_slices -sd_name ${sd_name} -pin_name {CoreGPIO_P9_0:GPIO_OUT} -pin_slices {[3:3]}
 sd_create_pin_slices -sd_name ${sd_name} -pin_name {CoreGPIO_P9_0:GPIO_OUT} -pin_slices {[4:4]}
+sd_mark_pins_unused -sd_name ${sd_name} -pin_names {CoreGPIO_P9_0:GPIO_OUT[4:4]}
 sd_create_pin_slices -sd_name ${sd_name} -pin_name {CoreGPIO_P9_0:GPIO_OUT} -pin_slices {[5:5]}
 sd_create_pin_slices -sd_name ${sd_name} -pin_name {CoreGPIO_P9_0:GPIO_OUT} -pin_slices {[6:6]}
 sd_create_pin_slices -sd_name ${sd_name} -pin_name {CoreGPIO_P9_0:GPIO_OUT} -pin_slices {[7:7]}
@@ -105,6 +101,7 @@ sd_create_pin_slices -sd_name ${sd_name} -pin_name {CoreGPIO_P9_0:GPIO_OE} -pin_
 sd_create_pin_slices -sd_name ${sd_name} -pin_name {CoreGPIO_P9_0:GPIO_OE} -pin_slices {[2:2]}
 sd_create_pin_slices -sd_name ${sd_name} -pin_name {CoreGPIO_P9_0:GPIO_OE} -pin_slices {[3:3]}
 sd_create_pin_slices -sd_name ${sd_name} -pin_name {CoreGPIO_P9_0:GPIO_OE} -pin_slices {[4:4]}
+sd_mark_pins_unused -sd_name ${sd_name} -pin_names {CoreGPIO_P9_0:GPIO_OE[4:4]}
 sd_create_pin_slices -sd_name ${sd_name} -pin_name {CoreGPIO_P9_0:GPIO_OE} -pin_slices {[5:5]}
 sd_create_pin_slices -sd_name ${sd_name} -pin_name {CoreGPIO_P9_0:GPIO_OE} -pin_slices {[6:6]}
 sd_create_pin_slices -sd_name ${sd_name} -pin_name {CoreGPIO_P9_0:GPIO_OE} -pin_slices {[7:7]}
@@ -129,10 +126,6 @@ sd_connect_pins -sd_name ${sd_name} -pin_names {"BIBUF_3:D" "CoreGPIO_P9_0:GPIO_
 sd_connect_pins -sd_name ${sd_name} -pin_names {"BIBUF_3:E" "CoreGPIO_P9_0:GPIO_OE[3:3]" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"BIBUF_3:PAD" "PAD_2" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"BIBUF_3:Y" "CoreGPIO_P9_0:GPIO_IN[3:3]" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"BIBUF_4:D" "CoreGPIO_P9_0:GPIO_OUT[4:4]" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"BIBUF_4:E" "CoreGPIO_P9_0:GPIO_OE[4:4]" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"BIBUF_4:PAD" "PAD_3" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"BIBUF_4:Y" "CoreGPIO_P9_0:GPIO_IN[4:4]" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"BIBUF_5:D" "CoreGPIO_P9_0:GPIO_OUT[5:5]" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"BIBUF_5:E" "CoreGPIO_P9_0:GPIO_OE[5:5]" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"BIBUF_5:PAD" "PAD_4" }
