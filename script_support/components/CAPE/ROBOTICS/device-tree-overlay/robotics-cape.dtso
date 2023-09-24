@@ -1,0 +1,18 @@
+// SPDX-License-Identifier: (GPL-2.0 OR MIT)
+/* Copyright (c) 2023 Microchip Technology Inc */
+
+/dts-v1/;
+/plugin/;
+
+&{/} {
+	fabric-bus@40000000 {
+		core_pwm0: pwm@41000000 {
+			compatible = "microchip,corepwm-rtl-v4";
+			reg = <0x0 0x41000000 0x0 0xF0>;
+			microchip,sync-update-mask = /bits/ 32 <0>;
+			#pwm-cells = <2>;
+			clocks = <&fabric_clk3>;
+			status = "okay";
+		};
+	};
+};
