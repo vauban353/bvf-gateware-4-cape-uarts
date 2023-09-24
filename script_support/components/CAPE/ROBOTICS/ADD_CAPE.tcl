@@ -79,10 +79,10 @@ sd_connect_pins -sd_name ${sd_name} -pin_names {"CAPE:P8_PIN19" "P8_PIN19"}
 sd_connect_pins -sd_name ${sd_name} -pin_names {"CAPE:P9_PIN14" "P9_PIN14"}
 sd_connect_pins -sd_name ${sd_name} -pin_names {"CAPE:P9_PIN16" "P9_PIN16"}
 
-sd_connect_pin_to_port -sd_name {BVF_GATEWARE} -pin_name {CAPE:P9_PIN27} -port_name {} 
-sd_connect_pin_to_port -sd_name {BVF_GATEWARE} -pin_name {CAPE:P8_PIN35} -port_name {} 
-sd_connect_pin_to_port -sd_name {BVF_GATEWARE} -pin_name {CAPE:P8_PIN33} -port_name {} 
-sd_connect_pin_to_port -sd_name {BVF_GATEWARE} -pin_name {CAPE:P9_PIN42} -port_name {} 
+sd_connect_pin_to_port -sd_name ${sd_name} -pin_name {CAPE:P9_PIN27} -port_name {} 
+sd_connect_pin_to_port -sd_name ${sd_name} -pin_name {CAPE:P8_PIN35} -port_name {} 
+sd_connect_pin_to_port -sd_name ${sd_name} -pin_name {CAPE:P8_PIN33} -port_name {} 
+sd_connect_pin_to_port -sd_name ${sd_name} -pin_name {CAPE:P9_PIN42} -port_name {} 
 
 sd_connect_pins -sd_name ${sd_name} -pin_names {"CAPE:APB_SLAVE" "BVF_RISCV_SUBSYSTEM:CAPE_APB_MTARGET"}
 
