@@ -2,22 +2,22 @@
 puts "======== Add High Speed Connector option: IO_BOARD_VALIDATION ========"
 
 
-source script_support/components/HIGH_SPEED_CONNECTOR/IO_BOARD_VALIDATION/HSIO_PWM_C0.tcl
+source script_support/components/SYZYGY/IO_BOARD_VALIDATION/HSIO_PWM_C0.tcl
 
-#source script_support/components/HIGH_SPEED_CONNECTOR/IO_BOARD_VALIDATION/PF_IO_C0.tcl
-#source script_support/components/HIGH_SPEED_CONNECTOR/IO_BOARD_VALIDATION/PF_IO_C1.tcl
-#source script_support/components/HIGH_SPEED_CONNECTOR/IO_BOARD_VALIDATION/PF_IO_C2.tcl
-#source script_support/components/HIGH_SPEED_CONNECTOR/IO_BOARD_VALIDATION/PF_IO_C3.tcl
-#source script_support/components/HIGH_SPEED_CONNECTOR/IO_BOARD_VALIDATION/PF_IO_C4.tcl
-#source script_support/components/HIGH_SPEED_CONNECTOR/IO_BOARD_VALIDATION/PF_IO_C5.tcl
-source script_support/components/HIGH_SPEED_CONNECTOR/IO_BOARD_VALIDATION/PF_TX_PLL_C0.tcl
-source script_support/components/HIGH_SPEED_CONNECTOR/IO_BOARD_VALIDATION/PF_XCVR_ERM_C0.tcl
-source script_support/components/HIGH_SPEED_CONNECTOR/IO_BOARD_VALIDATION/PF_XCVR_ERM_C1.tcl
-source script_support/components/HIGH_SPEED_CONNECTOR/IO_BOARD_VALIDATION/PF_XCVR_REF_CLK_C0.tcl
+#source script_support/components/SYZYGY/IO_BOARD_VALIDATION/PF_IO_C0.tcl
+#source script_support/components/SYZYGY/IO_BOARD_VALIDATION/PF_IO_C1.tcl
+#source script_support/components/SYZYGY/IO_BOARD_VALIDATION/PF_IO_C2.tcl
+#source script_support/components/SYZYGY/IO_BOARD_VALIDATION/PF_IO_C3.tcl
+#source script_support/components/SYZYGY/IO_BOARD_VALIDATION/PF_IO_C4.tcl
+#source script_support/components/SYZYGY/IO_BOARD_VALIDATION/PF_IO_C5.tcl
+source script_support/components/SYZYGY/IO_BOARD_VALIDATION/PF_TX_PLL_C0.tcl
+source script_support/components/SYZYGY/IO_BOARD_VALIDATION/PF_XCVR_ERM_C0.tcl
+source script_support/components/SYZYGY/IO_BOARD_VALIDATION/PF_XCVR_ERM_C1.tcl
+source script_support/components/SYZYGY/IO_BOARD_VALIDATION/PF_XCVR_REF_CLK_C0.tcl
 
-source script_support/components/HIGH_SPEED_CONNECTOR/IO_BOARD_VALIDATION/HIGH_SPEED_INTERFACE.tcl
+source script_support/components/SYZYGY/IO_BOARD_VALIDATION/HIGH_SPEED_INTERFACE.tcl
 
-#source script_support/components/HIGH_SPEED_CONNECTOR/IO_BOARD_VALIDATION/HIGH_SPEED_CONNECTOR.tcl
+#source script_support/components/SYZYGY/IO_BOARD_VALIDATION/HIGH_SPEED_CONNECTOR.tcl
 
 set sd_name ${top_level_name}
 

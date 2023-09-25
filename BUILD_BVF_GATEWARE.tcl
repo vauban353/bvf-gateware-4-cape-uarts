@@ -86,12 +86,18 @@ if {[info exists M2_OPTION]} {
 }
 puts "M.2 option selected: $m2_option"
 
-if {[info exists HIGH_SPEED_CONN_OPTION]} {
-    set high_speed_conn_option "$HIGH_SPEED_CONN_OPTION"
+
+if {[info exists SYZYGY_OPTION]} {
+    set syzygy_option "$SYZYGY_OPTION"
 } else {
-    set high_speed_conn_option "DEFAULT"
+    if {[info exists HIGH_SPEED_CONN_OPTION]} {
+        set syzygy_option "$HIGH_SPEED_CONN_OPTION"
+    } else {
+        set syzygy_option "DEFAULT"
+    }
 }
-puts "High speed connector option option selected: $high_speed_conn_option"
+
+puts "SYZYGY high speed connector option option selected: $syzygy_option"
 
 if {[info exists MIPI_CSI_OPTION]} {
     set mipi_csi_option "$MIPI_CSI_OPTION"
@@ -199,11 +205,11 @@ import_files \
     -convert_EDN_to_HDL 0 \
     -io_pdc "${constraint_path}/base_design.pdc" \
     -fp_pdc "${constraint_path}/NW_PLL.pdc" \
-    -fp_pdc "./script_support/components/HIGH_SPEED_CONNECTOR/$high_speed_conn_option/constraints/fp/HIGH_SPEED_CONNECTOR.pdc" \
+    -fp_pdc "./script_support/components/SYZYGY/$syzygy_option/constraints/fp/SYZYGY.pdc" \
     -sdc "${constraint_path}/fic_clocks.sdc" \
     -io_pdc "./script_support/components/CAPE/$cape_option/constraints/cape.pdc" \
     -io_pdc "./script_support/components/M2/$m2_option/constraints/M2.pdc" \
-    -io_pdc "./script_support/components/HIGH_SPEED_CONNECTOR/$high_speed_conn_option/constraints/HIGH_SPEED_CONNECTOR.pdc" \
+    -io_pdc "./script_support/components/SYZYGY/$syzygy_option/constraints/SYZYGY.pdc" \
     -io_pdc "./script_support/components/MIPI_CSI/$mipi_csi_option/constraints/MIPI_CSI_INTERFACE.pdc"
 
 #
@@ -220,11 +226,11 @@ organize_tool_files \
     -tool {PLACEROUTE} \
     -file "${project_dir}/constraint/io/base_design.pdc" \
     -file "${project_dir}/constraint/fp/NW_PLL.pdc" \
-    -file "${project_dir}/constraint/fp/HIGH_SPEED_CONNECTOR.pdc" \
+    -file "${project_dir}/constraint/fp/SYZYGY.pdc" \
     -file "${project_dir}/constraint/fic_clocks.sdc" \
     -file "${project_dir}/constraint/io/cape.pdc" \
     -file "${project_dir}/constraint/io/M2.pdc" \
-    -file "${project_dir}/constraint/io/HIGH_SPEED_CONNECTOR.pdc" \
+    -file "${project_dir}/constraint/io/SYZYGY.pdc" \
     -file "${project_dir}/constraint/io/MIPI_CSI_INTERFACE.pdc" \
     -module ${top_level_name}::work \
     -input_type {constraint}

@@ -273,7 +273,7 @@ sd_connect_pins_to_constant -sd_name ${sd_name} -pin_names {M2_W_DISABLE2} -valu
 
 #-------------------------------------------------------------------------------
 
-source script_support/components/HIGH_SPEED_CONNECTOR/$high_speed_conn_option/ADD_HIGH_SPEED_CONNECTOR.tcl 
+source script_support/components/SYZYGY/$syzygy_option/ADD_HIGH_SPEED_CONNECTOR.tcl 
 source script_support/components/CAPE/$cape_option/ADD_CAPE.tcl 
 source script_support/components/M2/$m2_option/ADD_M2_INTERFACE.tcl 
 source script_support/components/MIPI_CSI/$mipi_csi_option/ADD_MIPI_CSI_INTERFACE.tcl

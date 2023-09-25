@@ -32,8 +32,8 @@ Specifes the build option for the digital logic attached to the cape connectors.
 #### M2_OPTION
 Specifes the build option for the digital logic attached to the M.2 connector. Options are DEFAULT to enable the wi-fi interface or NONE if you do not need wi-fi and want to use the third transceiver on the SYZYGY connector..
 
-#### HIGH_SPEED_CONN_OPTION
-Specifes the build option for the digital logic attached to the SYZYGY high speed connector. Valid values are the directory names in ./script_support/components/HIGH_SPEED_CONNECTOR. If you wish to create an alternate build option, add a new directory in ./script_support/components/HIGH_SPEED_CONNECTOR using one of the existing ones as template. This is a good place to experiment if you want to use wired communications up to 12.5Gbps.
+#### SYZYGY_OPTION
+Specifes the build option for the digital logic attached to the SYZYGY high speed connector. Valid values are the directory names in ./script_support/components/SYZYGY. If you wish to create an alternate build option, add a new directory in ./script_support/components/SYZYGY using one of the existing ones as template. This is a good place to experiment if you want to use wired communications up to 12.5Gbps.
 
 #### MIPI_CSI_OPTION
 Specifies the build option associated with the camera interface. Valid values are the directory names in ./script_support/components/MIPI_CSI. If you wish to create an alternate build option, add a new directory using one of the existing ones as template.

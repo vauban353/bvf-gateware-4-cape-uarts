@@ -11,28 +11,28 @@ create_hdl_core -file $project_dir/hdl/startup.v -module {STARTUP} -library {wor
 create_hdl_core -file $project_dir/hdl/pattern_chk.v -module {PATTERN_CHK} -library {work} -package {}
 create_hdl_core -file $project_dir/hdl/pattern_gen.v -module {PATTERN_GEN} -library {work} -package {}
 
-#source script_support/components/HIGH_SPEED_CONNECTOR/BOARD_VALIDATION_OPAL_KELLY/XCVR_LOOPBACK/INIT_MONITOR.tcl
-source script_support/components/HIGH_SPEED_CONNECTOR/BOARD_VALIDATION_OPAL_KELLY/XCVR_LOOPBACK/PF_CLK_DIV_C0.tcl
-source script_support/components/HIGH_SPEED_CONNECTOR/BOARD_VALIDATION_OPAL_KELLY/XCVR_LOOPBACK/PF_OSC_0.tcl
-source script_support/components/HIGH_SPEED_CONNECTOR/BOARD_VALIDATION_OPAL_KELLY/XCVR_LOOPBACK/PF_TX_PLL_0.tcl
-source script_support/components/HIGH_SPEED_CONNECTOR/BOARD_VALIDATION_OPAL_KELLY/XCVR_LOOPBACK/PF_CCC_C0.tcl
-source script_support/components/HIGH_SPEED_CONNECTOR/BOARD_VALIDATION_OPAL_KELLY/XCVR_LOOPBACK/PF_XCVR_0.tcl
-source script_support/components/HIGH_SPEED_CONNECTOR/BOARD_VALIDATION_OPAL_KELLY/XCVR_LOOPBACK/PF_XCVR_REF_CLK_0.tcl
-source script_support/components/HIGH_SPEED_CONNECTOR/BOARD_VALIDATION_OPAL_KELLY/XCVR_LOOPBACK/Reset_sync_rx.tcl
-source script_support/components/HIGH_SPEED_CONNECTOR/BOARD_VALIDATION_OPAL_KELLY/XCVR_LOOPBACK/Reset_sync_tx.tcl
-source script_support/components/HIGH_SPEED_CONNECTOR/BOARD_VALIDATION_OPAL_KELLY/XCVR_LOOPBACK/Reset_Block.tcl
-source script_support/components/HIGH_SPEED_CONNECTOR/BOARD_VALIDATION_OPAL_KELLY/XCVR_LOOPBACK/XCVR_LOOPBACK.tcl
+#source script_support/components/SYZYGY/BOARD_VALIDATION_OPAL_KELLY/XCVR_LOOPBACK/INIT_MONITOR.tcl
+source script_support/components/SYZYGY/BOARD_VALIDATION_OPAL_KELLY/XCVR_LOOPBACK/PF_CLK_DIV_C0.tcl
+source script_support/components/SYZYGY/BOARD_VALIDATION_OPAL_KELLY/XCVR_LOOPBACK/PF_OSC_0.tcl
+source script_support/components/SYZYGY/BOARD_VALIDATION_OPAL_KELLY/XCVR_LOOPBACK/PF_TX_PLL_0.tcl
+source script_support/components/SYZYGY/BOARD_VALIDATION_OPAL_KELLY/XCVR_LOOPBACK/PF_CCC_C0.tcl
+source script_support/components/SYZYGY/BOARD_VALIDATION_OPAL_KELLY/XCVR_LOOPBACK/PF_XCVR_0.tcl
+source script_support/components/SYZYGY/BOARD_VALIDATION_OPAL_KELLY/XCVR_LOOPBACK/PF_XCVR_REF_CLK_0.tcl
+source script_support/components/SYZYGY/BOARD_VALIDATION_OPAL_KELLY/XCVR_LOOPBACK/Reset_sync_rx.tcl
+source script_support/components/SYZYGY/BOARD_VALIDATION_OPAL_KELLY/XCVR_LOOPBACK/Reset_sync_tx.tcl
+source script_support/components/SYZYGY/BOARD_VALIDATION_OPAL_KELLY/XCVR_LOOPBACK/Reset_Block.tcl
+source script_support/components/SYZYGY/BOARD_VALIDATION_OPAL_KELLY/XCVR_LOOPBACK/XCVR_LOOPBACK.tcl
 
 
 
 
 
-source script_support/components/HIGH_SPEED_CONNECTOR/BOARD_VALIDATION_OPAL_KELLY/HSIO_PWM_C0.tcl
-#source script_support/components/HIGH_SPEED_CONNECTOR/BOARD_VALIDATION_OPAL_KELLY/PF_TX_PLL_C0.tcl
-#source script_support/components/HIGH_SPEED_CONNECTOR/BOARD_VALIDATION_OPAL_KELLY/PF_XCVR_ERM_C0.tcl
-#source script_support/components/HIGH_SPEED_CONNECTOR/BOARD_VALIDATION_OPAL_KELLY/PF_XCVR_ERM_C1.tcl
-#source script_support/components/HIGH_SPEED_CONNECTOR/BOARD_VALIDATION_OPAL_KELLY/PF_XCVR_REF_CLK_C0.tcl
-source script_support/components/HIGH_SPEED_CONNECTOR/BOARD_VALIDATION_OPAL_KELLY/HIGH_SPEED_INTERFACE.tcl
+source script_support/components/SYZYGY/BOARD_VALIDATION_OPAL_KELLY/HSIO_PWM_C0.tcl
+#source script_support/components/SYZYGY/BOARD_VALIDATION_OPAL_KELLY/PF_TX_PLL_C0.tcl
+#source script_support/components/SYZYGY/BOARD_VALIDATION_OPAL_KELLY/PF_XCVR_ERM_C0.tcl
+#source script_support/components/SYZYGY/BOARD_VALIDATION_OPAL_KELLY/PF_XCVR_ERM_C1.tcl
+#source script_support/components/SYZYGY/BOARD_VALIDATION_OPAL_KELLY/PF_XCVR_REF_CLK_C0.tcl
+source script_support/components/SYZYGY/BOARD_VALIDATION_OPAL_KELLY/HIGH_SPEED_INTERFACE.tcl
 
 
 
