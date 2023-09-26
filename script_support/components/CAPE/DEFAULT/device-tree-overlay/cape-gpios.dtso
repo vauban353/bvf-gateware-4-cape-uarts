@@ -6,6 +6,15 @@
 
 &{/} {
 	fabric-bus@40000000 {
+		core_pwm0: pwm@41000000 {
+			compatible = "microchip,corepwm-rtl-v4";
+			reg = <0x0 0x41000000 0x0 0xF0>;
+			microchip,sync-update-mask = /bits/ 32 <0>;
+			#pwm-cells = <2>;
+			clocks = <&fabric_clk3>;
+			status = "okay";
+		};
+
 		cape_gpios_p8: gpio@41100000 {
 			compatible = "microchip,core-gpio";
 			reg = <0x0 0x41100000 0x0 0x1000>;
@@ -20,20 +29,20 @@
 							  "P8_PIN43", "P8_PIN44", "P8_PIN45", "P8_PIN46";
 		};
 
-		cape_gpios_p9: gpio@41200000 {
-			compatible = "microchip,core-gpio";
-			reg = <0x0 0x41200000 0x0 0x1000>;
-			clocks = <&fabric_clk3>;
-			gpio-controller;
-			#gpio-cells = <2>;
-			ngpios=<21>;
-			status = "okay";
-			gpio-line-names = "P9_PIN11", "P9_PIN12", "P9_PIN13", "P9_PIN14",
-			                  "P9_PIN15", "P9_PIN16", "P9_PIN17", "P9_PIN18",
-			                  "P9_PIN21", "P9_PIN22", "P9_PIN23", "P9_PIN24",
-			                  "P9_PIN25", "P9_PIN26", "P9_PIN27", "P9_PIN28",
-							  "P9_PIN29", "P9_PIN31", "P9_PIN41", "P9_PIN42";
-		};
+//		cape_gpios_p9: gpio@41200000 {
+//			compatible = "microchip,core-gpio";
+//			reg = <0x0 0x41200000 0x0 0x1000>;
+//			clocks = <&fabric_clk3>;
+//			gpio-controller;
+//			#gpio-cells = <2>;
+//			ngpios=<21>;
+//			status = "okay";
+//			gpio-line-names = "P9_PIN11", "P9_PIN12", "P9_PIN13", "P9_PIN14",
+//			                  "P9_PIN15", "P9_PIN16", "P9_PIN17", "P9_PIN18",
+//			                  "P9_PIN21", "P9_PIN22", "P9_PIN23", "P9_PIN24",
+//			                  "P9_PIN25", "P9_PIN26", "P9_PIN27", "P9_PIN28",
+//							  "P9_PIN29", "P9_PIN31", "P9_PIN41", "P9_PIN42";
+//		};
 	};
 };
 
@@ -49,8 +58,8 @@
 	gpio-line-names = "P8_PIN3_USER_LED_0", "P8_PIN4_USER_LED_1", "P8_PIN5_USER_LED_2",
 					"P8_PIN6_USER_LED_3", "P8_PIN7_USER_LED_4", "P8_PIN8_USER_LED_5",
 					"P8_PIN9_USER_LED_6", "P8_PIN10_USER_LED_7", "P8_PIN11_USER_LED_8",
-					"P8_PIN12_USER_LED_9", "P8_PIN13_USER_LED_10", "P8_PIN14_USER_LED_11",
-					"P8_PIN15", "P8_PIN16", "P8_PIN17", "P8_PIN18", "P8_PIN19",
+					"P8_PIN12_USER_LED_9", "", "P8_PIN14_USER_LED_11",
+					"P8_PIN15", "P8_PIN16", "P8_PIN17", "P8_PIN18", "",
 					"P8_PIN20", "P8_PIN21", "P8_PIN22",	"P8_PIN23", "P8_PIN24",
 					"P8_PIN25", "P8_PIN26", "P8_PIN27", "P8_PIN28", "P8_PIN29",
 					"P8_PIN30",
