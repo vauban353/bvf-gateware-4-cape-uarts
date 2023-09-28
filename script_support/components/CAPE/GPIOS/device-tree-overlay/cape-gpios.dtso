@@ -32,7 +32,8 @@
 			                  "P9_PIN15", "P9_PIN16", "P9_PIN17", "P9_PIN18",
 			                  "P9_PIN21", "P9_PIN22", "P9_PIN23", "P9_PIN24",
 			                  "P9_PIN25", "P9_PIN26", "P9_PIN27", "P9_PIN28",
-							  "P9_PIN29", "P9_PIN31", "P9_PIN41", "P9_PIN42";
+							  "P9_PIN29", "P9_PIN30", "P9_PIN31", "P9_PIN41", 
+							  "P9_PIN42";
 		};
 	};
 };
