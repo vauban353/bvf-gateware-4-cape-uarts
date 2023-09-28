@@ -7,7 +7,7 @@
 
 &{/} {
 	fabric-bus@40000000 {
-		cape_gpios_p8: gpio@43000000 {
+		m2_test_gpios: gpio@43000000 {
 			compatible = "microchip,core-gpio";
 			reg = <0x0 0x41100000 0x0 0x1000>;
 			clocks = <&fabric_clk3>;
