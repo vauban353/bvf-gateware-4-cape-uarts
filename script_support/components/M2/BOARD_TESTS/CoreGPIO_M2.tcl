@@ -4,13 +4,13 @@
 # Create and Configure the core component CoreGPIO_M2
 create_and_configure_core -core_vlnv {Actel:DirectCore:CoreGPIO:3.2.102} -component_name {CoreGPIO_M2} -params {\
 "APB_WIDTH:32"  \
-"FIXED_CONFIG_0:false"  \
-"FIXED_CONFIG_1:false"  \
-"FIXED_CONFIG_2:false"  \
-"FIXED_CONFIG_3:false"  \
-"FIXED_CONFIG_4:false"  \
-"FIXED_CONFIG_5:false"  \
-"FIXED_CONFIG_6:false"  \
+"FIXED_CONFIG_0:true"  \
+"FIXED_CONFIG_1:true"  \
+"FIXED_CONFIG_2:true"  \
+"FIXED_CONFIG_3:true"  \
+"FIXED_CONFIG_4:true"  \
+"FIXED_CONFIG_5:true"  \
+"FIXED_CONFIG_6:true"  \
 "FIXED_CONFIG_7:false"  \
 "FIXED_CONFIG_8:false"  \
 "FIXED_CONFIG_9:false"  \
@@ -69,14 +69,14 @@ create_and_configure_core -core_vlnv {Actel:DirectCore:CoreGPIO:3.2.102} -compon
 "IO_INT_TYPE_29:7"  \
 "IO_INT_TYPE_30:7"  \
 "IO_INT_TYPE_31:7"  \
-"IO_NUM:32"  \
-"IO_TYPE_0:0"  \
-"IO_TYPE_1:0"  \
-"IO_TYPE_2:0"  \
-"IO_TYPE_3:0"  \
-"IO_TYPE_4:0"  \
-"IO_TYPE_5:0"  \
-"IO_TYPE_6:0"  \
+"IO_NUM:7"  \
+"IO_TYPE_0:2"  \
+"IO_TYPE_1:2"  \
+"IO_TYPE_2:2"  \
+"IO_TYPE_3:2"  \
+"IO_TYPE_4:2"  \
+"IO_TYPE_5:2"  \
+"IO_TYPE_6:2"  \
 "IO_TYPE_7:0"  \
 "IO_TYPE_8:0"  \
 "IO_TYPE_9:0"  \
