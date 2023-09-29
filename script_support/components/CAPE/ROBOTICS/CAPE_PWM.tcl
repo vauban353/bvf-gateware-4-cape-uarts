@@ -16,8 +16,6 @@ sd_create_scalar_port -sd_name ${sd_name} -port_name {APBslave_PREADY} -port_dir
 sd_create_scalar_port -sd_name ${sd_name} -port_name {APBslave_PSLVERR} -port_direction {OUT}
 sd_create_scalar_port -sd_name ${sd_name} -port_name {PWM_0} -port_direction {OUT}
 sd_create_scalar_port -sd_name ${sd_name} -port_name {PWM_1} -port_direction {OUT}
-sd_create_scalar_port -sd_name ${sd_name} -port_name {PWM_2} -port_direction {OUT}
-sd_create_scalar_port -sd_name ${sd_name} -port_name {PWM_3} -port_direction {OUT}
 
 
 # Create top level Bus Ports
@@ -42,8 +40,6 @@ sd_create_bif_port -sd_name ${sd_name} -port_name {APBslave} -port_bif_vlnv {AMB
 sd_instantiate_component -sd_name ${sd_name} -component_name {corepwm_C1} -instance_name {corepwm_C1_0}
 sd_create_pin_slices -sd_name ${sd_name} -pin_name {corepwm_C1_0:PWM} -pin_slices {[0:0]}
 sd_create_pin_slices -sd_name ${sd_name} -pin_name {corepwm_C1_0:PWM} -pin_slices {[1:1]}
-sd_create_pin_slices -sd_name ${sd_name} -pin_name {corepwm_C1_0:PWM} -pin_slices {[2:2]}
-sd_create_pin_slices -sd_name ${sd_name} -pin_name {corepwm_C1_0:PWM} -pin_slices {[3:3]}
 
 
 
@@ -52,8 +48,6 @@ sd_connect_pins -sd_name ${sd_name} -pin_names {"PCLK" "corepwm_C1_0:PCLK" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"PRESETN" "corepwm_C1_0:PRESETN" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"PWM_0" "corepwm_C1_0:PWM[0:0]" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"PWM_1" "corepwm_C1_0:PWM[1:1]" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"PWM_2" "corepwm_C1_0:PWM[2:2]" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"PWM_3" "corepwm_C1_0:PWM[3:3]" }
 
 
 # Add bus interface net connections

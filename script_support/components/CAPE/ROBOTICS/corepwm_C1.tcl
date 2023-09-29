@@ -89,7 +89,7 @@ create_and_configure_core -core_vlnv {Actel:DirectCore:corepwm:4.5.100} -compone
 "FIXED_PWM_POSEDGE14:0"  \
 "FIXED_PWM_POSEDGE15:0"  \
 "FIXED_PWM_POSEDGE16:0"  \
-"PWM_NUM:4"  \
+"PWM_NUM:2"  \
 "PWM_STRETCH_VALUE1:false"  \
 "PWM_STRETCH_VALUE2:false"  \
 "PWM_STRETCH_VALUE3:false"  \

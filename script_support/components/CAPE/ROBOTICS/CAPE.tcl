@@ -127,6 +127,11 @@ sd_instantiate_component -sd_name ${sd_name} -component_name {CAPE_PWM} -instanc
 
 
 
+# Add PWM_1 instance
+sd_instantiate_component -sd_name ${sd_name} -component_name {CAPE_PWM} -instance_name {PWM_1}
+
+
+
 # Add scalar net connections
 sd_create_scalar_net -sd_name ${sd_name} -net_name {P9_12}
 sd_create_scalar_net -sd_name ${sd_name} -net_name {P9_PIN15}
@@ -173,10 +178,10 @@ sd_connect_pins -sd_name ${sd_name} -pin_names {"P8_GPIO_UPPER_0:GPIO_6_PAD" "P8
 sd_connect_pins -sd_name ${sd_name} -pin_names {"P8_GPIO_UPPER_0:GPIO_7_PAD" "P8_PIN38" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"P8_GPIO_UPPER_0:GPIO_8_PAD" "P8_PIN39" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"P8_GPIO_UPPER_0:GPIO_9_PAD" "P8_PIN40" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"P8_GPIO_UPPER_0:PCLK" "P9_GPIO_0:PCLK" "PCLK" "PWM_0:PCLK" "apb_rotary_enc_0:pclk" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"P8_GPIO_UPPER_0:PRESETN" "P9_GPIO_0:PRESETN" "PRESETN" "PWM_0:PRESETN" "apb_rotary_enc_0:presetn" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"P8_PIN13_USER_LED_10" "PWM_0:PWM_3" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"P8_PIN19" "PWM_0:PWM_2" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"P8_GPIO_UPPER_0:PCLK" "P9_GPIO_0:PCLK" "PCLK" "PWM_0:PCLK" "PWM_1:PCLK" "apb_rotary_enc_0:pclk" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"P8_GPIO_UPPER_0:PRESETN" "P9_GPIO_0:PRESETN" "PRESETN" "PWM_0:PRESETN" "PWM_1:PRESETN" "apb_rotary_enc_0:presetn" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"P8_PIN13_USER_LED_10" "PWM_1:PWM_1" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"P8_PIN19" "PWM_1:PWM_0" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"P8_PIN33" "apb_rotary_enc_0:enc1_b" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"P8_PIN35" "apb_rotary_enc_0:enc1_a" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"P9_GPIO_0:PAD_0" "P9_PIN15" }
@@ -197,10 +202,11 @@ sd_connect_pins -sd_name ${sd_name} -pin_names {"CAPE_DEFAULT_GPIOS:GPIO_OUT" "G
 # Add bus interface net connections
 sd_connect_pins -sd_name ${sd_name} -pin_names {"APB_BUS_CONVERTER_0:APB_MASTER" "CoreAPB3_CAPE_0:APB3mmaster" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"APB_BUS_CONVERTER_0:APB_SLAVE" "APB_SLAVE" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"CoreAPB3_CAPE_0:APBmslave0" "PWM_0:APBslave" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"CoreAPB3_CAPE_0:APBmslave1" "P8_GPIO_UPPER_0:APB_bif" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"CoreAPB3_CAPE_0:APBmslave2" "P9_GPIO_0:APB_bif" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"CoreAPB3_CAPE_0:APBmslave3" "apb_rotary_enc_0:APB_TARGET" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"CoreAPB3_CAPE_0:APBmslave4" "PWM_0:APBslave" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"CoreAPB3_CAPE_0:APBmslave5" "PWM_1:APBslave" }
 
 # Re-enable auto promotion of pins of type 'pad'
 auto_promote_pad_pins -promote_all 1
