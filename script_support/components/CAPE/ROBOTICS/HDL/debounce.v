@@ -9,8 +9,7 @@ module debounce
     output reg switch_out
   );
 
-//  localparam bounce_limit_upper_bit = 3;
-  localparam bounce_limit_upper_bit = 18;
+  localparam bounce_limit_upper_bit = 19;
   reg [bounce_limit_upper_bit:0] bounce_count = 0;
 
   //---------------------------------------------------------------------------
