@@ -6,7 +6,7 @@
 
 &{/chosen} {
 	overlays {
-		ROBOTICS-CAPE-GATEWARE = &cape_pwm0;
+		ROBOTICS-CAPE-GATEWARE = &cape_pwm1;
 	};
 };
 
@@ -40,7 +40,7 @@
 							  "P9_41", "P9_13";
 		};
 
-		cape_pwm0: pwm@41400000 {
+		cape_pwm1: pwm@41400000 {
 			compatible = "microchip,corepwm-rtl-v4";
 			reg = <0x0 0x41400000 0x0 0xF0>;
 			microchip,sync-update-mask = /bits/ 32 <0>;
@@ -49,7 +49,7 @@
 			clocks = <&fabric_clk3>;
 		};
 
-		cape_pwm1: pwm@41500000 {
+		cape_pwm2: pwm@41500000 {
 			compatible = "microchip,corepwm-rtl-v4";
 			reg = <0x0 0x41500000 0x0 0xF0>;
 			microchip,sync-update-mask = /bits/ 32 <0>;
