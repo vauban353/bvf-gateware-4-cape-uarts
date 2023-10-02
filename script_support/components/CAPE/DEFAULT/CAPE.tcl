@@ -118,6 +118,17 @@ sd_instantiate_component -sd_name ${sd_name} -component_name {P9_GPIO} -instance
 
 # Add PWM_0 instance
 sd_instantiate_component -sd_name ${sd_name} -component_name {CAPE_PWM} -instance_name {PWM_0}
+sd_mark_pins_unused -sd_name ${sd_name} -pin_names {PWM_0:PWM_1}
+
+
+
+# Add PWM_1 instance
+sd_instantiate_component -sd_name ${sd_name} -component_name {CAPE_PWM} -instance_name {PWM_1}
+
+
+
+# Add PWM_2 instance
+sd_instantiate_component -sd_name ${sd_name} -component_name {CAPE_PWM} -instance_name {PWM_2}
 
 
 
@@ -164,10 +175,10 @@ sd_connect_pins -sd_name ${sd_name} -pin_names {"P8_GPIO_UPPER_0:GPIO_6_PAD" "P8
 sd_connect_pins -sd_name ${sd_name} -pin_names {"P8_GPIO_UPPER_0:GPIO_7_PAD" "P8_PIN38" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"P8_GPIO_UPPER_0:GPIO_8_PAD" "P8_PIN39" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"P8_GPIO_UPPER_0:GPIO_9_PAD" "P8_PIN40" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"P8_GPIO_UPPER_0:PCLK" "P9_GPIO_0:PCLK" "PCLK" "PWM_0:PCLK" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"P8_GPIO_UPPER_0:PRESETN" "P9_GPIO_0:PRESETN" "PRESETN" "PWM_0:PRESETN" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"P8_PIN13_USER_LED_10" "PWM_0:PWM_3" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"P8_PIN19" "PWM_0:PWM_4" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"P8_GPIO_UPPER_0:PCLK" "P9_GPIO_0:PCLK" "PCLK" "PWM_0:PCLK" "PWM_1:PCLK" "PWM_2:PCLK" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"P8_GPIO_UPPER_0:PRESETN" "P9_GPIO_0:PRESETN" "PRESETN" "PWM_0:PRESETN" "PWM_1:PRESETN" "PWM_2:PRESETN" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"P8_PIN13_USER_LED_10" "PWM_2:PWM_1" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"P8_PIN19" "PWM_2:PWM_0" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"P9_GPIO_0:GPIO_10_PAD" "P9_PIN23" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"P9_GPIO_0:GPIO_12_PAD" "P9_PIN25" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"P9_GPIO_0:GPIO_14_PAD" "P9_PIN27" }
@@ -175,8 +186,8 @@ sd_connect_pins -sd_name ${sd_name} -pin_names {"P9_GPIO_0:GPIO_17_PAD" "P9_PIN3
 sd_connect_pins -sd_name ${sd_name} -pin_names {"P9_GPIO_0:GPIO_19_PAD" "P9_PIN41" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"P9_GPIO_0:GPIO_1_PAD" "P9_PIN12" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"P9_GPIO_0:GPIO_4_PAD" "P9_PIN15" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"P9_PIN14" "PWM_0:PWM_1" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"P9_PIN16" "PWM_0:PWM_2" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"P9_PIN14" "PWM_1:PWM_0" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"P9_PIN16" "PWM_1:PWM_1" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"P9_PIN42" "PWM_0:PWM_0" }
 
 # Add bus net connections
@@ -190,6 +201,8 @@ sd_connect_pins -sd_name ${sd_name} -pin_names {"APB_BUS_CONVERTER_0:APB_SLAVE" 
 sd_connect_pins -sd_name ${sd_name} -pin_names {"CoreAPB3_CAPE_0:APBmslave0" "PWM_0:APBslave" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"CoreAPB3_CAPE_0:APBmslave1" "P8_GPIO_UPPER_0:APB_bif" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"CoreAPB3_CAPE_0:APBmslave2" "P9_GPIO_0:APB_bif" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"CoreAPB3_CAPE_0:APBmslave4" "PWM_1:APBslave" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"CoreAPB3_CAPE_0:APBmslave5" "PWM_2:APBslave" }
 
 # Re-enable auto promotion of pins of type 'pad'
 auto_promote_pad_pins -promote_all 1
