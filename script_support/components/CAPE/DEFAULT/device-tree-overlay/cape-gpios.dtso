@@ -4,6 +4,12 @@
 /dts-v1/;
 /plugin/;
 
+&{/chosen} {
+	overlays {
+		DEFAULT-CAPE-GATEWARE = "Mon Oct  2 18:00:17 2023";
+	};
+};
+
 &{/} {
 	fabric-bus@40000000 {
 		core_pwm0: pwm@41000000 {
@@ -98,4 +104,8 @@
 		input;
 		line-name = "SD_DET";
 	};
+};
+
+&mmuart4 {
+	status = "okay";
 };
