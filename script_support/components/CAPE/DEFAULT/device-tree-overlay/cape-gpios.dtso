@@ -50,7 +50,7 @@
 			                  "";
 		};
 
-		cape_pwm1: pwm@41400000 {
+		bone_pwm_1: pwm@41400000 {
 			compatible = "microchip,corepwm-rtl-v4";
 			reg = <0x0 0x41400000 0x0 0xF0>;
 			microchip,sync-update-mask = /bits/ 32 <0>;
@@ -59,7 +59,7 @@
 			clocks = <&fabric_clk3>;
 		};
 
-		cape_pwm2: pwm@41500000 {
+		bone_pwm_2: pwm@41500000 {
 			compatible = "microchip,corepwm-rtl-v4";
 			reg = <0x0 0x41500000 0x0 0xF0>;
 			microchip,sync-update-mask = /bits/ 32 <0>;
