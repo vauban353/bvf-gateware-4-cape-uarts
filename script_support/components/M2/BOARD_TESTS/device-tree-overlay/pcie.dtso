@@ -20,3 +20,9 @@
 		};
 	};
 };
+
+&mmuart1 {
+	status = "okay";
+	label = "bone_uart_m2";
+	symlink = "bone/uart/m2";
+};
