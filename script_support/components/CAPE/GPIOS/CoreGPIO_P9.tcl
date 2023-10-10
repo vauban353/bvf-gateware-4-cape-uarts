@@ -90,7 +90,7 @@ create_and_configure_core -core_vlnv {Actel:DirectCore:CoreGPIO:3.2.102} -compon
 "IO_TYPE_17:2"  \
 "IO_TYPE_18:2"  \
 "IO_TYPE_19:2"  \
-"IO_TYPE_20:0"  \
+"IO_TYPE_20:2"  \
 "IO_TYPE_21:0"  \
 "IO_TYPE_22:0"  \
 "IO_TYPE_23:0"  \
