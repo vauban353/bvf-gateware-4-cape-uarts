@@ -43,6 +43,13 @@ sd_create_bif_port -sd_name ${sd_name} -port_name {APB_TARGET} -port_bif_vlnv {A
 
 # Add CoreGPIO_M2_0 instance
 sd_instantiate_component -sd_name ${sd_name} -component_name {CoreGPIO_M2} -instance_name {CoreGPIO_M2_0}
+sd_create_pin_slices -sd_name ${sd_name} -pin_name {CoreGPIO_M2_0:GPIO_IN} -pin_slices {[0:0]}
+sd_create_pin_slices -sd_name ${sd_name} -pin_name {CoreGPIO_M2_0:GPIO_IN} -pin_slices {[1:1]}
+sd_create_pin_slices -sd_name ${sd_name} -pin_name {CoreGPIO_M2_0:GPIO_IN} -pin_slices {[2:2]}
+sd_create_pin_slices -sd_name ${sd_name} -pin_name {CoreGPIO_M2_0:GPIO_IN} -pin_slices {[3:3]}
+sd_create_pin_slices -sd_name ${sd_name} -pin_name {CoreGPIO_M2_0:GPIO_IN} -pin_slices {[4:4]}
+sd_create_pin_slices -sd_name ${sd_name} -pin_name {CoreGPIO_M2_0:GPIO_IN} -pin_slices {[5:5]}
+sd_create_pin_slices -sd_name ${sd_name} -pin_name {CoreGPIO_M2_0:GPIO_IN} -pin_slices {[6:6]}
 sd_create_pin_slices -sd_name ${sd_name} -pin_name {CoreGPIO_M2_0:GPIO_OUT} -pin_slices {[0:0]}
 sd_create_pin_slices -sd_name ${sd_name} -pin_name {CoreGPIO_M2_0:GPIO_OUT} -pin_slices {[1:1]}
 sd_create_pin_slices -sd_name ${sd_name} -pin_name {CoreGPIO_M2_0:GPIO_OUT} -pin_slices {[2:2]}
@@ -51,19 +58,18 @@ sd_create_pin_slices -sd_name ${sd_name} -pin_name {CoreGPIO_M2_0:GPIO_OUT} -pin
 sd_create_pin_slices -sd_name ${sd_name} -pin_name {CoreGPIO_M2_0:GPIO_OUT} -pin_slices {[5:5]}
 sd_create_pin_slices -sd_name ${sd_name} -pin_name {CoreGPIO_M2_0:GPIO_OUT} -pin_slices {[6:6]}
 sd_mark_pins_unused -sd_name ${sd_name} -pin_names {CoreGPIO_M2_0:INT}
-sd_connect_pins_to_constant -sd_name ${sd_name} -pin_names {CoreGPIO_M2_0:GPIO_IN} -value {VCC}
 sd_mark_pins_unused -sd_name ${sd_name} -pin_names {CoreGPIO_M2_0:GPIO_OE}
 
 
 
 # Add scalar net connections
-sd_connect_pins -sd_name ${sd_name} -pin_names {"CoreGPIO_M2_0:GPIO_OUT[0:0]" "M2_PERST0n" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"CoreGPIO_M2_0:GPIO_OUT[1:1]" "M2_UART_WAKEN" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"CoreGPIO_M2_0:GPIO_OUT[2:2]" "M2_W_DISABLE1" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"CoreGPIO_M2_0:GPIO_OUT[3:3]" "M2_W_DISABLE2" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"CoreGPIO_M2_0:GPIO_OUT[4:4]" "H_M2_CLKREQ0N" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"CoreGPIO_M2_0:GPIO_OUT[5:5]" "M2_PEWAKEN" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"CoreGPIO_M2_0:GPIO_OUT[6:6]" "M2_I2C_ALTN" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"CoreGPIO_M2_0:GPIO_IN[0:0]" "CoreGPIO_M2_0:GPIO_OUT[0:0]" "M2_PERST0n" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"CoreGPIO_M2_0:GPIO_IN[1:1]" "CoreGPIO_M2_0:GPIO_OUT[1:1]" "M2_UART_WAKEN" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"CoreGPIO_M2_0:GPIO_IN[2:2]" "CoreGPIO_M2_0:GPIO_OUT[2:2]" "M2_W_DISABLE1" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"CoreGPIO_M2_0:GPIO_IN[3:3]" "CoreGPIO_M2_0:GPIO_OUT[3:3]" "M2_W_DISABLE2" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"CoreGPIO_M2_0:GPIO_IN[4:4]" "CoreGPIO_M2_0:GPIO_OUT[4:4]" "H_M2_CLKREQ0N" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"CoreGPIO_M2_0:GPIO_IN[5:5]" "CoreGPIO_M2_0:GPIO_OUT[5:5]" "M2_PEWAKEN" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"CoreGPIO_M2_0:GPIO_IN[6:6]" "CoreGPIO_M2_0:GPIO_OUT[6:6]" "M2_I2C_ALTN" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"CoreGPIO_M2_0:PCLK" "PCLK" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"CoreGPIO_M2_0:PRESETN" "PRESETN" }
 

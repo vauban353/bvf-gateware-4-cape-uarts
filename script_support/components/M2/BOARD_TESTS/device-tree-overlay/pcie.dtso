@@ -9,11 +9,11 @@
 	fabric-bus@40000000 {
 		m2_test_gpios: gpio@43000000 {
 			compatible = "microchip,core-gpio";
-			reg = <0x0 0x41100000 0x0 0x1000>;
+			reg = <0x0 0x43000000 0x0 0x1000>;
 			clocks = <&fabric_clk3>;
 			gpio-controller;
 			#gpio-cells = <2>;
-			ngpios=<16>;
+			ngpios=<7>;
 			status = "okay";
 			gpio-line-names = "M2_PERST0N", "M2_UART_WAKEN", "M2_W_DISABLE1", "M2_W_DISABLE2",
 			                  "M2_CLKREQ0N", "M2_PEWAKEN", "M2_I2C_ALTN";
