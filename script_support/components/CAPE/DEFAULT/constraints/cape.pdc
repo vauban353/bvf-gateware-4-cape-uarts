@@ -35,6 +35,31 @@ set_io -port_name P9_PIN16	\
     -io_std LVCMOS33  \
     -DIRECTION OUT
 
+set_io -port_name P9_17	\
+    -pin_name C9	\
+    -fixed true	\
+    -io_std LVCMOS33  \
+    -DIRECTION OUTPUT
+
+set_io -port_name P9_18	\
+    -pin_name C10	\
+    -fixed true	\
+    -io_std LVCMOS33  \
+    -DIRECTION INPUT
+
+set_io -port_name P9_21	\
+    -pin_name B8	\
+    -fixed true	\
+    -io_std LVCMOS33  \
+    -DIRECTION OUTPUT
+
+set_io -port_name P9_22	\
+    -pin_name A8	\
+    -fixed true	\
+    -io_std LVCMOS33  \
+    -DIRECTION OUTPUT
+
+
 set_io -port_name P9_PIN23	\
     -pin_name C12	\
     -fixed true	\
@@ -65,11 +90,29 @@ set_io -port_name P9_PIN27	\
     -io_std LVCMOS33  \
     -DIRECTION INOUT
 
+set_io -port_name P9_28	\
+    -pin_name C11	\
+    -fixed true	\
+    -io_std LVCMOS33  \
+    -DIRECTION OUTPUT
+
+set_io -port_name P9_29	\
+    -pin_name F17	\
+    -fixed true	\
+    -io_std LVCMOS33  \
+    -DIRECTION OUTPUT
+
 set_io -port_name P9_PIN30	\
     -pin_name F16	\
     -fixed true	\
     -io_std LVCMOS33  \
     -DIRECTION INOUT
+
+set_io -port_name P9_31	\
+    -pin_name E18	\
+    -fixed true	\
+    -io_std LVCMOS33  \
+    -DIRECTION OUTPUT
 
 set_io -port_name P9_PIN41	\
     -pin_name E15	\
