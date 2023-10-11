@@ -14,10 +14,10 @@
 			#gpio-cells = <2>;
 			ngpios=<16>;
 			status = "okay";
-			gpio-line-names = "P8_PIN31", "P8_PIN32", "P8_PIN33", "P8_PIN34",
-			                  "P8_PIN35", "P8_PIN36", "P8_PIN37", "P8_PIN38",
-			                  "P8_PIN39", "P8_PIN40", "P8_PIN41", "P8_PIN42",
-							  "P8_PIN43", "P8_PIN44", "P8_PIN45", "P8_PIN46";
+			gpio-line-names = "P8_31", "P8_32", "P8_33", "P8_34",
+			                  "P8_35", "P8_36", "P8_37", "P8_38",
+			                  "P8_39", "P8_40", "P8_41", "P8_42",
+							  "P8_43", "P8_44", "P8_45", "P8_46";
 		};
 
 		cape_gpios_p9: gpio@41200000 {
@@ -28,12 +28,12 @@
 			#gpio-cells = <2>;
 			ngpios=<21>;
 			status = "okay";
-			gpio-line-names = "P9_PIN11", "P9_PIN12", "P9_PIN13", "P9_PIN14",
-			                  "P9_PIN15", "P9_PIN16", "P9_PIN17", "P9_PIN18",
-			                  "P9_PIN21", "P9_PIN22", "P9_PIN23", "P9_PIN24",
-			                  "P9_PIN25", "P9_PIN26", "P9_PIN27", "P9_PIN28",
-							  "P9_PIN29", "P9_PIN30", "P9_PIN31", "P9_PIN41", 
-							  "P9_PIN42";
+			gpio-line-names = "P9_11", "P9_12", "P9_13", "P9_14",
+			                  "P9_15", "P9_16", "P9_17", "P9_18",
+			                  "P9_21", "P9_22", "P9_23", "P9_24",
+			                  "P9_25", "P9_26", "P9_27", "P9_28",
+							  "P9_29", "P9_30", "P9_31", "P9_41", 
+							  "P9_42";
 		};
 	};
 };
@@ -47,14 +47,14 @@
 		     <53>, <53>, <53>, <53>,
 		     <53>, <53>, <53>, <53>,
 		     <53>, <53>, <53>, <53>;
-	gpio-line-names = "P8_PIN3_USER_LED_0", "P8_PIN4_USER_LED_1", "P8_PIN5_USER_LED_2",
-					"P8_PIN6_USER_LED_3", "P8_PIN7_USER_LED_4", "P8_PIN8_USER_LED_5",
-					"P8_PIN9_USER_LED_6", "P8_PIN10_USER_LED_7", "P8_PIN11_USER_LED_8",
-					"P8_PIN12_USER_LED_9", "P8_PIN13_USER_LED_10", "P8_PIN14_USER_LED_11",
-					"P8_PIN15", "P8_PIN16", "P8_PIN17", "P8_PIN18", "P8_PIN19",
-					"P8_PIN20", "P8_PIN21", "P8_PIN22",	"P8_PIN23", "P8_PIN24",
-					"P8_PIN25", "P8_PIN26", "P8_PIN27", "P8_PIN28", "P8_PIN29",
-					"P8_PIN30",
+	gpio-line-names = "P8_3_USER_LED_0", "P8_4_USER_LED_1", "P8_5_USER_LED_2",
+					"P8_6_USER_LED_3", "P8_7_USER_LED_4", "P8_8_USER_LED_5",
+					"P8_9_USER_LED_6", "P8_10_USER_LED_7", "P8_11_USER_LED_8",
+					"P8_12_USER_LED_9", "P8_13_USER_LED_10", "P8_14_USER_LED_11",
+					"P8_15", "P8_16", "P8_17", "P8_18", "P8_19",
+					"P8_20", "P8_21", "P8_22",	"P8_23", "P8_24",
+					"P8_25", "P8_26", "P8_27", "P8_28", "P8_29",
+					"P8_30",
 					"M2_W_DISABLE1", "M2_W_DISABLE2",
 					"VIO_ENABLE", "SD_DET";
 	status = "okay";
