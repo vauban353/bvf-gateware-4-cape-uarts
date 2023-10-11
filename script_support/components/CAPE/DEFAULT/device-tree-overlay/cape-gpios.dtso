@@ -106,6 +106,12 @@
 	};
 };
 
+&mmuart2 {
+	status = "okay";
+	symlink = "bone/uart/1";
+};
+
 &mmuart4 {
 	status = "okay";
+	symlink = "bone/uart/4";
 };

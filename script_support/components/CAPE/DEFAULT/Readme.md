@@ -78,9 +78,9 @@
 | P9_21  |                            |             |
 | P9_22  |                            |             |
 | P9_23  | core_gpio[10] @ 0x41200000 | GPIO        |
-| P9_24  |                            |             |
+| P9_24  | MMUART2                    | UART1 TX    |
 | P9_25  | core_gpio[12] @ 0x41200000 | GPIO        |
-| P9_26  |                            |             |
+| P9_26  | MMUART2                    | UART2 RX    |
 | P9_27  | core_gpio[14] @ 0x41200000 | GPIO        |
 | P9_28  |                            |             |
 | P9_29  |                            |             |
