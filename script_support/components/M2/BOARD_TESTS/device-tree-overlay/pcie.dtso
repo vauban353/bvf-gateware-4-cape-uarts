@@ -5,6 +5,12 @@
 /plugin/;
 
 
+&{/chosen} {
+	overlays {
+		BOARD-TESTS-M2-GATEWARE = "Mon Oct  2 18:00:17 2023";
+	};
+};
+
 &{/} {
 	fabric-bus@40000000 {
 		m2_test_gpios: gpio@43000000 {
