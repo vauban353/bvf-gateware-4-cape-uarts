@@ -4,6 +4,12 @@
 /dts-v1/;
 /plugin/;
 
+&{/chosen} {
+	overlays {
+		BOARD-TESTS-SYZYGY-GATEWARE = "Mon Oct  2 18:00:17 2023";
+	};
+};
+
 &{/} {
 	fabric-bus@40000000 {
 		hsi_gpios: gpio@44000000 {
