@@ -7,7 +7,7 @@
 
 &{/chosen} {
 	overlays {
-		BOARD-TESTS-M2-GATEWARE = "Mon Oct  2 18:00:17 2023";
+		BOARD-TESTS-M2-GATEWARE = "GATEWARE_GIT_VERSION";
 	};
 };
 

@@ -6,6 +6,6 @@
 
 &{/chosen} {
 	overlays {
-		NO-SYZYGY-GATEWARE = "Mon Oct  2 18:00:17 2023";
+		NO-SYZYGY-GATEWARE = "GATEWARE_GIT_VERSION";
 	};
 };

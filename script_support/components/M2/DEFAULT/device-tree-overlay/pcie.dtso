@@ -6,7 +6,7 @@
 
 &{/chosen} {
 	overlays {
-		PCIE-M2-GATEWARE = "Mon Oct  2 18:00:17 2023";
+		PCIE-M2-GATEWARE = "GATEWARE_GIT_VERSION";
 	};
 };
 

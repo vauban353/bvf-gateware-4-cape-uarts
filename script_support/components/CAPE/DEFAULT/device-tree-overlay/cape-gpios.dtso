@@ -6,7 +6,7 @@
 
 &{/chosen} {
 	overlays {
-		DEFAULT-CAPE-GATEWARE = "Mon Oct  2 18:00:17 2023";
+		DEFAULT-CAPE-GATEWARE = "GATEWARE_GIT_VERSION";
 	};
 };
 
