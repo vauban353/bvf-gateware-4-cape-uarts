@@ -16,7 +16,7 @@
 | P8_10  | MSS GPIO_2[7]              | User LED 7  |
 | P8_11  | MSS GPIO_2[8]              | User LED 8  |
 | P8_12  | MSS GPIO_2[9]              | User LED 9  |
-| P8_13  | MSS GPIO_2[9]              | User LED 11 |
+| P8_13  | MSS GPIO_2[10]              | User LED 10 |
 | P8_14  | MSS GPIO_2[11]             | User LED 11 |
 | P8_15  | MSS GPIO_2[12]             | GPIO        |
 | P8_16  | MSS GPIO_2[13]             | GPIO        |
