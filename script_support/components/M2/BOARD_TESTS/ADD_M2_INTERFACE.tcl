@@ -13,11 +13,16 @@ set sd_name ${top_level_name}
 
 #-------------------------------------------------------------------------------
 
+sd_clear_pin_attributes -sd_name ${sd_name} -pin_names {M2_W_DISABLE1} 
+sd_clear_pin_attributes -sd_name ${sd_name} -pin_names {M2_W_DISABLE2} 
+
+#-------------------------------------------------------------------------------
+
 sd_create_scalar_port -sd_name ${sd_name} -port_name {M2_UART_TXD} -port_direction {OUT}
 sd_create_scalar_port -sd_name ${sd_name} -port_name {M2_UART_RXD} -port_direction {IN}
 
 sd_create_scalar_port -sd_name ${sd_name} -port_name {M2_UART_RTS} -port_direction {OUT}
-sd_create_scalar_port -sd_name ${sd_name} -port_name {M2_UART_CTS} -port_direction {IN}
+sd_create_scalar_port -sd_name ${sd_name} -port_name {M2_UART_CTS} -port_direction {OUT}
 
 sd_create_scalar_port -sd_name ${sd_name} -port_name {M2_PERST0n} -port_direction {OUT}
 
@@ -34,8 +39,6 @@ sd_connect_pins -sd_name ${sd_name} -pin_names {"M2_INTERFACE_0:M2_PERST0n" "M2_
 
 sd_connect_pins -sd_name ${sd_name} -pin_names {"BVF_RISCV_SUBSYSTEM:M2_UART_RXD" "M2_UART_RXD" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"BVF_RISCV_SUBSYSTEM:M2_UART_TXD" "M2_UART_TXD" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"BVF_RISCV_SUBSYSTEM:M2_UART_RTS" "M2_UART_RTS" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"BVF_RISCV_SUBSYSTEM:M2_UART_CTS" "M2_UART_CTS" }
 
 sd_connect_pins_to_constant -sd_name ${sd_name} -pin_names {BVF_RISCV_SUBSYSTEM:PCIE_INT} -value {GND} 
 
@@ -46,4 +49,11 @@ sd_connect_pin_to_port -sd_name ${sd_name} -pin_name {M2_INTERFACE_0:M2_I2C_ALTN
 sd_connect_pin_to_port -sd_name ${sd_name} -pin_name {M2_INTERFACE_0:H_M2_CLKREQ0N} -port_name {} 
 sd_connect_pin_to_port -sd_name ${sd_name} -pin_name {M2_INTERFACE_0:M2_PEWAKEN} -port_name {} 
 
+sd_connect_pins -sd_name ${sd_name} -pin_names {"M2_INTERFACE_0:M2_UART_RTS" "M2_UART_RTS"} 
+sd_connect_pins -sd_name ${sd_name} -pin_names {"M2_INTERFACE_0:M2_UART_CTS" "M2_UART_CTS"} 
+
+#-------------------------------------------------------------------------------
+sd_connect_pins_to_constant -sd_name ${sd_name} -pin_names {BVF_RISCV_SUBSYSTEM:M2_UART_CTS} -value {GND} 
+sd_mark_pins_unused -sd_name ${sd_name} -pin_names {BVF_RISCV_SUBSYSTEM:M2_W_DISABLE2} 
+sd_mark_pins_unused -sd_name ${sd_name} -pin_names {BVF_RISCV_SUBSYSTEM:M2_W_DISABLE1} 
 

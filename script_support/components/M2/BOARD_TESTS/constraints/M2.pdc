@@ -13,7 +13,7 @@ set_io -port_name M2_UART_RXD  \
 set_io -port_name M2_UART_CTS  \
     -pin_name U14              \
     -fixed true                \
-    -DIRECTION INPUT
+    -DIRECTION OUTPUT
 
 
 set_io -port_name M2_UART_RTS  \

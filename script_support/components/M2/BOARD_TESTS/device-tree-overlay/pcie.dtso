@@ -19,10 +19,10 @@
 			clocks = <&fabric_clk3>;
 			gpio-controller;
 			#gpio-cells = <2>;
-			ngpios=<7>;
+			ngpios=<9>;
 			status = "okay";
-			gpio-line-names = "M2_PERST0N", "M2_UART_WAKEN", "M2_W_DISABLE1", "M2_W_DISABLE2",
-			                  "M2_CLKREQ0N", "M2_PEWAKEN", "M2_I2C_ALTN";
+			gpio-line-names = "M2_PERST0N", "M2_UART_WAKEN", "M2_W_DISABLE1_BT", "M2_W_DISABLE2_BT",
+			                  "M2_CLKREQ0N", "M2_PEWAKEN", "M2_I2C_ALTN", "M2_UART_RTS", "M2_UART_CTS";
 		};
 	};
 };
