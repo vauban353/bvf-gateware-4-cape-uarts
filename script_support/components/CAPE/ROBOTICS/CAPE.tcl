@@ -79,6 +79,7 @@ sd_create_bus_port -sd_name ${sd_name} -port_name {GPIO_OUT} -port_direction {IN
 
 sd_create_bus_port -sd_name ${sd_name} -port_name {APB_SLAVE_SLAVE_PRDATA} -port_direction {OUT} -port_range {[31:0]}
 sd_create_bus_port -sd_name ${sd_name} -port_name {GPIO_IN} -port_direction {OUT} -port_range {[27:0]}
+sd_create_bus_port -sd_name ${sd_name} -port_name {INT} -port_direction {OUT} -port_range {[23:0]}
 
 
 # Create top level Bus interface Ports
@@ -92,6 +93,8 @@ sd_create_bif_port -sd_name ${sd_name} -port_name {APB_SLAVE} -port_bif_vlnv {AM
 "PREADY:APB_SLAVE_SLAVE_PREADY" \
 "PSLVERR:APB_SLAVE_SLAVE_PSLVERR" } 
 
+sd_create_pin_slices -sd_name ${sd_name} -pin_name {INT} -pin_slices {[23:8]}
+sd_create_pin_slices -sd_name ${sd_name} -pin_name {INT} -pin_slices {[7:0]}
 # Add APB_BUS_CONVERTER_0 instance
 sd_instantiate_component -sd_name ${sd_name} -component_name {APB_BUS_CONVERTER} -instance_name {APB_BUS_CONVERTER_0}
 
@@ -198,6 +201,8 @@ sd_connect_pins -sd_name ${sd_name} -pin_names {"P9_PIN42" "apb_rotary_enc_0:enc
 sd_connect_pins -sd_name ${sd_name} -pin_names {"CAPE_DEFAULT_GPIOS:GPIO_IN" "GPIO_IN" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"CAPE_DEFAULT_GPIOS:GPIO_OE" "GPIO_OE" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"CAPE_DEFAULT_GPIOS:GPIO_OUT" "GPIO_OUT" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"INT[23:8]" "P8_GPIO_UPPER_0:INT" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"INT[7:0]" "P9_GPIO_0:INT" }
 
 # Add bus interface net connections
 sd_connect_pins -sd_name ${sd_name} -pin_names {"APB_BUS_CONVERTER_0:APB_MASTER" "CoreAPB3_CAPE_0:APB3mmaster" }

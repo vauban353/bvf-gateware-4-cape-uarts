@@ -35,6 +35,7 @@ sd_create_bus_port -sd_name ${sd_name} -port_name {APB_bif_PADDR} -port_directio
 sd_create_bus_port -sd_name ${sd_name} -port_name {APB_bif_PWDATA} -port_direction {IN} -port_range {[31:0]}
 
 sd_create_bus_port -sd_name ${sd_name} -port_name {APB_bif_PRDATA} -port_direction {OUT} -port_range {[31:0]}
+sd_create_bus_port -sd_name ${sd_name} -port_name {INT} -port_direction {OUT} -port_range {[15:0]}
 
 
 # Create top level Bus interface Ports
@@ -104,7 +105,6 @@ sd_create_pin_slices -sd_name ${sd_name} -pin_name {CoreGPIO_P8_UPPER_0:GPIO_OE}
 sd_create_pin_slices -sd_name ${sd_name} -pin_name {CoreGPIO_P8_UPPER_0:GPIO_OE} -pin_slices {[7:7]}
 sd_create_pin_slices -sd_name ${sd_name} -pin_name {CoreGPIO_P8_UPPER_0:GPIO_OE} -pin_slices {[8:8]}
 sd_create_pin_slices -sd_name ${sd_name} -pin_name {CoreGPIO_P8_UPPER_0:GPIO_OE} -pin_slices {[9:9]}
-sd_mark_pins_unused -sd_name ${sd_name} -pin_names {CoreGPIO_P8_UPPER_0:INT}
 
 
 
@@ -238,6 +238,8 @@ sd_connect_pins -sd_name ${sd_name} -pin_names {"GPIO_7_BIBUF:PAD" "GPIO_7_PAD" 
 sd_connect_pins -sd_name ${sd_name} -pin_names {"GPIO_8_BIBUF:PAD" "GPIO_8_PAD" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"GPIO_9_BIBUF:PAD" "GPIO_9_PAD" }
 
+# Add bus net connections
+sd_connect_pins -sd_name ${sd_name} -pin_names {"CoreGPIO_P8_UPPER_0:INT" "INT" }
 
 # Add bus interface net connections
 sd_connect_pins -sd_name ${sd_name} -pin_names {"APB_bif" "CoreGPIO_P8_UPPER_0:APB_bif" }
