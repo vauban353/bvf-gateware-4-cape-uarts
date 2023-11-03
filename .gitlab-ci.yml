@@ -12,7 +12,7 @@ build-job:       # This job runs in the build stage, which runs first.
     - git clone https://gitlab-ci-token:${CI_JOB_TOKEN}@git.beagleboard.org/beaglev-fire/gateware-builds-tester.git
     - cd gateware-builds-tester
     - git clone https://gitlab-ci-token:${CI_JOB_TOKEN}@git.beagleboard.org/beaglev-fire/bitstream-builder.git -b develop
-    - python3 bitstream-builds-tester.py ci gateware "$CI_MERGE_REQUEST_SOURCE_BRANCH_NAME" "$CI_MERGE_REQUEST_TARGET_BRANCH_NAME"
+    - python3 bitstream-builds-tester.py gateware "$CI_MERGE_REQUEST_SOURCE_BRANCH_NAME" "$CI_MERGE_REQUEST_TARGET_BRANCH_NAME"
     - echo "$CI_MERGE_REQUEST_SOURCE_BRANCH_NAME"
     - echo "$CI_MERGE_REQUEST_TARGET_BRANCH_NAME"
     - echo "Compile complete."
