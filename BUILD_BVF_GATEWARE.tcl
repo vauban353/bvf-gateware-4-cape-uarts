@@ -69,6 +69,8 @@ if {[info exists FPE_EXPORT_PATH]} {
     set fpe_export_path $prog_export_path/FlashProExpress
 }
 
+set directc_export_path $prog_export_path/DirectC
+
 if {[info exists TOP_LEVEL_NAME]} {
     set top_level_name $TOP_LEVEL_NAME
 } else {
@@ -278,6 +280,7 @@ if !{[info exists ONLY_CREATE_DESIGN]} {
         run_tool -name {GENERATEPROGRAMMINGFILE} 
 #       run_tool -name {GENERATE_SPI_FLASH_IMAGE} 
         source ./script_support/export_flashproexpress.tcl
+        source ./script_support/export_directc.tcl
     } else {
         run_tool -name {GENERATEPROGRAMMINGDATA}
         puts "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
