@@ -1,0 +1,10 @@
+---
+HSS:
+    type: git
+    link: https://git.beagleboard.org/beaglev-fire/hart-software-services.git
+    branch: develop-beaglev-fire
+    board: bvf
+gateware:
+    type: sources
+    build-args: "CAPE_OPTION:GPIOS MIPI_CSI_OPTION:NONE M2_OPTION:BOARD_TESTS SYZYGY_OPTION:BOARD_TESTS_SEEED_STUDIO"
+    unique-design-version: 0.0.2
