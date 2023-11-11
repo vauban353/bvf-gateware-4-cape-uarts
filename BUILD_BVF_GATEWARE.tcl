@@ -9,10 +9,13 @@
 set libero_release [split [get_libero_version] .]
 
 if {[string compare [lindex $libero_release 0] "2022"] == 0 && [string compare [lindex $libero_release 1] "3"] == 0} {
-    puts "Libero v2022.2 detected."
+    puts "Libero v2022.3 detected."
+} elseif {[string compare [lindex $libero_release 0] "2023"] == 0 && [string compare [lindex $libero_release 1] "2"] == 0} {
+    puts "Libero v2023.2 detected."
 } else {
-    error "Incorrect Libero version detected. Please use Libero v2022.2 to run these scripts."
+    error "Incorrect Libero version detected. Please use Libero v2023.2 or v2022.3 to run these scripts."
 }
+
 
 if { [lindex $tcl_platform(os) 0]  == "Windows" } {
     if {[string length [pwd]] < 90} {
