@@ -137,7 +137,7 @@ def generate_device_tree_overlays(overlay_dir_path, build_options_list):
     print("                            Generate Device Tree Overlays")
     print("================================================================================\r\n", flush=True)
     bitstream_builder_root = os.getcwd()
-    gateware_dir = os.path.join(bitstream_builder_root, 'sources', 'gateware')
+    gateware_dir = os.path.join(bitstream_builder_root, 'sources', 'FPGA-design')
     work_dir = os.path.join(bitstream_builder_root, 'work')
     gather_dtso(gateware_dir, work_dir, build_options_list)
     compile_dtso(work_dir)
