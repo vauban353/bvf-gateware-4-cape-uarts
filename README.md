@@ -34,7 +34,7 @@ python3 build-bitstream.py <YAML Configuration File>
 
 For example, the following command will be build the default beagleV Fire configuration:
 ```
-python3 build-bitstream.py ./build-options/release/default.yaml
+python3 build-bitstream.py ./build-options/default.yaml
 ```
 
 
@@ -49,3 +49,6 @@ The YAML configuration files are located in the "build-options" directory.
 
 ## Supported Platforms
 The BeagleV Fire gateware builder has been tested on Ubuntu 20.04.
+
+## Microchip bitstream-builder
+The BeagleV-Fire gateware builder is derived from [Microchip's bitstream-builder ](https://github.com/polarfire-soc/icicle-kit-minimal-bring-up-design-bitstream-builder). We recommend that you use either of these scripts as a starting point for your own PolarFire SoC FPGA designs as opposed to using Libero in isolation.
