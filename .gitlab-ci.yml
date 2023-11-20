@@ -3,6 +3,8 @@ stages:          # List of stages for jobs, and their order of execution
 
 build-job:       # This job runs in the build stage, which runs first.
   stage: build
+  tags:
+    - libero-soc-v2023.2
   variables:
     BUILD_OPTIONS_DIRECTORY: "custom-fpga-design"
     BRANCH_UNDER_TEST: "develop"
@@ -31,7 +33,7 @@ build-job:       # This job runs in the build stage, which runs first.
     - echo "$CI_MERGE_REQUEST_TARGET_BRANCH_NAME"
     - echo "Compile complete."
   artifacts:
-    when: always
+    when: on_success
     paths:
       - gateware-builds-tester/artifacts/
     reports:
