@@ -10,10 +10,12 @@ build-job:       # This job runs in the build stage, which runs first.
     - if: $CI_PIPELINE_SOURCE == "merge_request_event" && ($CI_MERGE_REQUEST_TARGET_BRANCH_NAME == "main" || $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == "develop")
       variables:
         BUILD_OPTIONS_DIRECTORY: "build-options"
+        REPO_UNDER_TEST: $CI_MERGE_REQUEST_SOURCE_PROJECT_URL
         BRANCH_UNDER_TEST: $CI_MERGE_REQUEST_SOURCE_BRANCH_NAME
     - if: $CI_PIPELINE_SOURCE == "push"
       variables:
         BUILD_OPTIONS_DIRECTORY: "custom-fpga-design"
+        REPO_UNDER_TEST: $CI_PROJECT_URL
         BRANCH_UNDER_TEST: $CI_COMMIT_BRANCH
         
   script:
@@ -22,7 +24,7 @@ build-job:       # This job runs in the build stage, which runs first.
     - source ~/Microchip/Microchip-FPGA-Tools-Setup/setup-microchip-tools.sh
     - git clone https://git.beagleboard.org/beaglev-fire/gateware-builds-tester.git
     - cd gateware-builds-tester
-    - git clone $CI_MERGE_REQUEST_SOURCE_PROJECT_URL -b $BRANCH_UNDER_TEST
+    - git clone $REPO_UNDER_TEST -b $BRANCH_UNDER_TEST
     - echo "Building the gateware..."
     - python3 bitstream-builds-tester.py $BUILD_OPTIONS_DIRECTORY
     - echo "$CI_MERGE_REQUEST_SOURCE_BRANCH_NAME"
