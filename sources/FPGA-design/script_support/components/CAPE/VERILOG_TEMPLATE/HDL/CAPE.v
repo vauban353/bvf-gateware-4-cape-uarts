@@ -19,8 +19,6 @@ module CAPE(
     PRESETN,
     // Outputs
     APB_SLAVE_SLAVE_PRDATA,
-    APB_SLAVE_SLAVE_PREADY,
-    APB_SLAVE_SLAVE_PSLVERR,
     GPIO_IN,
     INT,
     // Inouts
@@ -107,8 +105,6 @@ input         PRESETN;
 // Output
 //--------------------------------------------------------------------
 output [31:0] APB_SLAVE_SLAVE_PRDATA;
-output        APB_SLAVE_SLAVE_PREADY;
-output        APB_SLAVE_SLAVE_PSLVERR;
 output [27:0] GPIO_IN;
 output [23:0] INT;
 //--------------------------------------------------------------------
@@ -185,9 +181,7 @@ inout         P9_42;
 wire   [31:0]  apb_ctrl_status_0_control;
 wire           APB_SLAVE_SLAVE_PENABLE;
 wire   [31:0]  APB_SLAVE_PRDATA;
-wire           APB_SLAVE_PREADY;
 wire           APB_SLAVE_SLAVE_PSEL;
-wire           APB_SLAVE_PSLVERR;
 wire   [31:0]  APB_SLAVE_SLAVE_PWDATA;
 wire           APB_SLAVE_SLAVE_PWRITE;
 wire   [30:3]  GPIO_IN_net_0;
@@ -260,8 +254,6 @@ wire           P9_41;
 wire           P9_42;
 wire           PCLK;
 wire           PRESETN;
-wire           APB_SLAVE_PREADY_net_0;
-wire           APB_SLAVE_PSLVERR_net_0;
 wire   [31:0]  APB_SLAVE_PRDATA_net_0;
 wire   [27:0]  GPIO_IN_net_1;
 wire   [46:31] GPIO_IN_slice_0;
@@ -305,10 +297,6 @@ assign INT[23:0]                    = 24'h000000;
 //--------------------------------------------------------------------
 // Top level output port assignments
 //--------------------------------------------------------------------
-assign APB_SLAVE_PREADY_net_0       = APB_SLAVE_PREADY;
-assign APB_SLAVE_SLAVE_PREADY       = APB_SLAVE_PREADY_net_0;
-assign APB_SLAVE_PSLVERR_net_0      = APB_SLAVE_PSLVERR;
-assign APB_SLAVE_SLAVE_PSLVERR      = APB_SLAVE_PSLVERR_net_0;
 assign APB_SLAVE_PRDATA_net_0       = APB_SLAVE_PRDATA;
 assign APB_SLAVE_SLAVE_PRDATA[31:0] = APB_SLAVE_PRDATA_net_0;
 assign GPIO_IN_net_1                = GPIO_IN_net_0;
@@ -344,8 +332,6 @@ apb_ctrl_status apb_ctrl_status_0(
         .pwdata  ( APB_SLAVE_SLAVE_PWDATA ),
         .status  ( apb_ctrl_status_0_control ),
         // Outputs
-        .pslverr ( APB_SLAVE_PSLVERR ),
-        .pready  ( APB_SLAVE_PREADY ),
         .prdata  ( APB_SLAVE_PRDATA ),
         .control ( apb_ctrl_status_0_control ) 
         );
