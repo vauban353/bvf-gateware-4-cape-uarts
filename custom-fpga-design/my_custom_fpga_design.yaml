@@ -6,6 +6,6 @@ HSS:
     board: bvf
 gateware:
     type: sources
-    build-args: "M2_OPTION:NONE CAPE_OPTION:GPIOS"
+    build-args: "M2_OPTION:NONE CAPE_OPTION:VERILOG_TUTORIAL"
     unique-design-version: 9.0.2
 
