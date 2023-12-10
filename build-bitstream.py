@@ -275,15 +275,27 @@ def get_libero_script_args(source_list):
 
 
 def get_design_version(source_list):
-    with open(source_list) as f:  # open the yaml file passed as an arg
-        data = yaml.load(f, Loader=yaml.FullLoader)
-        unique_design_version = data.get("gateware").get("unique-design-version")
-        f.close()
-    if unique_design_version is None:
-        unique_design_version = "65.53.5"
-    
-    udv_sl = unique_design_version.split(".")
-    design_version = (int(udv_sl[0]) * 1000) + (int(udv_sl[1]) * 10) + int(udv_sl[2])
+    if "custom-fpga-design" in source_list:
+        #
+        # Ensure every CI gateware build uses a unique version number for gateware programming to
+        # be successful (IAP only re-programs the FPGA if the Libero design version is different
+        # from the one already programmed in the FPGA).
+        # This is required for forked repos.
+        #
+        git_hash = subprocess.check_output(['git', 'rev-parse', '--short', 'HEAD'])
+        git_hash_hex = git_hash.decode('ascii').strip("'")
+        git_hash_dec = int(git_hash_hex, 16) % 65535
+        design_version = str(git_hash_dec)
+    else:
+        with open(source_list) as f:  # open the yaml file passed as an arg
+            data = yaml.load(f, Loader=yaml.FullLoader)
+            unique_design_version = data.get("gateware").get("unique-design-version")
+            f.close()
+        if unique_design_version is None:
+            unique_design_version = "65.53.5"
+
+        udv_sl = unique_design_version.split(".")
+        design_version = (int(udv_sl[0]) * 1000) + (int(udv_sl[1]) * 10) + int(udv_sl[2])
 
     print("design_version: ", design_version)
     return str(design_version)
