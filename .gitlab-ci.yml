@@ -28,7 +28,7 @@ build-job:       # This job runs in the build stage, which runs first.
     - cd gateware-builds-tester
     - git clone $REPO_UNDER_TEST -b $BRANCH_UNDER_TEST
     - echo "Building the gateware..."
-    - python3 bitstream-builds-tester.py $BUILD_OPTIONS_DIRECTORY
+    - python3 bitstream-builds-tester.py $REPO_UNDER_TEST $BUILD_OPTIONS_DIRECTORY
     - echo "$CI_MERGE_REQUEST_SOURCE_BRANCH_NAME"
     - echo "$CI_MERGE_REQUEST_TARGET_BRANCH_NAME"
     - echo "Compile complete."
