@@ -107,7 +107,7 @@ def get_gateware_git_version(work_dir):
     try:
         git_hash = subprocess.check_output(['git', 'describe', '--tags'])
     except subprocess.CalledProcessError as e:
-        git_hash = 0
+        git_hash = b"\n"
     return git_hash.decode('ascii').strip("'").strip("\n")
 
 
