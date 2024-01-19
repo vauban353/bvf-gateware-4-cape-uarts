@@ -116,7 +116,7 @@ def check_tool_status_linux():
 
     path = os.environ["PATH"]
 
-    if "/riscv-unknown-elf-gcc/bin" not in path:
+    if "riscv-unknown-elf-gcc" not in path:
         print(
             "The path to the RISC-V toolchain needs to be set in PATH to run this script")
         exit()
@@ -337,14 +337,14 @@ def generate_libero_project(libero, yaml_input_file):
     # Execute the Libero TCL script used to create the Libero design
     initial_directory = os.getcwd()
     os.chdir("./sources/FPGA-design")
-    project_location = os.path.join(initial_directory, "work/libero")
-    script = os.path.join(initial_directory , "sources/FPGA-design/BUILD_BVF_GATEWARE.tcl")
+    project_location = os.path.join("..", "..", "work", "libero")
+    script = os.path.join("..", "..", "sources", "FPGA-design", "BUILD_BVF_GATEWARE.tcl")
 
     script_args = get_libero_script_args(yaml_input_file)
     design_version = get_design_version(yaml_input_file)
 
-    hss_image_location = os.path.join(initial_directory, "work/HSS/hss-envm-wrapper-bm1-p0.hex")
-    prog_export_path = initial_directory
+    hss_image_location = os.path.join("..", "..", "work", "HSS", "hss-envm-wrapper-bm1-p0.hex")
+    prog_export_path = os.path.join("..", "..")
 
     top_level_name = get_top_level_name()
     print("top level name: ", top_level_name)
@@ -374,7 +374,9 @@ def main():
     build_options_list = get_libero_script_args(yaml_input_file)
     generate_gateware_overlays(os.path.join(os.getcwd(), "bitstream", "LinuxProgramming"), build_options_list)
 
-    make_mss_config(mss_configurator, "./sources/MSS_Configuration/MSS_Configuration.cfg", os.path.join(os.getcwd(), "work/MSS"))
+    mss_config_file_path = os.path.join(".", "sources", "MSS_Configuration", "MSS_Configuration.cfg")
+    work_mss_dir = os.path.join("work", "MSS")
+    make_mss_config(mss_configurator, mss_config_file_path, os.path.join(os.getcwd(), work_mss_dir))
 
     make_hss(sources["HSS"], yaml_input_file)
 
