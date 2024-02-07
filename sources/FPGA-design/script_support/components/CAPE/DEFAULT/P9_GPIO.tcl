@@ -1,4 +1,4 @@
-# Creating SmartDesign P9_GPIO
+# Creating SmartDesign "P9_GPIO"
 set sd_name {P9_GPIO}
 create_smartdesign -sd_name ${sd_name}
 
@@ -28,6 +28,7 @@ sd_create_bus_port -sd_name ${sd_name} -port_name {APB_bif_PADDR} -port_directio
 sd_create_bus_port -sd_name ${sd_name} -port_name {APB_bif_PWDATA} -port_direction {IN} -port_range {[31:0]}
 
 sd_create_bus_port -sd_name ${sd_name} -port_name {APB_bif_PRDATA} -port_direction {OUT} -port_range {[31:0]}
+sd_create_bus_port -sd_name ${sd_name} -port_name {INT} -port_direction {OUT} -port_range {[20:0]}
 
 
 # Create top level Bus interface Ports
@@ -148,7 +149,6 @@ sd_create_pin_slices -sd_name ${sd_name} -pin_name {CoreGPIO_P9_0:GPIO_OE} -pin_
 sd_mark_pins_unused -sd_name ${sd_name} -pin_names {CoreGPIO_P9_0:GPIO_OE[8:8]}
 sd_create_pin_slices -sd_name ${sd_name} -pin_name {CoreGPIO_P9_0:GPIO_OE} -pin_slices {[9:9]}
 sd_mark_pins_unused -sd_name ${sd_name} -pin_names {CoreGPIO_P9_0:GPIO_OE[9:9]}
-sd_mark_pins_unused -sd_name ${sd_name} -pin_names {CoreGPIO_P9_0:INT}
 
 
 
@@ -219,13 +219,15 @@ sd_connect_pins -sd_name ${sd_name} -pin_names {"GPIO_19_BIBUF:PAD" "GPIO_19_PAD
 sd_connect_pins -sd_name ${sd_name} -pin_names {"GPIO_1_BIBUF:PAD" "GPIO_1_PAD" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"GPIO_4_BIBUF:PAD" "GPIO_4_PAD" }
 
+# Add bus net connections
+sd_connect_pins -sd_name ${sd_name} -pin_names {"CoreGPIO_P9_0:INT" "INT" }
 
 # Add bus interface net connections
 sd_connect_pins -sd_name ${sd_name} -pin_names {"APB_bif" "CoreGPIO_P9_0:APB_bif" }
 
 # Re-enable auto promotion of pins of type 'pad'
 auto_promote_pad_pins -promote_all 1
-# Save the smartDesign
+# Save the SmartDesign 
 save_smartdesign -sd_name ${sd_name}
-# Generate SmartDesign P9_GPIO
+# Generate SmartDesign "P9_GPIO"
 generate_component -component_name ${sd_name}

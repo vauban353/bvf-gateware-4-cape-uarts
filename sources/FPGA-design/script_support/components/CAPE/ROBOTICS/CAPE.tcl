@@ -1,4 +1,4 @@
-# Creating SmartDesign CAPE
+# Creating SmartDesign "CAPE"
 set sd_name {CAPE}
 create_smartdesign -sd_name ${sd_name}
 
@@ -79,7 +79,9 @@ sd_create_bus_port -sd_name ${sd_name} -port_name {GPIO_OUT} -port_direction {IN
 
 sd_create_bus_port -sd_name ${sd_name} -port_name {APB_SLAVE_SLAVE_PRDATA} -port_direction {OUT} -port_range {[31:0]}
 sd_create_bus_port -sd_name ${sd_name} -port_name {GPIO_IN} -port_direction {OUT} -port_range {[27:0]}
-sd_create_bus_port -sd_name ${sd_name} -port_name {INT} -port_direction {OUT} -port_range {[23:0]}
+sd_create_bus_port -sd_name ${sd_name} -port_name {INT_A} -port_direction {OUT} -port_range {[7:0]}
+sd_create_bus_port -sd_name ${sd_name} -port_name {INT_B} -port_direction {OUT} -port_range {[7:0]}
+sd_create_bus_port -sd_name ${sd_name} -port_name {INT_C} -port_direction {OUT} -port_range {[7:0]}
 
 
 # Create top level Bus interface Ports
@@ -93,8 +95,6 @@ sd_create_bif_port -sd_name ${sd_name} -port_name {APB_SLAVE} -port_bif_vlnv {AM
 "PREADY:APB_SLAVE_SLAVE_PREADY" \
 "PSLVERR:APB_SLAVE_SLAVE_PSLVERR" } 
 
-sd_create_pin_slices -sd_name ${sd_name} -pin_name {INT} -pin_slices {[23:8]}
-sd_create_pin_slices -sd_name ${sd_name} -pin_name {INT} -pin_slices {[7:0]}
 # Add APB_BUS_CONVERTER_0 instance
 sd_instantiate_component -sd_name ${sd_name} -component_name {APB_BUS_CONVERTER} -instance_name {APB_BUS_CONVERTER_0}
 
@@ -117,6 +117,8 @@ sd_instantiate_component -sd_name ${sd_name} -component_name {CoreAPB3_CAPE} -in
 
 # Add P8_GPIO_UPPER_0 instance
 sd_instantiate_component -sd_name ${sd_name} -component_name {P8_GPIO_UPPER} -instance_name {P8_GPIO_UPPER_0}
+sd_create_pin_slices -sd_name ${sd_name} -pin_name {P8_GPIO_UPPER_0:INT} -pin_slices {[15:8]}
+sd_create_pin_slices -sd_name ${sd_name} -pin_name {P8_GPIO_UPPER_0:INT} -pin_slices {[7:0]}
 
 
 
@@ -201,8 +203,9 @@ sd_connect_pins -sd_name ${sd_name} -pin_names {"P9_PIN42" "apb_rotary_enc_0:enc
 sd_connect_pins -sd_name ${sd_name} -pin_names {"CAPE_DEFAULT_GPIOS:GPIO_IN" "GPIO_IN" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"CAPE_DEFAULT_GPIOS:GPIO_OE" "GPIO_OE" }
 sd_connect_pins -sd_name ${sd_name} -pin_names {"CAPE_DEFAULT_GPIOS:GPIO_OUT" "GPIO_OUT" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"INT[23:8]" "P8_GPIO_UPPER_0:INT" }
-sd_connect_pins -sd_name ${sd_name} -pin_names {"INT[7:0]" "P9_GPIO_0:INT" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"INT_A" "P8_GPIO_UPPER_0:INT[7:0]" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"INT_B" "P8_GPIO_UPPER_0:INT[15:8]" }
+sd_connect_pins -sd_name ${sd_name} -pin_names {"INT_C" "P9_GPIO_0:INT" }
 
 # Add bus interface net connections
 sd_connect_pins -sd_name ${sd_name} -pin_names {"APB_BUS_CONVERTER_0:APB_MASTER" "CoreAPB3_CAPE_0:APB3mmaster" }
@@ -215,7 +218,7 @@ sd_connect_pins -sd_name ${sd_name} -pin_names {"CoreAPB3_CAPE_0:APBmslave5" "PW
 
 # Re-enable auto promotion of pins of type 'pad'
 auto_promote_pad_pins -promote_all 1
-# Save the smartDesign
+# Save the SmartDesign 
 save_smartdesign -sd_name ${sd_name}
-# Generate SmartDesign CAPE
+# Generate SmartDesign "CAPE"
 generate_component -component_name ${sd_name}

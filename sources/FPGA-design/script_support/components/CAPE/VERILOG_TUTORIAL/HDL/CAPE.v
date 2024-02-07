@@ -20,7 +20,9 @@ module CAPE(
     // Outputs
     APB_SLAVE_SLAVE_PRDATA,
     GPIO_IN,
-    INT,
+    INT_A,
+    INT_B,
+    INT_C,
     // Inouts
     P8_3,
     P8_4,
@@ -106,7 +108,9 @@ input         PRESETN;
 //--------------------------------------------------------------------
 output [31:0] APB_SLAVE_SLAVE_PRDATA;
 output [27:0] GPIO_IN;
-output [23:0] INT;
+output [7:0] INT_A;
+output [7:0] INT_B;
+output [7:0] INT_C;
 //--------------------------------------------------------------------
 // Inout
 //--------------------------------------------------------------------
@@ -264,7 +268,6 @@ wire   [46:3]  GPIO_IN_net_2;
 //--------------------------------------------------------------------
 // TiedOff Nets
 //--------------------------------------------------------------------
-wire   [23:0]  INT_const_net_0;
 wire   [46:31] GPIO_OE_const_net_0;
 wire   [46:31] GPIO_OUT_const_net_0;
 wire   [18:11] GPIO_OE_const_net_1;
@@ -282,7 +285,6 @@ wire   [7:0]   APB_SLAVE_SLAVE_PADDR_0_7to0;
 //--------------------------------------------------------------------
 // Constant assignments
 //--------------------------------------------------------------------
-assign INT_const_net_0      = 24'h000000;
 assign GPIO_OE_const_net_0  = 16'h0000;
 assign GPIO_OUT_const_net_0 = 16'h0000;
 assign GPIO_OE_const_net_1  = 8'h00;
@@ -294,7 +296,9 @@ assign GPIO_OUT_const_net_3 = 2'h0;
 //--------------------------------------------------------------------
 // TieOff assignments
 //--------------------------------------------------------------------
-assign INT[23:0]                    = 24'h000000;
+assign INT_A[7:0]                    = 8'h00;
+assign INT_B[7:0]                    = 8'h00;
+assign INT_C[7:0]                    = 8'h00;
 //--------------------------------------------------------------------
 // Top level output port assignments
 //--------------------------------------------------------------------
