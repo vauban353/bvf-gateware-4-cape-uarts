@@ -121,6 +121,10 @@ def check_tool_status_linux():
             "The path to the RISC-V toolchain needs to be set in PATH to run this script")
         exit()
 
+    if shutil.which("dtc") is None:
+        print("Error: dtc (device-tree-compiler) not found in path")
+        exit()
+
 
 # Creates required folders and removes artifacts before beginning
 def init_workspace():
