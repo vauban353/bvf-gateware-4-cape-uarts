@@ -93,7 +93,7 @@ def parse_arguments():
 
 
 # Checks to see if all of the required tools are installed and present in path, if a needed tool isn't available the script will exit
-def check_tool_status_linux():
+def check_tool_status():
     if shutil.which("libero") is None:
         print("Error: libero not found in path")
         exit()
@@ -121,9 +121,10 @@ def check_tool_status_linux():
             "The path to the RISC-V toolchain needs to be set in PATH to run this script")
         exit()
 
-    if shutil.which("dtc") is None:
-        print("Error: dtc (device-tree-compiler) not found in path")
-        exit()
+    if platform.system() == "Linux" or platform.system() == "Linux2":
+        if shutil.which("dtc") is None:
+            print("Error: dtc (device-tree-compiler) not found in path")
+            exit()
 
 
 # Creates required folders and removes artifacts before beginning
@@ -366,7 +367,7 @@ def main():
     parse_arguments()
 
     # This function will check if all of the required tools are present and quit if they aren't
-    check_tool_status_linux()
+    check_tool_status()
 
     sources = {}
 
