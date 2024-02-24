@@ -42,6 +42,7 @@ import requests
 import yaml
 import sys
 import subprocess
+import datetime
 
 from generate_gateware_overlays import generate_gateware_overlays
 
@@ -279,30 +280,40 @@ def get_libero_script_args(source_list):
     return libero_script_args
 
 
+#
+# Retrieve/generate the gateware's design version. This version number is stored in the PolarFire SoC device and used
+# as part of programming the PolarFire SoC FPGA using IAP (gateware programming from Linux).
+# Care must be taken to ensure this version number is different between programming attempts. Otherwise, the PolarFire
+# SoC System Controller will not attempt to program the FPGA with the new gateware if it finds the design versions are
+# identical.
+# The approach to managing design version numbers is to use a unique design version number for release gateware. This
+# unique design version number is specified as part of the yaml build option file. The version number is dd.vv.r where
+# dd identifies the design, vv is an incremental features identifier and r is a revision number.
+# For development, the design version number is generated based on the gateware generation date/time. This generated
+# version number loops back every 45 days given the design version number stored in PolarFire SoC is 16 bit long.
+#
 def get_design_version(source_list):
-    if "custom-fpga-design" in source_list:
-        #
-        # Ensure every CI gateware build uses a unique version number for gateware programming to
-        # be successful (IAP only re-programs the FPGA if the Libero design version is different
-        # from the one already programmed in the FPGA).
-        # This is required for forked repos.
-        #
-        git_hash = subprocess.check_output(['git', 'rev-parse', '--short', 'HEAD'])
-        git_hash_hex = git_hash.decode('ascii').strip("'")
-        git_hash_dec = int(git_hash_hex, 16) % 65535
-        design_version = str(git_hash_dec)
+    with open(source_list) as f:  # open the yaml file passed as an arg
+        data = yaml.load(f, Loader=yaml.FullLoader)
+        unique_design_version = data.get("gateware").get("unique-design-version")
+        f.close()
+
+    if unique_design_version is None:
+        now = datetime.datetime.now()
+        day_of_year = now.timetuple().tm_yday
+        design_version = (day_of_year * 1440) + (now.hour * 60) + now.minute
     else:
-        with open(source_list) as f:  # open the yaml file passed as an arg
-            data = yaml.load(f, Loader=yaml.FullLoader)
-            unique_design_version = data.get("gateware").get("unique-design-version")
-            f.close()
-        if unique_design_version is None:
-            unique_design_version = "65.53.5"
+        try:
+            udv_sl = unique_design_version.split(".")
+            design_version = (int(udv_sl[0]) * 1000) + (int(udv_sl[1]) * 10) + int(udv_sl[2])
+        except (ValueError, AttributeError):
+            print("Error: Invalid value for unique-design-version in ", source_list )
+            print("unique-design-version must be in the form dd.vv.r")
+            exit()
 
-        udv_sl = unique_design_version.split(".")
-        design_version = (int(udv_sl[0]) * 1000) + (int(udv_sl[1]) * 10) + int(udv_sl[2])
-
-    print("design_version: ", design_version)
+    # FPGA design version number stored in Polarfire SoC devices is 16 bits long.
+    design_version = design_version % 65536
+    print("Design version: ", design_version)
     return str(design_version)
 
 
