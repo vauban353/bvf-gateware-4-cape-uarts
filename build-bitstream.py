@@ -301,7 +301,7 @@ def get_design_version(source_list):
     if unique_design_version is None:
         now = datetime.datetime.now()
         day_of_year = now.timetuple().tm_yday
-        design_version = (day_of_year * 1440) + (now.hour * 60) + now.minute
+        design_version = ((day_of_year %45) * 1440) + (now.hour * 60) + now.minute
     else:
         try:
             udv_sl = unique_design_version.split(".")
